@@ -32,6 +32,25 @@ const items = [
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false)
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const href = e.currentTarget.href
+    const targetId = href.replace(/.*\#/, '')
+    const elem = document.getElementById(targetId)
+    if (elem) {
+      const headerOffset = 80 // Adjust this value based on your header height
+      const elementPosition = elem.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+    window.history.pushState({}, '', href)
+    setIsOpen(false)
+  }
+
   return (
     <div className='md:hidden'>
       <Button
@@ -50,11 +69,11 @@ export default function MobileNav() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={handleClick}
                 className={cn(
                   'text-sm font-medium transition-colors hover:text-mint',
                   'text-muted-foreground'
                 )}
-                onClick={() => setIsOpen(false)}
               >
                 {item.title}
               </Link>

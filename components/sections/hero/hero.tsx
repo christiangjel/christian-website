@@ -7,6 +7,21 @@ import { Badge } from '@/components/ui/badge'
 import content from '@/data/content.json'
 
 export const Hero = () => {
+  const handleScroll = (targetId: string) => {
+    const elem = document.getElementById(targetId)
+    if (elem) {
+      const headerOffset = 80
+      const elementPosition = elem.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+      window.history.pushState({}, '', `#${targetId}`)
+    }
+  }
+
   return (
     <section className='py-16 md:py-24 flex flex-col items-center text-center'>
       <Badge className='mb-4 bg-mint text-mint-foreground pointer-events-none'>
@@ -25,24 +40,14 @@ export const Hero = () => {
         <Button
           size='lg'
           className='bg-mint hover:opacity-90 transition-opacity text-mint-foreground'
-          onClick={(e) => {
-            e.preventDefault()
-            document
-              .getElementById('contact')
-              ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-          }}
+          onClick={() => handleScroll('contact')}
         >
           Get in Touch <MoveRight className='ml-2 h-4 w-4' />
         </Button>
         <Button
           size='lg'
           variant='outline'
-          onClick={(e) => {
-            e.preventDefault()
-            document
-              .getElementById('projects')
-              ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-          }}
+          onClick={() => handleScroll('projects')}
         >
           View My Work
         </Button>
