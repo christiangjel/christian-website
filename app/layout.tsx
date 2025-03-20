@@ -1,6 +1,6 @@
 import type React from 'react'
 import '@/app/globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
+import { ThemeProvider } from '@/components/layout/theme/theme-provider'
 import { Mona_Sans as Mono_Sans } from 'next/font/google'
 
 // Load Mona Sans font

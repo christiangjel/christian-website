@@ -1,8 +1,8 @@
 'use client'
 
-import MainNav from '@/components/main-nav'
-import MobileNav from '@/components/mobile-nav'
-import ThemeToggle from '@/components/theme-toggle'
+import MainNav from '@/components/layout/navigation/main-nav'
+import MobileNav from '@/components/layout/navigation/mobile-nav'
+import ThemeToggle from '@/components/layout/theme/theme-toggle'
 
 export const Header = () => {
   return (
