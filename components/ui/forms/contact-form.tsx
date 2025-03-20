@@ -12,6 +12,7 @@ export default function ContactForm() {
     subject: '',
     message: ''
   })
+  const [showErrors, setShowErrors] = useState(false)
   const [state, handleSubmit] = useForm('xgvaojga')
 
   const handleChange = (
@@ -26,7 +27,21 @@ export default function ContactForm() {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    await handleSubmit(e)
+    setShowErrors(true)
+    try {
+      await handleSubmit(e)
+      if (state.succeeded) {
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        })
+        setShowErrors(false)
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+    }
   }
 
   if (state.succeeded) {
@@ -38,7 +53,14 @@ export default function ContactForm() {
   }
 
   return (
-    <form className='space-y-6' onSubmit={handleFormSubmit}>
+    <form className='space-y-6' onSubmit={handleFormSubmit} noValidate>
+      {state.errors && Object.keys(state.errors).length > 0 && (
+        <div className='p-3 rounded-md bg-red-100 text-red-800 border border-red-300 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800'>
+          Oops! There are a few things we need to adjust. Please check the
+          fields below and try again.
+        </div>
+      )}
+
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
         <div className='space-y-2'>
           <label
@@ -56,8 +78,22 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             required
+            minLength={2}
+            maxLength={50}
+            pattern='[A-Za-z\s]+'
+            title='Please enter a valid name (letters and spaces only)'
           />
-          <ValidationError prefix='Name' field='name' errors={state.errors} />
+          <ValidationError
+            prefix='Name'
+            field='name'
+            errors={state.errors}
+            className='text-sm text-red-600 dark:text-red-400 mt-1 flex items-center gap-1'
+          />
+          {showErrors && formData.name === '' && (
+            <p className='text-sm text-red-600 dark:text-red-400 mt-1'>
+              Name is required
+            </p>
+          )}
         </div>
         <div className='space-y-2'>
           <label
@@ -75,8 +111,20 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
+            pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
+            title='Please enter a valid email address'
           />
-          <ValidationError prefix='Email' field='email' errors={state.errors} />
+          <ValidationError
+            prefix='Email'
+            field='email'
+            errors={state.errors}
+            className='text-sm text-red-600 dark:text-red-400 mt-1 flex items-center gap-1'
+          />
+          {showErrors && formData.email === '' && (
+            <p className='text-sm text-red-600 dark:text-red-400 mt-1'>
+              Email is required
+            </p>
+          )}
         </div>
       </div>
       <div className='space-y-2'>
@@ -95,12 +143,21 @@ export default function ContactForm() {
           value={formData.subject}
           onChange={handleChange}
           required
+          minLength={3}
+          maxLength={100}
+          title='Please enter a subject (3-100 characters)'
         />
         <ValidationError
           prefix='Subject'
           field='subject'
           errors={state.errors}
+          className='text-sm text-red-600 dark:text-red-400 mt-1 flex items-center gap-1'
         />
+        {showErrors && formData.subject === '' && (
+          <p className='text-sm text-red-600 dark:text-red-400 mt-1'>
+            Subject is required
+          </p>
+        )}
       </div>
       <div className='space-y-2'>
         <label
@@ -117,12 +174,21 @@ export default function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           required
+          minLength={10}
+          maxLength={1000}
+          title='Please enter a message (10-1000 characters)'
         />
         <ValidationError
           prefix='Message'
           field='message'
           errors={state.errors}
+          className='text-sm text-red-600 dark:text-red-400 mt-1 flex items-center gap-1'
         />
+        {showErrors && formData.message === '' && (
+          <p className='text-sm text-red-600 dark:text-red-400 mt-1'>
+            Message is required
+          </p>
+        )}
       </div>
       <Button
         type='submit'
