@@ -14,9 +14,13 @@ export const Projects = () => {
         defaultValue={content.projects.categories[0].name}
         className='w-full'
       >
-        <TabsList className='grid w-full grid-cols-4'>
+        <TabsList className='grid w-full grid-cols-2 md:grid-cols-4 h-auto min-h-[80px] md:min-h-[unset]'>
           {content.projects.categories.map((category, index) => (
-            <TabsTrigger key={index} value={category.name}>
+            <TabsTrigger
+              key={index}
+              value={category.name}
+              className='text-xs sm:text-sm md:text-base py-2 h-auto flex items-center justify-center'
+            >
               {category.label}
             </TabsTrigger>
           ))}

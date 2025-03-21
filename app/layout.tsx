@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' suppressHydrationWarning className={mono.variable}>
-      <body>
+      <body suppressHydrationWarning>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
