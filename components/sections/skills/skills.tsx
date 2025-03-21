@@ -9,7 +9,7 @@ export const Skills = () => {
         {content.skills.title}
       </h2>
 
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-12'>
+      <div className='grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-3'>
         {content.skills.categories.map((category, index) => (
           <div key={index}>
             <h3 className='text-xl font-semibold mb-4 border-l-4 border-mint pl-4'>
@@ -39,7 +39,9 @@ export const Skills = () => {
             {content.skills.softSkills.map((skill, index) => (
               <div key={index} className='flex items-center gap-2'>
                 <span className='text-mint'>•</span>
-                <span className='font-medium'>{skill}</span>
+                <span className='font-medium text-sm sm:text-base'>
+                  {skill}
+                </span>
               </div>
             ))}
           </div>
