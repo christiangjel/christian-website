@@ -9,7 +9,7 @@ export const Skills = () => {
         {content.skills.title}
       </h2>
 
-      <div className='grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-3'>
+      <div className='grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-8 mb-12'>
         {content.skills.categories.map((category, index) => (
           <div key={index}>
             <h3 className='text-xl font-semibold mb-4 border-l-4 border-mint pl-4'>
