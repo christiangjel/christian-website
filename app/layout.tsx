@@ -9,7 +9,11 @@ const mono = Mono_Sans({ subsets: ['latin'], variable: '--font-mono' })
 export const metadata = {
   title: 'Christian Gjelstrup | Frontend Engineer',
   description:
-    'Portfolio of Christian Gjelstrup, a highly experienced freelance Frontend Engineer based in Berlin.'
+    'Portfolio of Christian Gjelstrup, a highly experienced freelance Frontend Engineer based in Berlin.',
+  icons: {
+    icon: [{ url: '/favicon.ico' }, { url: '/icon.png', type: 'image/png' }],
+    apple: [{ url: '/apple-touch-icon.png' }]
+  }
 }
 
 export default function RootLayout({

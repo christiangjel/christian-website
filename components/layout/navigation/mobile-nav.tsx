@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import ThemeToggle from '@/components/layout/theme/theme-toggle'
+// import ThemeToggle from '@/components/layout/theme/theme-toggle'
 import { cn } from '@/lib/utils'
 
 const items = [
@@ -79,7 +79,7 @@ export default function MobileNav() {
                 {item.title}
               </Link>
             ))}
-            <ThemeToggle className='' />
+            {/* <ThemeToggle className='' /> */}
           </nav>
         </div>
       )}
