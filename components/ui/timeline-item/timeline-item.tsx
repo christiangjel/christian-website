@@ -21,10 +21,10 @@ export const TimelineItem = ({
 }: TimelineItemProps) => {
   return (
     <div
-      className={`relative pb-10 ${
+      className={`relative pb-10${
         isLast
           ? ''
-          : 'before:absolute before:left-0 before:top-3 before:h-full before:w-[2px] before:bg-mint/30'
+          : ' before:absolute before:left-0 before:top-3 before:h-full before:w-[2px] before:bg-mint/30'
       }`}
     >
       <div className='absolute w-4 h-4 bg-mint rounded-full -left-[8px] top-2 border-2 border-background z-10'></div>

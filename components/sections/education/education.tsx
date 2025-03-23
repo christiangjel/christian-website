@@ -15,7 +15,7 @@ export const Education = () => {
             href={item.link}
             target='_blank'
             rel='noopener noreferrer'
-            className='block'
+            className='block bg-background'
           >
             <div className='border border-mint/20 rounded-lg p-6 h-full transition-colors hover:border-mint hover:bg-mint/5'>
               <div className='text-muted-foreground mb-2'>{item.date}</div>

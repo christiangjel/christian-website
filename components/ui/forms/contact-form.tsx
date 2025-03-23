@@ -46,8 +46,10 @@ export default function ContactForm() {
 
   if (state.succeeded) {
     return (
-      <div className='p-3 rounded-md bg-mint/20 text-mint-dark border border-mint'>
-        Thank you for your message! I&apos;ll get back to you soon.
+      <div className='bg-background'>
+        <div className='p-3 rounded-md bg-mint/20 text-mint-dark border border-mint'>
+          Thank you for your message! I&apos;ll get back to you soon.
+        </div>
       </div>
     )
   }
@@ -69,20 +71,22 @@ export default function ContactForm() {
           >
             Name
           </label>
-          <input
-            id='name'
-            name='name'
-            type='text'
-            className='flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
-            placeholder='Your name'
-            value={formData.name}
-            onChange={handleChange}
-            required
-            minLength={2}
-            maxLength={50}
-            pattern='[A-Za-z\s]+'
-            title='Please enter a valid name (letters and spaces only)'
-          />
+          <div className='bg-background'>
+            <input
+              id='name'
+              name='name'
+              type='text'
+              className='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-background file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
+              placeholder='Your name'
+              value={formData.name}
+              onChange={handleChange}
+              required
+              minLength={2}
+              maxLength={50}
+              pattern='[A-Za-z\s]+'
+              title='Please enter a valid name (letters and spaces only)'
+            />
+          </div>
           <ValidationError
             prefix='Name'
             field='name'
@@ -102,18 +106,20 @@ export default function ContactForm() {
           >
             Email
           </label>
-          <input
-            id='email'
-            name='email'
-            type='email'
-            className='flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
-            placeholder='Your email'
-            value={formData.email}
-            onChange={handleChange}
-            required
-            pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
-            title='Please enter a valid email address'
-          />
+          <div className='bg-background'>
+            <input
+              id='email'
+              name='email'
+              type='email'
+              className='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-background file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
+              placeholder='Your email'
+              value={formData.email}
+              onChange={handleChange}
+              required
+              pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
+              title='Please enter a valid email address'
+            />
+          </div>
           <ValidationError
             prefix='Email'
             field='email'
@@ -134,19 +140,21 @@ export default function ContactForm() {
         >
           Subject
         </label>
-        <input
-          id='subject'
-          name='subject'
-          type='text'
-          className='flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
-          placeholder='Subject of your message'
-          value={formData.subject}
-          onChange={handleChange}
-          required
-          minLength={3}
-          maxLength={100}
-          title='Please enter a subject (3-100 characters)'
-        />
+        <div className='bg-background'>
+          <input
+            id='subject'
+            name='subject'
+            type='text'
+            className='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-background file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
+            placeholder='Subject of your message'
+            value={formData.subject}
+            onChange={handleChange}
+            required
+            minLength={3}
+            maxLength={100}
+            title='Please enter a subject (3-100 characters)'
+          />
+        </div>
         <ValidationError
           prefix='Subject'
           field='subject'
@@ -166,18 +174,20 @@ export default function ContactForm() {
         >
           Message
         </label>
-        <textarea
-          id='message'
-          name='message'
-          className='flex min-h-[120px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
-          placeholder='Your message'
-          value={formData.message}
-          onChange={handleChange}
-          required
-          minLength={10}
-          maxLength={1000}
-          title='Please enter a message (10-1000 characters)'
-        />
+        <div className='bg-background'>
+          <textarea
+            id='message'
+            name='message'
+            className='flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
+            placeholder='Your message'
+            value={formData.message}
+            onChange={handleChange}
+            required
+            minLength={10}
+            maxLength={1000}
+            title='Please enter a message (10-1000 characters)'
+          />
+        </div>
         <ValidationError
           prefix='Message'
           field='message'
