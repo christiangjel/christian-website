@@ -1,56 +1,27 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import { Link as ScrollLink } from 'react-scroll'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-// import ThemeToggle from '@/components/layout/theme/theme-toggle'
 import { cn } from '@/lib/utils'
 
 const items = [
-  {
-    title: 'About',
-    href: '#about'
-  },
-  {
-    title: 'Skills',
-    href: '#skills'
-  },
-  {
-    title: 'Projects',
-    href: '#projects'
-  },
-  {
-    title: 'Experience',
-    href: '#experience'
-  },
-  {
-    title: 'Contact',
-    href: '#contact'
-  }
+  { title: 'About', href: 'about' },
+  { title: 'Skills', href: 'skills' },
+  { title: 'Projects', href: 'projects' },
+  { title: 'Experience', href: 'experience' },
+  { title: 'Contact', href: 'contact' }
 ]
+
+const scrollConfig = {
+  smooth: true,
+  duration: 800,
+  offset: -80
+}
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false)
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    const href = e.currentTarget.href
-    const targetId = href.replace(/.*\#/, '')
-    const elem = document.getElementById(targetId)
-    if (elem) {
-      const headerOffset = 80 // Adjust this value based on your header height
-      const elementPosition = elem.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
-    }
-    window.history.pushState({}, '', href)
-    setIsOpen(false)
-  }
 
   return (
     <div className='md:hidden'>
@@ -67,19 +38,19 @@ export default function MobileNav() {
         <div className='absolute top-16 left-0 right-0 bg-background border-b p-4'>
           <nav className='flex flex-col gap-4'>
             {items.map((item) => (
-              <Link
+              <ScrollLink
                 key={item.href}
-                href={item.href}
-                onClick={handleClick}
+                to={item.href}
+                {...scrollConfig}
                 className={cn(
                   'text-sm font-medium transition-colors hover:text-mint',
-                  'text-muted-foreground'
+                  'text-muted-foreground cursor-pointer'
                 )}
+                onClick={() => setIsOpen(false)}
               >
                 {item.title}
-              </Link>
+              </ScrollLink>
             ))}
-            {/* <ThemeToggle className='' /> */}
           </nav>
         </div>
       )}

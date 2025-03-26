@@ -2,26 +2,18 @@
 
 import { MoveRight, FileDown } from 'lucide-react'
 import Link from 'next/link'
+import { Link as ScrollLink } from 'react-scroll'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import content from '@/data/content.json'
 
+const scrollConfig = {
+  smooth: true,
+  duration: 800,
+  offset: -80
+}
+
 export const Hero = () => {
-  const handleScroll = (targetId: string) => {
-    const elem = document.getElementById(targetId)
-    if (elem) {
-      const headerOffset = 80
-      const elementPosition = elem.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
-      window.history.pushState({}, '', `#${targetId}`)
-    }
-  }
-
   return (
     <section className='py-16 md:py-24 flex flex-col items-center text-center'>
       <Badge className='mb-4 bg-mint text-mint-foreground pointer-events-none'>
@@ -40,16 +32,16 @@ export const Hero = () => {
         <Button
           size='lg'
           className='bg-mint hover:opacity-90 transition-opacity text-mint-foreground'
-          onClick={() => handleScroll('contact')}
+          asChild
         >
-          Get in Touch <MoveRight className='ml-2 h-4 w-4' />
+          <ScrollLink to='contact' {...scrollConfig}>
+            Get in Touch <MoveRight className='ml-2 h-4 w-4' />
+          </ScrollLink>
         </Button>
-        <Button
-          size='lg'
-          variant='outline'
-          onClick={() => handleScroll('projects')}
-        >
-          View My Work
+        <Button size='lg' variant='outline' asChild>
+          <ScrollLink to='projects' {...scrollConfig}>
+            View My Work
+          </ScrollLink>
         </Button>
         <Button
           size='lg'
