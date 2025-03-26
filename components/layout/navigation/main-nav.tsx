@@ -1,7 +1,6 @@
 'use client'
 
 import { Link as ScrollLink } from 'react-scroll'
-import { cn } from '@/lib/utils'
 
 const items = [
   { title: 'About', href: 'about' },
