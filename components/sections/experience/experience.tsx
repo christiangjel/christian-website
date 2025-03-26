@@ -28,7 +28,7 @@ export const Experience = () => {
         <h3 className='text-xl font-semibold mb-6 border-l-4 border-mint pl-4'>
           Languages
         </h3>
-        <Card className='border-mint/20'>
+        <Card className='border-mint/20 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
           <CardContent className='p-6'>
             <div className='space-y-2'>
               {content.experience.languages.map((language, index) => (

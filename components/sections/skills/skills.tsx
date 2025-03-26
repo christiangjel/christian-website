@@ -15,7 +15,7 @@ export const Skills = () => {
             <h3 className='text-xl font-semibold mb-4 border-l-4 border-mint pl-4'>
               {category.name}
             </h3>
-            <div className='border border-mint/20 rounded-lg p-6 bg-background'>
+            <div className='border border-mint/20 rounded-lg p-6 bg-background backdrop-blur supports-[backdrop-filter]:bg-background/60'>
               <div className='grid grid-cols-2 gap-x-2 gap-y-3'>
                 {category.items.map((item, itemIndex) => (
                   <div key={itemIndex} className='flex items-center gap-2'>
@@ -34,7 +34,7 @@ export const Skills = () => {
         <h3 className='text-xl font-semibold mb-4 border-l-4 border-mint pl-4'>
           Soft Skills
         </h3>
-        <div className='border border-mint/20 rounded-lg p-6 bg-background'>
+        <div className='border border-mint/20 rounded-lg p-6 bg-background backdrop-blur supports-[backdrop-filter]:bg-background/60'>
           <div className='grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-3'>
             {content.skills.softSkills.map((skill, index) => (
               <div key={index} className='flex items-center gap-2'>
