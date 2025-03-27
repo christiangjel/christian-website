@@ -76,12 +76,12 @@
           "Code Review",
           "Bundlers & Build Tools",
           "Linters & Formatters",
-          "AI Tools",
-          "Figma",
           "Headless CMS",
           "Azure DevOps",
           "Scrum",
-          "Jira"
+          "Jira",
+          "Figma",
+          "AI Tools"
         ]
       }
     ],
