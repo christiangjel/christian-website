@@ -58,9 +58,9 @@
           "React Testing Library",
           "React Styled Components",
           "Jest",
+          "Tailwind CSS",
           "Shadcn UI",
           "Material UI",
-          "Tailwind CSS",
           "PrimeVue",
           "Bootstrap"
         ]
@@ -72,14 +72,14 @@
           "Docker",
           "REST",
           "GraphQL",
-          "Vite",
-          "Webpack",
-          "ESLint",
-          "Prettier",
-          "Figma",
-          "AI tools",
-          "Headless CMS",
+          "Bundlers & Build Tools",
+          "Linters & Formatters",
           "CI/CD",
+          "Headless CMS",
+          "AI Tools",
+          "Figma",
+          "Code Review",
+          "Azure DevOps",
           "Scrum",
           "Jira"
         ]
