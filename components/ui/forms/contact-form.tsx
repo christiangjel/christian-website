@@ -86,7 +86,7 @@ export default function ContactForm() {
               minLength={2}
               maxLength={50}
               pattern='[A-Za-z\s]+'
-              title='Please enter a valid name (letters and spaces only)'
+              // title='Please enter a valid name (letters and spaces only)'
             />
           </div>
           <ValidationError
@@ -119,7 +119,7 @@ export default function ContactForm() {
               onChange={handleChange}
               required
               pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
-              title='Please enter a valid email address'
+              // title='Please enter a valid email address'
             />
           </div>
           <ValidationError
@@ -154,7 +154,7 @@ export default function ContactForm() {
             required
             minLength={3}
             maxLength={100}
-            title='Please enter a subject (3-100 characters)'
+            // title='Please enter a subject (3-100 characters)'
           />
         </div>
         <ValidationError
@@ -187,7 +187,7 @@ export default function ContactForm() {
             required
             minLength={10}
             maxLength={1000}
-            title='Please enter a message (10-1000 characters)'
+            // title='Please enter a message (10-1000 characters)'
           />
         </div>
         <ValidationError

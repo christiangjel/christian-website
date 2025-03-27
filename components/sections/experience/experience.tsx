@@ -1,27 +1,57 @@
 'use client'
 
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { TimelineItem } from '@/components/ui/timeline-item/timeline-item'
 import content from '@/data/content.json'
 
+const itemVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut'
+    }
+  }
+}
+
 export const Experience = () => {
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
+
   return (
-    <section id='experience' className='py-14'>
+    <section id='experience' ref={sectionRef} className='py-14'>
       <h2 className='text-3xl font-bold tracking-tight mb-12'>
         {content.experience.title}
       </h2>
+
       <div className='relative pl-8 ml-3'>
-        {content.experience.items.map((item, index) => (
-          <TimelineItem
-            key={index}
-            date={item.date}
-            title={item.title}
-            description={item.description}
-            company={item.company}
-            companyLink={item.companyLink}
-            isLast={index === content.experience.items.length - 1}
-          />
-        ))}
+        <motion.div
+          initial='hidden'
+          animate={isInView ? 'visible' : 'hidden'}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.2
+              }
+            }
+          }}
+        >
+          {content.experience.items.map((item, index) => (
+            <motion.div key={index} variants={itemVariants}>
+              <TimelineItem
+                {...item}
+                isLast={index === content.experience.items.length - 1}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
 
       <div className='mt-16'>
