@@ -59,9 +59,9 @@
           "React Styled Components",
           "Jest",
           "Tailwind CSS",
-          "Shadcn UI",
           "Material UI",
           "PrimeVue",
+          "Shadcn UI",
           "Bootstrap"
         ]
       },
@@ -72,13 +72,13 @@
           "Docker",
           "REST",
           "GraphQL",
+          "CI/CD",
+          "Code Review",
           "Bundlers & Build Tools",
           "Linters & Formatters",
-          "CI/CD",
-          "Headless CMS",
           "AI Tools",
           "Figma",
-          "Code Review",
+          "Headless CMS",
           "Azure DevOps",
           "Scrum",
           "Jira"
@@ -88,12 +88,12 @@
     "softSkills": [
       "Problem Solving",
       "Team Collaboration",
-      "Communication",
       "Attention to Detail",
-      "Time Management",
       "Adaptability",
+      "Creative Thinking",
+      "Communication",
       "Self-Motivation",
-      "Creative Thinking"
+      "Time Management"
     ]
   },
   "experience": {
