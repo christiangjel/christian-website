@@ -57,9 +57,11 @@ export default function ContactForm() {
   return (
     <form className='space-y-6' onSubmit={handleFormSubmit} noValidate>
       {state.errors && Object.keys(state.errors).length > 0 && (
-        <div className='p-3 rounded-md bg-red-100 text-red-800 border border-red-300 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800'>
-          Oops! There are a few things we need to adjust. Please check the
-          fields below and try again.
+        <div className='bg-background'>
+          <div className='p-3 rounded-md bg-red-100 text-red-800 border border-red-300 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800'>
+            Oops! There are a few things we need to adjust. Please check the
+            fields below and try again.
+          </div>
         </div>
       )}
 
