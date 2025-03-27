@@ -11,8 +11,8 @@ export const metadata = {
   description:
     'Portfolio of Christian Gjelstrup, a highly experienced freelance Frontend Engineer based in Berlin.',
   icons: {
-    icon: [{ url: '/favicon.ico' }, { url: '/icon.png', type: 'image/png' }],
-    apple: [{ url: '/apple-touch-icon.png' }]
+    icon: [{ url: './favicon.ico' }, { url: './icon.png', type: 'image/png' }],
+    apple: [{ url: './apple-touch-icon.png' }]
   }
 }
 

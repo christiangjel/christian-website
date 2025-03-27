@@ -51,17 +51,17 @@
         "items": [
           "React",
           "Vue",
-          "Next.js",
+          "Next",
           "Nuxt",
           "Redux",
           "Pinia",
           "React Testing Library",
           "React Styled Components",
           "Jest",
-          "Tailwind CSS",
-          "Material UI",
           "PrimeVue",
           "Shadcn UI",
+          "Material UI",
+          "Tailwind CSS",
           "Bootstrap"
         ]
       },
