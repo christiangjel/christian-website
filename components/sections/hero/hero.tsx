@@ -2,16 +2,10 @@
 
 import { MoveRight, FileDown } from 'lucide-react'
 import Link from 'next/link'
-import { Link as ScrollLink } from 'react-scroll'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { scrollToSection } from '@/lib/utils'
 import content from '@/data/content.json'
-
-const scrollConfig = {
-  smooth: true,
-  duration: 800,
-  offset: -80
-}
 
 export const Hero = () => {
   return (
@@ -32,16 +26,16 @@ export const Hero = () => {
         <Button
           size='lg'
           className='bg-mint hover:opacity-90 transition-opacity text-mint-foreground'
-          asChild
+          onClick={() => scrollToSection('contact')}
         >
-          <ScrollLink to='contact' {...scrollConfig}>
-            Get in Touch <MoveRight className='ml-2 h-4 w-4' />
-          </ScrollLink>
+          Get in Touch <MoveRight className='ml-2 h-4 w-4' />
         </Button>
-        <Button size='lg' variant='outline' asChild>
-          <ScrollLink to='projects' {...scrollConfig}>
-            View My Work
-          </ScrollLink>
+        <Button
+          size='lg'
+          variant='outline'
+          onClick={() => scrollToSection('projects')}
+        >
+          View My Work
         </Button>
         <Button
           size='lg'

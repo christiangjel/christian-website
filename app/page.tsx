@@ -1,7 +1,6 @@
 'use client'
 
-import { Element } from 'react-scroll'
-import { useScrollUrlSync } from '@/app/hooks/useScrollUrlSync'
+// import { useScrollUrlSync } from '@/app/hooks/useScrollUrlSync'
 import { Header } from '@/components/layout/header/header'
 import { Footer } from '@/components/layout/footer/footer'
 import { WavesAnimation } from '@/components/layout/wavesAnimation/wavesAnimation'
@@ -14,7 +13,7 @@ import { Education } from '@/components/sections/education/education'
 import { Contact } from '@/components/sections/contact/contact'
 
 export default function Home() {
-  useScrollUrlSync()
+  // useScrollUrlSync()
 
   return (
     <div className='relative min-h-screen bg-background'>
@@ -23,27 +22,27 @@ export default function Home() {
       <div className='relative z-10'>
         <Header />
         <main className='container py-10'>
-          <Element name='home'>
+          <section id='home'>
             <Hero />
-          </Element>
-          <Element name='about'>
+          </section>
+          <section id='about'>
             <About />
-          </Element>
-          <Element name='skills'>
+          </section>
+          <section id='skills'>
             <Skills />
-          </Element>
-          <Element name='projects'>
+          </section>
+          <section id='projects'>
             <Projects />
-          </Element>
-          <Element name='experience'>
+          </section>
+          <section id='experience'>
             <Experience />
-          </Element>
-          <Element name='education'>
+          </section>
+          <section id='education'>
             <Education />
-          </Element>
-          <Element name='contact'>
+          </section>
+          <section id='contact'>
             <Contact />
-          </Element>
+          </section>
         </main>
         <Footer />
       </div>

@@ -1,10 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { Link as ScrollLink } from 'react-scroll'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
+import { cn, scrollToSection } from '@/lib/utils'
 
 const items = [
   { title: 'About', href: 'about' },
@@ -13,12 +12,6 @@ const items = [
   { title: 'Experience', href: 'experience' },
   { title: 'Contact', href: 'contact' }
 ]
-
-const scrollConfig = {
-  smooth: true,
-  duration: 800,
-  offset: -80
-}
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false)
@@ -38,18 +31,19 @@ export default function MobileNav() {
         <div className='absolute top-16 left-0 right-0 bg-background border-b p-4'>
           <nav className='flex flex-col gap-4'>
             {items.map((item) => (
-              <ScrollLink
+              <button
                 key={item.href}
-                to={item.href}
-                {...scrollConfig}
+                onClick={() => {
+                  scrollToSection(item.href)
+                  setIsOpen(false)
+                }}
                 className={cn(
                   'text-sm font-medium transition-colors hover:text-mint',
-                  'text-muted-foreground cursor-pointer'
+                  'text-muted-foreground cursor-pointer text-left'
                 )}
-                onClick={() => setIsOpen(false)}
               >
                 {item.title}
-              </ScrollLink>
+              </button>
             ))}
           </nav>
         </div>

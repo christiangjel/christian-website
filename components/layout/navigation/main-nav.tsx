@@ -1,6 +1,6 @@
 'use client'
 
-import { Link as ScrollLink } from 'react-scroll'
+import { scrollToSection } from '@/lib/utils'
 
 const items = [
   { title: 'About', href: 'about' },
@@ -10,24 +10,17 @@ const items = [
   { title: 'Contact', href: 'contact' }
 ]
 
-const scrollConfig = {
-  smooth: true,
-  duration: 800,
-  offset: -80
-}
-
 export default function MainNav() {
   return (
     <nav className='hidden md:flex items-center gap-6'>
       {items.map((item) => (
-        <ScrollLink
+        <button
           key={item.href}
-          to={item.href}
-          {...scrollConfig}
+          onClick={() => scrollToSection(item.href)}
           className='text-sm font-medium transition-colors hover:text-mint text-muted-foreground cursor-pointer'
         >
           {item.title}
-        </ScrollLink>
+        </button>
       ))}
     </nav>
   )
