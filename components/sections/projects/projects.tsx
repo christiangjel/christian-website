@@ -16,41 +16,29 @@ export const Projects = () => {
     height: 0
   })
 
-  // Update tab bounds when active tab changes or window resizes
   useEffect(() => {
     const updateTabBounds = () => {
-      if (typeof window !== 'undefined') {
-        const activeTabElement = tabRefs.current[activeTabIndex]
-        if (activeTabElement) {
-          const rect = activeTabElement.getBoundingClientRect()
-          const parentRect =
-            activeTabElement.parentElement!.getBoundingClientRect()
+      const activeTabElement = tabRefs.current[activeTabIndex]
+      if (!activeTabElement) return
 
-          setTabBounds({
-            left: rect.left - parentRect.left,
-            top: rect.top - parentRect.top,
-            width: rect.width,
-            height: rect.height
-          })
-        }
-      }
+      const rect = activeTabElement.getBoundingClientRect()
+      const parentRect = activeTabElement.parentElement!.getBoundingClientRect()
+
+      setTabBounds({
+        left: rect.left - parentRect.left,
+        top: rect.top - parentRect.top,
+        width: rect.width,
+        height: rect.height
+      })
     }
 
-    // Update bounds on active tab change and window resize
     updateTabBounds()
 
-    // Add resize event listener
     window.addEventListener('resize', updateTabBounds)
-
-    // Cleanup the event listener
-    return () => {
-      window.removeEventListener('resize', updateTabBounds)
-    }
+    return () => window.removeEventListener('resize', updateTabBounds)
   }, [activeTabIndex])
 
-  const handleTabChange = (index: number) => {
-    setActiveTabIndex(index)
-  }
+  const handleTabChange = (index: number) => setActiveTabIndex(index)
 
   return (
     <section id='projects' className='py-14'>
@@ -69,7 +57,7 @@ export const Projects = () => {
             width: tabBounds.width,
             height: tabBounds.height
           }}
-          transition={{ type: 'easeOut', duration: 0.2 }}
+          transition={{ type: 'easeIn', duration: 0.1 }}
         />
 
         {/* Tab buttons */}
@@ -79,9 +67,7 @@ export const Projects = () => {
             ref={(el) => {
               tabRefs.current[index] = el
             }}
-            className={`relative z-10 flex items-center justify-center p-2 text-sm transition-colors duration-300 ease-in-out min-h-[40px] ${
-              activeTabIndex === index ? 'text-white' : ''
-            }`}
+            className='relative z-10 flex items-center justify-center p-2 text-sm min-h-[40px]'
             onClick={() => handleTabChange(index)}
           >
             {category.label}
