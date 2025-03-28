@@ -16,22 +16,35 @@ export const Projects = () => {
     height: 0
   })
 
-  // Update tab bounds when active tab changes
+  // Update tab bounds when active tab changes or window resizes
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const activeTabElement = tabRefs.current[activeTabIndex]
-      if (activeTabElement) {
-        const rect = activeTabElement.getBoundingClientRect()
-        const parentRect =
-          activeTabElement.parentElement!.getBoundingClientRect()
+    const updateTabBounds = () => {
+      if (typeof window !== 'undefined') {
+        const activeTabElement = tabRefs.current[activeTabIndex]
+        if (activeTabElement) {
+          const rect = activeTabElement.getBoundingClientRect()
+          const parentRect =
+            activeTabElement.parentElement!.getBoundingClientRect()
 
-        setTabBounds({
-          left: rect.left - parentRect.left,
-          top: rect.top - parentRect.top,
-          width: rect.width,
-          height: rect.height
-        })
+          setTabBounds({
+            left: rect.left - parentRect.left,
+            top: rect.top - parentRect.top,
+            width: rect.width,
+            height: rect.height
+          })
+        }
       }
+    }
+
+    // Update bounds on active tab change and window resize
+    updateTabBounds()
+
+    // Add resize event listener
+    window.addEventListener('resize', updateTabBounds)
+
+    // Cleanup the event listener
+    return () => {
+      window.removeEventListener('resize', updateTabBounds)
     }
   }, [activeTabIndex])
 
