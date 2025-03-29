@@ -92,12 +92,11 @@ const fragmentShader = `
 `
 
 interface CustomUniforms {
-  [key: string]: THREE.IUniform<unknown> // Changed from 'any' to 'unknown'
+  [key: string]: THREE.IUniform<unknown>
 }
 
 export const WavesAnimation = () => {
   const containerRef = useRef<HTMLDivElement>(null)
-  // const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
     // Capture current ref value to use in cleanup function
@@ -171,7 +170,6 @@ export const WavesAnimation = () => {
       if (mesh) {
         scene.remove(mesh)
         mesh.geometry.dispose()
-        // Correctly dispose of material
         if (mesh.material) {
           ;(mesh.material as THREE.Material).dispose()
         }

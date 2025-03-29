@@ -87,7 +87,7 @@ export const runApp = (
     }
   })
 
-  // Define your app
+  // Define app
   if (app.updateScene === undefined) {
     app.updateScene = () => {}
   }
@@ -188,7 +188,7 @@ export const createCamera = (
 ): THREE.PerspectiveCamera => {
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
   camera.position.set(camPos.x, camPos.y, camPos.z)
-  camera.lookAt(camLookAt.x, camLookAt.y, camLookAt.z) // this only works when there's no OrbitControls
+  camera.lookAt(camLookAt.x, camLookAt.y, camLookAt.z)
   camera.updateProjectionMatrix()
   return camera
 }
