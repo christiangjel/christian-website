@@ -34,6 +34,11 @@ export default function ContactForm() {
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setShowErrors(true)
+
+    if (Object.values(formData).some((value) => !value.trim())) {
+      return // Prevent submission if any field is empty
+    }
+
     try {
       await handleSubmit(e)
       if (state.succeeded) {
