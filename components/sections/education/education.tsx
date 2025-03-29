@@ -15,9 +15,9 @@ export const Education = () => {
             href={item.link}
             target='_blank'
             rel='noopener noreferrer'
-            className='block bg-background backdrop-blur supports-[backdrop-filter]:bg-background/60'
+            className='block'
           >
-            <div className='border border-mint/20 rounded-lg p-6 h-full transition-colors hover:border-mint hover:bg-mint/5'>
+            <div className='border border-mint/20 rounded-lg p-6 h-full bg-background backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-colors hover:border-mint hover:bg-mint/5'>
               <div className='text-muted-foreground mb-2'>{item.date}</div>
               <h3 className='font-semibold text-xl mb-2'>{item.title}</h3>
               <p className='text-muted-foreground mb-2'>{item.institution}</p>

@@ -38,8 +38,6 @@ export const Projects = () => {
     return () => window.removeEventListener('resize', updateTabBounds)
   }, [activeTabIndex])
 
-  const handleTabChange = (index: number) => setActiveTabIndex(index)
-
   return (
     <section id='projects' className='py-14'>
       <h2 className='text-3xl font-bold tracking-tight mb-12'>
@@ -57,7 +55,10 @@ export const Projects = () => {
             width: tabBounds.width,
             height: tabBounds.height
           }}
-          transition={{ type: 'easeIn', duration: 0.1 }}
+          transition={{
+            duration: 0.4,
+            ease: 'easeInOut'
+          }}
         />
 
         {/* Tab buttons */}
@@ -67,28 +68,39 @@ export const Projects = () => {
             ref={(el) => {
               tabRefs.current[index] = el
             }}
-            className='relative z-10 flex items-center justify-center p-2 text-sm min-h-[40px]'
-            onClick={() => handleTabChange(index)}
+            className={`relative z-10 flex items-center justify-center p-2 text-sm min-h-[40px] ${
+              activeTabIndex === index ? 'font-medium' : ''
+            }`}
+            onClick={() => setActiveTabIndex(index)}
           >
             {category.label}
           </button>
         ))}
       </div>
 
-      {/* Project content */}
-      <div className='mt-6'>
-        {content.projects.categories.map((category, index) => (
-          <div
-            key={index}
-            className={`${activeTabIndex === index ? 'block' : 'hidden'}`}
-          >
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-              {category.items.map((project, projectIndex) => (
-                <ProjectCard key={projectIndex} {...project} />
-              ))}
+      {/* Project content with horizontal sliding animation */}
+      <div className='mt-6 overflow-hidden'>
+        <motion.div
+          className='flex w-full'
+          initial={false}
+          animate={{
+            x: `${-activeTabIndex * 100}%`
+          }}
+          transition={{
+            duration: 0.4,
+            ease: 'easeInOut'
+          }}
+        >
+          {content.projects.categories.map((category, index) => (
+            <div key={index} className='flex-shrink-0 w-full'>
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                {category.items.map((project, projectIndex) => (
+                  <ProjectCard key={projectIndex} {...project} />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </motion.div>
       </div>
     </section>
   )
