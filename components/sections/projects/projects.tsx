@@ -68,9 +68,9 @@ export const Projects = () => {
             ref={(el) => {
               tabRefs.current[index] = el
             }}
-            className={`relative z-10 flex items-center justify-center p-2 text-sm min-h-[40px] ${
-              activeTabIndex === index ? 'font-medium' : ''
-            }`}
+            className={
+              'relative z-10 flex items-center justify-center p-2 text-sm min-h-[40px]'
+            }
             onClick={() => setActiveTabIndex(index)}
           >
             {category.label}

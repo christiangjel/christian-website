@@ -19,7 +19,7 @@
 //           >
 //             <div className='border border-mint/20 rounded-lg p-6 h-full transition-colors hover:border-mint hover:bg-mint/5 bg-background'>
 //               <div className='text-muted-foreground mb-2'>{award.year}</div>
-//               <h3 className='font-semibold text-xl mb-2'>{award.title}</h3>
+//               <h3 className='font-bold text-xl mb-2'>{award.title}</h3>
 //               <p>{award.project}</p>
 //             </div>
 //           </a>

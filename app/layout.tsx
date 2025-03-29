@@ -1,10 +1,19 @@
 import type React from 'react'
 import '@/app/globals.css'
+import localFont from 'next/font/local'
 import { ThemeProvider } from '@/components/layout/theme/theme-provider'
-import { Mona_Sans as Mono_Sans } from 'next/font/google'
 
-// Load Mona Sans font
-const mono = Mono_Sans({ subsets: ['latin'], variable: '--font-mono' })
+const fontNormal = localFont({
+  src: './mono-normal.woff2',
+  variable: '--font-normal',
+  display: 'swap'
+})
+
+const fontBold = localFont({
+  src: './mono-bold.woff2',
+  variable: '--font-bold',
+  display: 'swap'
+})
 
 export const metadata = {
   title: 'Christian Gjelstrup | Frontend Engineer',
@@ -22,7 +31,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en' suppressHydrationWarning className={mono.variable}>
+    <html
+      lang='en'
+      suppressHydrationWarning
+      className={`${fontNormal.variable} ${fontBold.variable}`}
+    >
       <body suppressHydrationWarning>
         <ThemeProvider
           attribute='class'

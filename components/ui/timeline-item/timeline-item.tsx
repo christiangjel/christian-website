@@ -30,7 +30,7 @@ export const TimelineItem = ({
       <div className='absolute w-4 h-4 bg-mint rounded-full -left-[8px] top-2 border-2 border-background z-10'></div>
       <div className='pl-6'>
         <div className='text-sm text-muted-foreground mb-1'>{date}</div>
-        <h3 className='font-semibold text-lg'>{title}</h3>
+        <h3 className='font-bold text-lg'>{title}</h3>
         {company &&
           (companyLink ? (
             <Link

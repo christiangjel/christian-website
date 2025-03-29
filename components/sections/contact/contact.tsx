@@ -21,14 +21,14 @@ export const Contact = () => {
             <div className='flex items-start gap-3'>
               <Mail className='h-5 w-5 mt-0.5 text-mint' />
               <div>
-                <h3 className='font-semibold'>Email</h3>
+                <h3 className='font-bold'>Email</h3>
                 <p className='text-muted-foreground'>{content.contact.email}</p>
               </div>
             </div>
             <div className='flex items-start gap-3'>
               <Phone className='h-5 w-5 mt-0.5 text-mint' />
               <div>
-                <h3 className='font-semibold'>Phone</h3>
+                <h3 className='font-bold'>Phone</h3>
                 <p className='text-muted-foreground'>{content.contact.phone}</p>
               </div>
             </div>
@@ -49,7 +49,7 @@ export const Contact = () => {
                 <circle cx='12' cy='10' r='3' />
               </svg>
               <div>
-                <h3 className='font-semibold'>Location</h3>
+                <h3 className='font-bold'>Location</h3>
                 <p className='text-muted-foreground'>
                   {content.contact.location}
                 </p>

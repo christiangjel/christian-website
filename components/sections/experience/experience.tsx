@@ -55,7 +55,7 @@ export const Experience = () => {
       </div>
 
       <div className='mt-16'>
-        <h3 className='text-xl font-semibold mb-6 border-l-4 border-mint pl-4'>
+        <h3 className='text-xl font-bold mb-6 border-l-4 border-mint pl-4'>
           Languages
         </h3>
         <Card className='border-mint/20 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
