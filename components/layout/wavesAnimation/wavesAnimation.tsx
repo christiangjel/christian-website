@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 
 // Core boilerplate code deps
@@ -92,27 +92,28 @@ const fragmentShader = `
 `
 
 interface CustomUniforms {
-  [key: string]: THREE.IUniform<any>
+  [key: string]: THREE.IUniform<unknown> // Changed from 'any' to 'unknown'
 }
 
 export const WavesAnimation = () => {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [isMounted, setIsMounted] = useState(false)
+  // const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    setIsMounted(true)
+    // Capture current ref value to use in cleanup function
+    const currentContainer = containerRef.current
 
-    if (!containerRef.current) return
+    if (!currentContainer) return
 
     // Create container element for three.js
     const container = document.createElement('div')
     container.id = 'container'
-    containerRef.current.appendChild(container)
+    currentContainer.appendChild(container)
 
     // Create veil element (used in animation utils)
     const veil = document.createElement('div')
     veil.id = 'veil'
-    containerRef.current.appendChild(veil)
+    currentContainer.appendChild(veil)
 
     // Setup uniforms for the scene
     const uniforms: CustomUniforms = {
@@ -169,16 +170,18 @@ export const WavesAnimation = () => {
       if (material) material.dispose()
       if (mesh) {
         scene.remove(mesh)
-        mesh.geometry
-          .dispose()(mesh.material as THREE.Material)
-          .dispose()
+        mesh.geometry.dispose()
+        // Correctly dispose of material
+        if (mesh.material) {
+          ;(mesh.material as THREE.Material).dispose()
+        }
       }
 
       renderer.dispose()
       renderer.forceContextLoss()
 
-      if (containerRef.current) {
-        containerRef.current.innerHTML = ''
+      if (currentContainer) {
+        currentContainer.innerHTML = ''
       }
     }
   }, [])

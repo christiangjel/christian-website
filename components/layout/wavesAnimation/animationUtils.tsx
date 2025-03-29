@@ -51,6 +51,7 @@ interface ThreeJSApp {
   initScene: () => Promise<void>
   updateScene?: (delta: number, elapsed: number) => void
   container?: HTMLElement
+  // eslint-disable-next-line
   [key: string]: any
 }
 
@@ -64,7 +65,8 @@ export const runApp = (
   renderer: THREE.WebGLRenderer,
   camera: THREE.PerspectiveCamera,
   enableAnimation = false,
-  uniforms: Record<string, THREE.IUniform<any>> = getDefaultUniforms(),
+  // eslint-disable-next-line
+  uniforms: any = getDefaultUniforms(),
   composer: EffectComposer | null = null
 ): ThreeJSApp => {
   // Create the HTML container, styles defined in index.html
@@ -87,7 +89,7 @@ export const runApp = (
 
   // Define your app
   if (app.updateScene === undefined) {
-    app.updateScene = (_delta: number, _elapsed: number) => {}
+    app.updateScene = () => {}
   }
 
   Object.assign(app, { container })
@@ -139,7 +141,7 @@ type RendererConfigFn = (renderer: THREE.WebGLRenderer) => void
  */
 export const createRenderer = (
   rendererProps: THREE.WebGLRendererParameters = {},
-  configureRenderer: RendererConfigFn = (_renderer) => {}
+  configureRenderer: RendererConfigFn = () => {}
 ): THREE.WebGLRenderer => {
   const renderer = new THREE.WebGLRenderer(rendererProps)
   renderer.setPixelRatio(window.devicePixelRatio)
