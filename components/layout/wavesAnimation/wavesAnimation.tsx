@@ -11,16 +11,7 @@ import {
   getDefaultUniforms
 } from './animationUtils'
 
-/**************************************************
- * 0. Tweakable parameters for the scene
- *************************************************/
-interface CustomUniforms {
-  // eslint-disable-next-line
-  [key: string]: THREE.IUniform<any>
-}
-
-const vertexShader = () => {
-  return `
+const vertexShader = `
   #define PI 3.14159265359
 
   uniform float u_time;
@@ -81,11 +72,9 @@ const vertexShader = () => {
     vec4 mvm = modelViewMatrix * vec4(pos, 1.0);
     gl_Position = projectionMatrix * mvm;
   }
-  `
-}
+`
 
-const fragmentShader = () => {
-  return `
+const fragmentShader = `
   #ifdef GL_ES
   precision mediump float;
   #endif
@@ -100,21 +89,20 @@ const fragmentShader = () => {
     // gl_FragColor = vec4(vec3(0.0, st),1.0);
     gl_FragColor = vec4(0.392, 0.949, 0.761, 1.0);
   }
-  `
+`
+
+interface CustomUniforms {
+  [key: string]: THREE.IUniform<any>
 }
 
 export const WavesAnimation = () => {
   const containerRef = useRef<HTMLDivElement>(null)
-
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
 
-    if (!containerRef.current)
-      return // Make THREE available globally (if needed)
-      // eslint-disable-next-line
-    ;(global as any).THREE = THREE
+    if (!containerRef.current) return
 
     // Create container element for three.js
     const container = document.createElement('div')
@@ -126,27 +114,20 @@ export const WavesAnimation = () => {
     veil.id = 'veil'
     containerRef.current.appendChild(veil)
 
-    /**************************************************
-     * Setup uniforms for the scene
-     *************************************************/
+    // Setup uniforms for the scene
     const uniforms: CustomUniforms = {
       ...getDefaultUniforms(),
       u_pointsize: { value: 1.9 },
       // wave 1
       u_noise_freq_1: { value: 3.0 },
       u_noise_amp_1: { value: 0.2 },
-      // u_spd_modifier_1: { value: 1.0 },
       u_spd_modifier_1: { value: 0.8 },
       // wave 2
       u_noise_freq_2: { value: 2.0 },
       u_noise_amp_2: { value: 0.3 },
-      // u_spd_modifier_2: { value: 0.8 }
       u_spd_modifier_2: { value: 0.6 }
     }
 
-    /**************************************************
-     * Initialize core threejs components
-     *************************************************/
     // Create the scene
     const scene = new THREE.Scene()
 
@@ -154,69 +135,53 @@ export const WavesAnimation = () => {
     const renderer = createRenderer({ antialias: true, alpha: true })
 
     // Create the camera
-    // const camera = createCamera(60, 1, 100, { x: 0, y: 0, z: 4.5 })
     const camera = createCamera(60, 1, 100, { x: 0, y: -7, z: 0 })
-    // camera.position.set(0, -8, 2)
     camera.lookAt(0, 33.2, 16)
 
     // Variables to store our components
     let geometry: THREE.PlaneGeometry
+    let material: THREE.ShaderMaterial
     let mesh: THREE.Points
 
-    /**************************************************
-     * App definition
-     *************************************************/
     const app = {
       container,
       initScene: async () => {
         // Mesh
         geometry = new THREE.PlaneGeometry(4, 4, 128, 128)
-        const material = new THREE.ShaderMaterial({
+        material = new THREE.ShaderMaterial({
           uniforms: uniforms,
-          vertexShader: vertexShader(),
-          fragmentShader: fragmentShader()
+          vertexShader: vertexShader,
+          fragmentShader: fragmentShader
         })
 
         mesh = new THREE.Points(geometry, material)
         scene.add(mesh)
-
-        // Set appropriate positioning
-        // mesh.position.set(-0.1, 0.4, 0)
         mesh.position.set(-0.1, -4.4, 0)
       }
     }
 
-    /**************************************************
-     * Run the app
-     *************************************************/
+    // Run the app
     runApp(app, scene, renderer, camera, true, uniforms, undefined)
 
     // Cleanup function
     return () => {
-      // Dispose of ThreeJS resources
       if (geometry) geometry.dispose()
+      if (material) material.dispose()
+      if (mesh) {
+        scene.remove(mesh)
+        mesh.geometry
+          .dispose()(mesh.material as THREE.Material)
+          .dispose()
+      }
 
-      scene.remove(mesh)
-      // scene.dispose()
       renderer.dispose()
+      renderer.forceContextLoss()
 
-      // Clear container
       if (containerRef.current) {
-        // eslint-disable-next-line
         containerRef.current.innerHTML = ''
       }
     }
   }, [])
-
-  // Only render a placeholder div until client-side code takes over
-  if (!isMounted) {
-    return (
-      <div
-        ref={containerRef}
-        className='fixed bottom-0 left-0 w-full h-full pointer-events-none z-0'
-      />
-    )
-  }
 
   return (
     <div

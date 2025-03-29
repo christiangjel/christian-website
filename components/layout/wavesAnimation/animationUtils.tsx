@@ -3,20 +3,6 @@
 import * as THREE from 'three'
 import { EffectComposer, RenderPass } from 'postprocessing'
 
-// // Fix: Use consistent declaration for devicePixelRatio
-// declare global {
-//   interface Window {
-//     // No need to redeclare devicePixelRatio as it's already defined in lib.dom.d.ts
-//     // Removing this line fixes the "identical modifiers" error
-//   }
-//   // Changed 'var' to 'let' to fix ESLint warning
-//   let THREE: typeof THREE
-// }
-
-// // Using proper assignment instead of global declaration
-// // This avoids the circular reference in type annotation
-// window.THREE = THREE
-
 interface DefaultUniforms {
   u_time: { value: number }
   u_mouse: {
@@ -65,23 +51,12 @@ interface ThreeJSApp {
   initScene: () => Promise<void>
   updateScene?: (delta: number, elapsed: number) => void
   container?: HTMLElement
-  // eslint-disable-next-line
   [key: string]: any
 }
 
 /**
  * This function contains the boilerplate code to set up the environment for a threejs app;
  * e.g. HTML canvas, resize listener, mouse events listener, requestAnimationFrame
- * Consumer needs to provide the created renderer, camera and (optional) composer to this setup function
- * This has the benefit of bringing the app configurations directly to the consumer, instead of hiding/passing them down one more layer
- * @param {object} app a custom Threejs app instance that needs to call initScene and (optioal) updateScene if animation is needed
- * @param {object} scene Threejs scene instance
- * @param {object} renderer Threejs renderer instance
- * @param {object} camera Threejs camera instance
- * @param {bool} enableAnimation whether the app needs to animate stuff
- * @param {object} uniforms Uniforms object to be used in fragments, u_resolution/u_mouse/u_time got updated here
- * @param {object} composer Threejs EffectComposer instance
- * @returns a custom threejs app instance that has the basic setup ready that can be further acted upon/customized
  */
 export const runApp = (
   app: ThreeJSApp,
@@ -89,8 +64,7 @@ export const runApp = (
   renderer: THREE.WebGLRenderer,
   camera: THREE.PerspectiveCamera,
   enableAnimation = false,
-  // eslint-disable-next-line
-  uniforms: any = getDefaultUniforms(),
+  uniforms: Record<string, THREE.IUniform<any>> = getDefaultUniforms(),
   composer: EffectComposer | null = null
 ): ThreeJSApp => {
   // Create the HTML container, styles defined in index.html
@@ -113,8 +87,7 @@ export const runApp = (
 
   // Define your app
   if (app.updateScene === undefined) {
-    // eslint-disable-next-line
-    app.updateScene = (delta: number, elapsed: number) => {}
+    app.updateScene = (_delta: number, _elapsed: number) => {}
   }
 
   Object.assign(app, { container })
@@ -150,7 +123,6 @@ export const runApp = (
     .then(() => {
       // debugging info
       renderer.info.reset()
-      // not sure if reliable enough, numbers change everytime...
       console.log('Renderer info', renderer.info)
     })
     .catch((error) => {
@@ -164,15 +136,10 @@ type RendererConfigFn = (renderer: THREE.WebGLRenderer) => void
 
 /**
  * This creates the renderer, by default calls renderer's setPixelRatio and setSize methods
- * further reading on color management: See https://www.donmccurdy.com/2020/06/17/color-management-in-threejs/
- * @param {object} rendererProps props fed to WebGlRenderer constructor
- * @param {function} configureRenderer custom function for consumer to tune the renderer, takes renderer as the only parameter
- * @returns created renderer
  */
 export const createRenderer = (
   rendererProps: THREE.WebGLRendererParameters = {},
-  // eslint-disable-next-line
-  configureRenderer: RendererConfigFn = (renderer) => {}
+  configureRenderer: RendererConfigFn = (_renderer) => {}
 ): THREE.WebGLRenderer => {
   const renderer = new THREE.WebGLRenderer(rendererProps)
   renderer.setPixelRatio(window.devicePixelRatio)
@@ -188,11 +155,6 @@ type ComposerPassesFn = (composer: EffectComposer) => void
 
 /**
  * This function creates the EffectComposer object for post processing
- * @param {object} renderer The threejs renderer
- * @param {object} scene The threejs scene
- * @param {object} camera The threejs camera
- * @param {function} extraPasses custom function that takes takes composer as the only parameter, for the consumer to add custom passes
- * @returns The created composer object used for post processing
  */
 export const createComposer = (
   renderer: THREE.WebGLRenderer,
@@ -213,13 +175,6 @@ export const createComposer = (
 
 /**
  * This function creates the three.js camera
- * @param {number} fov Field of view, def = 45
- * @param {number} near nearest distance of camera render range
- * @param {number} far furthest distance of camera render range
- * @param {object} camPos {x,y,z} of camera position
- * @param {object} camLookAt {x,y,z} where camera's looking at
- * @param {number} aspect Aspect ratio of camera, def = screen aspect
- * @returns the created camera object
  */
 export const createCamera = (
   fov = 45,

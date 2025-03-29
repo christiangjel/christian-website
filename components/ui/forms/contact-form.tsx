@@ -1,12 +1,18 @@
 'use client'
 
-import type React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { useForm, ValidationError } from '@formspree/react'
 
+interface FormData {
+  name: string
+  email: string
+  subject: string
+  message: string
+}
+
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     subject: '',
