@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import { MoveRight } from 'lucide-react'
 import { ProjectCard } from '@/components/ui/project-card/project-card'
 import { scrollToSection } from '@/lib/utils'
@@ -10,7 +10,12 @@ import content from '@/data/content.json'
 export const Projects = () => {
   const [activeTabIndex, setActiveTabIndex] = useState(0)
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const [containerHeight, setContainerHeight] = useState(0)
 
+  // Hidden div to measure height
+  const heightMeasureRef = useRef<HTMLDivElement | null>(null)
+
+  // Store tab bounds for animation
   const [tabBounds, setTabBounds] = useState({
     left: 0,
     top: 0,
@@ -35,9 +40,15 @@ export const Projects = () => {
     }
 
     updateTabBounds()
-
     window.addEventListener('resize', updateTabBounds)
     return () => window.removeEventListener('resize', updateTabBounds)
+  }, [activeTabIndex])
+
+  // Measure height of the active category using hidden div
+  useLayoutEffect(() => {
+    if (heightMeasureRef.current) {
+      setContainerHeight(heightMeasureRef.current.scrollHeight)
+    }
   }, [activeTabIndex])
 
   return (
@@ -46,8 +57,9 @@ export const Projects = () => {
         {content.projects.title}
       </h2>
 
-      <div className='relative grid w-full bg-transparent rounded-lg overflow-hidden md:grid-cols-4 grid-cols-2'>
-        {/* Sliding background */}
+      {/* Category Tabs */}
+      <div className='relative grid w-full bg-transparent rounded-lg md:grid-cols-4 grid-cols-2'>
+        {/* Sliding background for active tab */}
         <motion.div
           className='absolute z-0 rounded bg-secondary'
           initial={false}
@@ -80,8 +92,12 @@ export const Projects = () => {
         ))}
       </div>
 
-      {/* Project content with horizontal sliding animation */}
-      <div className='mt-6 overflow-hidden mb-8'>
+      {/* Project Content with Dynamic Height */}
+      <motion.div
+        className='mt-6 overflow-hidden mb-8'
+        animate={{ height: containerHeight }}
+        transition={{ duration: 0.4, ease: 'easeInOut' }}
+      >
         <motion.div
           className='flex w-full'
           initial={false}
@@ -103,14 +119,25 @@ export const Projects = () => {
             </div>
           ))}
         </motion.div>
+      </motion.div>
+
+      {/* Hidden div for measuring active category height */}
+      <div className='absolute invisible w-full' ref={heightMeasureRef}>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+          {content.projects.categories[activeTabIndex].items.map(
+            (project, projectIndex) => (
+              <ProjectCard key={projectIndex} {...project} />
+            )
+          )}
+        </div>
       </div>
-      <a
-        className='hover:text-mint hover:cursor-pointer transition-colors'
+      <button
         onClick={() => scrollToSection('projects')}
+        className='text-sm font-medium transition-colors hover:text-mint text-muted-foreground cursor-pointer'
       >
         More Projects
         <MoveRight className='inline-block ml-2 h-4 w-4' />
-      </a>
+      </button>
     </section>
   )
 }
