@@ -16,7 +16,7 @@ export default function Home() {
   // useScrollUrlSync()
 
   return (
-    <div className='relative min-h-screen bg-background'>
+    <div className='relative min-h-screen bg-background overflow-x-hidden'>
       <WavesAnimation />
 
       <div className='relative z-10'>
