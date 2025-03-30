@@ -2,7 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { useState, useRef, useEffect } from 'react'
+import { MoveRight } from 'lucide-react'
 import { ProjectCard } from '@/components/ui/project-card/project-card'
+import { scrollToSection } from '@/lib/utils'
 import content from '@/data/content.json'
 
 export const Projects = () => {
@@ -79,7 +81,7 @@ export const Projects = () => {
       </div>
 
       {/* Project content with horizontal sliding animation */}
-      <div className='mt-6 overflow-hidden'>
+      <div className='mt-6 overflow-hidden mb-8'>
         <motion.div
           className='flex w-full'
           initial={false}
@@ -102,6 +104,13 @@ export const Projects = () => {
           ))}
         </motion.div>
       </div>
+      <a
+        className='hover:text-mint hover:cursor-pointer transition-colors'
+        onClick={() => scrollToSection('projects')}
+      >
+        More Projects
+        <MoveRight className='inline-block ml-2 h-4 w-4' />
+      </a>
     </section>
   )
 }
