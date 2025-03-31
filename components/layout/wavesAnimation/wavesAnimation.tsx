@@ -99,20 +99,13 @@ export const WavesAnimation = () => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // Capture current ref value to use in cleanup function
     const currentContainer = containerRef.current
-
     if (!currentContainer) return
 
     // Create container element for three.js
     const container = document.createElement('div')
     container.id = 'container'
     currentContainer.appendChild(container)
-
-    // Create veil element (used in animation utils)
-    const veil = document.createElement('div')
-    veil.id = 'veil'
-    currentContainer.appendChild(veil)
 
     // Setup uniforms for the scene
     const uniforms: CustomUniforms = {
@@ -144,10 +137,10 @@ export const WavesAnimation = () => {
     let mesh: THREE.Points
 
     const app = {
-      container,
       initScene: async () => {
         // Mesh
         geometry = new THREE.PlaneGeometry(4, 4, 128, 128)
+
         material = new THREE.ShaderMaterial({
           uniforms: uniforms,
           vertexShader: vertexShader,
@@ -157,11 +150,18 @@ export const WavesAnimation = () => {
         mesh = new THREE.Points(geometry, material)
         scene.add(mesh)
         mesh.position.set(-0.1, -4.4, 0)
+
+        // Signal animation is ready
+        const completeEvent = new CustomEvent('webgl-load-complete')
+        window.dispatchEvent(completeEvent)
       }
+      // updateScene: (delta: number, elapsed: number) => {
+      //   // Animation update logic
+      // }
     }
 
     // Run the app
-    runApp(app, scene, renderer, camera, true, uniforms, undefined)
+    runApp(app, scene, renderer, camera, true, uniforms)
 
     // Cleanup function
     return () => {

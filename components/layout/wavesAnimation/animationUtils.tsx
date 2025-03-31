@@ -1,7 +1,6 @@
 // This core-utils contains the most important/top-level functions needed in creating a threejs application
 
 import * as THREE from 'three'
-import { EffectComposer, RenderPass } from 'postprocessing'
 
 interface DefaultUniforms {
   u_time: { value: number }
@@ -66,8 +65,8 @@ export const runApp = (
   camera: THREE.PerspectiveCamera,
   enableAnimation = false,
   // eslint-disable-next-line
-  uniforms: any = getDefaultUniforms(),
-  composer: EffectComposer | null = null
+  uniforms: any = getDefaultUniforms()
+  // composer: null = null
 ): ThreeJSApp => {
   // Create the HTML container, styles defined in index.html
   const container = document.getElementById('container') as HTMLElement
@@ -107,20 +106,11 @@ export const runApp = (
 
     app.updateScene!(delta, elapsed)
 
-    if (composer === null) {
-      renderer.render(scene, camera)
-    } else {
-      composer.render()
-    }
+    renderer.render(scene, camera)
   }
 
   app
     .initScene()
-    .then(() => {
-      const veil = document.getElementById('veil') as HTMLElement
-      veil.style.opacity = '0'
-      return true
-    })
     .then(animate)
     .then(() => {
       // debugging info
@@ -151,28 +141,6 @@ export const createRenderer = (
   configureRenderer(renderer)
 
   return renderer
-}
-
-type ComposerPassesFn = (composer: EffectComposer) => void
-
-/**
- * This function creates the EffectComposer object for post processing
- */
-export const createComposer = (
-  renderer: THREE.WebGLRenderer,
-  scene: THREE.Scene,
-  camera: THREE.Camera,
-  extraPasses: ComposerPassesFn
-): EffectComposer => {
-  const renderScene = new RenderPass(scene, camera)
-
-  const composer = new EffectComposer(renderer)
-  composer.addPass(renderScene)
-
-  // custom passes that the consumer wants to add
-  extraPasses(composer)
-
-  return composer
 }
 
 /**
