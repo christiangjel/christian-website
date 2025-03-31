@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useState, useRef, useEffect, useLayoutEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useRef, useEffect } from 'react'
 import { MoveRight } from 'lucide-react'
 import { ProjectCard } from '@/components/ui/project-card/project-card'
 import { scrollToSection } from '@/lib/utils'
@@ -9,11 +9,8 @@ import content from '@/data/content.json'
 
 export const Projects = () => {
   const [activeTabIndex, setActiveTabIndex] = useState(0)
+  const [direction, setDirection] = useState(0)
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
-  const [containerHeight, setContainerHeight] = useState(0)
-
-  // Hidden div to measure height
-  const heightMeasureRef = useRef<HTMLDivElement | null>(null)
 
   // Store tab bounds for animation
   const [tabBounds, setTabBounds] = useState({
@@ -44,12 +41,24 @@ export const Projects = () => {
     return () => window.removeEventListener('resize', updateTabBounds)
   }, [activeTabIndex])
 
-  // Measure height of the active category using hidden div
-  useLayoutEffect(() => {
-    if (heightMeasureRef.current) {
-      setContainerHeight(heightMeasureRef.current.scrollHeight)
-    }
-  }, [activeTabIndex])
+  const handleTabChange = (index: number) => {
+    // Set direction based on index change
+    setDirection(index > activeTabIndex ? 1 : -1)
+    setActiveTabIndex(index)
+  }
+
+  // Variants for animation
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? '100%' : '-100%'
+    }),
+    center: {
+      x: 0
+    },
+    exit: (direction: number) => ({
+      x: direction > 0 ? '-100%' : '100%'
+    })
+  }
 
   return (
     <section id='projects' className='py-14'>
@@ -85,52 +94,41 @@ export const Projects = () => {
             className={
               'relative z-10 flex items-center justify-center p-2 text-sm min-h-[40px]'
             }
-            onClick={() => setActiveTabIndex(index)}
+            onClick={() => handleTabChange(index)}
           >
             {category.label}
           </button>
         ))}
       </div>
 
-      {/* Project Content with Dynamic Height */}
-      <motion.div
-        className='mt-6 overflow-hidden mb-8'
-        animate={{ height: containerHeight }}
-        transition={{ duration: 0.4, ease: 'easeInOut' }}
-      >
-        <motion.div
-          className='flex w-full'
-          initial={false}
-          animate={{
-            x: `${-activeTabIndex * 100}%`
-          }}
-          transition={{
-            duration: 0.4,
-            ease: 'easeInOut'
-          }}
-        >
-          {content.projects.categories.map((category, index) => (
-            <div key={index} className='flex-shrink-0 w-full'>
+      {/* Project Content with sliding animation */}
+      <div className='relative mt-6 mb-6 overflow-hidden'>
+        <div style={{ position: 'relative', minHeight: '200px' }}>
+          <AnimatePresence initial={false} custom={direction} mode='popLayout'>
+            <motion.div
+              key={activeTabIndex}
+              custom={direction}
+              variants={variants}
+              initial='enter'
+              animate='center'
+              exit='exit'
+              transition={{
+                x: { type: 'tween', duration: 0.4, ease: 'easeInOut' }
+              }}
+              className='w-full'
+            >
               <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-                {category.items.map((project, projectIndex) => (
-                  <ProjectCard key={projectIndex} {...project} />
-                ))}
+                {content.projects.categories[activeTabIndex].items.map(
+                  (project, projectIndex) => (
+                    <ProjectCard key={projectIndex} {...project} />
+                  )
+                )}
               </div>
-            </div>
-          ))}
-        </motion.div>
-      </motion.div>
-
-      {/* Hidden div for measuring active category height */}
-      <div className='absolute invisible w-full' ref={heightMeasureRef}>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-          {content.projects.categories[activeTabIndex].items.map(
-            (project, projectIndex) => (
-              <ProjectCard key={projectIndex} {...project} />
-            )
-          )}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
+
       <button
         onClick={() => scrollToSection('projects')}
         className='text-sm font-medium transition-colors hover:text-mint text-muted-foreground cursor-pointer'
