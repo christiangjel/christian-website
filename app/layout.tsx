@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import '@/app/globals.css'
 import localFont from 'next/font/local'
 import { ThemeProvider } from '@/components/layout/theme/theme-provider'
-import PageWrapper from '@/components/PageWrapper'
+import PageWrapper from '@/components/layout/pageWrapper/pageWrapper'
 
 const fontNormal = localFont({
   src: './mono-normal.woff2',
