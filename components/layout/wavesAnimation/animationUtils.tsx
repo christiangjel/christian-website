@@ -113,6 +113,10 @@ export const runApp = (
     .initScene()
     .then(animate)
     .then(() => {
+      // Signal animation is ready (used in pageWrapper)
+      const completeEvent = new CustomEvent('webgl-load-complete')
+      window.dispatchEvent(completeEvent)
+
       // debugging info
       renderer.info.reset()
       console.log('Renderer info', renderer.info)

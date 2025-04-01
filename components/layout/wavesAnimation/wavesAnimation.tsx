@@ -150,10 +150,6 @@ export const WavesAnimation = () => {
         mesh = new THREE.Points(geometry, material)
         scene.add(mesh)
         mesh.position.set(-0.1, -4.4, 0)
-
-        // Signal animation is ready
-        const completeEvent = new CustomEvent('webgl-load-complete')
-        window.dispatchEvent(completeEvent)
       }
       // updateScene: (delta: number, elapsed: number) => {
       //   // Animation update logic
