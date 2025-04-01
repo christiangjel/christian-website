@@ -9,7 +9,7 @@ import {
   createRenderer,
   runApp,
   getDefaultUniforms
-} from './animationUtils'
+} from './animation-utils'
 
 const vertexShader = `
   #define PI 3.14159265359

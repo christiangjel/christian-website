@@ -187,7 +187,7 @@ export default function ContactForm() {
         >
           Message
         </label>
-        <div className='bg-background'>
+        <div className='bg-background max-w-full overflow-hidden'>
           <textarea
             id='message'
             name='message'

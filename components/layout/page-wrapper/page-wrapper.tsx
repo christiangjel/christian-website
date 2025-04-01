@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { WavesAnimation } from '@/components/layout/wavesAnimation/wavesAnimation'
+import { WavesAnimation } from '@/components/layout/waves-animation/waves-animation'
 import { Loader2 } from 'lucide-react'
 
 interface PageWrapperProps {
