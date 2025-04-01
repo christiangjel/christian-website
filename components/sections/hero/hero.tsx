@@ -9,7 +9,10 @@ import content from '@/data/content.json'
 
 export const Hero = () => {
   return (
-    <section className='py-16 md:py-24 flex flex-col items-center text-center'>
+    <section
+      id='hero'
+      className='py-16 md:py-24 flex flex-col items-center text-center'
+    >
       <Badge className='mb-4 bg-mint text-mint-foreground pointer-events-none'>
         {content.hero.badge}
       </Badge>
