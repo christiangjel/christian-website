@@ -3,7 +3,6 @@
 import MainNav from '@/components/layout/navigation/main-nav'
 import MobileNav from '@/components/layout/navigation/mobile-nav'
 import { scrollToSection } from '@/lib/utils'
-// import ThemeToggle from '@/components/layout/theme/theme-toggle'
 
 export const Header = () => {
   return (
@@ -20,7 +19,6 @@ export const Header = () => {
         </button>
         <div className='flex items-center gap-4'>
           <MainNav />
-          {/* <ThemeToggle className='hidden md:flex' /> */}
           <MobileNav />
         </div>
       </div>

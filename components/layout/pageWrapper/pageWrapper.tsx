@@ -34,7 +34,7 @@ const PageWrapper = ({ children }: PageWrapperProps) => {
     <>
       {/* preloader */}
       <div
-        className={`fixed inset-0 z-50 flex flex-col items-center bg-background justify-center transition-opacity duration-500 ${
+        className={`fixed inset-0 flex flex-col items-center bg-background justify-center transition-opacity duration-500 ${
           isAnimationReady ? 'opacity-0' : 'opacity-100'
         }`}
         style={{ pointerEvents: isAnimationReady ? 'none' : 'auto' }}

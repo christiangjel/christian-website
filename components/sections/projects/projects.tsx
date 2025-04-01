@@ -70,7 +70,7 @@ export const Projects = () => {
       <div className='relative grid w-full bg-transparent rounded-lg md:grid-cols-4 grid-cols-2'>
         {/* Sliding background for active tab */}
         <motion.div
-          className='absolute z-0 rounded bg-secondary'
+          className='absolute z-10 rounded bg-secondary'
           initial={false}
           animate={{
             left: tabBounds.left,
@@ -92,7 +92,7 @@ export const Projects = () => {
               tabRefs.current[index] = el
             }}
             className={
-              'relative z-10 flex items-center justify-center p-2 text-sm min-h-[40px]'
+              'relative z-20 flex items-center justify-center p-2 text-sm min-h-[40px]'
             }
             onClick={() => handleTabChange(index)}
           >

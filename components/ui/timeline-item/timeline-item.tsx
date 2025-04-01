@@ -27,7 +27,7 @@ export const TimelineItem = ({
           : ' before:absolute before:left-0 before:top-3 before:h-full before:w-[2px] before:bg-mint/30'
       }`}
     >
-      <div className='absolute w-4 h-4 bg-mint rounded-full -left-[8px] top-2 border-2 border-background z-10'></div>
+      <div className='absolute w-4 h-4 bg-mint rounded-full -left-[8px] top-2 border-2 border-background z-30'></div>
       <div className='pl-6'>
         <div className='text-sm text-muted-foreground mb-1'>{date}</div>
         <h3 className='font-bold text-lg'>{title}</h3>
