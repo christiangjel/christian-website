@@ -6,14 +6,12 @@ import PageWrapper from '@/components/layout/pageWrapper/pageWrapper'
 
 const fontNormal = localFont({
   src: './mono-normal.woff2',
-  variable: '--font-normal',
-  display: 'swap'
+  variable: '--font-normal'
 })
 
 const fontBold = localFont({
   src: './mono-bold.woff2',
-  variable: '--font-bold',
-  display: 'swap'
+  variable: '--font-bold'
 })
 
 export const metadata = {
@@ -64,7 +62,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           disableTransitionOnChange
         >
           <PageWrapper>{children}</PageWrapper>
-          {/* {children} */}
         </ThemeProvider>
       </body>
     </html>

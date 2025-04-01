@@ -16,28 +16,32 @@ const PageWrapper = ({ children }: PageWrapperProps) => {
     const handleWebGLComplete = () => {
       setIsAnimationReady(true)
     }
-    // eslint-disable-next-line
-    window.addEventListener('webgl-load-complete' as any, handleWebGLComplete)
+
+    window.addEventListener(
+      'webgl-load-complete',
+      handleWebGLComplete as EventListener
+    )
 
     return () => {
       window.removeEventListener(
-        // eslint-disable-next-line
-        'webgl-load-complete' as any,
-        handleWebGLComplete
+        'webgl-load-complete',
+        handleWebGLComplete as EventListener
       )
     }
   }, [])
 
   return (
     <>
+      {/* preloader */}
       <div
-        className={`fixed inset-0 z-50 flex flex-col items-center justify-center transition-opacity duration-500 ${
+        className={`fixed inset-0 z-50 flex flex-col items-center bg-background justify-center transition-opacity duration-500 ${
           isAnimationReady ? 'opacity-0' : 'opacity-100'
         }`}
+        style={{ pointerEvents: isAnimationReady ? 'none' : 'auto' }}
       >
-        <Loader2 className='h-12 w-12 animate-spin text-[#64f2c2]' />
+        <Loader2 className='h-12 w-12 animate-spin text-mint' />
       </div>
-
+      {/* page content */}
       <div
         className={`relative min-h-screen bg-background transition-opacity duration-200 ${
           isAnimationReady ? 'opacity-100' : 'opacity-0'
