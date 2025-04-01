@@ -84,7 +84,7 @@ export default function ContactForm() {
           >
             Name
           </label>
-          <div className='bg-background'>
+          <div className='bg-background rounded-md'>
             <input
               id='name'
               name='name'
@@ -119,7 +119,7 @@ export default function ContactForm() {
           >
             Email
           </label>
-          <div className='bg-background'>
+          <div className='bg-background rounded-md'>
             <input
               id='email'
               name='email'
@@ -153,7 +153,7 @@ export default function ContactForm() {
         >
           Subject
         </label>
-        <div className='bg-background'>
+        <div className='bg-background rounded-md'>
           <input
             id='subject'
             name='subject'
@@ -187,7 +187,7 @@ export default function ContactForm() {
         >
           Message
         </label>
-        <div className='bg-background max-w-full overflow-hidden'>
+        <div className='rounded-md bg-background max-w-full overflow-hidden'>
           <textarea
             id='message'
             name='message'

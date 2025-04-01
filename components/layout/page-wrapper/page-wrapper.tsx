@@ -43,7 +43,7 @@ const PageWrapper = ({ children }: PageWrapperProps) => {
       </div>
       {/* page content */}
       <div
-        className={`relative min-h-screen bg-background transition-opacity duration-200 ${
+        className={`relative w-full min-h-screen bg-background transition-opacity duration-200 ${
           isAnimationReady ? 'opacity-100' : 'opacity-0'
         }`}
       >
