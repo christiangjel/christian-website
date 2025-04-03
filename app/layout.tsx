@@ -1,18 +1,8 @@
 import type { ReactNode } from 'react'
 import '@/app/globals.css'
-import localFont from 'next/font/local'
 import { ThemeProvider } from '@/components/layout/theme/theme-provider'
 import PageWrapper from '@/components/layout/page-wrapper/page-wrapper'
-
-const fontNormal = localFont({
-  src: './mono-normal.woff2',
-  variable: '--font-normal'
-})
-
-const fontBold = localFont({
-  src: './mono-bold.woff2',
-  variable: '--font-bold'
-})
+import { fontNormal, fontBold } from '@/app/fonts'
 
 export const metadata = {
   title: 'Christian Gjelstrup | Frontend Engineer',
@@ -49,17 +39,13 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang='en'
-      suppressHydrationWarning
-      className={`${fontNormal.variable} ${fontBold.variable}`}
-    >
-      <body suppressHydrationWarning>
+    <html lang='en' className={`${fontNormal.variable} ${fontBold.variable}`}>
+      <body>
         <ThemeProvider
           attribute='class'
           defaultTheme='dark'
-          enableSystem
-          disableTransitionOnChange
+          // enableSystem
+          // disableTransitionOnChange
         >
           <PageWrapper>{children}</PageWrapper>
         </ThemeProvider>
