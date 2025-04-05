@@ -62,7 +62,9 @@
           "Shadcn UI",
           "Material UI",
           "Tailwind CSS",
-          "Bootstrap"
+          "Bootstrap",
+          "Framer Motion",
+          "ThreeJS"
         ]
       },
       {
@@ -77,6 +79,8 @@
           "Linters & Formatters",
           "Bundlers & Build Tools",
           "Headless CMS",
+          "SEO",
+          "WCAG",
           "Azure DevOps",
           "Scrum",
           "Jira",
