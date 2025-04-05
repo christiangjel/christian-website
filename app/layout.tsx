@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 import '@/app/globals.css'
+import { fontNormal, fontBold } from '@/app/fonts'
 import { ThemeProvider } from '@/components/layout/theme/theme-provider'
 import PageWrapper from '@/components/layout/page-wrapper/page-wrapper'
-import { fontNormal, fontBold } from '@/app/fonts'
 
 export const metadata = {
   title: 'Christian Gjelstrup | Frontend Engineer',
@@ -39,13 +39,17 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='en' className={`${fontNormal.variable} ${fontBold.variable}`}>
+    <html
+      lang='en'
+      className={`${fontNormal.variable} ${fontBold.variable}`}
+      suppressHydrationWarning
+    >
+      {/*  ignore attribute mismatches caused by extensions */}
       <body suppressHydrationWarning>
         <ThemeProvider
           attribute='class'
           defaultTheme='dark'
-          // enableSystem
-          // disableTransitionOnChange
+          enableSystem={false}
         >
           <PageWrapper>{children}</PageWrapper>
         </ThemeProvider>
