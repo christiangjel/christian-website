@@ -23,26 +23,40 @@ export const ProjectCard = ({
   link = '#'
 }: ProjectCardProps) => {
   return (
-    <Link href={link} className='block' target='_blank'>
+    <Link
+      href={link}
+      className='block'
+      target='_blank'
+      rel='noopener noreferrer'
+      aria-label={`View project: ${title}`}
+    >
       <Card className='border-mint/20 h-full transition-colors hover:border-mint hover:bg-mint/5 hover:shadow-md bg-background backdrop-blur supports-[backdrop-filter]:bg-background/60'>
         <CardContent className='p-6'>
           <h3 className='font-bold text-lg mb-2 group-hover:text-mint-dark'>
             {title}
           </h3>
-          <p className='text-muted-foreground mb-1'>
-            <span className='font-medium'>Role:</span> {role}
-          </p>
-          <p className='text-muted-foreground mb-1'>
-            <span className='font-medium'>Client:</span> {client}
-          </p>
-          <p className='text-muted-foreground mb-4'>
-            <span className='font-medium'>Agency:</span> {agency}
-          </p>
+          <dl>
+            <div className='mb-1'>
+              <dt className='font-medium inline'>Role: </dt>
+              <dd className='text-muted-foreground inline'>{role}</dd>
+            </div>
+            <div className='mb-1'>
+              <dt className='font-medium inline'>Client: </dt>
+              <dd className='text-muted-foreground inline'>{client}</dd>
+            </div>
+            <div className='mb-4'>
+              <dt className='font-medium inline'>Agency: </dt>
+              <dd className='text-muted-foreground inline'>{agency}</dd>
+            </div>
+          </dl>
           <p className='text-muted-foreground'>{description}</p>
           {awards && awards.length > 0 && (
             <div className='mt-4'>
               <h4 className='font-bold text-md mb-2'>Awards:</h4>
-              <ul className='list-disc list-inside text-muted-foreground'>
+              <ul
+                className='list-disc list-inside text-muted-foreground'
+                aria-label='Project awards'
+              >
                 {awards.map((award, index) => (
                   <li key={index}>{award}</li>
                 ))}

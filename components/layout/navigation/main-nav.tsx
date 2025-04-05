@@ -12,15 +12,22 @@ const items = [
 
 export default function MainNav() {
   return (
-    <nav className='hidden md:flex items-center gap-6'>
+    <nav
+      className='hidden md:flex items-center gap-6'
+      aria-label='Main navigation'
+    >
       {items.map((item) => (
-        <button
+        <a
           key={item.href}
-          onClick={() => scrollToSection(item.href)}
+          onClick={(e) => {
+            e.preventDefault()
+            scrollToSection(item.href)
+          }}
+          href={`#${item.href}`} // Provides fallback for keyboard navigation
           className='text-sm font-medium transition-colors hover:text-mint text-muted-foreground cursor-pointer'
         >
           {item.title}
-        </button>
+        </a>
       ))}
     </nav>
   )

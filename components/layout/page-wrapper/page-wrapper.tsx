@@ -9,12 +9,12 @@ interface PageWrapperProps {
 }
 
 const PageWrapper = ({ children }: PageWrapperProps) => {
-  const [isAnimationReady, setIsAnimationReady] = useState(false)
+  const [isWebGLReady, setIsWebGLReady] = useState(false)
 
   // Listen for webgl-load-complete event from animationUtils
   useEffect(() => {
     const handleWebGLComplete = () => {
-      setIsAnimationReady(true)
+      setIsWebGLReady(true)
     }
 
     window.addEventListener(
@@ -35,16 +35,16 @@ const PageWrapper = ({ children }: PageWrapperProps) => {
       {/* preloader */}
       <div
         className={`fixed inset-0 flex flex-col items-center bg-background justify-center transition-opacity duration-500 ${
-          isAnimationReady ? 'opacity-0' : 'opacity-100'
+          isWebGLReady ? 'opacity-0' : 'opacity-100'
         }`}
-        style={{ pointerEvents: isAnimationReady ? 'none' : 'auto' }}
+        style={{ pointerEvents: isWebGLReady ? 'none' : 'auto' }}
       >
         <Loader2 className='h-12 w-12 animate-spin text-mint' />
       </div>
       {/* page content */}
       <div
         className={`relative w-full min-h-screen bg-background transition-opacity duration-200 ${
-          isAnimationReady ? 'opacity-100' : 'opacity-0'
+          isWebGLReady ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <WavesAnimation />

@@ -6,11 +6,15 @@ import { scrollToSection } from '@/lib/utils'
 
 export const Header = () => {
   return (
-    <header className='sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
+    <header
+      className='sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'
+      role='banner'
+    >
       <div className='container flex h-16 items-center justify-between'>
         <button
           className='font-bold text-xl'
           onClick={() => scrollToSection('hero')}
+          aria-label='Go to top of page'
         >
           <span className='bg-gradient-to-r from-mint to-mint/70 bg-clip-text text-transparent'>
             Christian
