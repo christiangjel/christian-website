@@ -106,7 +106,7 @@ export default function ContactForm() {
               id='name'
               name='name'
               type='text'
-              className='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base sm:text-sm ring-offset-background file:border-0 file:bg-background file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
+              className='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base sm:text-sm placeholder:text-sm ring-offset-background file:border-0 file:bg-background file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
               placeholder='Your name'
               value={formData.name}
               onChange={handleChange}
@@ -150,7 +150,7 @@ export default function ContactForm() {
               id='email'
               name='email'
               type='email'
-              className='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base sm:text-sm ring-offset-background file:border-0 file:bg-background file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
+              className='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base sm:text-sm placeholder:text-sm ring-offset-background file:border-0 file:bg-background file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
               placeholder='Your email'
               value={formData.email}
               onChange={handleChange}
@@ -193,7 +193,7 @@ export default function ContactForm() {
             id='subject'
             name='subject'
             type='text'
-            className='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base sm:text-sm ring-offset-background file:border-0 file:bg-background file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
+            className='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base sm:text-sm placeholder:text-sm ring-offset-background file:border-0 file:bg-background file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
             placeholder='Subject of your message'
             value={formData.subject}
             onChange={handleChange}
@@ -235,7 +235,7 @@ export default function ContactForm() {
           <textarea
             id='message'
             name='message'
-            className='flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-base sm:text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
+            className='flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-base sm:text-sm placeholder:text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50'
             placeholder='Your message'
             value={formData.message}
             onChange={handleChange}
