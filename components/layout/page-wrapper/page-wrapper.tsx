@@ -31,26 +31,27 @@ const PageWrapper = ({ children }: PageWrapperProps) => {
   }, [])
 
   return (
-    <>
+    <div className='bg-background'>
       {/* preloader */}
       <div
-        className={`fixed inset-0 flex flex-col items-center bg-background justify-center transition-opacity duration-500 ${
+        className={`fixed inset-0 flex flex-col items-center justify-center transition-opacity duration-500 ${
           isWebGLReady ? 'opacity-0' : 'opacity-100'
         }`}
         style={{ pointerEvents: isWebGLReady ? 'none' : 'auto' }}
       >
         <Loader2 className='h-12 w-12 animate-spin text-mint' />
       </div>
+
       {/* page content */}
       <div
-        className={`relative w-full min-h-screen bg-background transition-opacity duration-200 ${
+        className={`relative w-full min-h-screen transition-opacity duration-200 ${
           isWebGLReady ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <WavesAnimation />
         {children}
       </div>
-    </>
+    </div>
   )
 }
 
