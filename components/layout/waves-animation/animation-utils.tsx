@@ -66,9 +66,8 @@ export const runApp = (
   enableAnimation = false,
   // eslint-disable-next-line
   uniforms: any = getDefaultUniforms()
-  // composer: null = null
 ): ThreeJSApp => {
-  // Create the HTML container, styles defined in index.html
+  // Create the HTML container
   const container = document.getElementById('container') as HTMLElement
   container.appendChild(renderer.domElement)
 
