@@ -345,6 +345,14 @@
         "label": "Other",
         "items": [
           {
+            "title": "The Black Cheetahs - Official Website",
+            "role": "Frontend Developer",
+            "client": "The Black Cheetahs",
+            "agency": "None",
+            "description": "Developed SPA for The Black Cheetahs, showcasing their music and media content.",
+            "link": "https://www.theblackcheetahs.com/"
+          },
+          {
             "title": "Unilever Fragrant Flowers",
             "role": "Frontend Developer",
             "client": "Unilever",
