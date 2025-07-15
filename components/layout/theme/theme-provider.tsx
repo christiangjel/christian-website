@@ -1,22 +1,34 @@
 'use client'
-import * as React from 'react'
+
+import React from 'react'
 import {
   ThemeProvider as NextThemesProvider,
   type ThemeProviderProps
 } from 'next-themes'
 
-export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-  const [mounted, setMounted] = React.useState(false)
-
-  // useEffect only runs on the client, so now we can safely show the UI
-  React.useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  // If not mounted yet, render a minimal version that matches server rendering
-  if (!mounted) {
-    return <div className='dark'>{children}</div>
-  }
-
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+interface CustomThemeProviderProps extends ThemeProviderProps {
+  children: React.ReactNode
 }
+
+export const ThemeProvider = React.memo<CustomThemeProviderProps>(
+  ({ children, ...props }) => {
+    const [mounted, setMounted] = React.useState(false)
+
+    React.useEffect(() => {
+      setMounted(true)
+    }, [])
+
+    // Prevent hydration mismatch by rendering a consistent fallback
+    if (!mounted) {
+      return (
+        <div className='dark' suppressHydrationWarning>
+          {children}
+        </div>
+      )
+    }
+
+    return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+  }
+)
+
+ThemeProvider.displayName = 'ThemeProvider'

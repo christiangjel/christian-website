@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { WavesAnimation } from '@/components/layout/waves-animation/waves-animation'
 import { Loader2 } from 'lucide-react'
 
@@ -8,27 +8,32 @@ interface PageWrapperProps {
   children: React.ReactNode
 }
 
-const PageWrapper = ({ children }: PageWrapperProps) => {
+const WEBGL_LOAD_EVENT = 'webgl-load-complete'
+
+const PageWrapper = React.memo<PageWrapperProps>(({ children }) => {
   const [isWebGLReady, setIsWebGLReady] = useState(false)
 
-  // Listen for webgl-load-complete event from animationUtils
   useEffect(() => {
-    const handleWebGLComplete = () => {
+    const handleWebGLComplete = (): void => {
       setIsWebGLReady(true)
     }
 
     window.addEventListener(
-      'webgl-load-complete',
+      WEBGL_LOAD_EVENT,
       handleWebGLComplete as EventListener
     )
 
     return () => {
       window.removeEventListener(
-        'webgl-load-complete',
+        WEBGL_LOAD_EVENT,
         handleWebGLComplete as EventListener
       )
     }
   }, [])
+
+  const preloaderStyle: React.CSSProperties = {
+    pointerEvents: isWebGLReady ? 'none' : 'auto'
+  }
 
   return (
     <div className='bg-background'>
@@ -37,7 +42,8 @@ const PageWrapper = ({ children }: PageWrapperProps) => {
         className={`fixed inset-0 flex flex-col items-center justify-center transition-opacity duration-500 ${
           isWebGLReady ? 'opacity-0' : 'opacity-100'
         }`}
-        style={{ pointerEvents: isWebGLReady ? 'none' : 'auto' }}
+        style={preloaderStyle}
+        aria-hidden={isWebGLReady}
       >
         <Loader2 className='h-12 w-12 animate-spin text-mint' />
       </div>
@@ -53,6 +59,8 @@ const PageWrapper = ({ children }: PageWrapperProps) => {
       </div>
     </div>
   )
-}
+})
+
+PageWrapper.displayName = 'PageWrapper'
 
 export default PageWrapper

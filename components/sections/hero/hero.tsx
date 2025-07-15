@@ -7,7 +7,11 @@ import { Badge } from '@/components/ui/badge'
 import { scrollToSection } from '@/lib/utils'
 import content from '@/data/content.json'
 
-export const Hero = () => {
+export const Hero = (): React.JSX.Element => {
+  const titleWords = content.hero.title.split(' ')
+  const firstWord = titleWords[0]
+  const restOfTitle = titleWords.slice(1).join(' ')
+
   return (
     <section
       id='hero'
@@ -24,10 +28,7 @@ export const Hero = () => {
         id='hero-heading'
         className='text-4xl md:text-6xl font-bold tracking-tight mb-6'
       >
-        <span className='gradient-text'>
-          {content.hero.title.split(' ')[0]}
-        </span>{' '}
-        {content.hero.title.split(' ').slice(1).join(' ')}
+        <span className='gradient-text'>{firstWord}</span> {restOfTitle}
       </h1>
       <p className='text-xl md:text-2xl text-muted-foreground max-w-[750px] mb-8'>
         {content.hero.description}

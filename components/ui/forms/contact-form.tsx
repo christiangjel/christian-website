@@ -8,30 +8,70 @@ import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { FormInput } from '@/components/ui/forms/form-input'
 
+const FORMSPREE_FORM_ID = 'xgvaojga'
+
+const VALIDATION_RULES = {
+  name: {
+    minLength: 2,
+    maxLength: 50,
+    pattern: /^[A-Za-z\s]+$/
+  },
+  subject: {
+    minLength: 3,
+    maxLength: 100
+  },
+  message: {
+    minLength: 10,
+    maxLength: 1000
+  }
+} as const
+
 const contactSchema = z.object({
   name: z
     .string()
     .min(1, 'Name is required')
-    .min(2, 'Name must be at least 2 characters')
-    .max(50, 'Name cannot exceed 50 characters')
-    .regex(/^[A-Za-z\s]+$/, 'Name can only contain letters and spaces'),
+    .min(
+      VALIDATION_RULES.name.minLength,
+      `Name must be at least ${VALIDATION_RULES.name.minLength} characters`
+    )
+    .max(
+      VALIDATION_RULES.name.maxLength,
+      `Name cannot exceed ${VALIDATION_RULES.name.maxLength} characters`
+    )
+    .regex(
+      VALIDATION_RULES.name.pattern,
+      'Name can only contain letters and spaces'
+    ),
   email: z.string().min(1, 'Email is required').email('Invalid email address'),
   subject: z
     .string()
     .min(1, 'Subject is required')
-    .min(3, 'Subject must be at least 3 characters')
-    .max(100, 'Subject cannot exceed 100 characters'),
+    .min(
+      VALIDATION_RULES.subject.minLength,
+      `Subject must be at least ${VALIDATION_RULES.subject.minLength} characters`
+    )
+    .max(
+      VALIDATION_RULES.subject.maxLength,
+      `Subject cannot exceed ${VALIDATION_RULES.subject.maxLength} characters`
+    ),
   message: z
     .string()
     .min(1, 'Message is required')
-    .min(10, 'Message must be at least 10 characters')
-    .max(1000, 'Message cannot exceed 1000 characters')
+    .min(
+      VALIDATION_RULES.message.minLength,
+      `Message must be at least ${VALIDATION_RULES.message.minLength} characters`
+    )
+    .max(
+      VALIDATION_RULES.message.maxLength,
+      `Message cannot exceed ${VALIDATION_RULES.message.maxLength} characters`
+    )
 })
 
 type ContactFormData = z.infer<typeof contactSchema>
 
-export default function ContactForm() {
-  const [formspreeState, handleFormspreeSubmit] = useFormspree('xgvaojga')
+const ContactForm = (): React.JSX.Element => {
+  const [formspreeState, handleFormspreeSubmit] =
+    useFormspree(FORMSPREE_FORM_ID)
   const {
     register,
     handleSubmit,
@@ -57,7 +97,6 @@ export default function ContactForm() {
   }, [formspreeState.succeeded, reset])
 
   React.useEffect(() => {
-    // Check if the errors object exists (is truthy)
     if (formspreeState.errors) {
       console.error('Formspree submission errors:', formspreeState.errors)
     }
@@ -76,14 +115,13 @@ export default function ContactForm() {
     )
   }
 
-  const nameDescriptionId = 'name-description'
-  const emailDescriptionId = 'email-description'
-  const subjectDescriptionId = 'subject-description'
-  const messageDescriptionId = 'message-description'
+  const hasFormErrors = isSubmitted && !isValid && !formspreeState.succeeded
+  const hasSubmissionErrors = formspreeState.errors && !formspreeState.succeeded
+  const isFormSubmitting = formspreeState.submitting || isSubmitting
 
   return (
     <form className='space-y-6' onSubmit={handleSubmit(onSubmit)} noValidate>
-      {isSubmitted && !isValid && !formspreeState.succeeded && (
+      {hasFormErrors && (
         <div className='bg-background'>
           <div
             className='p-3 rounded-md bg-red-100 text-red-800 border border-red-300 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800'
@@ -95,8 +133,7 @@ export default function ContactForm() {
         </div>
       )}
 
-      {/* Check if the errors object exists (is truthy) */}
-      {formspreeState.errors && !formspreeState.succeeded && (
+      {hasSubmissionErrors && (
         <div className='bg-background'>
           <div
             className='p-3 rounded-md bg-red-100 text-red-800 border border-red-300 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800'
@@ -116,10 +153,10 @@ export default function ContactForm() {
           register={register}
           error={errors.name}
           required
-          minLength={2}
-          maxLength={50}
+          minLength={VALIDATION_RULES.name.minLength}
+          maxLength={VALIDATION_RULES.name.maxLength}
           pattern='[A-Za-z\s]+'
-          descriptionId={nameDescriptionId}
+          descriptionId='name-description'
         />
         <FormInput
           id='email'
@@ -129,7 +166,7 @@ export default function ContactForm() {
           register={register}
           error={errors.email}
           required
-          descriptionId={emailDescriptionId}
+          descriptionId='email-description'
         />
       </div>
       <FormInput
@@ -140,9 +177,9 @@ export default function ContactForm() {
         register={register}
         error={errors.subject}
         required
-        minLength={3}
-        maxLength={100}
-        descriptionId={subjectDescriptionId}
+        minLength={VALIDATION_RULES.subject.minLength}
+        maxLength={VALIDATION_RULES.subject.maxLength}
+        descriptionId='subject-description'
       />
       <FormInput
         id='message'
@@ -152,25 +189,23 @@ export default function ContactForm() {
         error={errors.message}
         isTextarea={true}
         required
-        minLength={10}
-        maxLength={1000}
-        descriptionId={messageDescriptionId}
+        minLength={VALIDATION_RULES.message.minLength}
+        maxLength={VALIDATION_RULES.message.maxLength}
+        descriptionId='message-description'
       />
 
       <Button
         type='submit'
         className='bg-mint hover:opacity-90 transition-opacity text-mint-foreground'
-        disabled={formspreeState.submitting || isSubmitting}
+        disabled={isFormSubmitting}
         aria-label={
-          formspreeState.submitting || isSubmitting
-            ? 'Sending your message...'
-            : 'Send message'
+          isFormSubmitting ? 'Sending your message...' : 'Send message'
         }
       >
-        {formspreeState.submitting || isSubmitting
-          ? 'Sending...'
-          : 'Send Message'}
+        {isFormSubmitting ? 'Sending...' : 'Send Message'}
       </Button>
     </form>
   )
 }
+
+export default ContactForm

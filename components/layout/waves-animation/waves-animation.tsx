@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 
 // Core boilerplate code deps
@@ -11,7 +11,7 @@ import {
   getDefaultUniforms
 } from './animation-utils'
 
-const vertexShader = `
+const VERTEX_SHADER = `
   #define PI 3.14159265359
 
   uniform float u_time;
@@ -74,7 +74,7 @@ const vertexShader = `
   }
 `
 
-const fragmentShader = `
+const FRAGMENT_SHADER = `
   #ifdef GL_ES
   precision mediump float;
   #endif
@@ -91,11 +91,47 @@ const fragmentShader = `
   }
 `
 
+const ANIMATION_CONFIG = {
+  geometry: {
+    width: 4,
+    height: 4,
+    widthSegments: 128,
+    heightSegments: 128
+  },
+  camera: {
+    fov: 60,
+    near: 1,
+    far: 100,
+    position: { x: 0, y: -7, z: 0 },
+    lookAt: { x: 0, y: 33.2, z: 16 }
+  },
+  mesh: {
+    position: { x: -0.1, y: -4.4, z: 0 }
+  },
+  uniforms: {
+    u_pointsize: 1.9,
+    // wave 1
+    u_noise_freq_1: 3.0,
+    u_noise_amp_1: 0.2,
+    u_spd_modifier_1: 0.8,
+    // wave 2
+    u_noise_freq_2: 2.0,
+    u_noise_amp_2: 0.3,
+    u_spd_modifier_2: 0.6
+  }
+} as const
+
 interface CustomUniforms {
   [key: string]: THREE.IUniform<unknown>
 }
 
-export const WavesAnimation = () => {
+interface SceneComponents {
+  geometry: THREE.PlaneGeometry
+  material: THREE.ShaderMaterial
+  mesh: THREE.Points
+}
+
+export const WavesAnimation = React.memo((): React.JSX.Element => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -110,15 +146,15 @@ export const WavesAnimation = () => {
     // Setup uniforms for the scene
     const uniforms: CustomUniforms = {
       ...getDefaultUniforms(),
-      u_pointsize: { value: 1.9 },
+      u_pointsize: { value: ANIMATION_CONFIG.uniforms.u_pointsize },
       // wave 1
-      u_noise_freq_1: { value: 3.0 },
-      u_noise_amp_1: { value: 0.2 },
-      u_spd_modifier_1: { value: 0.8 },
+      u_noise_freq_1: { value: ANIMATION_CONFIG.uniforms.u_noise_freq_1 },
+      u_noise_amp_1: { value: ANIMATION_CONFIG.uniforms.u_noise_amp_1 },
+      u_spd_modifier_1: { value: ANIMATION_CONFIG.uniforms.u_spd_modifier_1 },
       // wave 2
-      u_noise_freq_2: { value: 2.0 },
-      u_noise_amp_2: { value: 0.3 },
-      u_spd_modifier_2: { value: 0.6 }
+      u_noise_freq_2: { value: ANIMATION_CONFIG.uniforms.u_noise_freq_2 },
+      u_noise_amp_2: { value: ANIMATION_CONFIG.uniforms.u_noise_amp_2 },
+      u_spd_modifier_2: { value: ANIMATION_CONFIG.uniforms.u_spd_modifier_2 }
     }
 
     // Create the scene
@@ -128,32 +164,47 @@ export const WavesAnimation = () => {
     const renderer = createRenderer({ antialias: true, alpha: true })
 
     // Create the camera
-    const camera = createCamera(60, 1, 100, { x: 0, y: -7, z: 0 })
-    camera.lookAt(0, 33.2, 16)
+    const camera = createCamera(
+      ANIMATION_CONFIG.camera.fov,
+      ANIMATION_CONFIG.camera.near,
+      ANIMATION_CONFIG.camera.far,
+      ANIMATION_CONFIG.camera.position
+    )
+    camera.lookAt(
+      ANIMATION_CONFIG.camera.lookAt.x,
+      ANIMATION_CONFIG.camera.lookAt.y,
+      ANIMATION_CONFIG.camera.lookAt.z
+    )
 
     // Variables to store our components
-    let geometry: THREE.PlaneGeometry
-    let material: THREE.ShaderMaterial
-    let mesh: THREE.Points
+    let sceneComponents: SceneComponents | null = null
 
     const app = {
       initScene: async () => {
         // Mesh
-        geometry = new THREE.PlaneGeometry(4, 4, 128, 128)
+        const geometry = new THREE.PlaneGeometry(
+          ANIMATION_CONFIG.geometry.width,
+          ANIMATION_CONFIG.geometry.height,
+          ANIMATION_CONFIG.geometry.widthSegments,
+          ANIMATION_CONFIG.geometry.heightSegments
+        )
 
-        material = new THREE.ShaderMaterial({
+        const material = new THREE.ShaderMaterial({
           uniforms: uniforms,
-          vertexShader: vertexShader,
-          fragmentShader: fragmentShader
+          vertexShader: VERTEX_SHADER,
+          fragmentShader: FRAGMENT_SHADER
         })
 
-        mesh = new THREE.Points(geometry, material)
+        const mesh = new THREE.Points(geometry, material)
         scene.add(mesh)
-        mesh.position.set(-0.1, -4.4, 0)
+        mesh.position.set(
+          ANIMATION_CONFIG.mesh.position.x,
+          ANIMATION_CONFIG.mesh.position.y,
+          ANIMATION_CONFIG.mesh.position.z
+        )
+
+        sceneComponents = { geometry, material, mesh }
       }
-      // updateScene: (delta: number, elapsed: number) => {
-      //   // Animation update logic
-      // }
     }
 
     // Run the app
@@ -161,13 +212,17 @@ export const WavesAnimation = () => {
 
     // Cleanup function
     return () => {
-      if (geometry) geometry.dispose()
-      if (material) material.dispose()
-      if (mesh) {
-        scene.remove(mesh)
-        mesh.geometry.dispose()
-        if (mesh.material) {
-          ;(mesh.material as THREE.Material).dispose()
+      if (sceneComponents) {
+        const { geometry, material, mesh } = sceneComponents
+
+        if (geometry) geometry.dispose()
+        if (material) material.dispose()
+        if (mesh) {
+          scene.remove(mesh)
+          mesh.geometry.dispose()
+          if (mesh.material) {
+            ;(mesh.material as THREE.Material).dispose()
+          }
         }
       }
 
@@ -186,4 +241,6 @@ export const WavesAnimation = () => {
       className='fixed bottom-0 left-0 w-full h-full pointer-events-none z-0'
     />
   )
-}
+})
+
+WavesAnimation.displayName = 'WavesAnimation'

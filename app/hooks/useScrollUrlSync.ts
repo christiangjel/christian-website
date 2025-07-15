@@ -1,44 +1,91 @@
-// 'use client'
+'use client'
 
-// import { useEffect } from 'react'
+import { useEffect } from 'react'
 
-// export const useScrollUrlSync = () => {
-//   useEffect(() => {
-//     const sections = document.querySelectorAll('main section')
+interface ScrollSection {
+  id: string
+  element: HTMLElement
+  offsetTop: number
+}
 
-//     const handleScroll = () => {
-//       // const scrollPosition = window.scrollY + window.innerHeight * 0.2
+const SCROLL_OFFSET = 100
+const THROTTLE_DELAY = 100
 
-//       // Find the section currently in view
-//       const currentSection = Array.from(sections).find((section) => {
-//         const rect = section.getBoundingClientRect()
-//         return rect.top <= window.innerHeight * 0.2 && rect.bottom >= 0
-//       })
+export const useScrollUrlSync = (): void => {
+  useEffect(() => {
+    const sections: ScrollSection[] = []
+    let throttleTimer: NodeJS.Timeout | null = null
 
-//       if (currentSection) {
-//         const sectionId = currentSection.id
-//         // Update URL without page reload
-//         window.history.replaceState(null, '', `#${sectionId}`)
-//       }
-//     }
+    // Initialize sections
+    const initializeSections = (): void => {
+      const sectionIds = [
+        'hero',
+        'about',
+        'skills',
+        'projects',
+        'experience',
+        'education',
+        'contact'
+      ]
 
-//     // Check for initial hash on load
-//     const hash = window.location.hash.replace('#', '')
-//     if (hash) {
-//       const targetSection = document.getElementById(hash)
-//       if (targetSection) {
-//         targetSection.scrollIntoView({
-//           behavior: 'smooth',
-//           block: 'start'
-//         })
-//       }
-//     }
+      sections.length = 0 // Clear existing sections
 
-//     // Add scroll event listener
-//     window.addEventListener('scroll', handleScroll)
+      sectionIds.forEach((id) => {
+        const element = document.getElementById(id)
+        if (element) {
+          sections.push({
+            id,
+            element,
+            offsetTop: element.offsetTop
+          })
+        }
+      })
+    }
 
-//     return () => {
-//       window.removeEventListener('scroll', handleScroll)
-//     }
-//   }, [])
-// }
+    const updateActiveSection = (): void => {
+      const scrollPosition = window.scrollY + SCROLL_OFFSET
+
+      // Find the current section
+      const currentSection = sections
+        .slice()
+        .reverse()
+        .find((section) => scrollPosition >= section.offsetTop)
+
+      if (currentSection) {
+        const newUrl = `#${currentSection.id}`
+        if (window.location.hash !== newUrl) {
+          window.history.replaceState(null, '', newUrl)
+        }
+      }
+    }
+
+    const handleScroll = (): void => {
+      if (throttleTimer) {
+        clearTimeout(throttleTimer)
+      }
+
+      throttleTimer = setTimeout(updateActiveSection, THROTTLE_DELAY)
+    }
+
+    // Initialize sections on mount
+    initializeSections()
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    // Update sections on resize (in case layout changes)
+    const handleResize = (): void => {
+      initializeSections()
+    }
+    window.addEventListener('resize', handleResize)
+
+    // Cleanup
+    return () => {
+      if (throttleTimer) {
+        clearTimeout(throttleTimer)
+      }
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+}
