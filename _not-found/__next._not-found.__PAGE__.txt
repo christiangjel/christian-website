@@ -1,9 +1,9 @@
 1:"$Sreact.fragment"
 2:I[43577,["/christian-website/_next/static/chunks/95e0e223dc144e61.js","/christian-website/_next/static/chunks/fd5546e7f3bfaded.js"],"ClientPageRoot"]
-3:I[55480,["/christian-website/_next/static/chunks/f887ca33972cf977.js","/christian-website/_next/static/chunks/1aa9ca25ede2f4bc.js","/christian-website/_next/static/chunks/86e510875a251d1d.js"],"default"]
+3:I[55480,["/christian-website/_next/static/chunks/f887ca33972cf977.js","/christian-website/_next/static/chunks/7e4cb17b7429c25a.js","/christian-website/_next/static/chunks/df0c9c24f7601eac.js"],"default"]
 6:I[79117,["/christian-website/_next/static/chunks/95e0e223dc144e61.js","/christian-website/_next/static/chunks/fd5546e7f3bfaded.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
-0:{"buildId":"gFEbd91gOGDi30TeIeMCz","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/christian-website/_next/static/chunks/1aa9ca25ede2f4bc.js","async":true}],["$","script","script-1",{"src":"/christian-website/_next/static/chunks/86e510875a251d1d.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"K31b65XDTTSO0RFB9AyJg","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/christian-website/_next/static/chunks/7e4cb17b7429c25a.js","async":true}],["$","script","script-1",{"src":"/christian-website/_next/static/chunks/df0c9c24f7601eac.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
 4:{}
 5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
 8:null
