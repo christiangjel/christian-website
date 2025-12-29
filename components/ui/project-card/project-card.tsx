@@ -26,31 +26,31 @@ const ProjectCard = React.memo<ProjectCardProps>(
         rel='noopener noreferrer'
         aria-label={`View project: ${title}`}
       >
-        <Card className='border-mint/20 h-full transition-colors hover:border-mint hover:bg-mint/5 hover:shadow-md bg-background backdrop-blur supports-[backdrop-filter]:bg-background/60'>
+        <Card className='h-full border-mint/20 bg-background transition-colors backdrop-blur hover:border-mint hover:bg-mint/5 hover:shadow-md supports-[backdrop-filter]:bg-background/60'>
           <CardContent className='p-6'>
-            <h3 className='font-bold text-lg mb-2 group-hover:text-mint-dark'>
+            <h3 className='mb-2 text-lg font-bold group-hover:text-mint-dark'>
               {title}
             </h3>
             <dl>
               <div className='mb-1'>
-                <dt className='font-medium inline'>Role: </dt>
-                <dd className='text-muted-foreground inline'>{role}</dd>
+                <dt className='inline font-medium'>Role: </dt>
+                <dd className='inline text-muted-foreground'>{role}</dd>
               </div>
               <div className='mb-1'>
-                <dt className='font-medium inline'>Client: </dt>
-                <dd className='text-muted-foreground inline'>{client}</dd>
+                <dt className='inline font-medium'>Client: </dt>
+                <dd className='inline text-muted-foreground'>{client}</dd>
               </div>
               <div className='mb-4'>
-                <dt className='font-medium inline'>Agency: </dt>
-                <dd className='text-muted-foreground inline'>{agency}</dd>
+                <dt className='inline font-medium'>Agency: </dt>
+                <dd className='inline text-muted-foreground'>{agency}</dd>
               </div>
             </dl>
             <p className='text-muted-foreground'>{description}</p>
             {hasAwards && (
               <div className='mt-4'>
-                <h4 className='font-bold text-md mb-2'>Awards:</h4>
+                <h4 className='mb-2 text-md font-bold'>Awards:</h4>
                 <ul
-                  className='list-disc list-inside text-muted-foreground'
+                  className='list-inside list-disc text-muted-foreground'
                   aria-label='Project awards'
                 >
                   {awards.map((award, index) => (

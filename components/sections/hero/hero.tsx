@@ -3,7 +3,7 @@
 import { MoveRight, FileDown } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
+// import { Badge } from '@/components/ui/badge'
 import { scrollToSection } from '@/lib/utils'
 import content from '@/data/content.json'
 
@@ -15,32 +15,32 @@ export const Hero = (): React.JSX.Element => {
   return (
     <section
       id='hero'
-      className='py-16 md:py-24 flex flex-col items-center text-center'
+      className='mt-8 flex flex-col items-center py-16 text-center md:py-24'
       aria-labelledby='hero-heading'
     >
-      <Badge
-        className='mb-4 bg-mint text-mint-foreground pointer-events-none'
+      {/* <Badge
+        className='pointer-events-none mb-4 bg-mint'
         aria-hidden='true'
       >
         {content.hero.badge}
-      </Badge>
+      </Badge> */}
       <h1
         id='hero-heading'
-        className='text-4xl md:text-6xl font-bold tracking-tight mb-6'
+        className='mb-6 text-4xl font-bold tracking-tight md:text-6xl'
       >
         <span className='gradient-text'>{firstWord}</span> {restOfTitle}
       </h1>
-      <p className='text-xl md:text-2xl text-muted-foreground max-w-[750px] mb-8'>
+      <p className='mb-8 max-w-[750px] text-xl text-muted-foreground md:text-2xl'>
         {content.hero.description}
       </p>
       <div
-        className='flex flex-col sm:flex-row gap-4'
+        className='flex flex-col gap-4 sm:flex-row'
         role='navigation'
         aria-label='Main navigation'
       >
         <Button
           size='lg'
-          className='bg-mint hover:opacity-90 transition-opacity text-mint-foreground'
+          className='bg-mint text-mint-foreground transition-opacity hover:opacity-90'
           onClick={() => scrollToSection('contact')}
           aria-label='Get in touch'
         >
@@ -67,7 +67,7 @@ export const Hero = (): React.JSX.Element => {
             download
             rel='noopener noreferrer'
           >
-            <FileDown className='h-4 w-4 mr-2' aria-hidden='true' />
+            <FileDown className='mr-2 h-4 w-4' aria-hidden='true' />
             Download CV
           </Link>
         </Button>

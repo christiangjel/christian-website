@@ -2,13 +2,13 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useRef, useEffect } from 'react'
-import { MoveRight } from 'lucide-react'
 import { ProjectCard } from '@/components/ui/project-card/project-card'
 import { scrollToSection } from '@/lib/utils'
 import content from '@/data/content.json'
 
 export const Projects = () => {
   const [activeTabIndex, setActiveTabIndex] = useState(0)
+  const [hoveredTabIndex, setHoveredTabIndex] = useState<number | null>(null)
   const [direction, setDirection] = useState(0)
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
 
@@ -68,20 +68,21 @@ export const Projects = () => {
     <section id='projects' className='py-14' aria-labelledby='projects-heading'>
       <h2
         id='projects-heading'
-        className='text-3xl font-bold tracking-tight mb-12'
+        className='mb-12 text-3xl font-bold tracking-tight'
       >
         {content.projects.title}
       </h2>
 
       {/* Category Tabs */}
       <div
-        className='relative grid w-full bg-transparent rounded-lg md:grid-cols-4 grid-cols-2'
+        className='relative grid w-full grid-cols-2 rounded-lg bg-transparent md:grid-cols-4'
         role='tablist'
         aria-orientation='horizontal'
       >
         {/* Sliding background for active tab */}
         <motion.div
-          className='absolute z-10 rounded bg-secondary'
+          // className='absolute z-10 rounded bg-secondary'
+          className='absolute z-10 rounded border border-mint bg-mint/5 shadow-md backdrop-blur'
           initial={false}
           animate={{
             left: tabBounds.left,
@@ -103,8 +104,14 @@ export const Projects = () => {
             ref={(el) => {
               tabRefs.current[index] = el
             }}
-            className='relative z-20 flex items-center justify-center p-2 text-sm min-h-[40px]'
+            className={`relative z-20 flex min-h-[40px] items-center justify-center p-2 text-sm transition-colors ${
+              hoveredTabIndex === index || activeTabIndex === index
+                ? 'text-mint'
+                : 'text-muted-foreground'
+            }`}
             onClick={() => handleTabChange(index)}
+            onMouseEnter={() => setHoveredTabIndex(index)}
+            onMouseLeave={() => setHoveredTabIndex(null)}
             role='tab'
             id={`tab-${index}`}
             aria-selected={activeTabIndex === index}
@@ -117,7 +124,7 @@ export const Projects = () => {
 
       {/* Project Content with sliding animation */}
       <div
-        className='relative mt-6 mb-6 overflow-hidden'
+        className='relative mb-6 mt-6 overflow-hidden'
         style={{ minHeight: '200px' }}
       >
         <AnimatePresence initial={false} custom={direction} mode='popLayout'>
@@ -136,7 +143,7 @@ export const Projects = () => {
             id={`tabpanel-${activeTabIndex}`}
             aria-labelledby={`tab-${activeTabIndex}`}
           >
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+            <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
               {content.projects.categories[activeTabIndex].items.map(
                 (project, projectIndex) => (
                   <ProjectCard key={projectIndex} {...project} />
@@ -149,11 +156,11 @@ export const Projects = () => {
 
       <button
         onClick={() => scrollToSection('projects')}
-        className='text-sm font-medium transition-colors hover:text-mint text-muted-foreground cursor-pointer'
+        className='cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
         aria-label='View more projects'
       >
-        More Projects
-        <MoveRight className='inline-block ml-2 h-4 w-4' aria-hidden='true' />
+        More Projects -&gt;
+        {/* <MoveRight className='inline-block ml-2 h-4 w-4' aria-hidden='true' /> */}
       </button>
     </section>
   )

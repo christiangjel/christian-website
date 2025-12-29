@@ -5,13 +5,13 @@ export const About = () => {
 
   return (
     <section id='about' className='py-14' aria-labelledby={headingId}>
-      <div className='grid grid-cols-1 md:grid-cols-1 gap-12'>
+      <div className='grid grid-cols-1 gap-12 md:grid-cols-1'>
         <div>
-          <h2 id={headingId} className='text-3xl font-bold tracking-tight mb-6'>
+          <h2 id={headingId} className='mb-6 text-3xl font-bold tracking-tight'>
             {content.about.title}
           </h2>
           {content.about.paragraphs.map((paragraph, index) => (
-            <p key={index} className='text-muted-foreground mb-4'>
+            <p key={index} className='mb-4 text-muted-foreground'>
               {paragraph}
             </p>
           ))}

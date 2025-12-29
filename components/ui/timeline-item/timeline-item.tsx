@@ -24,24 +24,25 @@ export const TimelineItem = ({
       className={`relative pb-10${
         isLast
           ? ''
-          : ' before:absolute before:left-0 before:top-3 before:h-full before:w-[2px] before:bg-mint/30'
+          : ' before:absolute before:left-0 before:top-3 before:h-full before:w-[2px] before:bg-mint/30 before:translate-x-0'
       }`}
       role='listitem'
     >
       <div
-        className='absolute w-4 h-4 bg-mint rounded-full -left-[8px] top-2 border-2 border-background z-30'
+        className='absolute top-2 z-30 h-4 w-4 rounded-full border-2 border-background bg-mint'
+        style={{ left: '1px', transform: 'translateX(-50%)' }}
         aria-hidden='true'
       ></div>
       <div className='pl-6'>
-        <time className='text-sm text-muted-foreground mb-1'>{date}</time>
-        <h3 className='font-bold text-lg'>{title}</h3>
+        <time className='mb-1 text-sm text-muted-foreground'>{date}</time>
+        <h3 className='text-lg font-bold'>{title}</h3>
         {company &&
           (companyLink ? (
             <Link
               href={companyLink}
               target='_blank'
               rel='noopener noreferrer'
-              className='text-muted-foreground hover:text-mint transition-colors'
+              className='text-muted-foreground transition-colors hover:text-mint'
               aria-label={`Company: ${company} (opens in new tab)`}
             >
               {company}

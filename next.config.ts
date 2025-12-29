@@ -8,7 +8,10 @@ const nextConfig: NextConfig = {
   assetPrefix: isProd ? '/christian-website/' : '',
   images: {
     unoptimized: true // Required for GitHub Pages
-  }
+  },
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true
 }
 
 export default nextConfig

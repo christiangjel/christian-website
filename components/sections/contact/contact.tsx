@@ -9,27 +9,37 @@ import content from '@/data/content.json'
 export const Contact = () => {
   return (
     <section id='contact' className='py-14'>
-      <h2 className='text-3xl font-bold tracking-tight mb-12'>
+      <h2 className='mb-12 text-3xl font-bold tracking-tight'>
         {content.contact.title}
       </h2>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
+      <div className='grid grid-cols-1 gap-12 md:grid-cols-2'>
         <div>
-          <p className='text-muted-foreground mb-8'>
+          <p className='mb-8 text-muted-foreground'>
             {content.contact.description}
           </p>
           <div className='space-y-4'>
             <div className='flex items-start gap-3'>
-              <Mail className='h-5 w-5 mt-0.5 text-mint' />
+              <Mail className='mt-0.5 h-5 w-5 text-mint' />
               <div>
                 <h3 className='font-bold'>Email</h3>
-                <p className='text-muted-foreground'>{content.contact.email}</p>
+                <a
+                  href={`mailto:${content.contact.email}`}
+                  className='text-muted-foreground transition-colors hover:text-mint active:text-mint focus:text-mint visited:text-mint focus-visible:outline-none'
+                >
+                  {content.contact.email.replace('@', '(at)\u200B')}
+                </a>
               </div>
             </div>
             <div className='flex items-start gap-3'>
-              <Phone className='h-5 w-5 mt-0.5 text-mint' />
+              <Phone className='mt-0.5 h-5 w-5 text-mint' />
               <div>
                 <h3 className='font-bold'>Phone</h3>
-                <p className='text-muted-foreground'>{content.contact.phone}</p>
+                <a
+                  href={`tel:${content.contact.phone.replace(/\s/g, '')}`}
+                  className='text-muted-foreground transition-colors hover:text-mint active:text-mint focus:text-mint visited:text-mint focus-visible:outline-none'
+                >
+                  {content.contact.phone}
+                </a>
               </div>
             </div>
             <div className='flex items-start gap-3'>
@@ -55,7 +65,7 @@ export const Contact = () => {
                 </p>
               </div>
             </div>
-            <div className='flex flex-wrap gap-4 mt-4'>
+            <div className='mt-4 flex flex-wrap gap-4'>
               {content.contact.social.map((item, index) => (
                 <Button
                   key={index}

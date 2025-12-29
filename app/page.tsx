@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect } from 'react'
 import { Header } from '@/components/layout/header/header'
 import { Footer } from '@/components/layout/footer/footer'
 import { Hero } from '@/components/sections/hero/hero'
@@ -7,12 +10,28 @@ import { Projects } from '@/components/sections/projects/projects'
 import { Experience } from '@/components/sections/experience/experience'
 import { Education } from '@/components/sections/education/education'
 import { Contact } from '@/components/sections/contact/contact'
+import { scrollToSection } from '@/lib/utils'
+import { useScrollUrlSync } from '@/app/hooks/useScrollUrlSync'
 
 export default function Home() {
+  // Sync URL hash with scroll position
+  useScrollUrlSync()
+
+  useEffect(() => {
+    // Handle hash navigation on page load
+    const hash = window.location.hash.slice(1) // Remove the # symbol
+    if (hash) {
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        scrollToSection(hash)
+      }, 100)
+    }
+  }, [])
+
   return (
     <div className='relative z-10'>
       <Header />
-      <main className='container py-10'>
+      <main className='container pb-10 pt-20 md:pt-56'>
         <Hero />
         <About />
         <Skills />

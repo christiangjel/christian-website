@@ -1,8 +1,11 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import { WavesAnimation } from '@/components/layout/waves-animation/waves-animation'
+import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { Loader2 } from 'lucide-react'
+
+const WavesAnimation = lazy(
+  () => import('@/components/layout/waves-animation/waves-animation').then((mod) => ({ default: mod.WavesAnimation }))
+)
 
 interface PageWrapperProps {
   children: React.ReactNode
@@ -39,7 +42,7 @@ const PageWrapper = React.memo<PageWrapperProps>(({ children }) => {
     <div className='bg-background'>
       {/* preloader */}
       <div
-        className={`fixed inset-0 flex flex-col items-center justify-center transition-opacity duration-500 ${
+        className={`fixed inset-0 flex flex-col items-center justify-center transition-opacity duration-200 ${
           isWebGLReady ? 'opacity-0' : 'opacity-100'
         }`}
         style={preloaderStyle}
@@ -54,7 +57,9 @@ const PageWrapper = React.memo<PageWrapperProps>(({ children }) => {
           isWebGLReady ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <WavesAnimation />
+        <Suspense fallback={null}>
+          <WavesAnimation />
+        </Suspense>
         {children}
       </div>
     </div>

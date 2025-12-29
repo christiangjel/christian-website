@@ -117,11 +117,13 @@ export const runApp = (
       window.dispatchEvent(completeEvent)
 
       // debugging info
-      renderer.info.reset()
-      console.log('Renderer info', renderer.info)
+      // renderer.info.reset()
+      // console.log('Renderer info', renderer.info)
     })
     .catch((error) => {
-      console.log(error)
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Three.js animation error:', error)
+      }
     })
 
   return app

@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { FormInput } from '@/components/ui/forms/form-input'
+import content from '@/data/content.json'
 
 const FORMSPREE_FORM_ID = 'xgvaojga'
 
@@ -109,7 +110,7 @@ const ContactForm = (): React.JSX.Element => {
           className='p-3 rounded-md bg-mint/20 text-mint-dark border border-mint'
           role='alert'
         >
-          Thank you for your message! I&apos;ll get back to you soon.
+          {content.contact.form.success}
         </div>
       </div>
     )
@@ -124,11 +125,10 @@ const ContactForm = (): React.JSX.Element => {
       {hasFormErrors && (
         <div className='bg-background'>
           <div
-            className='p-3 rounded-md bg-red-100 text-red-800 border border-red-300 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800'
+            className='p-3 rounded-md border bg-red-900/15 border-red-400 text-red-400'
             role='alert'
           >
-            Oops! There are a few things we need to adjust. Please check the
-            fields below and try again.
+            {content.contact.form.validationError}
           </div>
         </div>
       )}
@@ -136,10 +136,10 @@ const ContactForm = (): React.JSX.Element => {
       {hasSubmissionErrors && (
         <div className='bg-background'>
           <div
-            className='p-3 rounded-md bg-red-100 text-red-800 border border-red-300 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800'
+            className='p-3 rounded-md border bg-red-900/15 border-red-400 text-red-400'
             role='alert'
           >
-            There was an error submitting the form. Please try again later.
+            {content.contact.form.submissionError}
           </div>
         </div>
       )}

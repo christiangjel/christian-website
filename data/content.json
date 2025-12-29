@@ -6,7 +6,7 @@
   "hero": {
     "badge": "Available for Freelance Work",
     "title": "Frontend Engineer",
-    "description": "A highly experienced freelance Frontend Engineer with expertise in React/Next, Vue/Nuxt, and modern web technologies."
+    "description": "A highly experienced freelance Frontend Developer with expertise in React/Next, Vue/Nuxt, and modern web technologies."
   },
   "about": {
     "title": "About Me",
@@ -18,9 +18,14 @@
   "contact": {
     "title": "Get in Touch",
     "description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
-    "email": "gjelstrup78(at)gmail.com",
+    "email": "gjelstrup78@protonmail.com",
     "phone": "+49 15787005997",
     "location": "Hobrechtstr. 75, 12043 Berlin, Germany",
+    "form": {
+      "success": "Thank you for your message! I'll get back to you soon.",
+      "validationError": "Oops! There are a few things we need to adjust. Please check the fields below and try again.",
+      "submissionError": "There was an error submitting the form. Please try again later."
+    },
     "social": [
       {
         "name": "LinkedIn",
@@ -44,15 +49,13 @@
     "categories": [
       {
         "name": "Programming Languages",
-        "items": ["TypeScript", "JavaScript", "HTML", "CSS (Sass)"]
+        "items": ["TypeScript", "JavaScript", "HTML", "CSS/SCSS"]
       },
       {
         "name": "Frameworks & Libraries",
         "items": [
-          "React",
-          "Vue",
-          "Next",
-          "Nuxt",
+          "React/Next",
+          "Vue/Nuxt",
           "Redux",
           "Pinia",
           "React Testing Library",
@@ -76,13 +79,11 @@
           "GraphQL",
           "CI/CD",
           "SEO",
-          "Linters & Formatters",
-          "Bundlers & Build Tools",
           "Headless CMS",
           "Code Review",
           "WCAG",
-          "Azure DevOps",
           "Scrum",
+          "Azure DevOps",
           "Jira",
           "Figma",
           "AI Tools"
@@ -101,28 +102,23 @@
     ]
   },
   "experience": {
-    "title": "Career Timeline (Highlights)",
+    "title": "Career Highlights",
     "items": [
       {
-        "date": "September 2014 – Present",
-        "title": "Freelance Web Developer",
-        "description": "Working with various clients and agencies on frontend development projects."
-      },
-      {
-        "date": "March 2024 – September 2024",
-        "title": "Frontend Developer",
+        "date": "March 2024 – February 2026",
+        "title": "Senior Frontend Developer",
         "company": "Scholz & Volkmer GmbH",
         "companyLink": "https://www.s-v.de/"
       },
       {
         "date": "July 2022 – November 2022",
-        "title": "Frontend Developer",
+        "title": "Senior Frontend Developer",
         "company": "Das Büro am Draht GmbH",
         "companyLink": "https://dasburo.com/"
       },
       {
         "date": "April 2019 – November 2019",
-        "title": "Frontend Developer",
+        "title": "Senior Frontend Developer",
         "company": "Aperto AG - IBM iX",
         "companyLink": "https://ibmix.de/"
       },
@@ -133,6 +129,11 @@
         "companyLink": "https://www.syzygy.de/"
       },
       {
+        "date": "September 2014",
+        "title": "Frontend Developer",
+        "company": "Began freelancing"
+      },
+      {
         "date": "November 2010 – September 2014",
         "title": "Frontend Developer",
         "company": "Razorfish GmbH - SapientRazorfish",
@@ -140,7 +141,7 @@
       },
       {
         "date": "June 2010 – November 2010",
-        "title": "Frontend Developer",
+        "title": "Junior Frontend Developer",
         "company": "Neue Digitale GmbH",
         "companyLink": "https://www.neue-digitale.com/"
       }
@@ -365,6 +366,6 @@
     ]
   },
   "footer": {
-    "copyright": "© 2025 Christian Gjelstrup. All rights reserved."
+    "copyright": "© 2026 Christian Gjelstrup. All rights reserved."
   }
 }

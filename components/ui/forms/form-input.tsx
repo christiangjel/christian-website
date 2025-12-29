@@ -69,7 +69,7 @@ export const FormInput: React.FC<FormInputProps> = ({
         )}
       </div>
       {error && (
-        <p className='text-sm text-red-600 dark:text-red-400 mt-1' id={errorId}>
+        <p className='text-sm text-red-400 mt-1' id={errorId}>
           {error.message}
         </p>
       )}

@@ -12,6 +12,14 @@ export const scrollToSection = (sectionId: string): void => {
     return
   }
 
+  if (sectionId === 'hero') {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+    return
+  }
+
   const SCROLL_OFFSET = 80
   const sectionTop = section.offsetTop
 

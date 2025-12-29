@@ -20,11 +20,7 @@ export const ThemeProvider = React.memo<CustomThemeProviderProps>(
 
     // Prevent hydration mismatch by rendering a consistent fallback
     if (!mounted) {
-      return (
-        <div className='dark' suppressHydrationWarning>
-          {children}
-        </div>
-      )
+      return <div suppressHydrationWarning>{children}</div>
     }
 
     return <NextThemesProvider {...props}>{children}</NextThemesProvider>

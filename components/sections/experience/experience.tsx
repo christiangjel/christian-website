@@ -2,8 +2,8 @@
 
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { useRef } from 'react'
-import { Card, CardContent } from '@/components/ui/card'
 import { TimelineItem } from '@/components/ui/timeline-item/timeline-item'
+import { BulletList } from '@/components/ui/bullet-list'
 import content from '@/data/content.json'
 
 const itemVariants = {
@@ -13,7 +13,7 @@ const itemVariants = {
     x: 0,
     transition: {
       duration: 0.6,
-      ease: 'easeOut'
+      ease: [0.42, 0, 0.58, 1] as const
     }
   }
 }
@@ -73,28 +73,13 @@ export const Experience = () => {
         >
           Languages
         </h3>
-        <Card className='border-mint/20 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
-          <CardContent className='p-6'>
-            <div
-              className='space-y-2'
-              role='list'
-              aria-labelledby='languages-heading'
-            >
-              {content.experience.languages.map((language, index) => (
-                <div
-                  key={index}
-                  className='flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1'
-                  role='listitem'
-                >
-                  <span className='font-medium'>{language.name}</span>
-                  <span className='text-muted-foreground'>
-                    {language.level}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        <div className='rounded-lg p-6'>
+          <BulletList
+            items={content.experience.languages}
+            layout='grid-3'
+            aria-labelledby='languages-heading'
+          />
+        </div>
       </div>
     </section>
   )

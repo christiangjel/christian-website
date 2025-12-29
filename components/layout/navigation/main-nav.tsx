@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { usePathname } from 'next/navigation'
 import { scrollToSection } from '@/lib/utils'
 
 interface NavigationItem {
@@ -17,15 +18,24 @@ const NAVIGATION_ITEMS: NavigationItem[] = [
 ] as const
 
 const MainNav = (): React.JSX.Element => {
+  const pathname = usePathname()
+
   const handleNavClick =
     (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault()
+      
+      // If not on home page, navigate there first
+      if (pathname !== '/') {
+        window.location.href = `/#${href}`
+        return
+      }
+      
       scrollToSection(href)
     }
 
   return (
     <nav
-      className='hidden md:flex items-center gap-6'
+      className='hidden items-center gap-6 md:flex'
       aria-label='Main navigation'
     >
       {NAVIGATION_ITEMS.map((item) => (
@@ -33,7 +43,7 @@ const MainNav = (): React.JSX.Element => {
           key={item.href}
           onClick={handleNavClick(item.href)}
           href={`#${item.href}`}
-          className='text-sm font-medium transition-colors hover:text-mint text-muted-foreground cursor-pointer'
+          className='cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
           aria-label={`Navigate to ${item.title} section`}
         >
           {item.title}

@@ -9,6 +9,7 @@ const Card = React.forwardRef<
     ref={ref}
     className={cn(
       'rounded-xl border bg-card text-card-foreground shadow',
+      // 'rounded-xl border bg-card text-card-foreground shadow hover:border-mint hover:bg-mint/5 hover:shadow-md',
       className
     )}
     role='region'
