@@ -1,4 +1,4 @@
-:HL["/christian-website/_next/static/chunks/6baf2fcbf88d788a.css","style"]
+:HL["/christian-website/_next/static/chunks/2f57e73baf1f3494.css","style"]
 :HL["/christian-website/_next/static/media/mono_bold-s.p.70416cc0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/christian-website/_next/static/media/mono_normal-s.p.f130cd20.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"buildId":"K31b65XDTTSO0RFB9AyJg","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"1joK0q46dlSq2HNrOc-SM","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
