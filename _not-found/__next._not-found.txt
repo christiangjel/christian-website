@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
 2:I[95290,["/christian-website/_next/static/chunks/95e0e223dc144e61.js","/christian-website/_next/static/chunks/fd5546e7f3bfaded.js"],"default"]
 3:I[56393,["/christian-website/_next/static/chunks/95e0e223dc144e61.js","/christian-website/_next/static/chunks/fd5546e7f3bfaded.js"],"default"]
-0:{"buildId":"9Wxu_grIxTaIW20UerNZj","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"MJImn5AtEGdLye4MIh0El","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
