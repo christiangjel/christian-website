@@ -61,13 +61,9 @@
           "React Testing Library",
           "React Styled Components",
           "Jest",
-          "PrimeVue",
-          "Tailwind CSS",
-          "Material UI",
-          "Shadcn UI",
-          "Bootstrap",
-          "Framer Motion",
-          "ThreeJS"
+          "Tailwind/Shadcn/MUI",
+          "ThreeJS",
+          "Framer Motion"
         ]
       },
       {
@@ -78,15 +74,13 @@
           "REST",
           "GraphQL",
           "CI/CD",
-          "SEO",
+          "WebSocket",
           "Headless CMS",
-          "Code Review",
-          "WCAG",
-          "Scrum",
-          "Azure DevOps",
-          "Jira",
-          "Figma",
-          "AI Tools"
+          "SEO/Web Performance Optimization",
+          "Figma/Sketch",
+          "WCAG/ARIA",
+          "Scrum/Agile",
+          "Jira/Azure DevOps"
         ]
       }
     ],
@@ -129,9 +123,9 @@
         "companyLink": "https://www.syzygy.de/"
       },
       {
-        "date": "September 2014",
+        "date": "October 2014",
         "title": "Frontend Developer",
-        "company": "Began freelancing"
+        "company": "Became freelancer"
       },
       {
         "date": "November 2010 – September 2014",
@@ -267,11 +261,11 @@
       },
       {
         "name": "digital",
-        "label": "Digital Products",
+        "label": "Digital",
         "items": [
           {
             "title": "DB Info 4.0 Pia",
-            "role": "Frontend Developer",
+            "role": "Senior Frontend Developer",
             "client": "Deutsche Bahn",
             "agency": "Scholz & Volkmer GmbH",
             "description": "Developed software used by service staff for informing travelers about train connections and delays. Built for desktop, mobile, and standalone hardware.",
@@ -279,7 +273,7 @@
           },
           {
             "title": "Bundeswehr Portal",
-            "role": "Frontend Developer",
+            "role": "Senior Frontend Developer",
             "client": "Bundeswehr",
             "agency": "Aperto AG - IBM iX",
             "description": "Developed portal components and templates.",
@@ -287,7 +281,7 @@
           },
           {
             "title": "Privatmolkerei Bechtel",
-            "role": "Frontend Developer",
+            "role": "Senior Frontend Developer",
             "client": "Privatmolkerei Bechtel",
             "agency": "Das Büro am Draht GmbH",
             "description": "Developed software for digital management of plant equipment and maintenance scheduling.",
@@ -295,7 +289,7 @@
           },
           {
             "title": "SensEm - Citizen Sensing Emission",
-            "role": "Frontend Developer",
+            "role": "Senior Frontend Developer",
             "client": "BMBF-funded Research Project",
             "agency": "Scholz & Volkmer GmbH",
             "description": "Built citizen science toolkit for measuring and analyzing air quality in public spaces.",
@@ -347,7 +341,7 @@
         "items": [
           {
             "title": "The Black Cheetahs - Official Website",
-            "role": "Frontend Developer",
+            "role": "Senior Frontend Developer",
             "client": "The Black Cheetahs",
             "agency": "None",
             "description": "Developed SPA for The Black Cheetahs, showcasing their music and media content.",
@@ -355,7 +349,7 @@
           },
           {
             "title": "Unilever Fragrant Flowers",
-            "role": "Frontend Developer",
+            "role": "Junior Frontend Developer",
             "client": "Unilever",
             "agency": "Neue Digitale GmbH",
             "description": "Developed interactive web experience for Unilever's Fragrant Flowers campaign.",

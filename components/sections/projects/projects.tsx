@@ -159,8 +159,8 @@ export const Projects = () => {
         className='cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
         aria-label='View more projects'
       >
-        More Projects -&gt;
-        {/* <MoveRight className='inline-block ml-2 h-4 w-4' aria-hidden='true' /> */}
+        {/* More Projects -&gt; */}
+        More Projects &#8594;
       </button>
     </section>
   )

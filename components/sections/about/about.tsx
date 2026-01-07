@@ -11,7 +11,12 @@ export const About = () => {
             {content.about.title}
           </h2>
           {content.about.paragraphs.map((paragraph, index) => (
-            <p key={index} className='mb-4 text-muted-foreground'>
+            <p
+              key={index}
+              className={`text-muted-foreground${
+                index === content.about.paragraphs.length - 1 ? '' : ' mb-4'
+              }`}
+            >
               {paragraph}
             </p>
           ))}

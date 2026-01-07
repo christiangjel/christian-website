@@ -3,7 +3,11 @@ import { BulletList } from '@/components/ui/bullet-list'
 
 export const Skills = () => {
   return (
-    <section id='skills' className='py-14' aria-labelledby='skills-heading'>
+    <section
+      id='skills'
+      className='pt-14 pb-8'
+      aria-labelledby='skills-heading'
+    >
       <h2
         id='skills-heading'
         className='mb-12 text-3xl font-bold tracking-tight'
@@ -12,7 +16,7 @@ export const Skills = () => {
       </h2>
 
       <div
-        className='mb-12 grid grid-cols-1 gap-8 xs:grid-cols-2 md:grid-cols-3'
+        className='grid grid-cols-1 gap-8 xs:grid-cols-2 md:grid-cols-3'
         role='list'
         aria-label='Technical skills categories'
       >
@@ -24,9 +28,7 @@ export const Skills = () => {
             >
               {category.name}
             </h3>
-            {/* <div className='rounded-lg border border-mint/20 bg-background p-6 backdrop-blur supports-[backdrop-filter]:bg-background/60'> */}
-            {/* <div className='rounded-lg bg-background p-6 backdrop-blur supports-[backdrop-filter]:bg-background/60'> */}
-            <div className='rounded-lg p-6'>
+            <div className='rounded-lg pt-6 px-6 pb-6'>
               <BulletList
                 items={category.items}
                 layout='grid'

@@ -34,6 +34,8 @@ export const BulletList = ({
         const isString = typeof item === 'string'
         const name = isString ? item : item.name
         const level = isString ? undefined : item.level
+        // Insert zero-width space after "/" to allow natural line breaks
+        const processedName = name.replace(/\//g, '/\u200B')
 
         return (
           <div
@@ -45,8 +47,8 @@ export const BulletList = ({
               className='h-1.5 w-1.5 flex-shrink-0 rounded-full bg-mint'
               aria-hidden='true'
             />
-            <span className='text-muted-foreground'>
-              {name}
+            <span className='whitespace-pre-line text-muted-foreground'>
+              {processedName}
               {level && ` (${level})`}
             </span>
           </div>

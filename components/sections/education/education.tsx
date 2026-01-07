@@ -27,7 +27,6 @@ export const Education = () => {
             aria-labelledby={`education-title-${index}`}
           >
             <div className='border border-mint/20 rounded-lg p-6 h-full bg-background backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-colors hover:border-mint hover:bg-mint/5'>
-              {/* <div className='rounded-lg p-6 h-full bg-background backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-colors hover:border-mint hover:bg-mint/5'> */}
               <time className='text-muted-foreground mb-2 block'>
                 {item.date}
               </time>

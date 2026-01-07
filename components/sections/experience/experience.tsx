@@ -73,7 +73,7 @@ export const Experience = () => {
         >
           Languages
         </h3>
-        <div className='rounded-lg p-6'>
+        <div className='rounded-lg pt-6 px-6'>
           <BulletList
             items={content.experience.languages}
             layout='grid-3'

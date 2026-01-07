@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <div className='relative z-10'>
       <Header />
-      <main className='container pb-10 pt-20 md:pt-56'>
+      <main className='container pb-10 pt-16 md:pt-36'>
         <Hero />
         <About />
         <Skills />
