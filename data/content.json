@@ -56,14 +56,12 @@
         "items": [
           "React/Next",
           "Vue/Nuxt",
-          "Redux",
-          "Pinia",
-          "React Testing Library",
-          "React Styled Components",
-          "Jest",
-          "Tailwind/Shadcn/MUI",
-          "ThreeJS",
-          "Framer Motion"
+          "Jest/RTL",
+          "Redux/Pinia",
+          "Tailwind/Styled Components",
+          "Shadcn/MUI/Ant Design",
+          "React Hook Form/Zod",
+          "ThreeJS/Framer Motion"
         ]
       },
       {
@@ -76,9 +74,9 @@
           "CI/CD",
           "WebSocket",
           "Headless CMS",
-          "SEO/Web Performance Optimization",
-          "Figma/Sketch",
+          "SEO/WPO",
           "WCAG/ARIA",
+          "Figma/Sketch",
           "Scrum/Agile",
           "Jira/Azure DevOps"
         ]
@@ -201,6 +199,44 @@
     "title": "Featured Projects",
     "categories": [
       {
+        "name": "digital",
+        "label": "Digital",
+        "items": [
+          {
+            "title": "DB Info 4.0 Pia",
+            "role": "Senior Frontend Developer",
+            "client": "Deutsche Bahn",
+            "agency": "Scholz & Volkmer GmbH",
+            "description": "Developed software used by service staff for informing travelers about train connections and delays. Built for desktop, mobile, and standalone hardware.",
+            "link": "https://www.s-v.de/de/projekte/db-info-40-pia/"
+          },
+          {
+            "title": "Bundeswehr Portal",
+            "role": "Senior Frontend Developer",
+            "client": "Bundeswehr",
+            "agency": "Aperto AG - IBM iX",
+            "description": "Developed portal components and templates.",
+            "link": "https://www.bundeswehr.de/de/ "
+          },
+          {
+            "title": "Privatmolkerei Bechtel",
+            "role": "Senior Frontend Developer",
+            "client": "Privatmolkerei Bechtel",
+            "agency": "Das Büro am Draht GmbH",
+            "description": "Developed software for digital management of plant equipment and maintenance scheduling.",
+            "link": "https://www.planemos.de/modernisierung-prozessleitsystem-privatmolkerei-bechtel/ "
+          },
+          {
+            "title": "SensEm - Citizen Sensing Emission",
+            "role": "Senior Frontend Developer",
+            "client": "BMBF-funded Research Project",
+            "agency": "Scholz & Volkmer GmbH",
+            "description": "Built citizen science toolkit for measuring and analyzing air quality in public spaces.",
+            "link": "https://www.interaktive-technologien.de/projekte/sensem"
+          }
+        ]
+      },
+      {
         "name": "automotive",
         "label": "Automotive",
         "items": [
@@ -256,44 +292,6 @@
             "agency": "Razorfish GmbH",
             "description": "Built interactive training application for Asphalt 7.",
             "link": "https://www.youtube.com/watch?v=vpQnWQYoRSg"
-          }
-        ]
-      },
-      {
-        "name": "digital",
-        "label": "Digital",
-        "items": [
-          {
-            "title": "DB Info 4.0 Pia",
-            "role": "Senior Frontend Developer",
-            "client": "Deutsche Bahn",
-            "agency": "Scholz & Volkmer GmbH",
-            "description": "Developed software used by service staff for informing travelers about train connections and delays. Built for desktop, mobile, and standalone hardware.",
-            "link": "https://www.s-v.de/de/projekte/db-info-40-pia/"
-          },
-          {
-            "title": "Bundeswehr Portal",
-            "role": "Senior Frontend Developer",
-            "client": "Bundeswehr",
-            "agency": "Aperto AG - IBM iX",
-            "description": "Developed portal components and templates.",
-            "link": "https://www.bundeswehr.de/de/ "
-          },
-          {
-            "title": "Privatmolkerei Bechtel",
-            "role": "Senior Frontend Developer",
-            "client": "Privatmolkerei Bechtel",
-            "agency": "Das Büro am Draht GmbH",
-            "description": "Developed software for digital management of plant equipment and maintenance scheduling.",
-            "link": "https://www.planemos.de/modernisierung-prozessleitsystem-privatmolkerei-bechtel/ "
-          },
-          {
-            "title": "SensEm - Citizen Sensing Emission",
-            "role": "Senior Frontend Developer",
-            "client": "BMBF-funded Research Project",
-            "agency": "Scholz & Volkmer GmbH",
-            "description": "Built citizen science toolkit for measuring and analyzing air quality in public spaces.",
-            "link": "https://www.interaktive-technologien.de/projekte/sensem"
           }
         ]
       },
