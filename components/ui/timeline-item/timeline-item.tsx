@@ -1,6 +1,8 @@
 'use client'
 
 import Link from 'next/link'
+import { content } from '@/lib/content'
+import { cn } from '@/lib/utils'
 
 type TimelineItemProps = {
   date: string
@@ -21,11 +23,11 @@ export const TimelineItem = ({
 }: TimelineItemProps) => {
   return (
     <div
-      className={`relative${
-        isLast
-          ? ''
-          : ' pb-10 before:absolute before:left-0 before:top-3 before:h-full before:w-[2px] before:bg-mint/30 before:translate-x-0'
-      }`}
+      className={cn(
+        'relative',
+        !isLast &&
+          'pb-10 before:absolute before:left-0 before:top-3 before:h-full before:w-[2px] before:bg-mint/30 before:translate-x-0'
+      )}
       role='listitem'
     >
       <div
@@ -43,7 +45,10 @@ export const TimelineItem = ({
               target='_blank'
               rel='noopener noreferrer'
               className='text-muted-foreground transition-colors hover:text-mint'
-              aria-label={`Company: ${company} (opens in new tab)`}
+              aria-label={content.experience.ariaLabels.company.replace(
+                '{company}',
+                company
+              )}
             >
               {company}
             </Link>

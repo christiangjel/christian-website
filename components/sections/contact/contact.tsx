@@ -43,9 +43,9 @@ export const Contact = () => {
               value={content.contact.location}
             />
             <div className='mt-4 flex flex-wrap gap-4'>
-              {content.contact.social.map((item, index) => (
+              {content.contact.social.map((item) => (
                 <Button
-                  key={index}
+                  key={item.name}
                   variant='outline'
                   className='flex items-center gap-2'
                   asChild

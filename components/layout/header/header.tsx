@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import { usePathname } from 'next/navigation'
 import MainNav from '@/components/layout/navigation/main-nav'
 import MobileNav from '@/components/layout/navigation/mobile-nav'

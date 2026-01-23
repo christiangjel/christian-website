@@ -37,7 +37,10 @@ export const Experience = () => {
             aria-label={content.experience.ariaLabels.timeline}
           >
             {content.experience.items.map((item, index) => (
-              <motion.div key={index} variants={itemVariants}>
+              <motion.div
+                key={`${item.title}-${item.date}`}
+                variants={itemVariants}
+              >
                 <TimelineItem
                   {...item}
                   isLast={index === content.experience.items.length - 1}
@@ -53,7 +56,7 @@ export const Experience = () => {
           id='languages-heading'
           className='text-xl font-bold mb-6 border-l-4 border-mint pl-4'
         >
-          Languages
+          {content.experience.languagesHeading}
         </h3>
         <div className='rounded-lg pt-6 px-6'>
           <BulletList

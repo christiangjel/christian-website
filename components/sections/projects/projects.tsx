@@ -1,11 +1,26 @@
 'use client'
 
+import { useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ProjectCard } from '@/components/ui/project-card/project-card'
 import { scrollToSection } from '@/lib/utils'
 import { content } from '@/lib/content'
 import { SECTIONS, TAB_ANIMATION } from '@/constants'
 import { useTabAnimation } from '@/hooks/useTabAnimation'
+import { cn } from '@/lib/utils'
+
+// Animation variants
+const slideVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? '100%' : '-100%'
+  }),
+  center: {
+    x: 0
+  },
+  exit: (direction: number) => ({
+    x: direction > 0 ? '-100%' : '100%'
+  })
+}
 
 /**
  * Projects section component with animated category tabs.
@@ -22,18 +37,9 @@ export const Projects = () => {
     handleTabChange
   } = useTabAnimation(content.projects.categories.length)
 
-  // Variants for animation
-  const variants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? '100%' : '-100%'
-    }),
-    center: {
-      x: 0
-    },
-    exit: (direction: number) => ({
-      x: direction > 0 ? '-100%' : '100%'
-    })
-  }
+  const handleViewMoreClick = useCallback(() => {
+    scrollToSection(SECTIONS.PROJECTS)
+  }, [])
 
   return (
     <section
@@ -72,28 +78,32 @@ export const Projects = () => {
         />
 
         {/* Tab buttons */}
-        {content.projects.categories.map((category, index) => (
-          <button
-            key={index}
-            ref={(el) => {
-              tabRefs.current[index] = el
-            }}
-            className={`relative z-20 flex min-h-[40px] items-center justify-center p-2 text-sm transition-colors ${
-              hoveredTabIndex === index || activeTabIndex === index
-                ? 'text-mint'
-                : 'text-muted-foreground'
-            }`}
-            onClick={() => handleTabChange(index)}
-            onMouseEnter={() => setHoveredTabIndex(index)}
-            onMouseLeave={() => setHoveredTabIndex(null)}
-            role='tab'
-            id={`tab-${index}`}
-            aria-selected={activeTabIndex === index}
-            aria-controls={`tabpanel-${index}`}
-          >
-            {category.label}
-          </button>
-        ))}
+        {content.projects.categories.map((category, index) => {
+          const isActive = activeTabIndex === index
+          const isHovered = hoveredTabIndex === index
+
+          return (
+            <button
+              key={category.name}
+              ref={(el) => {
+                tabRefs.current[index] = el
+              }}
+              className={cn(
+                'relative z-20 flex min-h-[40px] items-center justify-center p-2 text-sm transition-colors',
+                isActive || isHovered ? 'text-mint' : 'text-muted-foreground'
+              )}
+              onClick={() => handleTabChange(index)}
+              onMouseEnter={() => setHoveredTabIndex(index)}
+              onMouseLeave={() => setHoveredTabIndex(null)}
+              role='tab'
+              id={`tab-${index}`}
+              aria-selected={activeTabIndex === index}
+              aria-controls={`tabpanel-${index}`}
+            >
+              {category.label}
+            </button>
+          )
+        })}
       </div>
 
       {/* Project Content with sliding animation */}
@@ -105,7 +115,7 @@ export const Projects = () => {
           <motion.div
             key={activeTabIndex}
             custom={direction}
-            variants={variants}
+            variants={slideVariants}
             initial='enter'
             animate='center'
             exit='exit'
@@ -123,8 +133,8 @@ export const Projects = () => {
           >
             <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
               {content.projects.categories[activeTabIndex].items.map(
-                (project, projectIndex) => (
-                  <ProjectCard key={projectIndex} {...project} />
+                (project) => (
+                  <ProjectCard key={project.title} {...project} />
                 )
               )}
             </div>
@@ -133,7 +143,7 @@ export const Projects = () => {
       </div>
 
       <button
-        onClick={() => scrollToSection(SECTIONS.PROJECTS)}
+        onClick={handleViewMoreClick}
         className='cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
         aria-label={content.projects.ariaLabels.viewMore}
       >

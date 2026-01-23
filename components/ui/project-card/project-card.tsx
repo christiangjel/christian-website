@@ -65,8 +65,8 @@ const ProjectCard = React.memo<ProjectCardProps>(
                   className='list-inside list-disc text-muted-foreground'
                   aria-label={content.projects.card.ariaLabels.awards}
                 >
-                  {awards.map((award, index) => (
-                    <li key={index}>{award}</li>
+                  {awards.map((award) => (
+                    <li key={award}>{award}</li>
                   ))}
                 </ul>
               </div>

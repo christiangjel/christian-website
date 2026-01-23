@@ -22,7 +22,7 @@ export const Skills = () => {
         aria-label={content.skills.ariaLabels.categories}
       >
         {content.skills.categories.map((category, index) => (
-          <div key={index} role='listitem'>
+          <div key={category.name} role='listitem'>
             <h3
               id={`category-heading-${index}`}
               className='mb-4 border-l-4 border-mint pl-4 text-xl font-bold'

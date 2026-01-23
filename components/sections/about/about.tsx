@@ -13,7 +13,7 @@ export const About = () => {
           </h2>
           {content.about.paragraphs.map((paragraph, index) => (
             <p
-              key={index}
+              key={`paragraph-${index}`}
               className={`text-muted-foreground${
                 index === content.about.paragraphs.length - 1 ? '' : ' mb-4'
               }`}

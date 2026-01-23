@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import type { MouseEvent } from 'react'
 import { NAVIGATION_ITEMS, SectionId } from '@/constants'
 import { useNavigation } from '@/hooks/useNavigation'
 import { content } from '@/lib/content'
@@ -9,7 +9,7 @@ const MainNav = () => {
   const { handleNavClick } = useNavigation()
 
   const onNavClick =
-    (href: SectionId) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    (href: SectionId) => (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault()
       handleNavClick(href)
     }

@@ -159,8 +159,10 @@
   },
   "experience": {
     "title": "Career Highlights",
+    "languagesHeading": "Languages",
     "ariaLabels": {
-      "timeline": "Work experience timeline"
+      "timeline": "Work experience timeline",
+      "company": "Company: {company} (opens in new tab)"
     },
     "items": [
       {

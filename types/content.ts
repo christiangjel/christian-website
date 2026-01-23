@@ -79,10 +79,12 @@ export type Language = {
 
 export type Experience = {
   title: string
+  languagesHeading: string
   items: ExperienceItem[]
   languages?: Language[]
   ariaLabels: {
     timeline: string
+    company: string
   }
 }
 

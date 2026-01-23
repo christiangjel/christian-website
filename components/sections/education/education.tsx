@@ -21,7 +21,7 @@ export const Education = () => {
       >
         {content.education.items.map((item, index) => (
           <a
-            key={index}
+            key={`${item.title}-${item.date}`}
             href={item.link}
             target='_blank'
             rel='noopener noreferrer'
