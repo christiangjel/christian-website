@@ -6,7 +6,24 @@
   "hero": {
     "badge": "Available for Freelance Work",
     "title": "Frontend Engineer",
-    "description": "A highly experienced freelance Frontend Developer with expertise in React/Next, Vue/Nuxt, and modern web technologies."
+    "description": "A highly experienced freelance Frontend Developer with expertise in React/Next, Vue/Nuxt, and modern web technologies.",
+    "ariaLabels": {
+      "navigation": "Main navigation"
+    },
+    "buttons": {
+      "getInTouch": {
+        "label": "Get in Touch",
+        "ariaLabel": "Get in touch"
+      },
+      "viewWork": {
+        "label": "View My Work",
+        "ariaLabel": "View my work"
+      },
+      "downloadCV": {
+        "label": "Download CV",
+        "ariaLabel": "Download CV (opens in new tab)"
+      }
+    }
   },
   "about": {
     "title": "About Me",
@@ -24,7 +41,51 @@
     "form": {
       "success": "Thank you for your message! I'll get back to you soon.",
       "validationError": "Oops! There are a few things we need to adjust. Please check the fields below and try again.",
-      "submissionError": "There was an error submitting the form. Please try again later."
+      "submissionError": "There was an error submitting the form. Please try again later.",
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name",
+          "errors": {
+            "required": "Name is required",
+            "minLength": "Name must be at least 2 characters",
+            "maxLength": "Name cannot exceed 50 characters",
+            "pattern": "Name can only contain letters and spaces"
+          }
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Your email",
+          "errors": {
+            "required": "Email is required",
+            "invalid": "Invalid email address"
+          }
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "Subject of your message",
+          "errors": {
+            "required": "Subject is required",
+            "minLength": "Subject must be at least 3 characters",
+            "maxLength": "Subject cannot exceed 100 characters"
+          }
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Your message",
+          "errors": {
+            "required": "Message is required",
+            "minLength": "Message must be at least 10 characters",
+            "maxLength": "Message cannot exceed 1000 characters"
+          }
+        }
+      },
+      "submit": {
+        "label": "Send Message",
+        "sending": "Sending...",
+        "ariaLabel": "Send message",
+        "ariaLabelSending": "Sending your message..."
+      }
     },
     "social": [
       {
@@ -46,6 +107,9 @@
   },
   "skills": {
     "title": "Core Skills",
+    "ariaLabels": {
+      "categories": "Technical skills categories"
+    },
     "categories": [
       {
         "name": "Programming Languages",
@@ -95,6 +159,9 @@
   },
   "experience": {
     "title": "Career Highlights",
+    "ariaLabels": {
+      "timeline": "Work experience timeline"
+    },
     "items": [
       {
         "date": "March 2024 – February 2026",
@@ -155,6 +222,9 @@
   },
   "education": {
     "title": "Education",
+    "ariaLabels": {
+      "history": "Education history"
+    },
     "items": [
       {
         "date": "2009 – 2011",
@@ -197,6 +267,22 @@
   },
   "projects": {
     "title": "Featured Projects",
+    "viewMore": "More Projects",
+    "ariaLabels": {
+      "viewMore": "View more projects"
+    },
+    "card": {
+      "labels": {
+        "role": "Role: ",
+        "client": "Client: ",
+        "agency": "Agency: ",
+        "awards": "Awards:"
+      },
+      "ariaLabels": {
+        "awards": "Project awards",
+        "viewProject": "View project: {title}"
+      }
+    },
     "categories": [
       {
         "name": "digital",
@@ -357,7 +443,31 @@
       }
     ]
   },
+  "header": {
+    "skipToContent": "Skip to main content",
+    "firstName": "Christian",
+    "lastName": "Gjelstrup",
+    "logoAriaLabel": "Go to top of page"
+  },
+  "navigation": {
+    "ariaLabels": {
+      "main": "Main navigation",
+      "mobile": "Mobile navigation",
+      "navigateTo": "Navigate to {title} section"
+    }
+  },
   "footer": {
     "copyright": "© 2026 Christian Gjelstrup. All rights reserved."
+  },
+  "notFound": {
+    "title": "404",
+    "heading": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "goHome": "Go Home",
+    "getInTouch": "Get in Touch",
+    "ariaLabels": {
+      "goHome": "Go to homepage",
+      "getInTouch": "Get in touch"
+    }
   }
 }

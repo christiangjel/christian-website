@@ -7,7 +7,7 @@ const WavesAnimation = lazy(
   () => import('@/components/layout/waves-animation/waves-animation').then((mod) => ({ default: mod.WavesAnimation }))
 )
 
-interface PageWrapperProps {
+type PageWrapperProps = {
   children: React.ReactNode
 }
 

@@ -1,10 +1,11 @@
-import content from '@/data/content.json'
+import { content } from '@/lib/content'
 import { BulletList } from '@/components/ui/bullet-list'
+import { SECTIONS } from '@/constants'
 
 export const Skills = () => {
   return (
     <section
-      id='skills'
+      id={SECTIONS.SKILLS}
       className='pt-14 pb-8'
       aria-labelledby='skills-heading'
     >
@@ -18,7 +19,7 @@ export const Skills = () => {
       <div
         className='grid grid-cols-1 gap-8 xs:grid-cols-2 md:grid-cols-3'
         role='list'
-        aria-label='Technical skills categories'
+        aria-label={content.skills.ariaLabels.categories}
       >
         {content.skills.categories.map((category, index) => (
           <div key={index} role='listitem'>

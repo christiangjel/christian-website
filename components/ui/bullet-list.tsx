@@ -1,6 +1,6 @@
 type BulletListItem = string | { name: string; level?: string }
 
-interface BulletListProps {
+type BulletListProps = {
   items: BulletListItem[]
   layout?: 'grid' | 'vertical' | 'horizontal' | 'grid-3'
   className?: string
@@ -36,10 +36,12 @@ export const BulletList = ({
         const level = isString ? undefined : item.level
         // Insert zero-width space after "/" to allow natural line breaks
         const processedName = name.replace(/\//g, '/\u200B')
+        // Use stable key based on content instead of index
+        const key = isString ? name : `${name}-${level || 'no-level'}-${index}`
 
         return (
           <div
-            key={index}
+            key={key}
             className={`flex items-center gap-2 ${itemClassName}`}
             role='listitem'
           >

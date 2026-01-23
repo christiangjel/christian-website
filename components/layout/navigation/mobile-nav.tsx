@@ -4,16 +4,11 @@ import React, { useState, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { cn, scrollToSection } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
-
-const items = [
-  { title: 'About', href: 'about' },
-  { title: 'Skills', href: 'skills' },
-  { title: 'Projects', href: 'projects' },
-  { title: 'Experience', href: 'experience' },
-  { title: 'Contact', href: 'contact' }
-]
+import { NAVIGATION_ITEMS, SectionId } from '@/constants'
+import { useNavigation } from '@/hooks/useNavigation'
+import { content } from '@/lib/content'
 
 const MobileNavContext = React.createContext<{
   isOpen: boolean
@@ -64,18 +59,11 @@ MobileNav.Menu = function MobileNavMenu() {
   if (!context) throw new Error('MobileNav.Menu must be used within MobileNav')
 
   const { isOpen, setIsOpen } = context
-  const pathname = usePathname()
   const menuRef = useRef<HTMLDivElement>(null)
+  const { handleNavClick } = useNavigation()
 
-  const handleNavClick = (href: string) => {
-    // If not on home page, navigate there first
-    if (pathname !== '/') {
-      window.location.href = `/#${href}`
-      setIsOpen(false)
-      return
-    }
-    
-    scrollToSection(href)
+  const onNavClick = (href: SectionId) => {
+    handleNavClick(href)
     setIsOpen(false)
   }
 
@@ -96,17 +84,17 @@ MobileNav.Menu = function MobileNavMenu() {
       className='relative z-50 w-full overflow-hidden md:hidden'
       id='mobile-menu'
       role='navigation'
-      aria-label='Mobile navigation'
+      aria-label={content.navigation.ariaLabels.mobile}
       ref={menuRef}
       onKeyDown={handleKeyDown}
     >
       <div className='m-8'>
         <nav className='flex flex-col gap-4'>
-          {items.map((item) => (
+          {NAVIGATION_ITEMS.map((item) => (
             <button
               key={item.href}
               type='button'
-              onClick={() => handleNavClick(item.href)}
+              onClick={() => onNavClick(item.href)}
               className={cn(
                 'cursor-pointer text-left text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
               )}

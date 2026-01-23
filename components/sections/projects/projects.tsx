@@ -1,55 +1,26 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useRef, useEffect } from 'react'
 import { ProjectCard } from '@/components/ui/project-card/project-card'
 import { scrollToSection } from '@/lib/utils'
-import content from '@/data/content.json'
+import { content } from '@/lib/content'
+import { SECTIONS, TAB_ANIMATION } from '@/constants'
+import { useTabAnimation } from '@/hooks/useTabAnimation'
 
+/**
+ * Projects section component with animated category tabs.
+ * Displays projects organized by category with smooth transitions.
+ */
 export const Projects = () => {
-  const [activeTabIndex, setActiveTabIndex] = useState(0)
-  const [hoveredTabIndex, setHoveredTabIndex] = useState<number | null>(null)
-  const [direction, setDirection] = useState(0)
-  const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
-
-  // Store tab bounds for animation
-  const [tabBounds, setTabBounds] = useState({
-    left: 0,
-    top: 0,
-    width: 0,
-    height: 0
-  })
-
-  // Update tab bounds when active tab changes or on resize
-  useEffect(() => {
-    const updateTabBounds = () => {
-      const activeTabElement = tabRefs.current[activeTabIndex]
-      if (!activeTabElement) return
-
-      const rect = activeTabElement.getBoundingClientRect()
-      const parentRect =
-        activeTabElement.parentElement?.getBoundingClientRect() || {
-          left: 0,
-          top: 0
-        }
-
-      setTabBounds({
-        left: rect.left - parentRect.left,
-        top: rect.top - parentRect.top,
-        width: rect.width,
-        height: rect.height
-      })
-    }
-
-    updateTabBounds()
-    window.addEventListener('resize', updateTabBounds)
-    return () => window.removeEventListener('resize', updateTabBounds)
-  }, [activeTabIndex])
-
-  const handleTabChange = (index: number) => {
-    setDirection(index > activeTabIndex ? 1 : -1)
-    setActiveTabIndex(index)
-  }
+  const {
+    activeTabIndex,
+    hoveredTabIndex,
+    setHoveredTabIndex,
+    direction,
+    tabBounds,
+    tabRefs,
+    handleTabChange
+  } = useTabAnimation(content.projects.categories.length)
 
   // Variants for animation
   const variants = {
@@ -65,7 +36,11 @@ export const Projects = () => {
   }
 
   return (
-    <section id='projects' className='py-14' aria-labelledby='projects-heading'>
+    <section
+      id={SECTIONS.PROJECTS}
+      className='py-14'
+      aria-labelledby='projects-heading'
+    >
       <h2
         id='projects-heading'
         className='mb-12 text-3xl font-bold tracking-tight'
@@ -81,7 +56,6 @@ export const Projects = () => {
       >
         {/* Sliding background for active tab */}
         <motion.div
-          // className='absolute z-10 rounded bg-secondary'
           className='absolute z-10 rounded border border-mint bg-mint/5 shadow-md backdrop-blur'
           initial={false}
           animate={{
@@ -91,8 +65,8 @@ export const Projects = () => {
             height: tabBounds.height
           }}
           transition={{
-            duration: 0.4,
-            ease: 'easeInOut'
+            duration: TAB_ANIMATION.DURATION,
+            ease: TAB_ANIMATION.EASING
           }}
           aria-hidden='true'
         />
@@ -136,7 +110,11 @@ export const Projects = () => {
             animate='center'
             exit='exit'
             transition={{
-              x: { type: 'tween', duration: 0.4, ease: 'easeInOut' }
+              x: {
+                type: 'tween',
+                duration: TAB_ANIMATION.DURATION,
+                ease: TAB_ANIMATION.EASING
+              }
             }}
             className='w-full'
             role='tabpanel'
@@ -155,12 +133,11 @@ export const Projects = () => {
       </div>
 
       <button
-        onClick={() => scrollToSection('projects')}
+        onClick={() => scrollToSection(SECTIONS.PROJECTS)}
         className='cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
-        aria-label='View more projects'
+        aria-label={content.projects.ariaLabels.viewMore}
       >
-        {/* More Projects -&gt; */}
-        More Projects &#8594;
+        {content.projects.viewMore} &#8594;
       </button>
     </section>
   )

@@ -1,4 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Christian Gjelstrup - Portfolio Website
+
+A modern, performant portfolio website built with Next.js, TypeScript, and Tailwind CSS.
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **3D Graphics**: Three.js
+- **Forms**: React Hook Form + Zod
+- **Testing**: Vitest + React Testing Library
+
+## Architecture
+
+### Project Structure
+
+```
+├── app/                    # Next.js app directory
+│   ├── hooks/             # Custom React hooks
+│   └── page.tsx          # Main page
+├── components/           # React components
+│   ├── layout/          # Layout components (Header, Footer, etc.)
+│   ├── sections/        # Page sections (About, Skills, etc.)
+│   └── ui/              # Reusable UI components
+├── constants/            # Application constants
+│   ├── sections.ts      # Section IDs
+│   ├── navigation.ts    # Navigation items
+│   ├── animations.ts    # Animation configs
+│   └── config.ts        # App configuration
+├── lib/                  # Utility functions
+│   ├── content.ts       # Typed content loader
+│   ├── logger.ts        # Logging utility
+│   ├── utils.ts         # General utilities
+│   └── validations/     # Validation schemas
+├── types/                # TypeScript type definitions
+│   └── content.ts       # Content types
+└── data/                 # Static data
+    └── content.json     # Site content
+```
+
+### Key Design Decisions
+
+- **Type Safety**: All content is typed with TypeScript for compile-time safety
+- **Server Components**: Used where possible for better performance
+- **Constants**: Centralized constants for maintainability
+- **Error Handling**: Logger utility for consistent error handling
+- **Testing**: Vitest for fast, modern testing
 
 ## Getting Started
 
@@ -75,3 +123,37 @@ Your site will be available at `https://[your-username].github.io/christian-webs
 - The `next.config.ts` is configured with `basePath` and `assetPrefix` for GitHub Pages
 - Static export is enabled only in production builds
 - The `out` directory contains all static files needed for deployment
+
+## Development
+
+### Running Tests
+
+```bash
+npm run test          # Run tests in watch mode
+npm run test:ui       # Run tests with UI
+npm run test:coverage # Run tests with coverage
+```
+
+### Code Organization
+
+- **Constants**: All magic strings and configuration values are in `constants/`
+- **Types**: TypeScript types are in `types/` directory
+- **Validations**: Zod schemas are in `lib/validations/`
+- **Content**: All text content is in `data/content.json` with TypeScript types
+
+### Best Practices
+
+- Use server components when possible (no client-side features needed)
+- Import constants from `@/constants` instead of hardcoding values
+- Use typed content from `@/lib/content` instead of direct JSON imports
+- Use logger utility instead of console statements
+- Follow existing component patterns for consistency
+
+## Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run test` - Run tests
+- `npm run deploy` - Deploy to GitHub Pages

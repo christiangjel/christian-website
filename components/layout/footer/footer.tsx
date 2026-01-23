@@ -1,6 +1,6 @@
 'use client'
 
-import content from '@/data/content.json'
+import { content } from '@/lib/content'
 
 export const Footer = () => {
   return (

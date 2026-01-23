@@ -4,28 +4,18 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { useRef } from 'react'
 import { TimelineItem } from '@/components/ui/timeline-item/timeline-item'
 import { BulletList } from '@/components/ui/bullet-list'
-import content from '@/data/content.json'
-
-const itemVariants = {
-  hidden: { opacity: 0, x: -50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.7,
-      // ease: [0, 0, 0.58, 1] as const
-      ease: [0.42, 0, 0.58, 1] as const
-    }
-  }
-}
+import { content } from '@/lib/content'
+import { SECTIONS } from '@/constants'
+import { useSectionAnimation } from '@/hooks/useSectionAnimation'
 
 export const Experience = () => {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
+  const { itemVariants, containerVariants } = useSectionAnimation()
 
   return (
     <section
-      id='experience'
+      id={SECTIONS.EXPERIENCE}
       ref={sectionRef}
       className='py-14'
       aria-labelledby='experience-heading'
@@ -42,18 +32,9 @@ export const Experience = () => {
           <motion.div
             initial='hidden'
             animate={isInView ? 'visible' : 'hidden'}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.2,
-                  delayChildren: 0.2
-                }
-              }
-            }}
+            variants={containerVariants}
             role='list'
-            aria-label='Work experience timeline'
+            aria-label={content.experience.ariaLabels.timeline}
           >
             {content.experience.items.map((item, index) => (
               <motion.div key={index} variants={itemVariants}>
@@ -76,7 +57,7 @@ export const Experience = () => {
         </h3>
         <div className='rounded-lg pt-6 px-6'>
           <BulletList
-            items={content.experience.languages}
+            items={content.experience.languages || []}
             layout='grid-3'
             aria-labelledby='languages-heading'
           />

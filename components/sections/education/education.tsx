@@ -1,10 +1,13 @@
-'use client'
-
-import content from '@/data/content.json'
+import { content } from '@/lib/content'
+import { SECTIONS } from '@/constants'
 
 export const Education = () => {
   return (
-    <section className='py-14' aria-labelledby='education-heading'>
+    <section
+      id={SECTIONS.EDUCATION}
+      className='py-14'
+      aria-labelledby='education-heading'
+    >
       <h2
         id='education-heading'
         className='text-3xl font-bold tracking-tight mb-12'
@@ -14,7 +17,7 @@ export const Education = () => {
       <div
         className='grid grid-cols-1 md:grid-cols-2 gap-8'
         role='list'
-        aria-label='Education history'
+        aria-label={content.education.ariaLabels.history}
       >
         {content.education.items.map((item, index) => (
           <a

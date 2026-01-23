@@ -6,7 +6,7 @@ import {
   type ThemeProviderProps
 } from 'next-themes'
 
-interface CustomThemeProviderProps extends ThemeProviderProps {
+type CustomThemeProviderProps = ThemeProviderProps & {
   children: React.ReactNode
 }
 

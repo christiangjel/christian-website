@@ -11,7 +11,8 @@ import { Experience } from '@/components/sections/experience/experience'
 import { Education } from '@/components/sections/education/education'
 import { Contact } from '@/components/sections/contact/contact'
 import { scrollToSection } from '@/lib/utils'
-import { useScrollUrlSync } from '@/app/hooks/useScrollUrlSync'
+import { useScrollUrlSync } from '@/hooks/useScrollUrlSync'
+import { SCROLL_CONFIG } from '@/constants'
 
 export default function Home() {
   // Sync URL hash with scroll position
@@ -21,17 +22,18 @@ export default function Home() {
     // Handle hash navigation on page load
     const hash = window.location.hash.slice(1) // Remove the # symbol
     if (hash) {
-      // Small delay to ensure DOM is ready
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         scrollToSection(hash)
-      }, 100)
+      }, SCROLL_CONFIG.HASH_NAVIGATION_DELAY)
+      
+      return () => clearTimeout(timer)
     }
   }, [])
 
   return (
     <div className='relative z-10'>
       <Header />
-      <main className='container pb-10 pt-16 md:pt-36'>
+      <main id='main-content' className='container pb-10 pt-16 md:pt-36'>
         <Hero />
         <About />
         <Skills />

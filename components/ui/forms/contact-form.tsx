@@ -1,85 +1,31 @@
 'use client'
 
-import React from 'react'
+import { useEffect } from 'react'
 import { useForm as useFormspree } from '@formspree/react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { FormInput } from '@/components/ui/forms/form-input'
-import content from '@/data/content.json'
+import { content } from '@/lib/content'
+import { FORMSPREE_CONFIG } from '@/constants'
+import {
+  contactFormSchema,
+  VALIDATION_RULES,
+  type ContactFormData
+} from '@/lib/validations/contact'
+import { logger } from '@/lib/logger'
 
-const FORMSPREE_FORM_ID = 'xgvaojga'
-
-const VALIDATION_RULES = {
-  name: {
-    minLength: 2,
-    maxLength: 50,
-    pattern: /^[A-Za-z\s]+$/
-  },
-  subject: {
-    minLength: 3,
-    maxLength: 100
-  },
-  message: {
-    minLength: 10,
-    maxLength: 1000
-  }
-} as const
-
-const contactSchema = z.object({
-  name: z
-    .string()
-    .min(1, 'Name is required')
-    .min(
-      VALIDATION_RULES.name.minLength,
-      `Name must be at least ${VALIDATION_RULES.name.minLength} characters`
-    )
-    .max(
-      VALIDATION_RULES.name.maxLength,
-      `Name cannot exceed ${VALIDATION_RULES.name.maxLength} characters`
-    )
-    .regex(
-      VALIDATION_RULES.name.pattern,
-      'Name can only contain letters and spaces'
-    ),
-  email: z.string().min(1, 'Email is required').email('Invalid email address'),
-  subject: z
-    .string()
-    .min(1, 'Subject is required')
-    .min(
-      VALIDATION_RULES.subject.minLength,
-      `Subject must be at least ${VALIDATION_RULES.subject.minLength} characters`
-    )
-    .max(
-      VALIDATION_RULES.subject.maxLength,
-      `Subject cannot exceed ${VALIDATION_RULES.subject.maxLength} characters`
-    ),
-  message: z
-    .string()
-    .min(1, 'Message is required')
-    .min(
-      VALIDATION_RULES.message.minLength,
-      `Message must be at least ${VALIDATION_RULES.message.minLength} characters`
-    )
-    .max(
-      VALIDATION_RULES.message.maxLength,
-      `Message cannot exceed ${VALIDATION_RULES.message.maxLength} characters`
-    )
-})
-
-type ContactFormData = z.infer<typeof contactSchema>
-
-const ContactForm = (): React.JSX.Element => {
-  const [formspreeState, handleFormspreeSubmit] =
-    useFormspree(FORMSPREE_FORM_ID)
+const ContactForm = () => {
+  const [formspreeState, handleFormspreeSubmit] = useFormspree(
+    FORMSPREE_CONFIG.FORM_ID
+  )
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isSubmitted, isValid },
     reset
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(contactFormSchema),
     mode: 'onBlur'
   })
 
@@ -87,19 +33,21 @@ const ContactForm = (): React.JSX.Element => {
     try {
       await handleFormspreeSubmit(data)
     } catch (error) {
-      console.error('Form submission error:', error)
+      logger.error('Form submission error', { error })
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (formspreeState.succeeded) {
       reset()
     }
   }, [formspreeState.succeeded, reset])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (formspreeState.errors) {
-      console.error('Formspree submission errors:', formspreeState.errors)
+      logger.error('Formspree submission errors', {
+        errors: formspreeState.errors
+      })
     }
   }, [formspreeState.errors])
 
@@ -145,11 +93,11 @@ const ContactForm = (): React.JSX.Element => {
       )}
 
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-        <FormInput
+        <FormInput<ContactFormData>
           id='name'
-          label='Name'
+          label={content.contact.form.fields.name.label}
           type='text'
-          placeholder='Your name'
+          placeholder={content.contact.form.fields.name.placeholder}
           register={register}
           error={errors.name}
           required
@@ -158,22 +106,22 @@ const ContactForm = (): React.JSX.Element => {
           pattern='[A-Za-z\s]+'
           descriptionId='name-description'
         />
-        <FormInput
+        <FormInput<ContactFormData>
           id='email'
-          label='Email'
+          label={content.contact.form.fields.email.label}
           type='email'
-          placeholder='Your email'
+          placeholder={content.contact.form.fields.email.placeholder}
           register={register}
           error={errors.email}
           required
           descriptionId='email-description'
         />
       </div>
-      <FormInput
+      <FormInput<ContactFormData>
         id='subject'
-        label='Subject'
+        label={content.contact.form.fields.subject.label}
         type='text'
-        placeholder='Subject of your message'
+        placeholder={content.contact.form.fields.subject.placeholder}
         register={register}
         error={errors.subject}
         required
@@ -181,10 +129,10 @@ const ContactForm = (): React.JSX.Element => {
         maxLength={VALIDATION_RULES.subject.maxLength}
         descriptionId='subject-description'
       />
-      <FormInput
+      <FormInput<ContactFormData>
         id='message'
-        label='Message'
-        placeholder='Your message'
+        label={content.contact.form.fields.message.label}
+        placeholder={content.contact.form.fields.message.placeholder}
         register={register}
         error={errors.message}
         isTextarea={true}
@@ -199,10 +147,14 @@ const ContactForm = (): React.JSX.Element => {
         className='bg-mint hover:opacity-90 transition-opacity text-mint-foreground'
         disabled={isFormSubmitting}
         aria-label={
-          isFormSubmitting ? 'Sending your message...' : 'Send message'
+          isFormSubmitting
+            ? content.contact.form.submit.ariaLabelSending
+            : content.contact.form.submit.ariaLabel
         }
       >
-        {isFormSubmitting ? 'Sending...' : 'Send Message'}
+        {isFormSubmitting
+          ? content.contact.form.submit.sending
+          : content.contact.form.submit.label}
       </Button>
     </form>
   )

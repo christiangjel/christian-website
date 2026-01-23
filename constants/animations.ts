@@ -1,0 +1,25 @@
+export const ANIMATION_DURATION = {
+  FAST: 0.2,
+  NORMAL: 0.3,
+  SLOW: 0.4,
+  SLOWER: 0.6,
+  SLOWEST: 0.8
+} as const
+
+export const ANIMATION_EASING = {
+  EASE_OUT: [0, 0, 0.58, 1] as const,
+  EASE_IN_OUT: [0.42, 0, 0.58, 1] as const,
+  EASE_IN: [0.42, 0, 1, 1] as const
+} as const
+
+export const TIMELINE_ANIMATION = {
+  STAGGER_CHILDREN: ANIMATION_DURATION.NORMAL,
+  DELAY_CHILDREN: ANIMATION_DURATION.NORMAL,
+  ITEM_DURATION: ANIMATION_DURATION.SLOWEST,
+  EASING: ANIMATION_EASING.EASE_IN_OUT
+} as const
+
+export const TAB_ANIMATION = {
+  DURATION: ANIMATION_DURATION.SLOW,
+  EASING: 'easeInOut' as const
+} as const

@@ -1,20 +1,21 @@
 'use client'
 
 import React from 'react'
-import { UseFormRegister, FieldError } from 'react-hook-form'
+import { UseFormRegister, FieldError, FieldValues, Path } from 'react-hook-form'
 
-interface FormInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
-  id: string
+type FormInputProps<T extends FieldValues> = Omit<
+  React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
+  'id'
+> & {
+  id: Path<T>
   label: string
-  // eslint-disable-next-line
-  register: UseFormRegister<any>
+  register: UseFormRegister<T>
   error?: FieldError
   isTextarea?: boolean
   descriptionId?: string
 }
 
-export const FormInput: React.FC<FormInputProps> = ({
+export const FormInput = <T extends FieldValues>({
   id,
   label,
   register,
@@ -29,7 +30,7 @@ export const FormInput: React.FC<FormInputProps> = ({
   className,
   descriptionId,
   ...rest
-}) => {
+}: FormInputProps<T>) => {
   const errorId = `${id}-error`
   const ariaDescribedBy = `${descriptionId ? descriptionId : ''} ${
     error ? errorId : ''

@@ -1,20 +1,21 @@
 'use client'
 
-import { MoveRight, FileDown } from 'lucide-react'
+import { FileDown } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 // import { Badge } from '@/components/ui/badge'
 import { scrollToSection } from '@/lib/utils'
-import content from '@/data/content.json'
+import { content } from '@/lib/content'
+import { SECTIONS } from '@/constants'
 
-export const Hero = (): React.JSX.Element => {
+export const Hero = () => {
   const titleWords = content.hero.title.split(' ')
   const firstWord = titleWords[0]
   const restOfTitle = titleWords.slice(1).join(' ')
 
   return (
     <section
-      id='hero'
+      id={SECTIONS.HERO}
       className='mt-8 flex flex-col items-center py-16 text-center md:py-24'
       aria-labelledby='hero-heading'
     >
@@ -36,30 +37,30 @@ export const Hero = (): React.JSX.Element => {
       <div
         className='flex flex-col gap-4 sm:flex-row'
         role='navigation'
-        aria-label='Main navigation'
+        aria-label={content.hero.ariaLabels.navigation}
       >
         <Button
           size='lg'
           className='bg-mint text-mint-foreground transition-opacity hover:opacity-90'
-          onClick={() => scrollToSection('contact')}
-          aria-label='Get in touch'
+          onClick={() => scrollToSection(SECTIONS.CONTACT)}
+          aria-label={content.hero.buttons.getInTouch.ariaLabel}
         >
-          Get in Touch <MoveRight className='ml-2 h-4 w-4' aria-hidden='true' />
+          {content.hero.buttons.getInTouch.label} &#8594;
         </Button>
         <Button
           size='lg'
           variant='outline'
-          onClick={() => scrollToSection('projects')}
-          aria-label='View my work'
+          onClick={() => scrollToSection(SECTIONS.PROJECTS)}
+          aria-label={content.hero.buttons.viewWork.ariaLabel}
         >
-          View My Work
+          {content.hero.buttons.viewWork.label}
         </Button>
         <Button
           size='lg'
           variant='outline'
           className='flex items-center gap-2'
           asChild
-          aria-label='Download CV (opens in new tab)'
+          aria-label={content.hero.buttons.downloadCV.ariaLabel}
         >
           <Link
             href='/christian-gjelstrup-cv.pdf'
@@ -68,7 +69,7 @@ export const Hero = (): React.JSX.Element => {
             rel='noopener noreferrer'
           >
             <FileDown className='mr-2 h-4 w-4' aria-hidden='true' />
-            Download CV
+            {content.hero.buttons.downloadCV.label}
           </Link>
         </Button>
       </div>

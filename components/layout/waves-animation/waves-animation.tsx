@@ -8,7 +8,8 @@ import {
   createCamera,
   createRenderer,
   runApp,
-  getDefaultUniforms
+  getDefaultUniforms,
+  type DefaultUniforms
 } from './animation-utils'
 
 const VERTEX_SHADER = `
@@ -25,9 +26,7 @@ const VERTEX_SHADER = `
 
   // 2D Random
   float random (in vec2 st) {
-      return fract(sin(dot(st.xy,
-                          vec2(12.9898,78.233)))
-                  * 43758.5453123);
+      return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
   }
 
   // 2D Noise based on Morgan McGuire @morgan3d
@@ -43,20 +42,16 @@ const VERTEX_SHADER = `
       float d = random(i + vec2(1.0, 1.0));
 
       // Smooth Interpolation
-
       // Cubic Hermine Curve.  Same as SmoothStep()
       vec2 u = f*f*(3.0-2.0*f);
       // u = smoothstep(0.,1.,f);
 
       // Mix 4 coorners percentages
-      return mix(a, b, u.x) +
-              (c - a)* u.y * (1.0 - u.x) +
-              (d - b) * u.x * u.y;
+      return mix(a, b, u.x) + (c - a)* u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
   }
 
   mat2 rotate2d(float angle){
-      return mat2(cos(angle),-sin(angle),
-                sin(angle),cos(angle));
+    return mat2(cos(angle),-sin(angle), sin(angle),cos(angle));
   }
 
   void main() {
@@ -121,17 +116,17 @@ const ANIMATION_CONFIG = {
   }
 } as const
 
-interface CustomUniforms {
+type CustomUniforms = DefaultUniforms & {
   [key: string]: THREE.IUniform<unknown>
 }
 
-interface SceneComponents {
+type SceneComponents = {
   geometry: THREE.PlaneGeometry
   material: THREE.ShaderMaterial
   mesh: THREE.Points
 }
 
-export const WavesAnimation = React.memo((): React.JSX.Element => {
+export const WavesAnimation = React.memo(() => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

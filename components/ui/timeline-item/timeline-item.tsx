@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-interface TimelineItemProps {
+type TimelineItemProps = {
   date: string
   title: string
   description?: string
