@@ -3,8 +3,10 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { Loader2 } from 'lucide-react'
 
-const WavesAnimation = lazy(
-  () => import('@/components/layout/waves-animation/waves-animation').then((mod) => ({ default: mod.WavesAnimation }))
+const WavesAnimation = lazy(() =>
+  import('@/components/layout/waves-animation/waves-animation').then((mod) => ({
+    default: mod.WavesAnimation
+  }))
 )
 
 type PageWrapperProps = {

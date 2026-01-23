@@ -25,7 +25,7 @@ export default function Home() {
       const timer = setTimeout(() => {
         scrollToSection(hash)
       }, SCROLL_CONFIG.HASH_NAVIGATION_DELAY)
-      
+
       return () => clearTimeout(timer)
     }
   }, [])

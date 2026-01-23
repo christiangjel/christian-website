@@ -52,10 +52,13 @@ export const useTabAnimation = (tabCount: number) => {
     return () => window.removeEventListener('resize', updateTabBounds)
   }, [updateTabBounds])
 
-  const handleTabChange = useCallback((index: number) => {
-    setDirection(index > activeTabIndex ? 1 : -1)
-    setActiveTabIndex(index)
-  }, [activeTabIndex])
+  const handleTabChange = useCallback(
+    (index: number) => {
+      setDirection(index > activeTabIndex ? 1 : -1)
+      setActiveTabIndex(index)
+    },
+    [activeTabIndex]
+  )
 
   return {
     activeTabIndex,
