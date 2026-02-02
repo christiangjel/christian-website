@@ -9,7 +9,14 @@ export const FORMSPREE_CONFIG = {
 } as const
 
 export const SITE_CONFIG = {
-  BASE_URL: 'https://christiangjel.github.io/christian-website',
+  // Production domain: christian-gjelstrup.com
+  // Priority: NEXT_PUBLIC_SITE_URL > VERCEL_URL > localhost
+  // Set NEXT_PUBLIC_SITE_URL=https://christian-gjelstrup.com in Vercel environment variables
+  BASE_URL:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000'),
   REPO_URL: 'https://github.com/christiangjel/christian-website'
 } as const
 

@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://christiangjel.github.io/christian-website/sitemap.xml
-
-
+Sitemap: /sitemap.xml

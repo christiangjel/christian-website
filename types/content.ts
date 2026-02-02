@@ -165,6 +165,18 @@ export type NotFound = {
   }
 }
 
+export type ErrorBoundaryContent = {
+  heading: string
+  description: string
+  goHome: string
+  refreshPage: string
+  errorDetails: string
+  ariaLabels: {
+    goHome: string
+    refreshPage: string
+  }
+}
+
 export type Content = {
   meta: {
     title: string
@@ -219,4 +231,5 @@ export type Content = {
     }
   }
   notFound: NotFound
+  errorBoundary: ErrorBoundaryContent
 }

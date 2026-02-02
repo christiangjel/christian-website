@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next'
+import { SITE_CONFIG } from '@/constants'
 
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://christiangjel.github.io/christian-website'
+  const baseUrl = SITE_CONFIG.BASE_URL
 
   return [
     {

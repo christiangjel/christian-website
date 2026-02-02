@@ -50,7 +50,11 @@ export const Contact = () => {
                   className='flex items-center gap-2'
                   asChild
                 >
-                  <Link href={item.url} target='_blank'>
+                  <Link
+                    href={item.url}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
                     {item.icon === 'linkedin' && (
                       <Linkedin className='h-4 w-4' />
                     )}

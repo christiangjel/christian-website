@@ -81,48 +81,36 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## Deploy to GitHub Pages
-
-This project is configured for static export and GitHub Pages deployment.
-
-### Prerequisites
-
-1. Ensure your GitHub repository is set up
-2. The repository name should match the `basePath` in `next.config.ts` (currently `/christian-website`)
-
 ### Deployment Steps
 
-1. **Build the static export:**
+1. **Push your code to GitHub** (if not already done)
 
-   ```bash
-   npm run build
-   ```
+2. **Import your project in Vercel:**
 
-   This creates an `out` directory with the static files.
+   - Go to [vercel.com](https://vercel.com)
+   - Click "Add New Project"
+   - Import your GitHub repository
+   - Vercel will auto-detect Next.js settings
 
-2. **Deploy to GitHub Pages:**
+3. **Set Environment Variable (Recommended):**
 
-   ```bash
-   npm run deploy
-   ```
-
-   This uses `gh-pages` to deploy the `out` directory to the `gh-pages` branch.
-
-3. **Configure GitHub Pages:**
-   - Go to your repository settings on GitHub
-   - Navigate to "Pages" in the sidebar
-   - Under "Source", select the `gh-pages` branch
+   - Go to your project settings in Vercel
+   - Navigate to "Environment Variables"
+   - Add: `NEXT_PUBLIC_SITE_URL` = `https://christian-gjelstrup.com`
+   - Select "Production" environment
    - Click "Save"
 
-Your site will be available at `https://[your-username].github.io/christian-website`
+4. **Deploy:**
+   - Vercel will automatically deploy on every push to your main branch
+   - Preview deployments are created for pull requests
 
-### Notes
+### Domain Configuration
 
-- The `next.config.ts` is configured with `basePath` and `assetPrefix` for GitHub Pages
-- Static export is enabled only in production builds
-- The `out` directory contains all static files needed for deployment
+- **Production Domain**: `christian-gjelstrup.com`
+- The app uses `NEXT_PUBLIC_SITE_URL` for SEO metadata, sitemap, and structured data
+- If not set, it falls back to Vercel's auto-generated URL (`VERCEL_URL`)
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 ## Development
 
@@ -156,4 +144,4 @@ npm run test:coverage # Run tests with coverage
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 - `npm run test` - Run tests
-- `npm run deploy` - Deploy to GitHub Pages
+- `npm run type-check` - Run TypeScript type checking

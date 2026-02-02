@@ -4,6 +4,7 @@ import '@/app/globals.css'
 import { fontNormal, fontBold } from '@/app/fonts'
 import { ThemeProvider } from '@/components/layout/theme/theme-provider'
 import PageWrapper from '@/components/layout/page-wrapper/page-wrapper'
+import { ErrorBoundary } from '@/components/error-boundary'
 import { SITE_CONFIG } from '@/constants'
 import { SITE_METADATA } from '@/constants/metadata'
 import { content } from '@/lib/content'
@@ -67,13 +68,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       {/*  ignore attribute mismatches caused by extensions */}
       <body suppressHydrationWarning>
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='dark'
-          enableSystem={false}
-        >
-          <PageWrapper>{children}</PageWrapper>
-        </ThemeProvider>
+        <ErrorBoundary>
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='dark'
+            enableSystem={false}
+          >
+            <PageWrapper>{children}</PageWrapper>
+          </ThemeProvider>
+        </ErrorBoundary>
       </body>
     </html>
   )
