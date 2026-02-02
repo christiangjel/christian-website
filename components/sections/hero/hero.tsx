@@ -1,7 +1,6 @@
 'use client'
 
 import { FileDown } from 'lucide-react'
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 // import { Badge } from '@/components/ui/badge'
 import { scrollToSection } from '@/lib/utils'
@@ -62,7 +61,7 @@ export const Hero = () => {
           asChild
           aria-label={content.hero.buttons.downloadCV.ariaLabel}
         >
-          <Link
+          <a
             href='/christian-gjelstrup-cv.pdf'
             target='_blank'
             download
@@ -70,7 +69,7 @@ export const Hero = () => {
           >
             <FileDown className='mr-2 h-4 w-4' aria-hidden='true' />
             {content.hero.buttons.downloadCV.label}
-          </Link>
+          </a>
         </Button>
       </div>
     </section>

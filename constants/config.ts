@@ -9,9 +9,7 @@ export const FORMSPREE_CONFIG = {
 } as const
 
 export const SITE_CONFIG = {
-  // Production domain: christian-gjelstrup.com
-  // Priority: NEXT_PUBLIC_SITE_URL > VERCEL_URL > localhost
-  // Set NEXT_PUBLIC_SITE_URL=https://christian-gjelstrup.com in Vercel environment variables
+  // Priority: NEXT_PUBLIC_SITE_URL > VERCEL_URL > localhost. See .env.example for production value.
   BASE_URL:
     process.env.NEXT_PUBLIC_SITE_URL ||
     (process.env.VERCEL_URL
