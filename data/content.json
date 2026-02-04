@@ -459,7 +459,7 @@
     }
   },
   "footer": {
-    "copyright": "© 2026 Christian Gjelstrup. All rights reserved."
+    "copyright": "© {year} Christian Gjelstrup. All rights reserved."
   },
   "notFound": {
     "title": "404",
