@@ -1,8 +1,8 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import MainNav from '@/components/layout/navigation/main-nav'
-import MobileNav from '@/components/layout/navigation/mobile-nav'
+import { MainNav } from '@/components/layout/navigation/main-nav'
+import { MobileNav } from '@/components/layout/navigation/mobile-nav'
 import { scrollToSection } from '@/lib/utils'
 import { SECTIONS } from '@/constants'
 import { content } from '@/lib/content'

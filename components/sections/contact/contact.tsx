@@ -3,7 +3,7 @@
 import { Mail, Phone, Github, Linkedin } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import ContactForm from '@/components/ui/forms/contact-form'
+import { ContactForm } from '@/components/ui/forms/contact-form'
 import { ContactInfoItem } from '@/components/ui/contact-info-item'
 import { LocationIcon } from '@/components/ui/icons/location-icon'
 import { XingIcon } from '@/components/ui/icons/xing-icon'

@@ -5,7 +5,7 @@ import { NAVIGATION_ITEMS, SectionId } from '@/constants'
 import { useNavigation } from '@/hooks/useNavigation'
 import { content } from '@/lib/content'
 
-const MainNav = () => {
+export const MainNav = () => {
   const { handleNavClick } = useNavigation()
 
   const onNavClick =
@@ -36,5 +36,3 @@ const MainNav = () => {
     </nav>
   )
 }
-
-export default MainNav

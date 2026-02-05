@@ -70,4 +70,4 @@ const PageWrapper = React.memo<PageWrapperProps>(({ children }) => {
 
 PageWrapper.displayName = 'PageWrapper'
 
-export default PageWrapper
+export { PageWrapper }

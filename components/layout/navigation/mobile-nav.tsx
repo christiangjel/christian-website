@@ -15,7 +15,7 @@ const MobileNavContext = React.createContext<{
   setIsOpen: (open: boolean) => void
 } | null>(null)
 
-export default function MobileNav({ children }: { children: React.ReactNode }) {
+export const MobileNav = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (

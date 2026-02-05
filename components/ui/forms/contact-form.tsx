@@ -160,4 +160,4 @@ const ContactForm = () => {
   )
 }
 
-export default ContactForm
+export { ContactForm }
