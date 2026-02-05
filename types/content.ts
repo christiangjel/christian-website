@@ -224,10 +224,13 @@ export type Content = {
     copyright: string
   }
   navigation: {
+    items: { href: string; title: string }[]
     ariaLabels: {
       main: string
       mobile: string
       navigateTo: string
+      openMenu: string
+      closeMenu: string
     }
   }
   notFound: NotFound

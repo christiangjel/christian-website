@@ -452,10 +452,19 @@
     "logoAriaLabel": "Go to top of page"
   },
   "navigation": {
+    "items": [
+      { "href": "about", "title": "About" },
+      { "href": "skills", "title": "Skills" },
+      { "href": "projects", "title": "Projects" },
+      { "href": "experience", "title": "Experience" },
+      { "href": "contact", "title": "Contact" }
+    ],
     "ariaLabels": {
       "main": "Main navigation",
       "mobile": "Mobile navigation",
-      "navigateTo": "Navigate to {title} section"
+      "navigateTo": "Navigate to {title} section",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
     }
   },
   "footer": {

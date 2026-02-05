@@ -86,7 +86,7 @@ const FRAGMENT_SHADER = `
   }
 `
 
-const ANIMATION_CONFIG = {
+const WAVES_ANIMATION_CONFIG = {
   geometry: {
     width: 4,
     height: 4,
@@ -141,15 +141,15 @@ export const WavesAnimation = React.memo(() => {
     // Setup uniforms for the scene
     const uniforms: CustomUniforms = {
       ...getDefaultUniforms(),
-      u_pointsize: { value: ANIMATION_CONFIG.uniforms.u_pointsize },
+      u_pointsize: { value: WAVES_ANIMATION_CONFIG.uniforms.u_pointsize },
       // wave 1
-      u_noise_freq_1: { value: ANIMATION_CONFIG.uniforms.u_noise_freq_1 },
-      u_noise_amp_1: { value: ANIMATION_CONFIG.uniforms.u_noise_amp_1 },
-      u_spd_modifier_1: { value: ANIMATION_CONFIG.uniforms.u_spd_modifier_1 },
+      u_noise_freq_1: { value: WAVES_ANIMATION_CONFIG.uniforms.u_noise_freq_1 },
+      u_noise_amp_1: { value: WAVES_ANIMATION_CONFIG.uniforms.u_noise_amp_1 },
+      u_spd_modifier_1: { value: WAVES_ANIMATION_CONFIG.uniforms.u_spd_modifier_1 },
       // wave 2
-      u_noise_freq_2: { value: ANIMATION_CONFIG.uniforms.u_noise_freq_2 },
-      u_noise_amp_2: { value: ANIMATION_CONFIG.uniforms.u_noise_amp_2 },
-      u_spd_modifier_2: { value: ANIMATION_CONFIG.uniforms.u_spd_modifier_2 }
+      u_noise_freq_2: { value: WAVES_ANIMATION_CONFIG.uniforms.u_noise_freq_2 },
+      u_noise_amp_2: { value: WAVES_ANIMATION_CONFIG.uniforms.u_noise_amp_2 },
+      u_spd_modifier_2: { value: WAVES_ANIMATION_CONFIG.uniforms.u_spd_modifier_2 }
     }
 
     // Create the scene
@@ -160,15 +160,15 @@ export const WavesAnimation = React.memo(() => {
 
     // Create the camera
     const camera = createCamera(
-      ANIMATION_CONFIG.camera.fov,
-      ANIMATION_CONFIG.camera.near,
-      ANIMATION_CONFIG.camera.far,
-      ANIMATION_CONFIG.camera.position
+      WAVES_ANIMATION_CONFIG.camera.fov,
+      WAVES_ANIMATION_CONFIG.camera.near,
+      WAVES_ANIMATION_CONFIG.camera.far,
+      WAVES_ANIMATION_CONFIG.camera.position
     )
     camera.lookAt(
-      ANIMATION_CONFIG.camera.lookAt.x,
-      ANIMATION_CONFIG.camera.lookAt.y,
-      ANIMATION_CONFIG.camera.lookAt.z
+      WAVES_ANIMATION_CONFIG.camera.lookAt.x,
+      WAVES_ANIMATION_CONFIG.camera.lookAt.y,
+      WAVES_ANIMATION_CONFIG.camera.lookAt.z
     )
 
     // Variables to store our components
@@ -178,10 +178,10 @@ export const WavesAnimation = React.memo(() => {
       initScene: async () => {
         // Mesh
         const geometry = new THREE.PlaneGeometry(
-          ANIMATION_CONFIG.geometry.width,
-          ANIMATION_CONFIG.geometry.height,
-          ANIMATION_CONFIG.geometry.widthSegments,
-          ANIMATION_CONFIG.geometry.heightSegments
+          WAVES_ANIMATION_CONFIG.geometry.width,
+          WAVES_ANIMATION_CONFIG.geometry.height,
+          WAVES_ANIMATION_CONFIG.geometry.widthSegments,
+          WAVES_ANIMATION_CONFIG.geometry.heightSegments
         )
 
         const material = new THREE.ShaderMaterial({
@@ -193,9 +193,9 @@ export const WavesAnimation = React.memo(() => {
         const mesh = new THREE.Points(geometry, material)
         scene.add(mesh)
         mesh.position.set(
-          ANIMATION_CONFIG.mesh.position.x,
-          ANIMATION_CONFIG.mesh.position.y,
-          ANIMATION_CONFIG.mesh.position.z
+          WAVES_ANIMATION_CONFIG.mesh.position.x,
+          WAVES_ANIMATION_CONFIG.mesh.position.y,
+          WAVES_ANIMATION_CONFIG.mesh.position.z
         )
 
         sceneComponents = { geometry, material, mesh }

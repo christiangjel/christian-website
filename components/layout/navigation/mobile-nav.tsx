@@ -6,7 +6,7 @@ import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
-import { NAVIGATION_ITEMS, SectionId } from '@/constants'
+import { type SectionId } from '@/constants'
 import { useNavigation } from '@/hooks/useNavigation'
 import { content } from '@/lib/content'
 
@@ -42,7 +42,11 @@ MobileNav.Button = function MobileNavButton() {
       onClick={handleClick}
       aria-expanded={isOpen}
       aria-controls='mobile-menu'
-      aria-label={isOpen ? 'Close menu' : 'Open menu'}
+      aria-label={
+        isOpen
+          ? content.navigation.ariaLabels.closeMenu
+          : content.navigation.ariaLabels.openMenu
+      }
       className='inline-flex h-9 w-9 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
     >
       {isOpen ? (
@@ -90,11 +94,11 @@ MobileNav.Menu = function MobileNavMenu() {
     >
       <div className='m-8'>
         <nav className='flex flex-col gap-4'>
-          {NAVIGATION_ITEMS.map((item) => (
+          {content.navigation.items.map((item) => (
             <button
               key={item.href}
               type='button'
-              onClick={() => onNavClick(item.href)}
+              onClick={() => onNavClick(item.href as SectionId)}
               className={cn(
                 'cursor-pointer text-left text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
               )}

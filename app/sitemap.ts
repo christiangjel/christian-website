@@ -1,48 +1,28 @@
 import { MetadataRoute } from 'next'
-import { SITE_CONFIG } from '@/constants'
+import { SITE_CONFIG, SECTIONS, SECTION_IDS } from '@/constants'
 
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.BASE_URL
+  const lastModified = new Date()
+
+  const sectionEntries = SECTION_IDS.filter(
+    (id) => id !== SECTIONS.HERO && id !== SECTIONS.EDUCATION
+  ).map((id) => ({
+    url: `${baseUrl}/#${id}`,
+    lastModified,
+    changeFrequency: 'monthly' as const,
+    priority: id === SECTIONS.CONTACT ? 0.7 : 0.8
+  }))
 
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: 'monthly',
       priority: 1
     },
-    {
-      url: `${baseUrl}/#about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8
-    },
-    {
-      url: `${baseUrl}/#skills`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8
-    },
-    {
-      url: `${baseUrl}/#projects`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8
-    },
-    {
-      url: `${baseUrl}/#experience`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8
-    },
-    {
-      url: `${baseUrl}/#contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7
-    }
+    ...sectionEntries
   ]
 }
-
