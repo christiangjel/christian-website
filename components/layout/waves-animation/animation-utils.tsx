@@ -67,7 +67,9 @@ type ThreeJSApp = {
  * When a size element is provided (e.g. wrapper with 100svh), dimensions stay stable
  * when the browser UI toggles on mobile.
  */
-const getSize = (sizeElement: HTMLElement | null): { width: number; height: number } => {
+const getSize = (
+  sizeElement: HTMLElement | null
+): { width: number; height: number } => {
   if (sizeElement) {
     return {
       width: sizeElement.clientWidth,

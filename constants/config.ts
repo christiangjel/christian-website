@@ -5,8 +5,8 @@ export const SCROLL_CONFIG = {
 } as const
 
 export const FORMSPREE_CONFIG = {
-  FORM_ID: 'xgvaojga'
-} as const
+  FORM_ID: process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID ?? ''
+}
 
 export const SITE_CONFIG = {
   // Priority: NEXT_PUBLIC_SITE_URL > VERCEL_URL > localhost. See .env.example for production value.
