@@ -133,9 +133,11 @@ export const WavesAnimation = React.memo(() => {
     const currentContainer = containerRef.current
     if (!currentContainer) return
 
-    // Create container element for three.js
+    // Create container element for three.js (fill wrapper so canvas sizes from it)
     const container = document.createElement('div')
     container.id = 'container'
+    container.style.width = '100%'
+    container.style.height = '100%'
     currentContainer.appendChild(container)
 
     // Setup uniforms for the scene
@@ -202,8 +204,8 @@ export const WavesAnimation = React.memo(() => {
       }
     }
 
-    // Run the app
-    runApp(app, scene, renderer, camera, true, uniforms)
+    // Run the app (pass wrapper so canvas uses its dimensions = stable when browser bar toggles)
+    runApp(app, scene, renderer, camera, true, uniforms, currentContainer)
 
     // Cleanup function
     return () => {
@@ -233,7 +235,7 @@ export const WavesAnimation = React.memo(() => {
   return (
     <div
       ref={containerRef}
-      className='fixed bottom-0 left-0 w-full h-full pointer-events-none z-0'
+      className='fixed top-0 left-0 z-0 h-[100svh] w-full pointer-events-none'
     />
   )
 })

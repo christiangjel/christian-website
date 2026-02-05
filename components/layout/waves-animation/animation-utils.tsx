@@ -63,6 +63,21 @@ type ThreeJSApp = {
 }
 
 /**
+ * Get width and height for renderer/camera from a size element or fallback to window.
+ * When a size element is provided (e.g. wrapper with 100svh), dimensions stay stable
+ * when the browser UI toggles on mobile.
+ */
+const getSize = (sizeElement: HTMLElement | null): { width: number; height: number } => {
+  if (sizeElement) {
+    return {
+      width: sizeElement.clientWidth,
+      height: sizeElement.clientHeight
+    }
+  }
+  return { width: window.innerWidth, height: window.innerHeight }
+}
+
+/**
  * This function contains the boilerplate code to set up the environment for a threejs app;
  * e.g. HTML canvas, resize listener, mouse events listener, requestAnimationFrame
  */
@@ -72,26 +87,28 @@ export const runApp = (
   renderer: THREE.WebGLRenderer,
   camera: THREE.PerspectiveCamera,
   enableAnimation = false,
-  uniforms: Uniforms = getDefaultUniforms()
+  uniforms: Uniforms = getDefaultUniforms(),
+  sizeElement: HTMLElement | null = null
 ): ThreeJSApp => {
   // Create the HTML container
   const container = document.getElementById('container') as HTMLElement
   container.appendChild(renderer.domElement)
 
-  // Register resize listener
-  window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight
+  const applySize = (): void => {
+    const { width, height } = getSize(sizeElement)
+    camera.aspect = width / height
     camera.updateProjectionMatrix()
-
-    renderer.setSize(window.innerWidth, window.innerHeight)
-    // update uniforms.u_resolution
+    renderer.setSize(width, height)
     if (uniforms.u_resolution !== undefined) {
-      uniforms.u_resolution.value.x =
-        window.innerWidth * window.devicePixelRatio
-      uniforms.u_resolution.value.y =
-        window.innerHeight * window.devicePixelRatio
+      const dpr = window.devicePixelRatio
+      uniforms.u_resolution.value.x = width * dpr
+      uniforms.u_resolution.value.y = height * dpr
     }
-  })
+  }
+
+  applySize()
+
+  window.addEventListener('resize', applySize)
 
   // Define app
   if (app.updateScene === undefined) {
