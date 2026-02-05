@@ -140,6 +140,16 @@ export const WavesAnimation = React.memo(() => {
     container.style.height = '100%'
     currentContainer.appendChild(container)
 
+    // Lock wrapper to current dimensions so it (and the canvas) don't resize when the mobile browser bar toggles
+    const lockWrapperSize = (): void => {
+      const w = currentContainer.clientWidth
+      const h = currentContainer.clientHeight
+      if (w > 0 && h > 0) {
+        currentContainer.style.width = `${w}px`
+        currentContainer.style.height = `${h}px`
+      }
+    }
+
     // Setup uniforms for the scene
     const uniforms: CustomUniforms = {
       ...getDefaultUniforms(),
@@ -204,11 +214,13 @@ export const WavesAnimation = React.memo(() => {
       }
     }
 
-    // Run the app (pass wrapper so canvas uses its dimensions = stable when browser bar toggles)
-    runApp(app, scene, renderer, camera, true, uniforms, currentContainer)
+    const rafId = requestAnimationFrame(() => {
+      lockWrapperSize()
+      runApp(app, scene, renderer, camera, true, uniforms, currentContainer)
+    })
 
-    // Cleanup function
     return () => {
+      cancelAnimationFrame(rafId)
       if (sceneComponents) {
         const { geometry, material, mesh } = sceneComponents
 
@@ -217,9 +229,6 @@ export const WavesAnimation = React.memo(() => {
         if (mesh) {
           scene.remove(mesh)
           mesh.geometry.dispose()
-          if (mesh.material) {
-            ;(mesh.material as THREE.Material).dispose()
-          }
         }
       }
 

@@ -105,6 +105,7 @@ const ContactForm = () => {
           maxLength={VALIDATION_RULES.name.maxLength}
           pattern='[A-Za-z\s]+'
           descriptionId='name-description'
+          autoComplete='name'
         />
         <FormInput<ContactFormData>
           id='email'
@@ -115,6 +116,7 @@ const ContactForm = () => {
           error={errors.email}
           required
           descriptionId='email-description'
+          autoComplete='email'
         />
       </div>
       <FormInput<ContactFormData>
@@ -128,6 +130,7 @@ const ContactForm = () => {
         minLength={VALIDATION_RULES.subject.minLength}
         maxLength={VALIDATION_RULES.subject.maxLength}
         descriptionId='subject-description'
+        autoComplete='off'
       />
       <FormInput<ContactFormData>
         id='message'
@@ -140,6 +143,7 @@ const ContactForm = () => {
         minLength={VALIDATION_RULES.message.minLength}
         maxLength={VALIDATION_RULES.message.maxLength}
         descriptionId='message-description'
+        autoComplete='off'
       />
 
       <Button
