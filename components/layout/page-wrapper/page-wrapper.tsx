@@ -1,6 +1,7 @@
 'use client'
 
-import React, { useState, useEffect, lazy, Suspense } from 'react'
+import { useState, useEffect, lazy, Suspense, memo } from 'react'
+import type { ReactNode } from 'react'
 import { Loader2 } from 'lucide-react'
 
 const WavesAnimation = lazy(() =>
@@ -10,12 +11,12 @@ const WavesAnimation = lazy(() =>
 )
 
 type PageWrapperProps = {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const WEBGL_LOAD_EVENT = 'webgl-load-complete'
 
-const PageWrapper = React.memo<PageWrapperProps>(({ children }) => {
+const PageWrapper = memo<PageWrapperProps>(({ children }) => {
   const [isWebGLReady, setIsWebGLReady] = useState(false)
 
   useEffect(() => {
@@ -36,18 +37,13 @@ const PageWrapper = React.memo<PageWrapperProps>(({ children }) => {
     }
   }, [])
 
-  const preloaderStyle: React.CSSProperties = {
-    pointerEvents: isWebGLReady ? 'none' : 'auto'
-  }
-
   return (
     <div className='bg-background'>
       {/* preloader */}
       <div
         className={`fixed inset-0 flex flex-col items-center justify-center transition-opacity duration-200 ${
-          isWebGLReady ? 'opacity-0' : 'opacity-100'
+          isWebGLReady ? 'pointer-events-none opacity-0' : 'pointer-events-auto opacity-100'
         }`}
-        style={preloaderStyle}
         aria-hidden={isWebGLReady}
       >
         <Loader2 className='h-12 w-12 animate-spin text-mint' />

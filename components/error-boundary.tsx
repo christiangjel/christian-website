@@ -1,6 +1,7 @@
 'use client'
 
-import { Component, type ReactNode } from 'react'
+import { Component } from 'react'
+import type { ErrorInfo, ReactNode } from 'react'
 import { Button } from '@/components/ui/button'
 import { AlertTriangle } from 'lucide-react'
 import { SECTIONS } from '@/constants'
@@ -41,7 +42,7 @@ export class ErrorBoundary extends Component<
     return { hasError: true, error }
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
     // Log error using project's logger utility
     logger.error('Error caught by boundary', {
       error: error.message,

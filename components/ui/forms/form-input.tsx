@@ -1,10 +1,10 @@
 'use client'
 
-import React from 'react'
+import type { InputHTMLAttributes } from 'react'
 import { UseFormRegister, FieldError, FieldValues, Path } from 'react-hook-form'
 
 type FormInputProps<T extends FieldValues> = Omit<
-  React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
+  InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
   'id'
 > & {
   id: Path<T>

@@ -1,20 +1,21 @@
 'use client'
 
-import React from 'react'
+import { memo, useState, useEffect } from 'react'
+import type { ReactNode } from 'react'
 import {
   ThemeProvider as NextThemesProvider,
   type ThemeProviderProps
 } from 'next-themes'
 
 type CustomThemeProviderProps = ThemeProviderProps & {
-  children: React.ReactNode
+  children: ReactNode
 }
 
-export const ThemeProvider = React.memo<CustomThemeProviderProps>(
+export const ThemeProvider = memo<CustomThemeProviderProps>(
   ({ children, ...props }) => {
-    const [mounted, setMounted] = React.useState(false)
+    const [mounted, setMounted] = useState(false)
 
-    React.useEffect(() => {
+    useEffect(() => {
       setMounted(true)
     }, [])
 

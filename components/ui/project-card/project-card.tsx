@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import { memo } from 'react'
 import Link from 'next/link'
 import { Card, CardContent } from '@/components/ui/card'
 import { content } from '@/lib/content'
@@ -15,7 +15,7 @@ type ProjectCardProps = {
   link?: string
 }
 
-const ProjectCard = React.memo<ProjectCardProps>(
+const ProjectCard = memo<ProjectCardProps>(
   ({ title, role, client, agency, description, awards, link = '#' }) => {
     const hasAwards = awards && awards.length > 0
 

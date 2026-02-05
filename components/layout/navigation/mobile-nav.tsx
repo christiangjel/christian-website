@@ -1,6 +1,7 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
+import { useState, useRef, createContext, useContext } from 'react'
+import type { ReactNode, KeyboardEvent } from 'react'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -10,12 +11,12 @@ import { type SectionId } from '@/constants'
 import { useNavigation } from '@/hooks/useNavigation'
 import { content } from '@/lib/content'
 
-const MobileNavContext = React.createContext<{
+const MobileNavContext = createContext<{
   isOpen: boolean
   setIsOpen: (open: boolean) => void
 } | null>(null)
 
-export const MobileNav = ({ children }: { children: React.ReactNode }) => {
+export const MobileNav = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -26,7 +27,7 @@ export const MobileNav = ({ children }: { children: React.ReactNode }) => {
 }
 
 MobileNav.Button = function MobileNavButton() {
-  const context = React.useContext(MobileNavContext)
+  const context = useContext(MobileNavContext)
   if (!context)
     throw new Error('MobileNav.Button must be used within MobileNav')
 
@@ -59,7 +60,7 @@ MobileNav.Button = function MobileNavButton() {
 }
 
 MobileNav.Menu = function MobileNavMenu() {
-  const context = React.useContext(MobileNavContext)
+  const context = useContext(MobileNavContext)
   if (!context) throw new Error('MobileNav.Menu must be used within MobileNav')
 
   const { isOpen, setIsOpen } = context
@@ -71,7 +72,7 @@ MobileNav.Menu = function MobileNavMenu() {
     setIsOpen(false)
   }
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       setIsOpen(false)
     }

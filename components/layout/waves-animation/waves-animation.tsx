@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef, memo } from 'react'
 import * as THREE from 'three'
 
 // Core boilerplate code deps
@@ -126,7 +126,7 @@ type SceneComponents = {
   mesh: THREE.Points
 }
 
-export const WavesAnimation = React.memo(() => {
+export const WavesAnimation = memo(() => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

@@ -1,8 +1,7 @@
-import * as React from 'react'
-
+import type { HTMLAttributes } from 'react'
 import { cn } from '@/lib/utils'
 
-export type BadgeProps = React.HTMLAttributes<HTMLDivElement>
+export type BadgeProps = HTMLAttributes<HTMLDivElement>
 
 function Badge({ className, ...props }: BadgeProps) {
   return (
