@@ -18,26 +18,37 @@ A modern, performant portfolio website built with Next.js, TypeScript, and Tailw
 
 ```
 ├── app/                    # Next.js app directory
-│   ├── hooks/             # Custom React hooks
-│   └── page.tsx          # Main page
-├── components/           # React components
-│   ├── layout/          # Layout components (Header, Footer, etc.)
-│   ├── sections/        # Page sections (About, Skills, etc.)
-│   └── ui/              # Reusable UI components
-├── constants/            # Application constants
-│   ├── sections.ts      # Section IDs
-│   ├── navigation.ts    # Navigation items
-│   ├── animations.ts    # Animation configs
-│   └── config.ts        # App configuration
-├── lib/                  # Utility functions
-│   ├── content.ts       # Typed content loader
-│   ├── logger.ts        # Logging utility
-│   ├── utils.ts         # General utilities
-│   └── validations/     # Validation schemas
-├── types/                # TypeScript type definitions
-│   └── content.ts       # Content types
-└── data/                 # Static data
-    └── content.json     # Site content
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   ├── not-found.tsx      # 404 page
+│   ├── robots.ts          # Dynamic robots.txt
+│   ├── sitemap.ts         # Dynamic sitemap
+│   ├── fonts.ts           # Font configuration
+│   └── globals.css        # Global styles
+├── components/            # React components
+│   ├── layout/            # Layout (Header, Footer, navigation, waves, theme)
+│   ├── sections/          # Page sections (Hero, About, Skills, etc.)
+│   └── ui/                # Reusable UI components
+├── hooks/                  # Custom React hooks (root level)
+│   ├── useNavigation.ts
+│   ├── useSectionAnimation.ts
+│   └── useTabAnimation.ts
+├── constants/              # Application constants
+│   ├── index.ts            # Re-exports
+│   ├── sections.ts         # Section IDs
+│   ├── config.ts           # App configuration
+│   ├── metadata.ts         # SEO metadata
+│   └── animations.ts       # Animation configs
+├── lib/                    # Utility functions
+│   ├── content.ts          # Typed content loader
+│   ├── logger.ts           # Logging utility
+│   ├── utils.ts            # General utilities
+│   └── validations/         # Validation schemas (e.g. contact)
+├── types/                  # TypeScript type definitions
+│   └── content.ts          # Content types
+├── data/                   # Static data
+│   └── content.json        # Site content
+└── tests/                  # Vitest tests (mirrors source structure)
 ```
 
 ### Key Design Decisions
