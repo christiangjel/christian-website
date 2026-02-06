@@ -5,6 +5,7 @@ export const SITE_METADATA = {
   title: content.meta.title,
   description: content.meta.description,
   keywords: [
+    'Christian Gjelstrup',
     'Frontend Engineer',
     'React Developer',
     'Next.js Developer',
