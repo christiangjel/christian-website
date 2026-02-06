@@ -46,7 +46,6 @@ const setupScrollEndDetection = (
 /**
  * Smoothly scrolls to a section by its ID.
  * Uses a configurable offset to account for fixed header.
- * Signals scroll completion after animation to re-enable scroll sync.
  *
  * @param sectionId - The ID of the section to scroll to
  */

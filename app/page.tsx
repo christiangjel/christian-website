@@ -11,13 +11,10 @@ import { Experience } from '@/components/sections/experience/experience'
 import { Education } from '@/components/sections/education/education'
 import { Contact } from '@/components/sections/contact/contact'
 import { scrollToSection } from '@/lib/utils'
-import { useScrollUrlSync } from '@/hooks/useScrollUrlSync'
 import { SCROLL_CONFIG } from '@/constants'
 
 export default function Home() {
-  // Sync URL hash with scroll position
-  useScrollUrlSync()
-
+  // Hash only updates on nav click (useNavigation). Hash on load scrolls to section below.
   useEffect(() => {
     // Handle hash navigation on page load
     const hash = window.location.hash.slice(1) // Remove the # symbol
