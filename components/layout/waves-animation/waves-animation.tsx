@@ -140,16 +140,6 @@ export const WavesAnimation = memo(() => {
     container.style.height = '100%'
     currentContainer.appendChild(container)
 
-    // Lock wrapper to current dimensions so it (and the canvas) don't resize when the mobile browser bar toggles
-    const lockWrapperSize = (): void => {
-      const w = currentContainer.clientWidth
-      const h = currentContainer.clientHeight
-      if (w > 0 && h > 0) {
-        currentContainer.style.width = `${w}px`
-        currentContainer.style.height = `${h}px`
-      }
-    }
-
     // Setup uniforms for the scene
     const uniforms: CustomUniforms = {
       ...getDefaultUniforms(),
@@ -214,13 +204,9 @@ export const WavesAnimation = memo(() => {
       }
     }
 
-    const rafId = requestAnimationFrame(() => {
-      lockWrapperSize()
-      runApp(app, scene, renderer, camera, true, uniforms, currentContainer)
-    })
+    runApp(app, scene, renderer, camera, true, uniforms, currentContainer)
 
     return () => {
-      cancelAnimationFrame(rafId)
       if (sceneComponents) {
         const { geometry, material, mesh } = sceneComponents
 
@@ -244,7 +230,7 @@ export const WavesAnimation = memo(() => {
   return (
     <div
       ref={containerRef}
-      className='fixed top-0 left-0 z-0 h-[100svh] w-full pointer-events-none'
+      className='fixed top-0 left-0 z-0 h-[var(--viewport-height,100svh)] w-full pointer-events-none'
     />
   )
 })

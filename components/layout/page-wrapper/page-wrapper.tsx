@@ -51,7 +51,7 @@ const PageWrapper = memo<PageWrapperProps>(({ children }) => {
 
       {/* page content */}
       <div
-        className={`relative w-full min-h-screen transition-opacity duration-200 ${
+        className={`relative w-full min-h-[var(--viewport-height,100svh)] transition-opacity duration-200 ${
           isWebGLReady ? 'opacity-100' : 'opacity-0'
         }`}
       >
