@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import '@/app/globals.css'
 import { fontNormal, fontBold } from '@/app/fonts'
 import { ThemeProvider } from '@/components/layout/theme/theme-provider'
-import { ViewportHeightProvider } from '@/components/layout/viewport-height/viewport-height-provider'
 import { PageWrapper } from '@/components/layout/page-wrapper/page-wrapper'
 import { ErrorBoundary } from '@/components/error-boundary'
 import { SITE_CONFIG } from '@/constants'
@@ -75,9 +74,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             defaultTheme='dark'
             enableSystem={false}
           >
-            <ViewportHeightProvider>
-              <PageWrapper>{children}</PageWrapper>
-            </ViewportHeightProvider>
+            <PageWrapper>{children}</PageWrapper>
           </ThemeProvider>
         </ErrorBoundary>
       </body>

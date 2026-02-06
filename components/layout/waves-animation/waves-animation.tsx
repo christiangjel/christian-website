@@ -126,6 +126,19 @@ type SceneComponents = {
   mesh: THREE.Points
 }
 
+/**
+ * Locks the wrapper to fixed pixel dimensions so it (and the Three.js canvas) do not
+ * resize when the mobile address bar shows/hides. Inline styles override the CSS height;
+ * without this, window.resize fires on bar toggle and applySize() in runApp would resize
+ * the canvas, causing zoom/flicker.
+ */
+const lockWrapperSize = (wrapper: HTMLDivElement): void => {
+  const w = wrapper.clientWidth
+  const h = wrapper.clientHeight
+  wrapper.style.width = `${w}px`
+  wrapper.style.height = `${h}px`
+}
+
 export const WavesAnimation = memo(() => {
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -151,7 +164,7 @@ export const WavesAnimation = memo(() => {
       // wave 2
       u_noise_freq_2: { value: WAVES_ANIMATION_CONFIG.uniforms.u_noise_freq_2 },
       u_noise_amp_2: { value: WAVES_ANIMATION_CONFIG.uniforms.u_noise_amp_2 },
-      u_spd_modifier_2: { value: WAVES_ANIMATION_CONFIG.uniforms.u_spd_modifier_2 }
+      u_spd_modifier_2: { value: WAVES_ANIMATION_CONFIG.uniforms.u_spd_modifier_2 },
     }
 
     // Create the scene
@@ -204,9 +217,26 @@ export const WavesAnimation = memo(() => {
       }
     }
 
-    runApp(app, scene, renderer, camera, true, uniforms, currentContainer)
+    // Lock wrapper to fixed pixel size then start app so address bar toggle doesn't resize canvas
+    requestAnimationFrame(() => {
+      lockWrapperSize(currentContainer)
+      runApp(app, scene, renderer, camera, true, uniforms, currentContainer)
+    })
+
+    // On real resize (e.g. orientation: width changed), clear lock so wrapper reflows then re-lock
+    let lastInnerWidth = window.innerWidth
+    const handleResize = (): void => {
+      if (window.innerWidth !== lastInnerWidth) {
+        currentContainer.style.width = ''
+        currentContainer.style.height = ''
+        lastInnerWidth = window.innerWidth
+        requestAnimationFrame(() => lockWrapperSize(currentContainer))
+      }
+    }
+    window.addEventListener('resize', handleResize)
 
     return () => {
+      window.removeEventListener('resize', handleResize)
       if (sceneComponents) {
         const { geometry, material, mesh } = sceneComponents
 
@@ -230,7 +260,7 @@ export const WavesAnimation = memo(() => {
   return (
     <div
       ref={containerRef}
-      className='fixed top-0 left-0 z-0 h-[var(--viewport-height,100svh)] w-full pointer-events-none'
+      className='fixed top-0 left-0 z-0 h-[100svh] w-full pointer-events-none'
     />
   )
 })
