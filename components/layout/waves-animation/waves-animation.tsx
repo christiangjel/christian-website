@@ -127,16 +127,16 @@ type SceneComponents = {
 }
 
 /**
- * Locks the wrapper to fixed pixel dimensions so it (and the Three.js canvas) do not
- * resize when the mobile address bar shows/hides. Inline styles override the CSS height;
- * without this, window.resize fires on bar toggle and applySize() in runApp would resize
- * the canvas, causing zoom/flicker.
+ * Locks the wrapper to fixed pixel dimensions so the Three.js canvas does not resize when
+ * the mobile address bar shows/hides. On iOS Safari, 100svh can change when the bar toggles
  */
 const lockWrapperSize = (wrapper: HTMLDivElement): void => {
   const w = wrapper.clientWidth
   const h = wrapper.clientHeight
-  wrapper.style.width = `${w}px`
-  wrapper.style.height = `${h}px`
+  if (w > 0 && h > 0) {
+    wrapper.style.width = `${w}px`
+    wrapper.style.height = `${h}px`
+  }
 }
 
 export const WavesAnimation = memo(() => {
@@ -217,7 +217,7 @@ export const WavesAnimation = memo(() => {
       }
     }
 
-    // Lock wrapper to fixed pixel size then start app so address bar toggle doesn't resize canvas
+    // Lock wrapper to fixed pixel size then start app so address bar toggle doesn't resize canvas (see lockWrapperSize JSDoc)
     requestAnimationFrame(() => {
       lockWrapperSize(currentContainer)
       runApp(app, scene, renderer, camera, true, uniforms, currentContainer)
