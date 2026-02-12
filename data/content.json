@@ -28,8 +28,8 @@
   "about": {
     "title": "About Me",
     "paragraphs": [
-      "Since moving from Copenhagen to Berlin in 2010, I've worked on a wide range of exciting projects and campaigns for a variety of industry-leading digital agencies. I've gained experience with all stages of the development cycle for dynamic web projects and acquired a flair for professional, constructive, and creative collaboration in small as well as large teams.",
-      "I'm a natural problem solver with a taste for details and a passion for innovative fresh ideas."
+      "I'm a Senior Freelance Frontend Engineer based in Berlin with over 10 years of experience building scalable, high-performance web applications. I specialize in TypeScript, React, Next.js, and Vue, with a focus on clean architecture, performance optimization, and accessible UI systems.",
+      "Over the years, I've collaborated with leading brands such as Deutsche Bahn, BMW, Audi, and Mercedes-Benz, delivering robust digital products across desktop, mobile, and complex enterprise environments. I work closely with product, design, and backend teams to transform complex requirements into elegant, maintainable solutions."
     ]
   },
   "contact": {
@@ -106,55 +106,50 @@
     ]
   },
   "skills": {
-    "title": "Core Skills",
+    "title": "Core Expertise",
     "ariaLabels": {
-      "categories": "Technical skills categories"
+      "categories": "Technical expertise categories"
     },
     "categories": [
       {
-        "name": "Programming Languages",
-        "items": ["TypeScript", "JavaScript", "HTML", "CSS/SCSS"]
-      },
-      {
-        "name": "Frameworks & Libraries",
+        "name": "Core Stack",
         "items": [
-          "React/Next",
-          "Vue/Nuxt",
-          "Jest/RTL",
-          "Redux/Pinia",
-          "Tailwind/Styled Components",
-          "Shadcn/MUI/Ant Design",
-          "React Hook Form/Zod",
-          "ThreeJS/Framer Motion"
+          "TypeScript",
+          "React",
+          "Next.js",
+          "Vue",
+          "Nuxt",
+          "Redux / Pinia",
+          "React Hook Form / Zod",
+          "SSR / SSG"
         ]
       },
       {
-        "name": "Tools & Methods",
+        "name": "UI & Experience",
         "items": [
+          "Tailwind CSS",
+          "shadcn/ui",
+          "MUI / Ant Design",
+          "Styled Components",
+          "Three.js",
+          "Framer Motion",
+          "Design Systems",
+          "Accessibility (WCAG)"
+        ]
+      },
+      {
+        "name": "Engineering & Delivery",
+        "items": [
+          "Jest / RTL",
+          "SEO / WPO",
+          "REST / GraphQL",
+          "WebSockets",
           "Git",
           "Docker",
-          "REST",
-          "GraphQL",
           "CI/CD",
-          "WebSocket",
-          "Headless CMS",
-          "SEO/WPO",
-          "WCAG/ARIA",
-          "Figma/Sketch",
-          "Scrum/Agile",
-          "Jira/Azure DevOps"
+          "Jenkins"
         ]
       }
-    ],
-    "softSkills": [
-      "Problem Solving",
-      "Team Collaboration",
-      "Attention to Detail",
-      "Adaptability",
-      "Creative Thinking",
-      "Communication",
-      "Self-Motivation",
-      "Time Management"
     ]
   },
   "experience": {
@@ -214,11 +209,11 @@
       },
       {
         "name": "English",
-        "level": "Full Professional"
+        "level": "Fluent"
       },
       {
         "name": "German",
-        "level": "Professional Working"
+        "level": "Professional"
       }
     ]
   },
