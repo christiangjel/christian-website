@@ -119,9 +119,9 @@
           "Next.js",
           "Vue",
           "Nuxt",
+          "SSR / SSG",
           "Redux / Pinia",
-          "React Hook Form / Zod",
-          "SSR / SSG"
+          "React Hook Form / Zod"
         ]
       },
       {
