@@ -6,7 +6,7 @@
   "hero": {
     "badge": "Available for Freelance Work",
     "title": "Frontend Engineer",
-    "description": "A highly experienced freelance Frontend Developer with expertise in React/Next, Vue/Nuxt, and modern web technologies.",
+    "description": "Senior Freelance Frontend Engineer helping enterprise teams build scalable, high-performance web applications with React, Next.js, and Vue.",
     "ariaLabels": {
       "navigation": "Main navigation"
     },
@@ -28,16 +28,16 @@
   "about": {
     "title": "About Me",
     "paragraphs": [
-      "I'm a Senior Freelance Frontend Engineer based in Berlin with over 10 years of experience creating scalable, high-performance web applications.",
+      "I'm a Senior Freelance Frontend Engineer based in Berlin with 10+ years of experience creating scalable, high-performance web applications.",
       "Over the years, I've collaborated with leading brands such as Deutsche Bahn, BMW, Audi, and Mercedes-Benz, delivering robust digital products across desktop, mobile, and complex enterprise environments. I work closely with product, design, and backend teams to transform complex requirements into elegant, maintainable solutions."
     ]
   },
   "contact": {
     "title": "Get in Touch",
-    "description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
+    "description": "Available for freelance projects and long-term contracts in Berlin or remote.\nLet’s discuss how I can support your team.",
     "email": "hi@christian-gjelstrup.com",
     "phone": "+49 15787005997",
-    "location": "Hobrechtstr. 75, 12043 Berlin, Germany",
+    "location": "Berlin, Germany",
     "form": {
       "success": "Thank you for your message! I'll get back to you soon.",
       "validationError": "Oops! There are a few things we need to adjust. Please check the fields below and try again.",
@@ -106,49 +106,22 @@
     ]
   },
   "skills": {
-    "title": "Technical Expertise",
+    "title": "Core Expertise",
     "ariaLabels": {
       "categories": "Technical expertise categories"
     },
     "categories": [
       {
-        "name": "Core Stack",
-        "items": [
-          "TypeScript",
-          "React",
-          "Next.js",
-          "Vue",
-          "Nuxt",
-          "SSR / SSG",
-          "Redux / Pinia",
-          "React Hook Form / Zod"
-        ]
+        "name": "Primary Stack",
+        "items": ["TypeScript", "React / Next.js", "Vue / Nuxt"]
       },
       {
-        "name": "UI & Experience",
-        "items": [
-          "Tailwind CSS",
-          "shadcn/ui",
-          "MUI / Ant Design",
-          "Styled Components",
-          "Three.js",
-          "Framer Motion",
-          "Design Systems",
-          "Accessibility (WCAG)"
-        ]
+        "name": "Architecture & State",
+        "items": ["Redux / Pinia", "SSR / SSG", "REST / GraphQL"]
       },
       {
-        "name": "Engineering & Delivery",
-        "items": [
-          "Jest / RTL",
-          "SEO / WPO",
-          "REST / GraphQL",
-          "WebSockets",
-          "Git",
-          "Docker",
-          "CI/CD",
-          "Jenkins"
-        ]
+        "name": "Quality & Delivery",
+        "items": ["Jest / RTL", "CI/CD / Jenkins", "Docker"]
       }
     ]
   },
