@@ -15,14 +15,22 @@ export const BulletList = ({
   itemClassName = '',
   'aria-labelledby': ariaLabelledBy
 }: BulletListProps) => {
+  // const containerClass =
+  //   layout === 'grid'
+  //     ? 'grid grid-cols-2 gap-x-2 gap-y-3'
+  //     : layout === 'grid-3'
+  //     ? 'grid grid-cols-1 gap-2 md:grid-cols-3'
+  //     : layout === 'horizontal'
+  //     ? 'flex flex-col gap-2 md:flex-row md:flex-wrap md:gap-x-4 md:gap-y-2'
+  //     : 'space-y-2'
   const containerClass =
     layout === 'grid'
-      ? 'grid grid-cols-2 gap-x-2 gap-y-3'
+      ? 'grid grid-cols-1 gap-2'
       : layout === 'grid-3'
-      ? 'grid grid-cols-1 gap-2 md:grid-cols-3'
-      : layout === 'horizontal'
-      ? 'flex flex-col gap-2 md:flex-row md:flex-wrap md:gap-x-4 md:gap-y-2'
-      : 'space-y-2'
+        ? 'grid grid-cols-1 gap-2 md:grid-cols-3'
+        : layout === 'horizontal'
+          ? 'flex flex-col gap-2 md:flex-row md:flex-wrap md:gap-x-4 md:gap-y-2'
+          : 'space-y-2'
 
   return (
     <div
