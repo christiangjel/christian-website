@@ -11,10 +11,10 @@ type TabBounds = {
  * Custom hook that manages tab animation state and bounds calculation.
  * Handles sliding background animation for tab navigation.
  *
- * @param tabCount - Number of tabs
+ * @param _tabCount - Number of tabs
  * @returns Object with tab state and handlers
  */
-export const useTabAnimation = (tabCount: number) => {
+export const useTabAnimation = (_tabCount: number) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0)
   const [hoveredTabIndex, setHoveredTabIndex] = useState<number | null>(null)
   const [direction, setDirection] = useState(0)

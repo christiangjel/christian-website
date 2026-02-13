@@ -2,11 +2,9 @@
 
 import { useState, useRef, createContext, useContext } from 'react'
 import type { ReactNode, KeyboardEvent } from 'react'
-import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { type SectionId } from '@/constants'
 import { useNavigation } from '@/hooks/useNavigation'
 import { content } from '@/lib/content'

@@ -1,4 +1,3 @@
-import { SITE_CONFIG } from './config'
 import { content } from '@/lib/content'
 
 export const SITE_METADATA = {
