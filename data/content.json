@@ -360,7 +360,7 @@
             "role": "Frontend Developer",
             "client": "McDonald's",
             "agency": "Razorfish GmbH",
-            "description": "Implemented scalable frontend components and template systems for McDonald’s digital platform.",
+            "description": "Developed modular UI components and extensible template systems to support the McDonald's digital platform",
             "link": "https://www.mcdonalds.com/de/de-de.html"
           },
           {
@@ -398,7 +398,7 @@
             "role": "Senior Frontend Developer",
             "client": "The Black Cheetahs",
             "agency": "None",
-            "description": "Designed and developed a Single-Page Application with Next.js to showcase music releases and media content.",
+            "description": "Developed a Single-Page Application with Next.js to showcase music releases and media content.",
             "link": "https://www.theblackcheetahs.com/"
           },
           {
