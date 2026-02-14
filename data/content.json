@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Christian Gjelstrup | Senior Freelance Frontend Engineer",
+    "title": "Christian Gjelstrup | Frontend Engineer",
     "description": "Portfolio of Christian Gjelstrup, a highly experienced Senior freelance Frontend Engineer based in Berlin with expertise in React/Next, Vue/Nuxt, and modern web technologies."
   },
   "hero": {
@@ -263,7 +263,7 @@
             "role": "Senior Frontend Developer",
             "client": "Deutsche Bahn",
             "agency": "Scholz & Volkmer GmbH",
-            "description": "Developed software used by service staff for informing travelers about train connections and delays. Built for desktop, mobile, and standalone hardware.",
+            "description": "Built a cross-platform information system with Vue, enabling service staff to manage train connections and real-time delay communication across desktop, mobile, and dedicated hardware terminals.",
             "link": "https://www.s-v.de/de/projekte/db-info-40-pia/"
           },
           {
@@ -271,23 +271,23 @@
             "role": "Senior Frontend Developer",
             "client": "Bundeswehr",
             "agency": "Aperto AG - IBM iX",
-            "description": "Developed portal components and templates.",
-            "link": "https://www.bundeswehr.de/de/ "
+            "description": "Implemented modular frontend components and scalable template structures using React for the Bundeswehr’s central digital platform.",
+            "link": "https://www.bundeswehr.de/de/"
           },
           {
             "title": "Privatmolkerei Bechtel",
             "role": "Senior Frontend Developer",
             "client": "Privatmolkerei Bechtel",
             "agency": "Das Büro am Draht GmbH",
-            "description": "Developed software for digital management of plant equipment and maintenance scheduling.",
-            "link": "https://www.planemos.de/modernisierung-prozessleitsystem-privatmolkerei-bechtel/ "
+            "description": "Delivered a digital management system built with React for plant equipment monitoring and maintenance scheduling within a production environment.",
+            "link": "https://www.planemos.de/modernisierung-prozessleitsystem-privatmolkerei-bechtel/"
           },
           {
             "title": "SensEm - Citizen Sensing Emission",
             "role": "Senior Frontend Developer",
             "client": "BMBF-funded Research Project",
             "agency": "Scholz & Volkmer GmbH",
-            "description": "Built citizen science toolkit for measuring and analyzing air quality in public spaces.",
+            "description": "Developed a citizen science platform powered by Nuxt, enabling the measurement and analysis of air quality data in public spaces.",
             "link": "https://www.interaktive-technologien.de/projekte/sensem"
           }
         ]
@@ -301,7 +301,7 @@
             "role": "Frontend Developer",
             "client": "BMW",
             "agency": "Hi-ReS! Berlin GmbH",
-            "description": "Developed portal templates and components.",
+            "description": "Implemented scalable frontend components and template systems for BMW’s digital platform.",
             "link": "https://www.bmw.de/de/index.html"
           },
           {
@@ -309,7 +309,7 @@
             "role": "Frontend Lead",
             "client": "BMW",
             "agency": "Hi-ReS! Berlin GmbH",
-            "description": "Led frontend development for the BMW-M community platform.",
+            "description": "Led frontend architecture and implementation for the BMW M community platform, coordinating closely with design and backend teams.",
             "link": "https://community.bmw-m.com/de/"
           },
           {
@@ -317,7 +317,7 @@
             "role": "Frontend Lead",
             "client": "Audi",
             "agency": "Razorfish GmbH",
-            "description": "Led frontend development for mobile web application.",
+            "description": "Led frontend development for an interactive mobile web experience supporting the Audi A3 Sportback launch.",
             "link": "https://www.birdyvogel.com/audi"
           },
           {
@@ -325,7 +325,7 @@
             "role": "Frontend Developer",
             "client": "Audi",
             "agency": "Razorfish GmbH",
-            "description": "Developed award-winning AR calendar for 2010 & 2011 editions.",
+            "description": "Contributed to the development of an award-winning Augmented Reality web experience for the 2010 and 2011 Audi calendar editions.",
             "awards": [
               "Cannes Lions Bronze (2011)",
               "ADC Deutschland Auszeichung (2011)",
@@ -338,7 +338,7 @@
             "role": "Frontend Developer",
             "client": "Mercedes-Benz",
             "agency": "17 GRAD",
-            "description": "Implemented natural feature tracking for Augmented Reality web app promoting the AMG Series.",
+            "description": "Implemented natural feature tracking for an Augmented Reality web application promoting the Mercedes-Benz AMG Series.",
             "link": "https://www.17grad.com/de/work?s=p"
           },
           {
@@ -346,7 +346,7 @@
             "role": "Frontend Developer",
             "client": "Hyundai",
             "agency": "Razorfish GmbH",
-            "description": "Built interactive training application for Asphalt 7.",
+            "description": "Developed an interactive training application supporting the Hyundai Asphalt 7 campaign.",
             "link": "https://www.youtube.com/watch?v=vpQnWQYoRSg"
           }
         ]
@@ -360,7 +360,7 @@
             "role": "Frontend Developer",
             "client": "McDonald's",
             "agency": "Razorfish GmbH",
-            "description": "Developed portal templates and components.",
+            "description": "Implemented scalable frontend components and template systems for McDonald’s digital platform.",
             "link": "https://www.mcdonalds.com/de/de-de.html"
           },
           {
@@ -368,7 +368,7 @@
             "role": "Frontend Lead",
             "client": "McDonald's",
             "agency": "Razorfish GmbH",
-            "description": "Led frontend development for multiple campaigns including BigMac Hunt, Do-your-own-Coupons (DYOC), and Mexify yourself.",
+            "description": "Led frontend development for multiple national digital campaigns, including Big Mac Hunt, DYOC, and Mexify Yourself.",
             "link": "https://www.horizont.net/medien/nachrichten/-McDonalds-meldet-Rekordteilnehmerzahlen-bei-Mein-Burger-105372"
           },
           {
@@ -376,7 +376,7 @@
             "role": "Frontend Developer",
             "client": "McDonald's",
             "agency": "Razorfish GmbH",
-            "description": "Contributed to the development of the McDonald's iOS application.",
+            "description": "Contributed to the native iOS development of the McDonald’s Germany mobile application.",
             "link": "https://apps.apple.com/de/app/mcdonalds-deutschland/id524943492"
           },
           {
@@ -384,7 +384,7 @@
             "role": "Frontend Developer",
             "client": "Sharaf DG",
             "agency": "SOWHAT! GmbH",
-            "description": "Developed online shop utilizing Shopware.",
+            "description": "Developed and customized a Shopware-driven e-commerce platform for Sharaf DG.",
             "link": "https://uae.sharafdg.com/"
           }
         ]
@@ -398,7 +398,7 @@
             "role": "Senior Frontend Developer",
             "client": "The Black Cheetahs",
             "agency": "None",
-            "description": "Developed SPA for The Black Cheetahs, showcasing their music and media content.",
+            "description": "Designed and developed a Single-Page Application with Next.js to showcase music releases and media content.",
             "link": "https://www.theblackcheetahs.com/"
           },
           {
@@ -406,7 +406,7 @@
             "role": "Junior Frontend Developer",
             "client": "Unilever",
             "agency": "Neue Digitale GmbH",
-            "description": "Developed interactive web experience for Unilever's Fragrant Flowers campaign.",
+            "description": "Contributed to the development of an interactive campaign experience for Unilever’s Fragrant Flowers initiative.",
             "link": "https://www.campaignlive.com/article/razorfish-wins-two-global-unilever-accounts/1080848"
           }
         ]
