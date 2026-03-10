@@ -263,7 +263,7 @@
             "role": "Senior Frontend Developer",
             "client": "Deutsche Bahn",
             "agency": "Scholz & Volkmer GmbH",
-            "description": "Built a cross-platform information system using Vue and Pimcore CMS, enabling service staff to manage train connections and real-time delay communication across desktop, mobile, and dedicated hardware terminals",
+            "description": "Built a cross-platform information system using Vue and Pimcore CMS, enabling service staff to manage train connections and real-time delay communication across desktop, mobile, and dedicated hardware terminals.",
             "link": "https://www.s-v.de/de/projekte/db-info-40-pia/"
           },
           {
@@ -301,7 +301,7 @@
             "role": "Frontend Developer",
             "client": "BMW",
             "agency": "Hi-ReS! Berlin GmbH",
-            "description": "Implemented scalable frontend components and template systems using Next.js (React) and Bootstrap, integrated with Adobe Experience Manager (AEM) for BMW’s official digital platform and vehicle configuration tools within a Dockerized infrastructure.",
+            "description": "Built scalable Next.js (React) frontend components and templates integrated with Adobe Experience Manager for BMW’s digital platform and vehicle configurators in a Dockerized environment.",
             "link": "https://www.bmw.de/de/index.html"
           },
           {
