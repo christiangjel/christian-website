@@ -263,15 +263,15 @@
             "role": "Senior Frontend Developer",
             "client": "Deutsche Bahn",
             "agency": "Scholz & Volkmer GmbH",
-            "description": "Built a cross-platform information system with Vue, enabling service staff to manage train connections and real-time delay communication across desktop, mobile, and dedicated hardware terminals.",
+            "description": "Built a cross-platform information system using Vue and Pimcore CMS, enabling service staff to manage train connections and real-time delay communication across desktop, mobile, and dedicated hardware terminals",
             "link": "https://www.s-v.de/de/projekte/db-info-40-pia/"
           },
           {
-            "title": "Bundeswehr Portal",
+            "title": "Bundeswehr Government Portal",
             "role": "Senior Frontend Developer",
             "client": "Bundeswehr",
             "agency": "Aperto AG - IBM iX",
-            "description": "Implemented modular frontend components and scalable template structures using React for the Bundeswehr’s central digital platform.",
+            "description": "Implemented modular frontend components and scalable template structures using React within a CoreMedia CMS environment for the Bundeswehr public information platform.",
             "link": "https://www.bundeswehr.de/de/"
           },
           {
@@ -279,7 +279,7 @@
             "role": "Senior Frontend Developer",
             "client": "Privatmolkerei Bechtel",
             "agency": "Das Büro am Draht GmbH",
-            "description": "Delivered a digital management system built with React for plant equipment monitoring and maintenance scheduling within a production environment.",
+            "description": "Delivered a React-based digital management system for monitoring plant equipment and scheduling maintenance at a dairy production facility.",
             "link": "https://www.planemos.de/modernisierung-prozessleitsystem-privatmolkerei-bechtel/"
           },
           {
@@ -287,7 +287,7 @@
             "role": "Senior Frontend Developer",
             "client": "BMBF-funded Research Project",
             "agency": "Scholz & Volkmer GmbH",
-            "description": "Developed a citizen science platform powered by Nuxt, enabling the measurement and analysis of air quality data in public spaces.",
+            "description": "Developed a citizen science platform built with Nuxt and Directus CMS, enabling the collection and analysis of air quality data in public spaces.",
             "link": "https://www.interaktive-technologien.de/projekte/sensem"
           }
         ]
@@ -297,11 +297,11 @@
         "label": "Automotive",
         "items": [
           {
-            "title": "BMW Portal",
+            "title": "BMW Corporate Website",
             "role": "Frontend Developer",
             "client": "BMW",
             "agency": "Hi-ReS! Berlin GmbH",
-            "description": "Implemented scalable frontend components and template systems for BMW’s digital platform.",
+            "description": "Implemented scalable frontend components and template systems using Next.js (React) and Bootstrap, integrated with Adobe Experience Manager (AEM) for BMW’s official digital platform and vehicle configuration tools within a Dockerized infrastructure.",
             "link": "https://www.bmw.de/de/index.html"
           },
           {
@@ -309,7 +309,7 @@
             "role": "Frontend Lead",
             "client": "BMW",
             "agency": "Hi-ReS! Berlin GmbH",
-            "description": "Led frontend architecture and implementation for the BMW M community platform, coordinating closely with design and backend teams.",
+            "description": "Led frontend architecture and implementation for the BMW M community platform built on Liferay CMS, collaborating closely with design and backend teams.",
             "link": "https://community.bmw-m.com/de/"
           },
           {
@@ -317,7 +317,7 @@
             "role": "Frontend Lead",
             "client": "Audi",
             "agency": "Razorfish GmbH",
-            "description": "Led frontend development for an interactive mobile web experience supporting the Audi A3 Sportback launch.",
+            "description": "Led frontend development for an interactive mobile web experience supporting the launch of the Audi A3 Sportback.",
             "link": "https://www.birdyvogel.com/audi"
           },
           {
@@ -325,7 +325,7 @@
             "role": "Frontend Developer",
             "client": "Audi",
             "agency": "Razorfish GmbH",
-            "description": "Contributed to the development of an award-winning Augmented Reality web experience for the 2010 and 2011 Audi calendar editions.",
+            "description": "Contributed to the development of an augmented reality web experience for the 2010 and 2011 Audi calendar editions.",
             "awards": [
               "Cannes Lions Bronze (2011)",
               "ADC Deutschland Auszeichung (2011)",
@@ -338,7 +338,7 @@
             "role": "Frontend Developer",
             "client": "Mercedes-Benz",
             "agency": "17 GRAD",
-            "description": "Implemented natural feature tracking for an Augmented Reality web application promoting the Mercedes-Benz AMG Series.",
+            "description": "Implemented natural feature tracking for an augmented-reality web application showcasing the Mercedes-Benz AMG Series at an interactive exhibition.",
             "link": "https://www.17grad.com/de/work?s=p"
           },
           {
@@ -346,7 +346,7 @@
             "role": "Frontend Developer",
             "client": "Hyundai",
             "agency": "Razorfish GmbH",
-            "description": "Developed an interactive training application supporting the Hyundai Asphalt 7 campaign.",
+            "description": "Developed an interactive training application supporting the Hyundai Asphalt 7 campaign on social media.",
             "link": "https://www.youtube.com/watch?v=vpQnWQYoRSg"
           }
         ]
@@ -356,11 +356,11 @@
         "label": "Food & Retail",
         "items": [
           {
-            "title": "McDonald's Portal",
+            "title": "McDonald's Global Brand Website",
             "role": "Frontend Developer",
             "client": "McDonald's",
             "agency": "Razorfish GmbH",
-            "description": "Developed modular UI components and extensible template systems to support the McDonald's digital platform",
+            "description": "Developed modular UI components and extensible template systems within Adobe Experience Manager (AEM) supporting the McDonald’s global digital platform.",
             "link": "https://www.mcdonalds.com/de/de-de.html"
           },
           {
@@ -368,7 +368,7 @@
             "role": "Frontend Lead",
             "client": "McDonald's",
             "agency": "Razorfish GmbH",
-            "description": "Led frontend development for multiple national digital campaigns, including Big Mac Hunt, DYOC, and Mexify Yourself.",
+            "description": "Led frontend development for multiple national digital campaigns, including Big Mac Hunt, Do-Your-Own-Coupons, and Mexify Yourself.",
             "link": "https://www.horizont.net/medien/nachrichten/-McDonalds-meldet-Rekordteilnehmerzahlen-bei-Mein-Burger-105372"
           },
           {
@@ -384,7 +384,7 @@
             "role": "Frontend Developer",
             "client": "Sharaf DG",
             "agency": "SOWHAT! GmbH",
-            "description": "Developed and customized a Shopware-driven e-commerce platform for Sharaf DG.",
+            "description": "Developed and customized a Shopware-based e-commerce platform for Sharaf DG.",
             "link": "https://uae.sharafdg.com/"
           }
         ]
@@ -398,7 +398,7 @@
             "role": "Senior Frontend Developer",
             "client": "The Black Cheetahs",
             "agency": "None",
-            "description": "Developed a Single-Page Application with Next.js to showcase music releases and media content.",
+            "description": "Developed a Next.js single-page application to showcase music releases and media content.",
             "link": "https://www.theblackcheetahs.com/"
           },
           {
