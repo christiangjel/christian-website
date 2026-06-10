@@ -1,0 +1,198 @@
+{
+  "profile": {
+    "title": "Senior Freelance Frontend Engineer",
+    "workArrangement": [
+      "Based in Berlin",
+      "Available for remote work",
+      "Available for hybrid engagements"
+    ],
+    "website": "https://christian-gjelstrup.com",
+    "github": "https://github.com/christiangjel",
+    "linkedin": "https://www.linkedin.com/in/christiangjelstrup",
+    "summary": "Senior freelance frontend developer with 10+ years of experience building large-scale web applications and digital platforms for enterprise, public-sector, and agency clients. Specialized in React, Next.js, Vue, TypeScript, frontend architecture, accessibility, and performance optimization."
+  },
+  "freelance": {
+    "since": "September 2014",
+    "availability": "Available for freelance projects and long-term collaborations"
+  },
+  "coreCompetencies": {
+    "frontendArchitecture": [
+      "Scalable component-based systems",
+      "SSR and SSG",
+      "State management",
+      "API integration (REST and GraphQL)",
+      "CMS and digital experience platforms"
+    ],
+    "uiEngineering": [
+      "Responsive design",
+      "Design systems",
+      "Accessibility (WCAG and ARIA)",
+      "Motion and interactive interfaces"
+    ],
+    "qualityAndPerformance": [
+      "Unit and integration testing",
+      "CI/CD",
+      "Core Web Vitals optimization",
+      "Technical SEO",
+      "WebSocket integrations",
+      "Code reviews"
+    ],
+    "collaboration": [
+      "Agile and Scrum",
+      "Jira",
+      "Azure DevOps",
+      "Confluence",
+      "Figma",
+      "Cross-functional teamwork"
+    ]
+  },
+  "additionalTechnologies": [
+    "TanStack Query",
+    "Tailwind CSS",
+    "MUI",
+    "shadcn/ui",
+    "Ant Design",
+    "Styled Components",
+    "Vitest",
+    "React Hook Form",
+    "Zod",
+    "Three.js",
+    "Framer Motion",
+    "Vite",
+    "WebSocket",
+    "Shopware",
+    "MapTiler",
+    "Leaflet"
+  ],
+  "cmsAndPlatforms": [
+    "Adobe Experience Manager (AEM)",
+    "CoreMedia",
+    "Liferay",
+    "Pimcore",
+    "Directus",
+    "Payload CMS"
+  ],
+  "industries": [
+    "Enterprise",
+    "Public sector",
+    "Agency and digital branding",
+    "Automotive",
+    "Transport and rail",
+    "Food and retail",
+    "Research and citizen science",
+    "Consumer electronics retail"
+  ],
+  "projectSupplements": [
+    {
+      "project": "DB Info 4.0 Pia",
+      "details": "Freelance engagement via Scholz & Volkmer GmbH for Deutsche Bahn (March 2024 – February 2026). Software used by service staff to inform travelers about train connections, delays, and related updates. Christian implemented Vue-based components, performed bug-fixing, and integrated APIs. Also built with TypeScript across desktop, mobile, customer displays, and dedicated hardware terminals."
+    },
+    {
+      "project": "SensEm - Citizen Sensing Emission",
+      "details": "Freelance engagement via Scholz & Volkmer GmbH (June 2025 – September 2025). German Federal Ministry of Education and Research (BMBF) initiative focused on environment and sustainability. Developed a Vue/Nuxt web app combined with physical sensors as a toolkit for citizens without formal academic training. Christian led initial frontend setup and visualized sensor data from a Directus backend on maps using MapTiler and Leaflet."
+    },
+    {
+      "project": "Privatmolkerei Bechtel",
+      "details": "React, TypeScript, and TanStack Query management platform for monitoring production equipment and scheduling maintenance in a large-scale dairy manufacturing environment."
+    },
+    {
+      "project": "BMW Corporate Website",
+      "details": "Built scalable React frontend components and AEM templates for BMW's corporate platform."
+    },
+    {
+      "project": "BMW M Community Platform",
+      "details": "Led frontend architecture on Liferay, delivering reusable portal components in close collaboration with design and backend teams."
+    },
+    {
+      "project": "Audi A3 Sportback",
+      "details": "Frontend lead for the mobile web launch experience. Led the swipeable mobile version of an HTML scrollpage with fullscreen imagery and device-independent usage."
+    },
+    {
+      "project": "McDonald's Germany iOS App",
+      "details": "Contributed to the official McDonald's Germany iOS application. The app reached more than 2 million downloads and ranked among the top 15 most downloaded iPhone apps in Germany in 2012."
+    },
+    {
+      "project": "McDonald's Digital Campaigns",
+      "details": "Led frontend development for national campaigns including Do-Your-Own-Coupons, Mexify Yourself, Blend-in-Cup, and Big Mac Hunt."
+    }
+  ],
+  "campaignsAndProducts": [
+    {
+      "name": "McDonald's Schmecktakel 2013",
+      "client": "McDonald's",
+      "agency": "Razorfish GmbH",
+      "period": "November 2013 – December 2014",
+      "details": "Campaign allowing customers to enter a code redeemable for a free streamed film, audiobook, or voucher from participating partners."
+    },
+    {
+      "name": "Do-Your-Own-Coupons (DYOC)",
+      "client": "McDonald's",
+      "agency": "Razorfish GmbH",
+      "period": "October 2013 – November 2013",
+      "details": "Frontend lead for a configurator web app that let users combine products into coupons redeemable in restaurants nationwide, implemented for both the McDonald's portal and app."
+    },
+    {
+      "name": "Hyundai Guess Santa's Song",
+      "client": "Hyundai",
+      "agency": "Razorfish GmbH",
+      "period": "November 2010 – September 2014",
+      "details": "Interactive web application supporting a Hyundai marketing campaign."
+    },
+    {
+      "name": "Hyundai Asphalt 7 Training",
+      "client": "Hyundai",
+      "agency": "Razorfish GmbH",
+      "period": "November 2010 – September 2014",
+      "details": "Interactive training application supporting the Hyundai Asphalt 7 social media campaign."
+    },
+    {
+      "name": "Sharaf Online Shop",
+      "client": "Sharaf DG",
+      "agency": "SOWHAT! GmbH",
+      "period": "April 2015 – May 2015",
+      "details": "Shopware-based e-commerce platform for a leading electronics retailer in the UAE."
+    },
+    {
+      "name": "Unilever Fragrant Flowers",
+      "client": "Unilever",
+      "agency": "Neue Digitale GmbH",
+      "period": "June 2010 – November 2010",
+      "details": "Interactive digital campaign experience."
+    }
+  ],
+  "clientEngagements": [
+    {
+      "client": "Scholz & Volkmer GmbH",
+      "engagementType": "Freelance",
+      "period": "March 2024 – February 2026",
+      "note": "Christian was freelancing for Scholz & Volkmer throughout this period. A reference letter issued in September 2024 only covers the initial six months (March – August 2024). He continued on further freelance projects with them after the reference was created, including SensEm in 2025, through February 2026."
+    }
+  ],
+  "employerReferences": [
+    {
+      "employer": "Scholz & Volkmer GmbH",
+      "author": "Katharina Grujic",
+      "authorRole": "Talent Management",
+      "date": "September 2024",
+      "referenceCoversPeriod": "March 2024 – August 2024",
+      "totalFreelanceEngagement": "March 2024 – February 2026",
+      "engagementClarification": "The reference letter reflects the first six months of a longer freelance engagement. Christian continued working as a freelance Senior Developer for Scholz & Volkmer after the reference was issued.",
+      "role": "Senior Web Developer (Freelance)",
+      "employerDescription": "Owner-operated creative agency for digital brand management, based in Wiesbaden, Germany.",
+      "projectHighlights": [
+        "Deutsche Bahn: Vue components, API integration, and bug-fixing on traveler information software for service staff.",
+        "SensEm (BMBF): Initial frontend setup and map-based visualization of sensor data from Directus using MapTiler and Leaflet."
+      ],
+      "strengthsNoted": [
+        "Technical expertise, creativity, and strong work ethic",
+        "Effective collaboration with designers, project managers, and developers",
+        "Clear communication and stakeholder alignment",
+        "Attention to detail and commitment to high-quality delivery",
+        "Proactive identification of issues early in development",
+        "Reliable delivery on time and within budget",
+        "Rated very highly for specialist knowledge, perceptiveness, motivation, reliability, work ethic, ability to work under pressure, and social behavior"
+      ],
+      "recommendation": "Highly recommended as a Senior Web Developer who would be a valuable asset to any organization. Scholz & Volkmer would gladly work with Christian again."
+    }
+  ]
+}
