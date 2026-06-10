@@ -45,7 +45,6 @@ export const ChatWidget = () => {
   const [input, setInput] = useState('')
   const [isMounted, setIsMounted] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  const inputRef = useRef<HTMLTextAreaElement>(null)
 
   useEffect(() => {
     setIsMounted(true)
@@ -78,7 +77,6 @@ export const ChatWidget = () => {
   useEffect(() => {
     if (isOpen) {
       scrollToBottom()
-      inputRef.current?.focus()
     }
   }, [isOpen, messages, isLoading, scrollToBottom])
 
@@ -130,7 +128,7 @@ export const ChatWidget = () => {
           />
 
           <section
-            className='relative flex h-[min(640px,calc(100vh-2rem))] w-full max-w-md flex-col overflow-hidden rounded-xl border border-border bg-card shadow-2xl'
+            className='relative flex h-[min(640px,calc(100dvh-2rem))] w-full max-w-md flex-col overflow-hidden rounded-xl border border-border bg-card shadow-2xl'
             aria-label={content.assistant.ariaLabels.chatPanel}
           >
             <header className='flex items-center justify-between border-b border-border px-4 py-3'>
@@ -212,7 +210,6 @@ export const ChatWidget = () => {
             >
               <div className='flex items-end gap-2'>
                 <textarea
-                  ref={inputRef}
                   value={input}
                   onChange={(event) => setInput(event.target.value)}
                   placeholder={content.assistant.placeholder}
@@ -221,7 +218,7 @@ export const ChatWidget = () => {
                   maxLength={ASSISTANT_CONFIG.MAX_MESSAGE_LENGTH}
                   disabled={isLoading || isAtMessageLimit}
                   className={cn(
-                    'flex-1 resize-none rounded-md border border-input bg-background px-3 py-2 text-sm',
+                    'flex-1 resize-none rounded-md border border-input bg-background px-3 py-2 text-base sm:text-sm',
                     'placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring',
                     'disabled:cursor-not-allowed disabled:opacity-50'
                   )}
