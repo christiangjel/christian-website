@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useState, useEffect } from 'react'
+import { memo } from 'react'
 import type { ReactNode } from 'react'
 import {
   ThemeProvider as NextThemesProvider,
@@ -13,18 +13,11 @@ type CustomThemeProviderProps = ThemeProviderProps & {
 
 export const ThemeProvider = memo<CustomThemeProviderProps>(
   ({ children, ...props }) => {
-    const [mounted, setMounted] = useState(false)
-
-    useEffect(() => {
-      setMounted(true)
-    }, [])
-
-    // Prevent hydration mismatch by rendering a consistent fallback
-    if (!mounted) {
-      return <div suppressHydrationWarning>{children}</div>
-    }
-
-    return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+    return (
+      <NextThemesProvider forcedTheme='dark' enableSystem={false} {...props}>
+        {children}
+      </NextThemesProvider>
+    )
   }
 )
 
