@@ -6,8 +6,8 @@ export type SocialLink = {
 
 export type ContactFormFieldErrors = {
   required: string
-  minLength: string
-  maxLength: string
+  minLength?: string
+  maxLength?: string
   pattern?: string
   invalid?: string
 }
@@ -165,6 +165,39 @@ export type NotFound = {
   }
 }
 
+export type Assistant = {
+  title: string
+  description: string
+  welcome: string
+  loading: string
+  placeholder: string
+  openButton: {
+    label: string
+    tooltip: string
+    ariaLabel: string
+  }
+  closeButton: {
+    ariaLabel: string
+  }
+  sendButton: {
+    label: string
+    ariaLabel: string
+  }
+  suggestedPrompts: string[]
+  errors: {
+    rateLimit: string
+    generic: string
+    unavailable: string
+    maxMessages: string
+  }
+  ariaLabels: {
+    chatPanel: string
+    messages: string
+    suggestedPrompts: string
+    input: string
+  }
+}
+
 export type ErrorBoundaryContent = {
   heading: string
   description: string
@@ -204,6 +237,7 @@ export type Content = {
       }
     }
   }
+  assistant: Assistant
   about: {
     title: string
     paragraphs: string[]

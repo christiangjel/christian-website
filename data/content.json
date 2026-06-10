@@ -413,6 +413,43 @@
       }
     ]
   },
+  "assistant": {
+    "title": "Portfolio Assistant",
+    "description": "Ask me anything about Christian's experience, skills, and projects.",
+    "welcome": "Hi! I'm Christian's portfolio assistant. Ask me about his experience, skills, projects, or availability.",
+    "loading": "...",
+    "placeholder": "Ask about experience, skills, or projects...",
+    "openButton": {
+      "label": "Chat",
+      "tooltip": "Ask AI",
+      "ariaLabel": "Open portfolio assistant chat"
+    },
+    "closeButton": {
+      "ariaLabel": "Close portfolio assistant chat"
+    },
+    "sendButton": {
+      "label": "Send",
+      "ariaLabel": "Send message"
+    },
+    "suggestedPrompts": [
+      "What React/Next.js projects have you worked on?",
+      "Tell me about your experience at Razorfish",
+      "What industries have you worked in?",
+      "Are you available for freelance work?"
+    ],
+    "errors": {
+      "rateLimit": "Too many requests. Please wait a moment and try again.",
+      "generic": "Something went wrong. Please try again or use the contact form.",
+      "unavailable": "The assistant is temporarily unavailable. Please use the contact form instead.",
+      "maxMessages": "This conversation has reached its limit. Please use the contact form for further questions."
+    },
+    "ariaLabels": {
+      "chatPanel": "Portfolio assistant chat",
+      "messages": "Chat messages",
+      "suggestedPrompts": "Suggested questions",
+      "input": "Chat message input"
+    }
+  },
   "header": {
     "skipToContent": "Skip to main content",
     "firstName": "Christian",
