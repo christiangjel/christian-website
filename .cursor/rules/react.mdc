@@ -1,0 +1,121 @@
+---
+description: "React component patterns: server vs client components, component structure, props, and React keys"
+alwaysApply: true
+globs:
+  - "**/*.tsx"
+  - "components/**/*"
+---
+
+# React Component Patterns
+
+## Server vs Client Components
+
+- **Default to Server Components** (no directive needed)
+- Use `'use client'` directive only when:
+  - Component uses React hooks (`useState`, `useEffect`, etc.)
+  - Component uses browser APIs (`window`, `document`, etc.)
+  - Component uses event handlers (`onClick`, `onChange`, etc.)
+  - Component uses third-party libraries that require client-side rendering
+
+```typescript
+// ✅ Server Component (default)
+export const About = () => {
+  return <section>...</section>
+}
+
+// ✅ Client Component (when needed)
+;('use client')
+
+import { useState } from 'react'
+
+export const Counter = () => {
+  const [count, setCount] = useState(0)
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
+}
+```
+
+## Component Structure
+
+- Use **named exports** for components: `export const ComponentName = () => {}`
+- Use **PascalCase** for component names
+- For memoized components, always set `displayName` for better debugging
+
+```typescript
+// ✅ Correct
+export const Hero = () => {
+  return <section>...</section>
+}
+
+// ✅ Correct (memoized)
+const ProjectCard = React.memo<ProjectCardProps>(({ title }) => {
+  return <div>{title}</div>
+})
+
+ProjectCard.displayName = 'ProjectCard'
+export { ProjectCard }
+```
+
+## Component Props
+
+- Define props using `type` (not `interface`)
+- Use descriptive prop names
+- Provide default values when appropriate
+
+```typescript
+// ✅ Correct
+type ButtonProps = {
+  label: string
+  onClick: () => void
+  variant?: 'primary' | 'secondary'
+  disabled?: boolean
+}
+
+export const Button = ({
+  label,
+  onClick,
+  variant = 'primary',
+  disabled = false
+}: ButtonProps) => {
+  // ...
+}
+```
+
+## React Imports
+
+- Don't import `React` unless needed (e.g., for `React.memo`)
+- Use named imports from React when possible
+
+```typescript
+// ✅ Correct (when React.memo is needed)
+import React from 'react'
+
+// ✅ Correct (when only hooks are needed)
+import { useState, useEffect } from 'react'
+
+// ❌ Incorrect
+import React from 'react' // when not needed
+```
+
+## React Keys
+
+- Use **stable, unique keys** - never use array index alone
+- Prefer unique identifiers (e.g., `item.id`, `item.title`, `item.name`)
+- Use composite keys when needed (e.g., `${item.title}-${item.date}`)
+
+```typescript
+// ✅ Correct
+{
+  items.map((item) => <div key={item.id}>{item.name}</div>)
+}
+
+{
+  items.map((item) => (
+    <div key={`${item.title}-${item.date}`}>{item.title}</div>
+  ))
+}
+
+// ❌ Incorrect
+{
+  items.map((item, index) => <div key={index}>{item.name}</div>)
+}
+```

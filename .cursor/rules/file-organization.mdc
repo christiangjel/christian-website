@@ -1,0 +1,50 @@
+---
+description: "File organization: directory structure, file naming conventions, and file locations"
+alwaysApply: true
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+  - "**/*.js"
+  - "**/*.jsx"
+---
+
+# File Organization
+
+## Directory Structure
+```
+components/
+  ├── layout/          # Layout components (header, footer, navigation)
+  ├── sections/        # Page sections (hero, about, skills, etc.)
+  └── ui/              # Reusable UI components
+
+hooks/                 # Custom React hooks
+constants/             # Constants and configuration
+lib/                   # Utility functions and helpers
+types/                 # TypeScript type definitions
+data/                  # Static data (content.json)
+tests/                 # Test files
+```
+
+## File Naming
+- **Components**: PascalCase (e.g., `Hero.tsx`, `ProjectCard.tsx`)
+- **Hooks**: camelCase with `use` prefix (e.g., `useNavigation.ts`, `useScrollUrlSync.ts`)
+- **Utilities**: camelCase (e.g., `utils.ts`, `logger.ts`)
+- **Constants**: camelCase (e.g., `sections.ts`, `config.ts`)
+- **Types**: camelCase (e.g., `content.ts`)
+- **Directories**: kebab-case (e.g., `project-card/`, `timeline-item/`)
+
+## File Locations
+- **Components**: `components/` directory
+  - Sections: `components/sections/{section-name}/`
+  - UI components: `components/ui/{component-name}/` or `components/ui/{component-name}.tsx`
+  - Layout: `components/layout/{layout-name}/`
+- **Hooks**: `hooks/` directory at root level
+- **Constants**: `constants/` directory, exported via `constants/index.ts`
+- **Types**: `types/` directory
+- **Utilities**: `lib/` directory
+- **Data**: `data/` directory
+
+## Test Organization
+- Mirror source structure in `tests/` directory
+- Use descriptive test file names: `{component}.test.tsx` or `{utility}.test.ts`
+- Group related tests with `describe` blocks

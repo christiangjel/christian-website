@@ -1,0 +1,60 @@
+---
+description: "Constants and configuration: organization, naming conventions, and environment variables"
+alwaysApply: true
+globs:
+  - "constants/**/*"
+  - "**/*.ts"
+---
+
+# Constants and Configuration
+
+## Constants Organization
+- Group related constants in dedicated files (e.g., `sections.ts`, `config.ts`, `animations.ts`)
+- Export all constants via `constants/index.ts`
+- Use `as const` for type safety
+- Use descriptive constant names
+
+```typescript
+// ✅ Correct
+export const SECTIONS = {
+  HERO: 'hero',
+  ABOUT: 'about'
+} as const
+
+export type SectionId = (typeof SECTIONS)[keyof typeof SECTIONS]
+```
+
+## Naming Conventions
+- Use **UPPER_SNAKE_CASE** for constants
+- Group related constants in objects with `as const`
+
+```typescript
+// ✅ Correct
+export const SECTIONS = {
+  HERO: 'hero',
+  ABOUT: 'about'
+} as const
+
+export const SCROLL_CONFIG = {
+  OFFSET: 80,
+  THROTTLE_DELAY: 30
+} as const
+```
+
+## Configuration Values
+- Store all configuration in `constants/config.ts`
+- Use environment variables for environment-specific values
+- Provide sensible defaults
+
+```typescript
+// ✅ Correct
+export const SITE_CONFIG = {
+  BASE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  REPO_URL: 'https://github.com/christiangjel/christian-website'
+} as const
+```
+
+## Environment Variables
+- Use `NEXT_PUBLIC_` prefix for client-side environment variables
+- Provide fallbacks for environment variables
+- Document required environment variables

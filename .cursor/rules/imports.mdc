@@ -1,0 +1,46 @@
+---
+description: "Import organization: import order, path aliases, and import grouping"
+alwaysApply: true
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+---
+
+# Import Organization
+
+## Import Order
+1. External dependencies (React, Next.js, third-party)
+2. Internal imports using `@/` alias
+3. Type imports (when separate from value imports)
+4. Relative imports (avoid when possible)
+
+```typescript
+// ✅ Correct
+'use client'
+
+import { useState } from 'react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { content } from '@/lib/content'
+import { SECTIONS } from '@/constants'
+import type { SectionId } from '@/constants'
+```
+
+## Path Aliases
+- Always use `@/` alias for internal imports
+- Never use relative paths like `../../` when `@/` is available
+
+```typescript
+// ✅ Correct
+import { content } from '@/lib/content'
+import { Button } from '@/components/ui/button'
+import { useNavigation } from '@/hooks/useNavigation'
+
+// ❌ Incorrect
+import { content } from '../../lib/content'
+import { Button } from '../ui/button'
+```
+
+## Import Grouping
+- Group imports by category with blank lines between groups
+- Sort imports alphabetically within groups

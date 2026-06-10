@@ -1,0 +1,47 @@
+---
+description: "Testing conventions: test organization, patterns, coverage, and setup using Vitest and React Testing Library"
+alwaysApply: false
+globs:
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+  - "tests/**/*"
+---
+
+# Testing
+
+## Test Organization
+- Mirror source structure in `tests/` directory
+- Use descriptive test file names: `{component}.test.tsx` or `{utility}.test.ts`
+- Group related tests with `describe` blocks
+
+## Test Patterns
+- Use Vitest for testing
+- Use React Testing Library for component tests
+- Test user behavior, not implementation details
+- Mock external dependencies appropriately
+
+```typescript
+// ✅ Correct
+describe('scrollToSection', () => {
+  it('should scroll to hero section (top)', () => {
+    const heroSection = document.createElement('div')
+    heroSection.id = SECTIONS.HERO
+    document.body.appendChild(heroSection)
+
+    scrollToSection(SECTIONS.HERO)
+    expect(mockScrollTo).toHaveBeenCalledWith({
+      top: 0,
+      behavior: 'smooth'
+    })
+  })
+})
+```
+
+## Test Coverage
+- Write tests for utilities and complex logic
+- Test error cases and edge cases
+- Aim for meaningful coverage, not 100%
+
+## Test Setup
+- Use `tests/setup.ts` for global test configuration
+- Use `@testing-library/jest-dom` for DOM matchers

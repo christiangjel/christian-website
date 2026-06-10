@@ -1,0 +1,82 @@
+---
+description: "Code style: formatting, comments, conditional classes, inline functions, variable naming"
+alwaysApply: true
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+---
+
+# Code Style
+
+## Formatting
+- Use single quotes for strings
+- Use trailing commas in multi-line objects/arrays
+- Use 2 spaces for indentation
+- Use semicolons consistently
+
+## Comments
+- Use JSDoc comments for exported functions and components
+- Write self-documenting code - prefer clear code over comments
+- Remove commented-out code before committing
+
+```typescript
+// ✅ Correct
+/**
+ * Smoothly scrolls to a section by its ID.
+ * Uses a configurable offset to account for fixed header.
+ *
+ * @param sectionId - The ID of the section to scroll to
+ */
+export const scrollToSection = (sectionId: string): void => {
+  // ...
+}
+```
+
+## Conditional Classes
+- Use `cn()` utility for conditional Tailwind classes
+- Avoid string concatenation for class names
+
+```typescript
+// ✅ Correct
+import { cn } from '@/lib/utils'
+
+<div className={cn('base-class', isActive && 'active-class')} />
+
+// ❌ Incorrect
+<div className={`base-class ${isActive ? 'active-class' : ''}`} />
+```
+
+## Inline Functions
+- Memoize inline functions passed as props to memoized components
+- Use `useCallback` for event handlers in frequently re-rendering components
+
+## Empty States
+- Handle empty arrays/objects gracefully
+- Provide meaningful empty states
+- Use early returns for cleaner code
+
+```typescript
+// ✅ Correct
+if (!items || items.length === 0) {
+  return <div>No items found</div>
+}
+
+// ❌ Incorrect
+{items.map(item => ...)} // Could error if items is undefined
+```
+
+## Variable Naming
+- Use **camelCase** for variables and functions
+- Use descriptive names that indicate purpose
+- Boolean variables should start with `is`, `has`, `should`, etc.
+
+```typescript
+// ✅ Correct
+const isActive = true
+const hasAwards = awards && awards.length > 0
+const handleClick = () => {}
+
+// ❌ Incorrect
+const active = true
+const click = () => {}
+```

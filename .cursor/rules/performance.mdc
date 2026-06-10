@@ -1,0 +1,52 @@
+---
+description: "Performance optimization: React.memo, useCallback, useMemo, and code splitting"
+alwaysApply: false
+globs:
+  - "**/*.tsx"
+  - "**/*.ts"
+---
+
+# Performance Optimization
+
+## React.memo
+- Use `React.memo` for components that:
+  - Render frequently
+  - Receive stable props
+  - Are expensive to render
+- Always set `displayName` for memoized components
+
+```typescript
+// ✅ Correct
+const ProjectCard = React.memo<ProjectCardProps>(({ title }) => {
+  return <div>{title}</div>
+})
+
+ProjectCard.displayName = 'ProjectCard'
+export { ProjectCard }
+```
+
+## useCallback and useMemo
+- Use `useCallback` for functions passed as props to memoized components
+- Use `useMemo` for expensive computations
+- Don't overuse - profile first
+
+```typescript
+// ✅ Correct
+const handleClick = useCallback(() => {
+  handleTabChange(index)
+}, [index, handleTabChange])
+
+// ❌ Incorrect (if not needed)
+const handleClick = useCallback(() => {
+  handleTabChange(index)
+}, [index, handleTabChange]) // when component is not memoized
+```
+
+## Code Splitting
+- Use dynamic imports for heavy components when appropriate
+- Leverage Next.js automatic code splitting
+
+## Optimization Best Practices
+- Avoid unnecessary re-renders
+- Use stable references for callbacks and objects
+- Profile before optimizing

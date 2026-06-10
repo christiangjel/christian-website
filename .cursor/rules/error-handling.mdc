@@ -1,0 +1,57 @@
+---
+description: "Error handling: use logger utility instead of console, error boundaries, graceful degradation"
+alwaysApply: true
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+---
+
+# Error Handling
+
+## Logging
+- **Never use `console.error`, `console.warn`, etc. directly**
+- Always use the `logger` utility from `@/lib/logger`
+- Use appropriate log levels: `error`, `warn`, `info`, `debug`
+
+```typescript
+// ✅ Correct
+import { logger } from '@/lib/logger'
+
+try {
+  // ...
+} catch (error) {
+  logger.error('Operation failed', { error })
+}
+
+// ❌ Incorrect
+console.error('Operation failed', error)
+```
+
+## Error Boundaries
+- Use Error Boundary component for React error handling
+- Provide user-friendly error messages
+- Log errors with context
+
+## Runtime Boundaries
+- Treat `request.json()`, fetch responses, and env/config parsing as `unknown`
+- Validate with Zod (`safeParse` / `parse`) or type predicates before use
+- Do not use `as SomeType` to assert unvalidated external data
+- See `lib/validations/contact.ts` and `lib/assistant/validation.ts` for patterns
+
+## Graceful Degradation
+- Handle missing data gracefully
+- Provide fallback values when appropriate
+- Validate data before use
+
+```typescript
+// ✅ Correct
+const section = document.getElementById(sectionId)
+if (!section) {
+  logger.warn('Section not found', { sectionId })
+  return
+}
+
+// ❌ Incorrect
+const section = document.getElementById(sectionId)
+section.scrollIntoView() // Could throw error
+```

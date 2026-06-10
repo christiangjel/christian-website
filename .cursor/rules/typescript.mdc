@@ -1,0 +1,156 @@
+---
+description: "TypeScript conventions: types, inference, runtime boundaries, and compiler safety"
+alwaysApply: true
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+---
+
+# TypeScript Conventions
+
+## Type Declarations
+- **Always use `type` instead of `interface`**
+- Export types with `export type` for type-only exports
+- Use `as const` for constant objects and arrays
+- Use `readonly` arrays for immutable data structures
+- **Avoid `enum`** — prefer `as const` arrays/objects and derived union types
+
+```typescript
+// ✅ Correct
+export type User = {
+  name: string
+  email: string
+}
+
+export const SECTIONS = {
+  HERO: 'hero',
+  ABOUT: 'about',
+} as const
+
+export type SectionId = (typeof SECTIONS)[keyof typeof SECTIONS]
+
+// ❌ Incorrect
+export interface User { name: string }
+enum Role { Admin, User }
+```
+
+## Prefer `unknown` Over `any`
+- Use `unknown` at runtime boundaries, then narrow before use
+- Never use `any` unless integrating with untyped third-party code (and isolate it)
+
+```typescript
+// ✅ Correct
+export const validateInput = (data: unknown): Result => {
+  if (typeof data !== 'object' || data === null) {
+    return { valid: false }
+  }
+  // narrow further...
+}
+
+// ❌ Incorrect
+function parse(data: any) { return data.id }
+```
+
+## Inference and Annotations
+- **Let inference do the work** — avoid redundant annotations on locals
+- Annotate public APIs, exported values, and boundaries where inference is too wide
+- Prefer **generics that infer** from arguments/schemas over manual type arguments
+
+```typescript
+// ✅ Correct
+const name = 'Ada'
+export type ContactFormData = z.infer<typeof contactFormSchema>
+
+// ❌ Incorrect (redundant)
+const name: string = 'Ada'
+getData<User>() // when schema/inference is available
+```
+
+## Prefer `satisfies` Over `as`
+- Use `satisfies` to validate shape **without** losing literal inference
+- Reserve `as` for rare cases where TypeScript cannot express the type (document why)
+- **Never use `as` to fake runtime safety** on API/JSON data
+- **JSON imports** widen literals to `string` — `satisfies` may fail on union fields; use Zod, a typed `.ts` module with `as const satisfies`, or a documented cast at the static-data boundary (see `lib/content.ts`)
+
+```typescript
+// ✅ Correct
+export const content = contentData satisfies Content
+const routes = { home: '/', about: '/about' } satisfies Record<string, string>
+
+// ❌ Incorrect
+export const content = contentData as Content
+const user = (await response.json()) as User
+```
+
+## Derive Types From Values
+- Single source of truth: constants → derived unions/types
+- Do not duplicate string unions that already exist in `as const` objects
+
+```typescript
+export const ROLES = ['admin', 'user', 'guest'] as const
+export type Role = (typeof ROLES)[number]
+```
+
+## Discriminated Unions and Exhaustiveness
+- Model state/results with discriminated unions, not optional-property blobs
+- Use `never` in `default` branches to catch unhandled cases at compile time
+
+```typescript
+type LoadState =
+  | { status: 'loading' }
+  | { status: 'success'; data: User }
+  | { status: 'error'; error: string }
+
+const render = (state: LoadState) => {
+  switch (state.status) {
+    case 'loading': return null
+    case 'success': return state.data.name
+    case 'error': return state.error
+    default: {
+      const exhaustive: never = state
+      return exhaustive
+    }
+  }
+}
+```
+
+## Type Predicates and Utility Types
+- Use **type predicates** (`value is T`) for reusable runtime narrowing
+- Build types with `Pick`, `Omit`, `Partial`, `Required`, and indexed access — avoid duplicating fields
+
+```typescript
+export const isUser = (value: unknown): value is User =>
+  typeof value === 'object' && value !== null && 'id' in value
+```
+
+## Runtime Validation (TypeScript ≠ Runtime Safety)
+- TypeScript does **not** validate API responses, JSON imports, or `request.json()`
+- Validate external data at boundaries with **Zod** (see `lib/validations/`) or explicit guards
+- Derive types from schemas: `type T = z.infer<typeof schema>`
+
+```typescript
+// ✅ Correct — API route
+const body: unknown = await request.json()
+const parsed = contactFormSchema.safeParse(body)
+if (!parsed.success) return Response.json({ error: 'invalid' }, { status: 400 })
+
+// ❌ Incorrect
+const body = (await request.json()) as User
+```
+
+## Type Imports
+- Use `import type` / `type` keyword for type-only imports
+
+```typescript
+import { type SectionId } from '@/constants'
+import type { ReactNode } from 'react'
+```
+
+## Compiler Strictness
+- Keep `"strict": true` enabled (required)
+- Prefer enabling when practical: `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`
+- Template literal types are encouraged for routes, event names, and query keys when they add safety
+
+## Generics
+- Use generic constraints on utilities (`T extends (...args: unknown[]) => unknown`)
+- Prefer inference-friendly APIs over annotation-heavy generic calls

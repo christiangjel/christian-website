@@ -1,0 +1,54 @@
+---
+description: "Accessibility guidelines: ARIA labels, semantic HTML, keyboard navigation, external links"
+alwaysApply: true
+globs:
+  - "**/*.tsx"
+  - "components/**/*"
+---
+
+# Accessibility
+
+## ARIA Labels
+- Provide `aria-label` for interactive elements without visible text
+- Use `aria-labelledby` and `aria-describedby` for relationships
+- All user-facing text (including aria-labels) must come from `content.json`
+
+```typescript
+// ✅ Correct
+<button aria-label={content.hero.buttons.getInTouch.ariaLabel}>
+  {content.hero.buttons.getInTouch.label}
+</button>
+```
+
+## Semantic HTML
+- Use semantic HTML elements (`<section>`, `<nav>`, `<main>`, etc.)
+- Use proper heading hierarchy (`h1` → `h2` → `h3`)
+- Provide proper `role` attributes when needed
+
+```typescript
+// ✅ Correct
+<section id={SECTIONS.ABOUT} aria-labelledby='about-heading'>
+  <h2 id='about-heading'>About</h2>
+  {/* content */}
+</section>
+```
+
+## Keyboard Navigation
+- Ensure all interactive elements are keyboard accessible
+- Provide visible focus indicators
+- Handle keyboard events appropriately
+
+## Skip Links
+- Include "Skip to main content" link for keyboard users
+- Make skip links visible on focus
+
+## External Links
+- Always include `rel='noopener noreferrer'` for external links
+- Use `target='_blank'` for external links
+
+```typescript
+// ✅ Correct
+<Link href={url} target='_blank' rel='noopener noreferrer'>
+  External Link
+</Link>
+```

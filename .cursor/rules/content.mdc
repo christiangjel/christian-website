@@ -1,0 +1,51 @@
+---
+description: "Content management: all user-facing text must be in content.json, no hardcoded strings"
+alwaysApply: true
+globs:
+  - "**/*.tsx"
+  - "components/**/*"
+  - "app/**/*"
+---
+
+# Content Management
+
+## Content Centralization
+- **All user-facing text** must be in `data/content.json`
+- Never hardcode text in components
+- Use `content` object from `@/lib/content` for all text
+
+```typescript
+// ✅ Correct
+import { content } from '@/lib/content'
+
+export const Hero = () => {
+  return <h1>{content.hero.title}</h1>
+}
+
+// ❌ Incorrect
+export const Hero = () => {
+  return <h1>Frontend Engineer</h1> // Hardcoded text
+}
+```
+
+## Content Structure
+- Organize content by feature/section in `content.json`
+- Include all text: labels, placeholders, error messages, aria-labels, button text
+- Use descriptive keys that match component structure
+
+## Dynamic Content
+- Use `.replace()` for dynamic values in strings
+- Provide template placeholders in content (e.g., `{company}`, `{title}`)
+
+```typescript
+// ✅ Correct
+aria-label={content.experience.ariaLabels.company.replace('{company}', company)}
+```
+
+## What Must Be in Content
+- All button labels
+- All form labels and placeholders
+- All error messages
+- All aria-labels
+- All headings and descriptions
+- All navigation text
