@@ -3,6 +3,7 @@
 import { useState, useRef, createContext, useContext } from 'react'
 import type { ReactNode, KeyboardEvent } from 'react'
 import { Menu, X } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 import { type SectionId } from '@/constants'
@@ -36,8 +37,11 @@ MobileNav.Button = function MobileNavButton() {
   }
 
   return (
-    <button
+    <Button
       type='button'
+      variant='ghost'
+      size='icon'
+      className='shrink-0 [&_svg]:!size-5 hover:bg-transparent hover:text-foreground active:bg-transparent'
       onClick={handleClick}
       aria-expanded={isOpen}
       aria-controls='mobile-menu'
@@ -46,14 +50,13 @@ MobileNav.Button = function MobileNavButton() {
           ? content.navigation.ariaLabels.closeMenu
           : content.navigation.ariaLabels.openMenu
       }
-      className='inline-flex h-9 w-9 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
     >
       {isOpen ? (
-        <X className='h-6 w-6' aria-hidden='true' />
+        <X aria-hidden='true' />
       ) : (
-        <Menu className='h-6 w-6' aria-hidden='true' />
+        <Menu aria-hidden='true' />
       )}
-    </button>
+    </Button>
   )
 }
 
@@ -97,6 +100,7 @@ MobileNav.Menu = function MobileNavMenu() {
             <button
               key={item.href}
               type='button'
+              // href matches SECTIONS; JSON import types this as string
               onClick={() => onNavClick(item.href as SectionId)}
               className={cn(
                 'cursor-pointer text-left text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
