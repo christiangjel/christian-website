@@ -1,9 +1,18 @@
 import type { NextConfig } from 'next'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const projectRoot = path.dirname(fileURLToPath(import.meta.url))
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: projectRoot,
+  },
+  serverExternalPackages: ['ai', '@ai-sdk/google'],
   compress: true,
   poweredByHeader: false,
-  reactStrictMode: true,
+  // Strict mode double-mounts effects in dev, which breaks the Three.js waves setup.
+  reactStrictMode: false,
   // Security headers
   async headers() {
     return [
