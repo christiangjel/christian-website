@@ -1,6 +1,7 @@
 // This core-utils contains the most important/top-level functions needed in creating a threejs application
 
 import * as THREE from 'three'
+import { CUSTOM_EVENTS } from '@/constants/events'
 import { logger } from '@/lib/logger'
 
 export type DefaultUniforms = {
@@ -83,6 +84,22 @@ const getSize = (
  * This function contains the boilerplate code to set up the environment for a threejs app;
  * e.g. HTML canvas, resize listener, mouse events listener, requestAnimationFrame
  */
+const getMountContainer = (
+  sizeElement: HTMLElement | null
+): HTMLElement | null => {
+  if (sizeElement) {
+    const scopedContainer = sizeElement.querySelector('#container')
+
+    if (scopedContainer instanceof HTMLElement) {
+      return scopedContainer
+    }
+  }
+
+  const globalContainer = document.getElementById('container')
+
+  return globalContainer instanceof HTMLElement ? globalContainer : null
+}
+
 export const runApp = (
   app: ThreeJSApp,
   scene: THREE.Scene,
@@ -92,8 +109,15 @@ export const runApp = (
   uniforms: Uniforms = getDefaultUniforms(),
   sizeElement: HTMLElement | null = null
 ): ThreeJSApp => {
-  // Create the HTML container
-  const container = document.getElementById('container') as HTMLElement
+  const container = getMountContainer(sizeElement)
+
+  if (!container || !container.isConnected) {
+    logger.error('Three.js animation error', {
+      error: 'WebGL container element is missing or detached',
+    })
+    return app
+  }
+
   container.appendChild(renderer.domElement)
 
   const applySize = (): void => {
@@ -138,10 +162,20 @@ export const runApp = (
 
   app
     .initScene()
-    .then(animate)
     .then(() => {
+      if (!container.isConnected) {
+        return
+      }
+
+      animate()
+    })
+    .then(() => {
+      if (!container.isConnected) {
+        return
+      }
+
       // Signal animation is ready (used in pageWrapper)
-      const completeEvent = new CustomEvent('webgl-load-complete')
+      const completeEvent = new CustomEvent(CUSTOM_EVENTS.WEBGL_LOAD_COMPLETE)
 
       window.dispatchEvent(completeEvent)
 
@@ -152,8 +186,11 @@ export const runApp = (
         })
       }
     })
-    .catch((error) => {
-      logger.error('Three.js animation error', { error })
+    .catch((error: unknown) => {
+      const errorMessage =
+        error instanceof Error ? error.message : 'Unknown Three.js error'
+
+      logger.error('Three.js animation error', { error: errorMessage })
     })
 
   return app

@@ -3,6 +3,7 @@
 import { useState, useEffect, lazy, Suspense, memo } from 'react'
 import type { ReactNode } from 'react'
 import { Loader2 } from 'lucide-react'
+import { CUSTOM_EVENTS } from '@/constants/events'
 
 const WavesAnimation = lazy(() =>
   import('@/components/layout/waves-animation/waves-animation').then((mod) => ({
@@ -14,8 +15,6 @@ type PageWrapperProps = {
   children: ReactNode
 }
 
-const WEBGL_LOAD_EVENT = 'webgl-load-complete'
-
 const PageWrapper = memo<PageWrapperProps>(({ children }) => {
   const [isWebGLReady, setIsWebGLReady] = useState(false)
 
@@ -25,13 +24,13 @@ const PageWrapper = memo<PageWrapperProps>(({ children }) => {
     }
 
     window.addEventListener(
-      WEBGL_LOAD_EVENT,
+      CUSTOM_EVENTS.WEBGL_LOAD_COMPLETE,
       handleWebGLComplete as EventListener
     )
 
     return () => {
       window.removeEventListener(
-        WEBGL_LOAD_EVENT,
+        CUSTOM_EVENTS.WEBGL_LOAD_COMPLETE,
         handleWebGLComplete as EventListener
       )
     }
