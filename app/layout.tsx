@@ -4,6 +4,7 @@ import '@/app/globals.css'
 import { fontNormal, fontBold } from '@/app/fonts'
 import { ThemeProvider } from '@/components/layout/theme/theme-provider'
 import { PageWrapper } from '@/components/layout/page-wrapper/page-wrapper'
+import { ChatAssistantLoader } from '@/components/ui/chat-widget/chat-assistant-loader'
 import { ErrorBoundary } from '@/components/error-boundary'
 import { SITE_CONFIG } from '@/constants'
 import { SITE_METADATA } from '@/constants/metadata'
@@ -59,7 +60,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   }
 
   return (
-    <html lang='en' className={`${fontNormal.variable} ${fontBold.variable}`}>
+    <html
+      lang='en'
+      className={`dark ${fontNormal.variable} ${fontBold.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script
           type='application/ld+json'
@@ -67,7 +72,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       {/*  ignore attribute mismatches caused by extensions */}
-      <body suppressHydrationWarning>
+      <body
+        className='min-h-screen bg-background text-foreground antialiased'
+        suppressHydrationWarning
+      >
         <ErrorBoundary>
           <ThemeProvider
             attribute='class'
@@ -77,6 +85,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <PageWrapper>{children}</PageWrapper>
           </ThemeProvider>
         </ErrorBoundary>
+        <ChatAssistantLoader />
       </body>
     </html>
   )
