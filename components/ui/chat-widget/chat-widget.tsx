@@ -187,19 +187,27 @@ export const ChatWidget = () => {
 
             {!hasUserMessages && (
               <div
-                className='hidden flex-col items-end gap-2 px-6 pb-2 pt-2 sm:flex'
+                className='flex flex-col gap-2 px-6 pb-2 pt-2'
                 aria-label={content.assistant.ariaLabels.suggestedPrompts}
               >
-                {content.assistant.suggestedPrompts.map((prompt) => (
-                  <button
+                {content.assistant.suggestedPrompts.map((prompt, index) => (
+                  <div
                     key={prompt}
-                    type='button'
-                    className='shrink-0 whitespace-nowrap rounded-md bg-mint px-3 py-1.5 text-sm text-mint-foreground transition-opacity hover:opacity-90'
-                    onClick={() => handleSuggestedPrompt(prompt)}
-                    disabled={isLoading || isAtMessageLimit}
+                    className={cn(
+                      'flex justify-end',
+                      index >= ASSISTANT_CONFIG.MOBILE_SUGGESTED_PROMPT_COUNT &&
+                        'hidden sm:flex'
+                    )}
                   >
-                    {prompt}
-                  </button>
+                    <button
+                      type='button'
+                      className='max-w-[85%] rounded-md bg-mint px-3 py-1.5 text-left text-sm leading-relaxed text-mint-foreground transition-opacity hover:opacity-90 whitespace-normal sm:max-w-none sm:whitespace-nowrap'
+                      onClick={() => handleSuggestedPrompt(prompt)}
+                      disabled={isLoading || isAtMessageLimit}
+                    >
+                      {prompt}
+                    </button>
+                  </div>
                 ))}
               </div>
             )}

@@ -2,6 +2,8 @@ export const ASSISTANT_CONFIG = {
   MODEL_ID: 'gemini-2.5-flash',
   MAX_MESSAGE_LENGTH: 500,
   MAX_MESSAGES: 10,
+  /** Fourth suggestion is hidden below the `sm` breakpoint via CSS */
+  MOBILE_SUGGESTED_PROMPT_COUNT: 3,
   RATE_LIMIT: {
     MAX_REQUESTS: 10,
     WINDOW_MS: 60_000,
