@@ -414,7 +414,7 @@
     ]
   },
   "assistant": {
-    "title": "AI Assistent",
+    "title": "AI Assistant",
     "description": "Ask me anything about Christian's experience, skills, and projects.",
     "welcome": "Hi! I'm Christian's AI portfolio assistant. Ask me anything about his work, experience, or projects.",
     "loading": "...",
