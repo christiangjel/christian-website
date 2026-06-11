@@ -9,7 +9,8 @@ export const ASSISTANT_CONFIG = {
   LAUNCHER: {
     /** Show launcher if WebGL event never fires */
     FALLBACK_MS: 8_000,
-    /** Matches chat panel outer padding (p-4/p-6) + form padding (p-4) */
-    BUTTON_POSITION_CLASS: 'fixed bottom-8 right-8 z-50 sm:bottom-10 sm:right-10',
+    /** Aligns with chat panel send button (overlay padding + form inset) */
+    BUTTON_POSITION_CLASS:
+      'fixed bottom-10 right-10 z-50 sm:bottom-12 sm:right-12',
   },
 } as const
