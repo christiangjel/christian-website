@@ -5,16 +5,20 @@ import { ChatWidgetProvider } from '@/components/ui/chat-widget/chat-widget-cont
 
 type ChatAssistantProps = {
   initialOpen?: boolean
+  onReady?: () => void
 }
 
 /**
  * Self-contained portfolio assistant entry point.
  * Loaded client-only so it does not affect page SSR, theme, or layout.
  */
-export const ChatAssistant = ({ initialOpen = false }: ChatAssistantProps) => {
+export const ChatAssistant = ({
+  initialOpen = false,
+  onReady,
+}: ChatAssistantProps) => {
   return (
     <ChatWidgetProvider initialOpen={initialOpen}>
-      <ChatWidget />
+      <ChatWidget onReady={onReady} />
     </ChatWidgetProvider>
   )
 }

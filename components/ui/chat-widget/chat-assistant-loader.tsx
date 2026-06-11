@@ -22,6 +22,7 @@ const ChatAssistant = dynamic(
 export const ChatAssistantLoader = () => {
   const [canShowLauncher, setCanShowLauncher] = useState(false)
   const [isChatLoaded, setIsChatLoaded] = useState(false)
+  const [isChatPanelReady, setIsChatPanelReady] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -49,17 +50,23 @@ export const ChatAssistantLoader = () => {
     setIsChatLoaded(true)
   }, [])
 
+  const handleChatReady = useCallback(() => {
+    setIsChatPanelReady(true)
+  }, [])
+
   if (!isMounted) {
     return null
   }
 
   return createPortal(
     <>
-      {canShowLauncher && !isChatLoaded && (
+      {canShowLauncher && !isChatPanelReady && (
         <ChatOpenButton onClick={handleOpenChat} />
       )}
 
-      {isChatLoaded && <ChatAssistant initialOpen />}
+      {isChatLoaded && (
+        <ChatAssistant initialOpen onReady={handleChatReady} />
+      )}
     </>,
     document.body
   )

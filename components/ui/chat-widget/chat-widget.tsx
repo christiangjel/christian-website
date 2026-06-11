@@ -65,10 +65,14 @@ const subscribeToSmBreakpoint = (onStoreChange: () => void): (() => void) => {
   return () => mediaQuery.removeEventListener('change', onStoreChange)
 }
 
+type ChatWidgetProps = {
+  onReady?: () => void
+}
+
 /**
  * Floating portfolio assistant chat widget with streaming responses.
  */
-export const ChatWidget = () => {
+export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
   const { isOpen, openChat, closeChat } = useChatWidget()
   const [input, setInput] = useState('')
   const [isMounted, setIsMounted] = useState(false)
@@ -87,6 +91,14 @@ export const ChatWidget = () => {
   useEffect(() => {
     setIsMounted(true)
   }, [])
+
+  useEffect(() => {
+    if (!isMounted || !isOpen) {
+      return
+    }
+
+    onReady?.()
+  }, [isMounted, isOpen, onReady])
 
   const transport = useMemo(
     () => new DefaultChatTransport({ api: '/api/chat' }),
