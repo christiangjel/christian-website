@@ -1,3 +1,4 @@
+import { stripMarkdownAsterisks } from '@/lib/assistant/messages'
 import { cn } from '@/lib/utils'
 
 type ChatMessageProps = {
@@ -10,6 +11,7 @@ type ChatMessageProps = {
  */
 export const ChatMessage = ({ role, content }: ChatMessageProps) => {
   const isUser = role === 'user'
+  const displayContent = isUser ? content : stripMarkdownAsterisks(content)
 
   return (
     <div className={cn('flex', isUser ? 'justify-end' : 'justify-start')}>
@@ -21,7 +23,7 @@ export const ChatMessage = ({ role, content }: ChatMessageProps) => {
             : 'bg-secondary text-secondary-foreground'
         )}
       >
-        {content}
+        {displayContent}
       </div>
     </div>
   )

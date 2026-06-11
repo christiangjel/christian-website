@@ -30,3 +30,9 @@ export const getMessageText = (message: UIMessage): string => {
     .map((part) => part.text)
     .join('')
 }
+
+/**
+ * Strips markdown asterisk formatting from assistant replies.
+ */
+export const stripMarkdownAsterisks = (text: string): string =>
+  text.replace(/\*\*/g, '').replace(/\*/g, '')
