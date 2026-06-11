@@ -2,6 +2,8 @@
 
 import type { InputHTMLAttributes } from 'react'
 import { UseFormRegister, FieldError, FieldValues, Path } from 'react-hook-form'
+import { formFieldClasses } from '@/lib/form-field-classes'
+import { cn } from '@/lib/utils'
 
 type FormInputProps<T extends FieldValues> = Omit<
   InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
@@ -42,11 +44,14 @@ export const FormInput = <T extends FieldValues>({
     ...register(id),
     'aria-invalid': error ? true : undefined,
     'aria-describedby': ariaDescribedBy || undefined,
-    className: `flex ${
-      isTextarea ? 'min-h-[120px]' : 'h-10'
-    } w-full rounded-md border border-input bg-background px-3 py-2 text-base sm:text-sm placeholder:text-sm ring-offset-background file:border-0 file:bg-background file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:bg-mint/5 disabled:cursor-not-allowed disabled:opacity-50 ${
-      className || ''
-    }`.trim(),
+    className: cn(
+      'flex w-full',
+      isTextarea ? 'min-h-[120px]' : 'h-10',
+      formFieldClasses,
+      !isTextarea &&
+        'file:border-0 file:bg-background file:text-sm file:font-medium',
+      className
+    ),
     required,
     minLength,
     maxLength,

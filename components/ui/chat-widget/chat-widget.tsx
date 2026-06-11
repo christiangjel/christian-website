@@ -1,13 +1,6 @@
 'use client'
 
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  useSyncExternalStore,
-} from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import type { FormEvent } from 'react'
 import { useChat } from '@ai-sdk/react'
@@ -16,54 +9,15 @@ import { Send, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ChatMessage } from '@/components/ui/chat-widget/chat-message'
 import { ChatOpenButton } from '@/components/ui/chat-widget/chat-open-button'
+import { SuggestedPrompts } from '@/components/ui/chat-widget/suggested-prompts'
 import { useChatWidget } from '@/components/ui/chat-widget/chat-widget-context'
 import { ASSISTANT_CONFIG } from '@/constants/assistant'
+import { useAssistantResponsiveContent } from '@/hooks/useAssistantResponsiveContent'
+import { getAssistantErrorMessage } from '@/lib/assistant/errors'
+import { formFieldClasses } from '@/lib/form-field-classes'
 import { getMessageText } from '@/lib/assistant/messages'
 import { content } from '@/lib/content'
 import { cn } from '@/lib/utils'
-
-const getErrorMessage = (error: Error | undefined): string | null => {
-  if (!error) {
-    return null
-  }
-
-  const message = error.message.toLowerCase()
-
-  if (message.includes('rate_limit') || message.includes('429')) {
-    return content.assistant.errors.rateLimit
-  }
-
-  if (message.includes('unavailable') || message.includes('503')) {
-    return content.assistant.errors.unavailable
-  }
-
-  if (message.includes('max_messages')) {
-    return content.assistant.errors.maxMessages
-  }
-
-  return content.assistant.errors.generic
-}
-
-const SM_MEDIA_QUERY = '(min-width: 640px)'
-
-const isSmBreakpoint = (): boolean =>
-  typeof window !== 'undefined' && window.matchMedia(SM_MEDIA_QUERY).matches
-
-const getAssistantPlaceholder = (): string =>
-  isSmBreakpoint()
-    ? content.assistant.placeholder.desktop
-    : content.assistant.placeholder.mobile
-
-const getSuggestedPrompts = (): string[] =>
-  isSmBreakpoint()
-    ? content.assistant.suggestedPrompts
-    : content.assistant.suggestedPromptsMobile
-
-const subscribeToSmBreakpoint = (onStoreChange: () => void): (() => void) => {
-  const mediaQuery = window.matchMedia(SM_MEDIA_QUERY)
-  mediaQuery.addEventListener('change', onStoreChange)
-  return () => mediaQuery.removeEventListener('change', onStoreChange)
-}
 
 type ChatWidgetProps = {
   onReady?: () => void
@@ -74,19 +28,10 @@ type ChatWidgetProps = {
  */
 export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
   const { isOpen, openChat, closeChat } = useChatWidget()
+  const { placeholder, suggestedPrompts } = useAssistantResponsiveContent()
   const [input, setInput] = useState('')
   const [isMounted, setIsMounted] = useState(false)
   const messagesContainerRef = useRef<HTMLDivElement>(null)
-  const inputPlaceholder = useSyncExternalStore(
-    subscribeToSmBreakpoint,
-    getAssistantPlaceholder,
-    () => content.assistant.placeholder.mobile
-  )
-  const suggestedPrompts = useSyncExternalStore(
-    subscribeToSmBreakpoint,
-    getSuggestedPrompts,
-    () => content.assistant.suggestedPromptsMobile
-  )
 
   useEffect(() => {
     setIsMounted(true)
@@ -117,7 +62,7 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
     input.trim().length > 0 &&
     input.trim().length <= ASSISTANT_CONFIG.MAX_MESSAGE_LENGTH
 
-  const errorMessage = getErrorMessage(error)
+  const errorMessage = getAssistantErrorMessage(error)
   const hasUserMessages = messages.some((message) => message.role === 'user')
 
   const scrollToBottom = useCallback(() => {
@@ -235,23 +180,11 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
               )}
 
               {!hasUserMessages && (
-                <div
-                  className='flex flex-col gap-2 pb-2 pt-2'
-                  aria-label={content.assistant.ariaLabels.suggestedPrompts}
-                >
-                  {suggestedPrompts.map((prompt) => (
-                    <div key={prompt} className='flex justify-end'>
-                      <button
-                        type='button'
-                        className='w-fit max-w-full rounded-md bg-mint px-3 py-1.5 text-left text-sm leading-relaxed text-mint-foreground transition-opacity hover:opacity-90 whitespace-normal sm:max-w-none sm:whitespace-nowrap'
-                        onClick={() => handleSuggestedPrompt(prompt)}
-                        disabled={isLoading || isAtMessageLimit}
-                      >
-                        {prompt}
-                      </button>
-                    </div>
-                  ))}
-                </div>
+                <SuggestedPrompts
+                  prompts={suggestedPrompts}
+                  isDisabled={isLoading || isAtMessageLimit}
+                  onSelect={handleSuggestedPrompt}
+                />
               )}
             </div>
 
@@ -260,17 +193,12 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
                 <textarea
                   value={input}
                   onChange={(event) => setInput(event.target.value)}
-                  placeholder={inputPlaceholder}
+                  placeholder={placeholder}
                   aria-label={content.assistant.ariaLabels.input}
                   rows={2}
                   maxLength={ASSISTANT_CONFIG.MAX_MESSAGE_LENGTH}
                   disabled={isLoading || isAtMessageLimit}
-                  className={cn(
-                    'flex-1 resize-none rounded-md border border-input bg-background px-3 py-2 text-base sm:text-sm',
-                    'placeholder:text-sm ring-offset-background placeholder:text-muted-foreground',
-                    'focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:bg-mint/5',
-                    'disabled:cursor-not-allowed disabled:opacity-50'
-                  )}
+                  className={cn('flex-1 resize-none', formFieldClasses)}
                   onKeyDown={(event) => {
                     if (event.key === 'Enter' && !event.shiftKey) {
                       event.preventDefault()

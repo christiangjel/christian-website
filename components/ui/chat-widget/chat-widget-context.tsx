@@ -2,9 +2,9 @@
 
 import {
   createContext,
-  memo,
   useCallback,
   useContext,
+  useMemo,
   useState,
   type ReactNode,
 } from 'react'
@@ -25,27 +25,31 @@ type ChatWidgetProviderProps = {
 /**
  * Provides open/close state for the portfolio assistant chat widget.
  */
-export const ChatWidgetProvider = memo<ChatWidgetProviderProps>(
-  ({ children, initialOpen = false }) => {
-    const [isOpen, setIsOpen] = useState(initialOpen)
+export const ChatWidgetProvider = ({
+  children,
+  initialOpen = false,
+}: ChatWidgetProviderProps) => {
+  const [isOpen, setIsOpen] = useState(initialOpen)
 
-    const openChat = useCallback(() => {
-      setIsOpen(true)
-    }, [])
+  const openChat = useCallback(() => {
+    setIsOpen(true)
+  }, [])
 
-    const closeChat = useCallback(() => {
-      setIsOpen(false)
-    }, [])
+  const closeChat = useCallback(() => {
+    setIsOpen(false)
+  }, [])
 
-    return (
-      <ChatWidgetContext.Provider value={{ isOpen, openChat, closeChat }}>
-        {children}
-      </ChatWidgetContext.Provider>
-    )
-  }
-)
+  const value = useMemo(
+    () => ({ isOpen, openChat, closeChat }),
+    [isOpen, openChat, closeChat]
+  )
 
-ChatWidgetProvider.displayName = 'ChatWidgetProvider'
+  return (
+    <ChatWidgetContext.Provider value={value}>
+      {children}
+    </ChatWidgetContext.Provider>
+  )
+}
 
 /**
  * Access portfolio assistant chat widget state and controls.
