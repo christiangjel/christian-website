@@ -45,11 +45,6 @@ const getErrorMessage = (error: Error | undefined): string | null => {
 }
 
 const SM_MEDIA_QUERY = '(min-width: 640px)'
-const CHAT_PANEL_MAX_HEIGHT = 640
-const CHAT_OVERLAY_PADDING = {
-  mobile: 32,
-  desktop: 48,
-} as const
 
 const isSmBreakpoint = (): boolean =>
   typeof window !== 'undefined' && window.matchMedia(SM_MEDIA_QUERY).matches
@@ -82,8 +77,6 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
   const [input, setInput] = useState('')
   const [isMounted, setIsMounted] = useState(false)
   const messagesContainerRef = useRef<HTMLDivElement>(null)
-  const chatPanelRef = useRef<HTMLElement>(null)
-  const textareaRef = useRef<HTMLTextAreaElement>(null)
   const inputPlaceholder = useSyncExternalStore(
     subscribeToSmBreakpoint,
     getAssistantPlaceholder,
@@ -145,49 +138,6 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
     scrollToBottom()
   }, [isOpen, messages, isLoading, scrollToBottom])
 
-  useEffect(() => {
-    if (!isOpen) {
-      return
-    }
-
-    const visualViewport = window.visualViewport
-
-    if (!visualViewport) {
-      return
-    }
-
-    const updatePanelHeight = (): void => {
-      const panel = chatPanelRef.current
-
-      if (!panel) {
-        return
-      }
-
-      const padding = isSmBreakpoint()
-        ? CHAT_OVERLAY_PADDING.desktop
-        : CHAT_OVERLAY_PADDING.mobile
-      const maxHeight = Math.min(
-        CHAT_PANEL_MAX_HEIGHT,
-        visualViewport.height - padding
-      )
-
-      panel.style.height = `${maxHeight}px`
-    }
-
-    updatePanelHeight()
-    visualViewport.addEventListener('resize', updatePanelHeight)
-    visualViewport.addEventListener('scroll', updatePanelHeight)
-
-    return () => {
-      visualViewport.removeEventListener('resize', updatePanelHeight)
-      visualViewport.removeEventListener('scroll', updatePanelHeight)
-
-      if (chatPanelRef.current) {
-        chatPanelRef.current.style.height = ''
-      }
-    }
-  }, [isOpen])
-
   const handleSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault()
@@ -236,7 +186,6 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
           />
 
           <section
-            ref={chatPanelRef}
             className='relative flex h-[min(640px,calc(100dvh-2rem))] w-full max-w-md flex-col overflow-hidden rounded-xl border border-border bg-card shadow-2xl'
             aria-label={content.assistant.ariaLabels.chatPanel}
           >
@@ -309,7 +258,6 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
             <form onSubmit={handleSubmit} className='mt-4 shrink-0 px-6 pb-6'>
               <div className='flex items-end gap-6'>
                 <textarea
-                  ref={textareaRef}
                   value={input}
                   onChange={(event) => setInput(event.target.value)}
                   placeholder={inputPlaceholder}
@@ -323,14 +271,6 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
                     'focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:bg-mint/5',
                     'disabled:cursor-not-allowed disabled:opacity-50'
                   )}
-                  onFocus={() => {
-                    window.setTimeout(() => {
-                      textareaRef.current?.scrollIntoView({
-                        block: 'nearest',
-                        inline: 'nearest',
-                      })
-                    }, 300)
-                  }}
                   onKeyDown={(event) => {
                     if (event.key === 'Enter' && !event.shiftKey) {
                       event.preventDefault()
