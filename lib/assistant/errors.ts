@@ -16,6 +16,14 @@ export const getAssistantErrorMessage = (
     return content.assistant.errors.rateLimit
   }
 
+  if (
+    message.includes('quota') ||
+    message.includes('billing') ||
+    message.includes('exceeded your current')
+  ) {
+    return content.assistant.errors.quotaExceeded
+  }
+
   if (message.includes('unavailable') || message.includes('503')) {
     return content.assistant.errors.unavailable
   }

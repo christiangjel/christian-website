@@ -445,6 +445,7 @@
     ],
     "errors": {
       "rateLimit": "Too many requests. Please wait a moment and try again.",
+      "quotaExceeded": "The assistant has reached its usage limit. Please try again in a few minutes or use the contact form.",
       "generic": "Something went wrong. Please try again or use the contact form.",
       "unavailable": "The assistant is temporarily unavailable. Please use the contact form instead.",
       "maxMessages": "This conversation has reached its limit. Please use the contact form for further questions."

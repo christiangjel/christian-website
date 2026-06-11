@@ -189,6 +189,7 @@ export type Assistant = {
   suggestedPromptsMobile: string[]
   errors: {
     rateLimit: string
+    quotaExceeded: string
     generic: string
     unavailable: string
     maxMessages: string

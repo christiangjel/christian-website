@@ -16,6 +16,16 @@ describe('getAssistantErrorMessage', () => {
     )
   })
 
+  it('maps Gemini quota errors', () => {
+    expect(
+      getAssistantErrorMessage(
+        new Error(
+          'You exceeded your current quota, please check your plan and billing details.'
+        )
+      )
+    ).toBe(content.assistant.errors.quotaExceeded)
+  })
+
   it('maps unavailable errors', () => {
     expect(
       getAssistantErrorMessage(new Error('Service unavailable'))
