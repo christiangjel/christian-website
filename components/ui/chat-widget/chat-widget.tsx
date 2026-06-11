@@ -125,8 +125,7 @@ export const ChatWidget = () => {
 
       {isOpen && (
         <div
-          data-chat-open
-          className='fixed inset-0 z-50 flex items-end justify-end overflow-hidden overscroll-none p-4 sm:p-6'
+          className='fixed inset-0 z-50 flex items-end justify-end p-4 sm:p-6'
           role='presentation'
         >
           <button
@@ -137,7 +136,7 @@ export const ChatWidget = () => {
           />
 
           <section
-            className='relative flex h-[min(640px,calc(100dvh-2rem))] w-full max-w-md flex-col overflow-hidden overscroll-contain rounded-xl border border-border bg-card shadow-2xl'
+            className='relative flex h-[min(640px,calc(100dvh-2rem))] w-full max-w-md flex-col overflow-hidden rounded-xl border border-border bg-card shadow-2xl'
             aria-label={content.assistant.ariaLabels.chatPanel}
           >
             <header className='flex items-center justify-between gap-4 px-6 pb-2 pt-6'>
@@ -155,7 +154,7 @@ export const ChatWidget = () => {
 
             <div
               ref={messagesContainerRef}
-              className='flex min-h-0 flex-1 touch-pan-y flex-col gap-4 overflow-y-auto overscroll-contain px-6'
+              className='flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto px-6'
               aria-live='polite'
               aria-label={content.assistant.ariaLabels.messages}
             >
