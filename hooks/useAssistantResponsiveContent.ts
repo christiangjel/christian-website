@@ -16,19 +16,17 @@ const MOBILE_CONTENT: AssistantResponsiveContent = {
   suggestedPrompts: content.assistant.suggestedPromptsMobile,
 }
 
+const DESKTOP_CONTENT: AssistantResponsiveContent = {
+  placeholder: content.assistant.placeholder.desktop,
+  suggestedPrompts: content.assistant.suggestedPrompts,
+}
+
 const getResponsiveContent = (): AssistantResponsiveContent => {
   const isDesktop =
     typeof window !== 'undefined' &&
     window.matchMedia(SM_MEDIA_QUERY).matches
 
-  if (isDesktop) {
-    return {
-      placeholder: content.assistant.placeholder.desktop,
-      suggestedPrompts: content.assistant.suggestedPrompts,
-    }
-  }
-
-  return MOBILE_CONTENT
+  return isDesktop ? DESKTOP_CONTENT : MOBILE_CONTENT
 }
 
 const subscribeToSmBreakpoint = (onStoreChange: () => void): (() => void) => {
