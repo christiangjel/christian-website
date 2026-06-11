@@ -65,15 +65,34 @@ const subscribeToSmBreakpoint = (onStoreChange: () => void): (() => void) => {
   return () => mediaQuery.removeEventListener('change', onStoreChange)
 }
 
+const MOBILE_OVERLAY_PADDING = 16
+
 /**
- * Pins the chat overlay to the visible viewport on iOS when the keyboard opens.
+ * Returns the obscured height at the bottom of the layout viewport (keyboard area).
  */
-const syncOverlayToVisualViewport = (
+const getKeyboardInset = (visualViewport: VisualViewport): number =>
+  Math.max(
+    0,
+    window.innerHeight - visualViewport.offsetTop - visualViewport.height
+  )
+
+/**
+ * Pushes the chat panel above the iOS keyboard by padding the overlay bottom.
+ */
+const syncOverlayKeyboardInset = (
   overlay: HTMLDivElement,
   visualViewport: VisualViewport
 ): void => {
-  overlay.style.top = `${visualViewport.offsetTop}px`
-  overlay.style.height = `${visualViewport.height}px`
+  if (isSmBreakpoint()) {
+    overlay.style.paddingBottom = ''
+    return
+  }
+
+  const keyboardInset = getKeyboardInset(visualViewport)
+  overlay.style.paddingBottom =
+    keyboardInset > 0
+      ? `${keyboardInset + MOBILE_OVERLAY_PADDING}px`
+      : ''
 }
 
 type ChatWidgetProps = {
@@ -168,7 +187,7 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
         return
       }
 
-      syncOverlayToVisualViewport(overlay, visualViewport)
+      syncOverlayKeyboardInset(overlay, visualViewport)
     }
 
     syncOverlay()
@@ -180,8 +199,7 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
       visualViewport.removeEventListener('scroll', syncOverlay)
 
       if (overlayRef.current) {
-        overlayRef.current.style.top = ''
-        overlayRef.current.style.height = ''
+        overlayRef.current.style.paddingBottom = ''
       }
     }
   }, [isOpen])
@@ -224,7 +242,7 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
       {isOpen && (
         <div
           ref={overlayRef}
-          className='fixed inset-x-0 top-0 z-50 flex h-dvh items-end justify-end p-4 sm:p-6'
+          className='fixed inset-0 z-50 flex min-h-0 items-end justify-end p-4 sm:p-6'
           role='presentation'
         >
           <button
@@ -235,7 +253,7 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
           />
 
           <section
-            className='relative flex h-[min(640px,100%)] max-h-full w-full max-w-md flex-col overflow-hidden rounded-xl border border-border bg-card shadow-2xl'
+            className='relative flex h-[min(640px,calc(100dvh-2rem))] max-h-full min-h-0 w-full max-w-md flex-col overflow-hidden rounded-xl border border-border bg-card shadow-2xl sm:h-[min(640px,calc(100dvh-3rem))]'
             aria-label={content.assistant.ariaLabels.chatPanel}
           >
             <header className='flex shrink-0 items-center justify-between gap-4 px-6 pb-2 pt-6'>
@@ -317,7 +335,7 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
                   className={cn(
                     'flex-1 resize-none rounded-md border border-input bg-background px-3 py-2 text-base sm:text-sm',
                     'placeholder:text-sm ring-offset-background placeholder:text-muted-foreground',
-                    'focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:bg-mint/5',
+                    'focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-0 sm:focus-visible:ring-offset-1 focus-visible:bg-mint/5',
                     'disabled:cursor-not-allowed disabled:opacity-50'
                   )}
                   onKeyDown={(event) => {
