@@ -420,7 +420,7 @@
     "loading": "...",
     "placeholder": {
       "mobile": "Start typing to learn more...",
-      "desktop": "Start typing to learn more about Christian..."
+      "desktop": "Start typing a question to learn more about Christian..."
     },
     "openButton": {
       "label": "Chat",
