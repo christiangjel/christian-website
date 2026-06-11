@@ -170,7 +170,10 @@ export type Assistant = {
   description: string
   welcome: string
   loading: string
-  placeholder: string
+  placeholder: {
+    mobile: string
+    desktop: string
+  }
   openButton: {
     label: string
     ariaLabel: string

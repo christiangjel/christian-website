@@ -1,6 +1,13 @@
 'use client'
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react'
 import { createPortal } from 'react-dom'
 import type { FormEvent } from 'react'
 import { useChat } from '@ai-sdk/react'
@@ -37,6 +44,24 @@ const getErrorMessage = (error: Error | undefined): string | null => {
   return content.assistant.errors.generic
 }
 
+const SM_MEDIA_QUERY = '(min-width: 640px)'
+
+const getAssistantPlaceholder = (): string => {
+  if (typeof window === 'undefined') {
+    return content.assistant.placeholder.mobile
+  }
+
+  return window.matchMedia(SM_MEDIA_QUERY).matches
+    ? content.assistant.placeholder.desktop
+    : content.assistant.placeholder.mobile
+}
+
+const subscribeToSmBreakpoint = (onStoreChange: () => void): (() => void) => {
+  const mediaQuery = window.matchMedia(SM_MEDIA_QUERY)
+  mediaQuery.addEventListener('change', onStoreChange)
+  return () => mediaQuery.removeEventListener('change', onStoreChange)
+}
+
 /**
  * Floating portfolio assistant chat widget with streaming responses.
  */
@@ -45,6 +70,11 @@ export const ChatWidget = () => {
   const [input, setInput] = useState('')
   const [isMounted, setIsMounted] = useState(false)
   const messagesContainerRef = useRef<HTMLDivElement>(null)
+  const inputPlaceholder = useSyncExternalStore(
+    subscribeToSmBreakpoint,
+    getAssistantPlaceholder,
+    () => content.assistant.placeholder.mobile
+  )
 
   useEffect(() => {
     setIsMounted(true)
@@ -217,7 +247,7 @@ export const ChatWidget = () => {
                 <textarea
                   value={input}
                   onChange={(event) => setInput(event.target.value)}
-                  placeholder={content.assistant.placeholder}
+                  placeholder={inputPlaceholder}
                   aria-label={content.assistant.ariaLabels.input}
                   rows={2}
                   maxLength={ASSISTANT_CONFIG.MAX_MESSAGE_LENGTH}

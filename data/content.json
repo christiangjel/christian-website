@@ -418,7 +418,10 @@
     "description": "Ask me anything about Christian's experience, skills, and projects.",
     "welcome": "Hi! I'm Christian's AI portfolio assistant. Ask me anything about his work, experience, or projects.",
     "loading": "...",
-    "placeholder": "Start typing a question..",
+    "placeholder": {
+      "mobile": "Start typing a question..",
+      "desktop": "Start typing a question about Christian..."
+    },
     "openButton": {
       "label": "Chat",
       "ariaLabel": "Open portfolio assistant chat"
