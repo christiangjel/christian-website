@@ -16,17 +16,7 @@ type ChatOpenButtonProps = {
  */
 export const ChatOpenButton = ({ onClick, className }: ChatOpenButtonProps) => {
   return (
-    <div className={cn(ASSISTANT_CONFIG.LAUNCHER.BUTTON_POSITION_CLASS, 'group')}>
-      <span
-        role='tooltip'
-        className={cn(
-          'pointer-events-none absolute bottom-full left-1/2 mb-2 hidden -translate-x-1/2 whitespace-nowrap',
-          'rounded-md border border-border bg-card px-2 py-1 text-center text-xs text-foreground shadow-md',
-          'opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100 sm:block'
-        )}
-      >
-        {content.assistant.openButton.tooltip}
-      </span>
+    <div className={cn(ASSISTANT_CONFIG.LAUNCHER.BUTTON_POSITION_CLASS)}>
       <Button
         type='button'
         size='icon'

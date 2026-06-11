@@ -173,7 +173,6 @@ export type Assistant = {
   placeholder: string
   openButton: {
     label: string
-    tooltip: string
     ariaLabel: string
   }
   closeButton: {

@@ -414,14 +414,13 @@
     ]
   },
   "assistant": {
-    "title": "Portfolio Assistant",
+    "title": "AI Assistent",
     "description": "Ask me anything about Christian's experience, skills, and projects.",
-    "welcome": "Hi! I'm Christian's portfolio assistant. Ask me about his experience, skills, projects, or availability.",
+    "welcome": "Hi! I'm Christian's portfolio assistant. How can I help you?",
     "loading": "...",
-    "placeholder": "Ask about experience, skills, or projects...",
+    "placeholder": "Type your question...",
     "openButton": {
       "label": "Chat",
-      "tooltip": "Ask AI",
       "ariaLabel": "Open portfolio assistant chat"
     },
     "closeButton": {

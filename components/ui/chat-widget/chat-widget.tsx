@@ -44,7 +44,7 @@ export const ChatWidget = () => {
   const { isOpen, openChat, closeChat } = useChatWidget()
   const [input, setInput] = useState('')
   const [isMounted, setIsMounted] = useState(false)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setIsMounted(true)
@@ -71,13 +71,21 @@ export const ChatWidget = () => {
   const hasUserMessages = messages.some((message) => message.role === 'user')
 
   const scrollToBottom = useCallback(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    const container = messagesContainerRef.current
+
+    if (!container) {
+      return
+    }
+
+    container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' })
   }, [])
 
   useEffect(() => {
-    if (isOpen) {
-      scrollToBottom()
+    if (!isOpen || (messages.length === 0 && !isLoading)) {
+      return
     }
+
+    scrollToBottom()
   }, [isOpen, messages, isLoading, scrollToBottom])
 
   const handleSubmit = useCallback(
@@ -131,15 +139,8 @@ export const ChatWidget = () => {
             className='relative flex h-[min(640px,calc(100dvh-2rem))] w-full max-w-md flex-col overflow-hidden rounded-xl border border-border bg-card shadow-2xl'
             aria-label={content.assistant.ariaLabels.chatPanel}
           >
-            <header className='flex items-center justify-between border-b border-border px-4 py-3'>
-              <div>
-                <h2 className='text-base font-semibold'>
-                  {content.assistant.title}
-                </h2>
-                <p className='text-xs text-muted-foreground'>
-                  {content.assistant.description}
-                </p>
-              </div>
+            <header className='flex items-center justify-between gap-4 px-6 pb-2 pt-6'>
+              <h2 className='text-lg font-bold'>{content.assistant.title}</h2>
               <Button
                 variant='ghost'
                 size='icon'
@@ -152,7 +153,8 @@ export const ChatWidget = () => {
             </header>
 
             <div
-              className='flex-1 space-y-4 overflow-y-auto px-4 py-4'
+              ref={messagesContainerRef}
+              className='flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto px-6'
               aria-live='polite'
               aria-label={content.assistant.ariaLabels.messages}
             >
@@ -181,20 +183,18 @@ export const ChatWidget = () => {
                   {content.assistant.errors.maxMessages}
                 </p>
               )}
-
-              <div ref={messagesEndRef} />
             </div>
 
             {!hasUserMessages && (
               <div
-                className='flex flex-wrap gap-2 border-t border-border px-4 py-3'
+                className='hidden flex-col items-end gap-2 px-6 pb-2 pt-2 sm:flex'
                 aria-label={content.assistant.ariaLabels.suggestedPrompts}
               >
                 {content.assistant.suggestedPrompts.map((prompt) => (
                   <button
                     key={prompt}
                     type='button'
-                    className='rounded-full border border-border bg-secondary px-3 py-1.5 text-left text-xs text-secondary-foreground transition-colors hover:bg-secondary/80'
+                    className='shrink-0 whitespace-nowrap rounded-md bg-mint px-3 py-1.5 text-sm text-mint-foreground transition-opacity hover:opacity-90'
                     onClick={() => handleSuggestedPrompt(prompt)}
                     disabled={isLoading || isAtMessageLimit}
                   >
@@ -204,11 +204,8 @@ export const ChatWidget = () => {
               </div>
             )}
 
-            <form
-              onSubmit={handleSubmit}
-              className='border-t border-border p-4'
-            >
-              <div className='flex items-end gap-2'>
+            <form onSubmit={handleSubmit} className='mt-4 px-6 pb-6'>
+              <div className='flex items-end gap-6'>
                 <textarea
                   value={input}
                   onChange={(event) => setInput(event.target.value)}
@@ -219,7 +216,8 @@ export const ChatWidget = () => {
                   disabled={isLoading || isAtMessageLimit}
                   className={cn(
                     'flex-1 resize-none rounded-md border border-input bg-background px-3 py-2 text-base sm:text-sm',
-                    'placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring',
+                    'ring-offset-background placeholder:text-muted-foreground',
+                    'focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:bg-mint/5',
                     'disabled:cursor-not-allowed disabled:opacity-50'
                   )}
                   onKeyDown={(event) => {
