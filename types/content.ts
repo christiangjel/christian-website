@@ -186,6 +186,7 @@ export type Assistant = {
     ariaLabel: string
   }
   suggestedPrompts: string[]
+  suggestedPromptsMobile: string[]
   errors: {
     rateLimit: string
     generic: string

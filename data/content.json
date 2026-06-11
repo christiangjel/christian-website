@@ -439,6 +439,10 @@
       "What industries have you worked in?",
       "Are you available for freelance work?"
     ],
+    "suggestedPromptsMobile": [
+      "Recent React/Next.js projects?",
+      "Available for freelance?"
+    ],
     "errors": {
       "rateLimit": "Too many requests. Please wait a moment and try again.",
       "generic": "Something went wrong. Please try again or use the contact form.",

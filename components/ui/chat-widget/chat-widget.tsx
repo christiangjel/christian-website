@@ -46,15 +46,18 @@ const getErrorMessage = (error: Error | undefined): string | null => {
 
 const SM_MEDIA_QUERY = '(min-width: 640px)'
 
-const getAssistantPlaceholder = (): string => {
-  if (typeof window === 'undefined') {
-    return content.assistant.placeholder.mobile
-  }
+const isSmBreakpoint = (): boolean =>
+  typeof window !== 'undefined' && window.matchMedia(SM_MEDIA_QUERY).matches
 
-  return window.matchMedia(SM_MEDIA_QUERY).matches
+const getAssistantPlaceholder = (): string =>
+  isSmBreakpoint()
     ? content.assistant.placeholder.desktop
     : content.assistant.placeholder.mobile
-}
+
+const getSuggestedPrompts = (): string[] =>
+  isSmBreakpoint()
+    ? content.assistant.suggestedPrompts
+    : content.assistant.suggestedPromptsMobile
 
 const subscribeToSmBreakpoint = (onStoreChange: () => void): (() => void) => {
   const mediaQuery = window.matchMedia(SM_MEDIA_QUERY)
@@ -74,6 +77,11 @@ export const ChatWidget = () => {
     subscribeToSmBreakpoint,
     getAssistantPlaceholder,
     () => content.assistant.placeholder.mobile
+  )
+  const suggestedPrompts = useSyncExternalStore(
+    subscribeToSmBreakpoint,
+    getSuggestedPrompts,
+    () => content.assistant.suggestedPromptsMobile
   )
 
   useEffect(() => {
@@ -220,15 +228,8 @@ export const ChatWidget = () => {
                 className='flex flex-col gap-2 px-6 pb-2 pt-2'
                 aria-label={content.assistant.ariaLabels.suggestedPrompts}
               >
-                {content.assistant.suggestedPrompts.map((prompt, index) => (
-                  <div
-                    key={prompt}
-                    className={cn(
-                      'flex justify-end',
-                      index >= ASSISTANT_CONFIG.MOBILE_SUGGESTED_PROMPT_COUNT &&
-                        'hidden sm:flex'
-                    )}
-                  >
+                {suggestedPrompts.map((prompt) => (
+                  <div key={prompt} className='flex justify-end'>
                     <button
                       type='button'
                       className='max-w-[85%] rounded-md bg-mint px-3 py-1.5 text-left text-sm leading-relaxed text-mint-foreground transition-opacity hover:opacity-90 whitespace-normal sm:max-w-none sm:whitespace-nowrap'
