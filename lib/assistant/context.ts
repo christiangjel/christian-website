@@ -1,8 +1,8 @@
-import assistantExtraData from '@/data/assistant-extra.json'
+import assistantContextData from '@/data/assistant-context.json'
+import { parseAssistantContext } from '@/lib/assistant/validate-context'
 import { content } from '@/lib/content'
-import type { AssistantExtra } from '@/types/assistant-extra'
 
-const assistantExtra = assistantExtraData satisfies AssistantExtra
+const assistantContext = parseAssistantContext(assistantContextData)
 
 const PORTFOLIO_CONTEXT = {
   about: content.about,
@@ -38,7 +38,7 @@ Rules:
 
 /**
  * Builds the system prompt for the portfolio assistant by injecting
- * structured content from content.json and supplementary CV/LinkedIn data.
+ * structured content from content.json and assistant context data.
  */
 export const buildSystemPrompt = (): string => {
   return `${SYSTEM_INSTRUCTIONS}
@@ -46,6 +46,6 @@ export const buildSystemPrompt = (): string => {
 Portfolio context (JSON):
 ${JSON.stringify(PORTFOLIO_CONTEXT, null, 2)}
 
-Supplementary context from CV and LinkedIn (JSON):
-${JSON.stringify(assistantExtra, null, 2)}`
+Assistant context (JSON):
+${JSON.stringify(assistantContext, null, 2)}`
 }

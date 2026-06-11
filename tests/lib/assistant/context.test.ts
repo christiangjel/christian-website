@@ -25,12 +25,14 @@ describe('buildSystemPrompt', () => {
   it('includes supplementary CV and LinkedIn context', () => {
     const prompt = buildSystemPrompt()
 
-    expect(prompt).toContain('Supplementary context from CV and LinkedIn (JSON):')
+    expect(prompt).toContain('Assistant context (JSON):')
     expect(prompt).toContain('Payload CMS')
     expect(prompt).toContain('McDonald\'s Schmecktakel 2013')
     expect(prompt).toContain('TanStack Query')
     expect(prompt).toContain('https://github.com/christiangjel')
     expect(prompt).toContain('Katharina Grujic')
     expect(prompt).toContain('MapTiler')
+    expect(prompt).toContain('Next.js')
+    expect(prompt).toContain('portfolioWebsite')
   })
 })

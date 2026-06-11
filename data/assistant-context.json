@@ -194,5 +194,37 @@
       ],
       "recommendation": "Highly recommended as a Senior Web Developer who would be a valuable asset to any organization. Scholz & Volkmer would gladly work with Christian again."
     }
-  ]
+  ],
+  "portfolioWebsite": {
+    "description": "Christian's personal portfolio site showcasing his experience, projects, and skills. Built and maintained as a modern Next.js application with a custom WebGL background and an AI portfolio assistant.",
+    "url": "https://christian-gjelstrup.com",
+    "repository": "https://github.com/christiangjel/christian-website",
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Three.js",
+      "Framer Motion",
+      "Vercel AI SDK",
+      "Google Gemini",
+      "Zod",
+      "React Hook Form",
+      "Formspree",
+      "Vitest",
+      "React Testing Library",
+      "next-themes",
+      "Lucide React",
+      "Radix UI",
+      "ESLint"
+    ],
+    "features": [
+      "Server-rendered Next.js App Router architecture",
+      "Interactive Three.js waves hero background",
+      "AI portfolio assistant with streaming Gemini responses",
+      "Accessible UI with centralized content management",
+      "Contact form with Zod validation via Formspree",
+      "Deployed on Vercel"
+    ]
+  }
 }
