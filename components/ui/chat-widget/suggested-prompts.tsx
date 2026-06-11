@@ -23,7 +23,7 @@ export const SuggestedPrompts = ({
         <div key={prompt} className='flex justify-end'>
           <button
             type='button'
-            className='max-w-[85%] rounded-lg bg-mint px-3 py-2 text-left text-sm leading-relaxed text-mint-foreground transition-opacity hover:opacity-90 whitespace-normal sm:whitespace-nowrap'
+            className='w-fit max-w-full rounded-lg bg-mint px-3 py-2 text-left text-sm leading-relaxed text-mint-foreground transition-opacity hover:opacity-90 whitespace-normal sm:max-w-[85%] sm:whitespace-nowrap'
             onClick={() => onSelect(prompt)}
             disabled={isDisabled}
           >
