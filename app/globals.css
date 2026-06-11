@@ -38,6 +38,11 @@
   body {
     @apply bg-background text-foreground tracking-tight text-sm sm:text-base;
   }
+
+  html:has([data-chat-open]),
+  body:has([data-chat-open]) {
+    @apply overflow-hidden overscroll-none;
+  }
   h1,
   h2,
   h3,
