@@ -416,9 +416,9 @@
   "assistant": {
     "title": "AI Assistent",
     "description": "Ask me anything about Christian's experience, skills, and projects.",
-    "welcome": "Hi! I'm Christian's portfolio assistant. How can I help you?",
+    "welcome": "Hi! I'm Christian's AI portfolio assistant. Ask me anything about his work, experience, or projects.",
     "loading": "...",
-    "placeholder": "Type your question...",
+    "placeholder": "Start typing a question..",
     "openButton": {
       "label": "Chat",
       "ariaLabel": "Open portfolio assistant chat"
