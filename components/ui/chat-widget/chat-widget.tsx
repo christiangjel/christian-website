@@ -65,6 +65,17 @@ const subscribeToSmBreakpoint = (onStoreChange: () => void): (() => void) => {
   return () => mediaQuery.removeEventListener('change', onStoreChange)
 }
 
+/**
+ * Pins the chat overlay to the visible viewport on iOS when the keyboard opens.
+ */
+const syncOverlayToVisualViewport = (
+  overlay: HTMLDivElement,
+  visualViewport: VisualViewport
+): void => {
+  overlay.style.top = `${visualViewport.offsetTop}px`
+  overlay.style.height = `${visualViewport.height}px`
+}
+
 type ChatWidgetProps = {
   onReady?: () => void
 }
@@ -77,6 +88,7 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
   const [input, setInput] = useState('')
   const [isMounted, setIsMounted] = useState(false)
   const messagesContainerRef = useRef<HTMLDivElement>(null)
+  const overlayRef = useRef<HTMLDivElement>(null)
   const inputPlaceholder = useSyncExternalStore(
     subscribeToSmBreakpoint,
     getAssistantPlaceholder,
@@ -138,6 +150,42 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
     scrollToBottom()
   }, [isOpen, messages, isLoading, scrollToBottom])
 
+  useEffect(() => {
+    if (!isOpen) {
+      return
+    }
+
+    const visualViewport = window.visualViewport
+
+    if (!visualViewport) {
+      return
+    }
+
+    const syncOverlay = (): void => {
+      const overlay = overlayRef.current
+
+      if (!overlay) {
+        return
+      }
+
+      syncOverlayToVisualViewport(overlay, visualViewport)
+    }
+
+    syncOverlay()
+    visualViewport.addEventListener('resize', syncOverlay)
+    visualViewport.addEventListener('scroll', syncOverlay)
+
+    return () => {
+      visualViewport.removeEventListener('resize', syncOverlay)
+      visualViewport.removeEventListener('scroll', syncOverlay)
+
+      if (overlayRef.current) {
+        overlayRef.current.style.top = ''
+        overlayRef.current.style.height = ''
+      }
+    }
+  }, [isOpen])
+
   const handleSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault()
@@ -175,7 +223,8 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
 
       {isOpen && (
         <div
-          className='fixed inset-0 z-50 flex items-end justify-end p-4 sm:p-6'
+          ref={overlayRef}
+          className='fixed inset-x-0 top-0 z-50 flex h-dvh items-end justify-end p-4 sm:p-6'
           role='presentation'
         >
           <button
@@ -186,7 +235,7 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
           />
 
           <section
-            className='relative flex h-[min(640px,calc(100dvh-2rem))] w-full max-w-md flex-col overflow-hidden rounded-xl border border-border bg-card shadow-2xl'
+            className='relative flex h-[min(640px,100%)] max-h-full w-full max-w-md flex-col overflow-hidden rounded-xl border border-border bg-card shadow-2xl'
             aria-label={content.assistant.ariaLabels.chatPanel}
           >
             <header className='flex shrink-0 items-center justify-between gap-4 px-6 pb-2 pt-6'>
