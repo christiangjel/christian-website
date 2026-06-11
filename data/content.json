@@ -419,8 +419,8 @@
     "welcome": "Hi! I'm Christian's AI portfolio assistant. Ask me anything about his work, experience, or projects.",
     "loading": "...",
     "placeholder": {
-      "mobile": "Start typing a question..",
-      "desktop": "Start typing a question about Christian..."
+      "mobile": "Start typing to learn more...",
+      "desktop": "Start typing to learn more about Christian..."
     },
     "openButton": {
       "label": "Chat",
@@ -440,7 +440,7 @@
       "Are you available for freelance work?"
     ],
     "suggestedPromptsMobile": [
-      "Recent React/Next.js projects?",
+      "Recent React projects?",
       "Available for freelance?"
     ],
     "errors": {

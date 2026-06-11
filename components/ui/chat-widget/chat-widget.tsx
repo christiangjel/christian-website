@@ -244,7 +244,7 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
                   <div key={prompt} className='flex justify-end'>
                     <button
                       type='button'
-                      className='max-w-[85%] rounded-md bg-mint px-3 py-1.5 text-left text-sm leading-relaxed text-mint-foreground transition-opacity hover:opacity-90 whitespace-normal sm:max-w-none sm:whitespace-nowrap'
+                      className='w-fit max-w-full rounded-md bg-mint px-3 py-1.5 text-left text-sm leading-relaxed text-mint-foreground transition-opacity hover:opacity-90 whitespace-normal sm:max-w-none sm:whitespace-nowrap'
                       onClick={() => handleSuggestedPrompt(prompt)}
                       disabled={isLoading || isAtMessageLimit}
                     >
