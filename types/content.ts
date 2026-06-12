@@ -239,6 +239,10 @@ export type Content = {
         label: string
         ariaLabel: string
       }
+      askAi: {
+        label: string
+        ariaLabel: string
+      }
     }
   }
   assistant: Assistant

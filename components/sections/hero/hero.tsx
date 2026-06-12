@@ -1,16 +1,20 @@
 'use client'
 
-import { FileDown } from 'lucide-react'
+import { FileDown, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 // import { Badge } from '@/components/ui/badge'
-import { scrollToSection } from '@/lib/utils'
+import { SECTIONS, CUSTOM_EVENTS } from '@/constants'
 import { content } from '@/lib/content'
-import { SECTIONS } from '@/constants'
+import { scrollToSection } from '@/lib/utils'
 
 export const Hero = () => {
   const titleWords = content.hero.title.split(' ')
   const firstWord = titleWords[0]
   const restOfTitle = titleWords.slice(1).join(' ')
+
+  const handleAskAi = (): void => {
+    window.dispatchEvent(new CustomEvent(CUSTOM_EVENTS.OPEN_ASSISTANT_CHAT))
+  }
 
   return (
     <section
@@ -70,6 +74,16 @@ export const Hero = () => {
             <FileDown className='mr-2 h-4 w-4' aria-hidden='true' />
             {content.hero.buttons.downloadCV.label}
           </a>
+        </Button>
+        <Button
+          size='lg'
+          variant='outline'
+          className='flex items-center gap-2'
+          onClick={handleAskAi}
+          aria-label={content.hero.buttons.askAi.ariaLabel}
+        >
+          <Sparkles className='mr-2 h-4 w-4' aria-hidden='true' />
+          {content.hero.buttons.askAi.label}
         </Button>
       </div>
     </section>

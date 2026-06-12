@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import { useCallback, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { ChatOpenButton } from '@/components/ui/chat-widget/chat-open-button'
+import { useChatWidget } from '@/components/ui/chat-widget/chat-widget-context'
 import { ASSISTANT_CONFIG } from '@/constants/assistant'
 import { CUSTOM_EVENTS } from '@/constants/events'
 
@@ -20,6 +21,7 @@ const ChatAssistant = dynamic(
  * The AI bundle loads only when the user opens chat.
  */
 export const ChatAssistantLoader = () => {
+  const { isOpen, openChat } = useChatWidget()
   const [canShowLauncher, setCanShowLauncher] = useState(false)
   const [isChatLoaded, setIsChatLoaded] = useState(false)
   const [isChatPanelReady, setIsChatPanelReady] = useState(false)
@@ -48,11 +50,30 @@ export const ChatAssistantLoader = () => {
 
   const handleOpenChat = useCallback(() => {
     setIsChatLoaded(true)
-  }, [])
+    openChat()
+  }, [openChat])
 
   const handleChatReady = useCallback(() => {
     setIsChatPanelReady(true)
   }, [])
+
+  useEffect(() => {
+    const handleOpenAssistantChat = (): void => {
+      handleOpenChat()
+    }
+
+    window.addEventListener(
+      CUSTOM_EVENTS.OPEN_ASSISTANT_CHAT,
+      handleOpenAssistantChat
+    )
+
+    return () => {
+      window.removeEventListener(
+        CUSTOM_EVENTS.OPEN_ASSISTANT_CHAT,
+        handleOpenAssistantChat
+      )
+    }
+  }, [handleOpenChat])
 
   if (!isMounted) {
     return null
@@ -60,13 +81,11 @@ export const ChatAssistantLoader = () => {
 
   return createPortal(
     <>
-      {canShowLauncher && !isChatPanelReady && (
+      {canShowLauncher && !isChatPanelReady && !isOpen && (
         <ChatOpenButton onClick={handleOpenChat} />
       )}
 
-      {isChatLoaded && (
-        <ChatAssistant initialOpen onReady={handleChatReady} />
-      )}
+      {isChatLoaded && <ChatAssistant onReady={handleChatReady} />}
     </>,
     document.body
   )

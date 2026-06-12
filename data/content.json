@@ -22,6 +22,10 @@
       "downloadCV": {
         "label": "Download CV",
         "ariaLabel": "Download CV (opens in new tab)"
+      },
+      "askAi": {
+        "label": "Ask my AI",
+        "ariaLabel": "Open portfolio AI assistant chat"
       }
     }
   },

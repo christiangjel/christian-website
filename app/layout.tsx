@@ -4,7 +4,7 @@ import '@/app/globals.css'
 import { fontNormal, fontBold } from '@/app/fonts'
 import { ThemeProvider } from '@/components/layout/theme/theme-provider'
 import { PageWrapper } from '@/components/layout/page-wrapper/page-wrapper'
-import { ChatAssistantLoader } from '@/components/ui/chat-widget/chat-assistant-loader'
+import { ChatAssistantRoot } from '@/components/ui/chat-widget/chat-assistant-root'
 import { ErrorBoundary } from '@/components/error-boundary'
 import { SITE_CONFIG } from '@/constants'
 import { SITE_METADATA } from '@/constants/metadata'
@@ -82,16 +82,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className='min-h-screen bg-background text-foreground antialiased'
         suppressHydrationWarning
       >
-        <ErrorBoundary>
-          <ThemeProvider
-            attribute='class'
-            defaultTheme='dark'
-            enableSystem={false}
-          >
-            <PageWrapper>{children}</PageWrapper>
-          </ThemeProvider>
-        </ErrorBoundary>
-        <ChatAssistantLoader />
+        <ChatAssistantRoot>
+          <ErrorBoundary>
+            <ThemeProvider
+              attribute='class'
+              defaultTheme='dark'
+              enableSystem={false}
+            >
+              <PageWrapper>{children}</PageWrapper>
+            </ThemeProvider>
+          </ErrorBoundary>
+        </ChatAssistantRoot>
       </body>
     </html>
   )
