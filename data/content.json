@@ -420,7 +420,7 @@
   "assistant": {
     "title": "AI Assistant",
     "description": "Ask me anything about Christian's experience, skills, and projects.",
-    "welcome": "Hi! I'm Christian's AI portfolio assistant. Ask me anything about his work, experience, or projects.",
+    "welcome": "Hi! I'm Christian's portfolio assistant. Ask me anything about his work, experience, or projects.",
     "loading": "...",
     "placeholder": {
       "mobile": "Start typing to learn more...",
