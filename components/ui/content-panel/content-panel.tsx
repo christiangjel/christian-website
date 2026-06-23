@@ -32,9 +32,9 @@ export const ContentPanel = ({ category }: ContentPanelProps) => {
 
         {hasDemos && category.demosHeading && (
           <div className='mt-6'>
-            <h4 className='mb-2 text-md font-bold'>{category.demosHeading}</h4>
+            <p className='mb-2 text-muted-foreground'>{category.demosHeading}</p>
             <ul
-              className='list-inside list-disc'
+              className='list-inside list-disc space-y-1 text-muted-foreground'
               aria-label={content.webShop.ariaLabels.demos}
             >
               {category.demos!.map((demo) => (
@@ -43,7 +43,7 @@ export const ContentPanel = ({ category }: ContentPanelProps) => {
                     href={demo.url}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='text-muted-foreground transition-colors hover:text-mint'
+                    className='transition-colors hover:text-mint'
                     aria-label={demo.ariaLabel}
                   >
                     {demo.label}

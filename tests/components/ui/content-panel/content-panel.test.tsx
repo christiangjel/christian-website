@@ -34,6 +34,7 @@ describe('ContentPanel', () => {
     )
     expect(screen.getByText(overview.body)).toBeInTheDocument()
     expect(screen.getByText(overview.demosHeading!)).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { level: 4 })).not.toBeInTheDocument()
 
     const demoLink = screen.getByRole('link', {
       name: overview.demos![0]!.ariaLabel
