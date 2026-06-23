@@ -33,7 +33,9 @@ describe('ContentPanel', () => {
       overview.headline
     )
     expect(screen.getByText(overview.body)).toBeInTheDocument()
-    expect(screen.getByText(overview.demosHeading!)).toBeInTheDocument()
+    expect(screen.getByText(`${overview.demosHeading}:`)).toHaveClass(
+      'text-foreground'
+    )
     expect(screen.queryByRole('heading', { level: 4 })).not.toBeInTheDocument()
 
     const demoLink = screen.getByRole('link', {
@@ -73,10 +75,10 @@ describe('ContentPanel', () => {
     const saasPlan = pricing.plans![0]!
     const lifetimePlan = pricing.plans![1]!
 
-    expect(screen.getByText(`${saasPlan.name}: ${saasPlan.description}`)).toBeInTheDocument()
-    expect(
-      screen.getByText(`${lifetimePlan.name}: ${lifetimePlan.description}`)
-    ).toBeInTheDocument()
+    expect(screen.getByText(`${saasPlan.name}:`)).toHaveClass('text-foreground')
+    expect(screen.getByText(`${lifetimePlan.name}:`)).toHaveClass('text-foreground')
+    expect(screen.getByText(saasPlan.description)).toBeInTheDocument()
+    expect(screen.getByText(lifetimePlan.description)).toBeInTheDocument()
     expect(screen.getByText(pricing.body)).toBeInTheDocument()
     expect(screen.queryByRole('heading', { level: 4 })).not.toBeInTheDocument()
 

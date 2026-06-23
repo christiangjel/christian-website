@@ -32,7 +32,9 @@ export const ContentPanel = ({ category }: ContentPanelProps) => {
 
         {hasDemos && category.demosHeading && (
           <div className='mt-6'>
-            <p className='mb-2 text-muted-foreground'>{category.demosHeading}</p>
+            <p className='mb-2'>
+              <span className='text-foreground'>{category.demosHeading}:</span>
+            </p>
             <ul
               className='list-inside list-disc space-y-1 text-muted-foreground'
               aria-label={content.webShop.ariaLabels.demos}
@@ -78,7 +80,8 @@ export const ContentPanel = ({ category }: ContentPanelProps) => {
           <div className='space-y-4'>
             {category.plans!.map((plan) => (
               <p key={plan.name} className='text-muted-foreground'>
-                {plan.name}: {plan.description}
+                <span className='text-foreground'>{plan.name}:</span>{' '}
+                {plan.description}
               </p>
             ))}
             <p className='text-muted-foreground'>{category.body}</p>
