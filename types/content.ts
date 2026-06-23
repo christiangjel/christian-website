@@ -1,3 +1,5 @@
+import type { SectionId } from '@/constants'
+
 export type SocialLink = {
   name: string
   url: string
@@ -266,7 +268,7 @@ export type Content = {
     copyright: string
   }
   navigation: {
-    items: { href: string; title: string }[]
+    items: { href: SectionId; title: string }[]
     ariaLabels: {
       main: string
       mobile: string

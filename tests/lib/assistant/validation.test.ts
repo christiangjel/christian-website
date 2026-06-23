@@ -10,9 +10,10 @@ const createUserMessage = (text: string) => ({
 
 describe('validateChatMessages', () => {
   it('accepts valid user messages', () => {
-    const result = validateChatMessages([createUserMessage('Tell me about React')])
+    const messages = [createUserMessage('Tell me about React')]
+    const result = validateChatMessages(messages)
 
-    expect(result).toEqual({ valid: true })
+    expect(result).toEqual({ valid: true, messages })
   })
 
   it('rejects non-array input', () => {

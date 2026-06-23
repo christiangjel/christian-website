@@ -1,4 +1,6 @@
-type LogLevel = 'error' | 'warn' | 'info' | 'debug'
+const LOG_LEVELS = ['error', 'warn', 'info', 'debug'] as const
+
+type LogLevel = (typeof LOG_LEVELS)[number]
 
 type LogContext = {
   [key: string]: unknown

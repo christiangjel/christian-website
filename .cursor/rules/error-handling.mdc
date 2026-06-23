@@ -38,6 +38,22 @@ console.error('Operation failed', error)
 - Do not use `as SomeType` to assert unvalidated external data
 - See `lib/validations/contact.ts` and `lib/assistant/validation.ts` for patterns
 
+```typescript
+// ❌ Incorrect — asserts shape before validation
+const body = (await request.json()) as { messages?: UIMessage[] }
+const validation = validateChatMessages(body.messages)
+
+// ✅ Correct — unknown first, then narrow/validate
+const body: unknown = await request.json()
+const messages =
+  typeof body === 'object' && body !== null && 'messages' in body
+    ? body.messages
+    : undefined
+const validation = validateChatMessages(messages)
+```
+
+Static JSON (`data/content.json`) is not validated at runtime — the single cast in `lib/content.ts` is the boundary. Do not add more JSON `as` casts in components.
+
 ## Graceful Degradation
 - Handle missing data gracefully
 - Provide fallback values when appropriate

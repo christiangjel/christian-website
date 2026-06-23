@@ -1,9 +1,12 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google'
-import { convertToModelMessages, streamText, type UIMessage } from 'ai'
+import { convertToModelMessages, streamText } from 'ai'
 import { ASSISTANT_CONFIG } from '@/constants/assistant'
 import { buildSystemPrompt } from '@/lib/assistant/context'
 import { checkRateLimit, getClientIp } from '@/lib/assistant/rate-limit'
-import { validateChatMessages } from '@/lib/assistant/validation'
+import {
+  getMessagesFromChatBody,
+  validateChatMessages,
+} from '@/lib/assistant/validation'
 import { logger } from '@/lib/logger'
 
 const getGoogleModel = () => {
@@ -34,8 +37,8 @@ export async function POST(request: Request): Promise<Response> {
       return Response.json({ error: 'unavailable' }, { status: 503 })
     }
 
-    const body = (await request.json()) as { messages?: UIMessage[] }
-    const validation = validateChatMessages(body.messages)
+    const body: unknown = await request.json()
+    const validation = validateChatMessages(getMessagesFromChatBody(body))
 
     if (!validation.valid) {
       return Response.json({ error: validation.error }, { status: 400 })
@@ -44,7 +47,7 @@ export async function POST(request: Request): Promise<Response> {
     const result = streamText({
       model,
       system: buildSystemPrompt(),
-      messages: await convertToModelMessages(body.messages ?? []),
+      messages: await convertToModelMessages(validation.messages),
     })
 
     return result.toUIMessageStreamResponse()

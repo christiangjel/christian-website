@@ -100,8 +100,7 @@ MobileNav.Menu = function MobileNavMenu() {
             <button
               key={item.href}
               type='button'
-              // href matches SECTIONS; JSON import types this as string
-              onClick={() => onNavClick(item.href as SectionId)}
+              onClick={() => onNavClick(item.href)}
               className={cn(
                 'cursor-pointer text-left text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
               )}

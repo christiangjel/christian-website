@@ -22,8 +22,7 @@ export const MainNav = () => {
       {content.navigation.items.map((item) => (
         <a
           key={item.href}
-          // href matches SECTIONS; JSON import types this as string
-          onClick={onNavClick(item.href as SectionId)}
+          onClick={onNavClick(item.href)}
           href={`#${item.href}`}
           className='cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
           aria-label={content.navigation.ariaLabels.navigateTo.replace(

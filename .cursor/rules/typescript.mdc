@@ -8,6 +8,8 @@ globs:
 
 # TypeScript Conventions
 
+> TypeScript improves compile-time correctness; it does **not** replace runtime validation at API, JSON, or user-input boundaries.
+
 ## Type Declarations
 - **Always use `type` instead of `interface`**
 - Export types with `export type` for type-only exports
@@ -148,9 +150,62 @@ import type { ReactNode } from 'react'
 
 ## Compiler Strictness
 - Keep `"strict": true` enabled (required)
-- Prefer enabling when practical: `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`
-- Template literal types are encouraged for routes, event names, and query keys when they add safety
+- Prefer enabling when practical: `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes` (not yet in `tsconfig.json` — enable when ready)
+- Template literal types are encouraged for routes (`/api/${string}`), event names, and query keys when they add safety
 
 ## Generics
 - Use generic constraints on utilities (`T extends (...args: unknown[]) => unknown`)
 - Prefer inference-friendly APIs over annotation-heavy generic calls
+
+## Project Patterns (follow these)
+
+### Runtime boundaries — good examples
+- `lib/validations/contact.ts` — Zod schema + `z.infer<typeof schema>`
+- `lib/assistant/validation.ts` — `unknown` input, discriminated `ChatValidationResult`, `isUIMessage` predicate
+- `lib/assistant/validate-context.ts` — Zod for assistant context
+
+### Runtime boundaries — fix or avoid
+- Do **not** cast `request.json()` directly: use `unknown`, then `safeParse` or a type predicate
+
+```typescript
+// ❌ Anti-pattern
+const body = (await request.json()) as { messages?: UIMessage[] }
+
+// ✅ Preferred — see app/api/chat/route.ts
+const body: unknown = await request.json()
+const validation = validateChatMessages(getMessagesFromChatBody(body))
+```
+
+### Static JSON boundary (`lib/content.ts`)
+- JSON imports widen literals (`icon`, `href`, etc.), so `satisfies Content` often fails
+- A documented `as Content` at `lib/content.ts` is the accepted boundary — do not scatter `as Content` elsewhere
+- Prefer tightening `types/content.ts` (e.g. `navigation.items[].href: SectionId`) or a Zod/content module over repeated `as SectionId` in nav components
+
+### `as` casts — allowed vs suspicious
+| Location | Verdict |
+|----------|---------|
+| `lib/content.ts` | OK — documented static-data boundary |
+| `page-wrapper.tsx` `as EventListener` | OK — custom event vs DOM typing |
+| `lib/utils.ts` `window as unknown as …` | OK — feature-detect `scrollend` |
+| Test mocks (`as typeof window.scrollTo`) | OK in tests only |
+
+### Derive types — extend this pattern
+- `constants/sections.ts`: `SectionId` from `SECTIONS` — **canonical pattern**
+- Also derive: `ChatValidationError` from a `as const` error map, `LogLevel` in `lib/logger.ts`
+- Do not hand-write string unions that duplicate `as const` values
+
+### Discriminated unions — use for state/results
+- `ChatValidationResult` is the project model — prefer `{ status: '…' }` or `{ valid: true \| false; … }` over optional blobs
+- Add `default: { const exhaustive: never = state; return exhaustive }` in `switch` on discriminated unions
+
+### Utility types
+- Use `Pick`, `Omit`, `Partial`, `Required`, indexed access — e.g. `Omit` in `form-input.tsx`
+- Build component prop types from domain types instead of duplicating fields
+
+### What this codebase already does well
+- No `any` in application code
+- No `enum` — `as const` + derived unions in constants
+- `type` over `interface` throughout
+- `satisfies` in `tailwind.config.ts`
+- Zod + inferred types for contact form
+- Type predicates at assistant message boundary
