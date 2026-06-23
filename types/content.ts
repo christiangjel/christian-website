@@ -185,7 +185,6 @@ export type WebShopCategory = {
 
 export type WebShop = {
   title: string
-  subtitle: string
   categories: WebShopCategory[]
   cta: {
     contact: {

@@ -72,11 +72,12 @@ describe('ContentPanel', () => {
     const saasPlan = pricing.plans![0]!
     const lifetimePlan = pricing.plans![1]!
 
-    expect(screen.getByText(saasPlan.name)).toBeInTheDocument()
-    expect(screen.getByText(saasPlan.description)).toBeInTheDocument()
-    expect(screen.getByText(lifetimePlan.name)).toBeInTheDocument()
-    expect(screen.getByText(lifetimePlan.description)).toBeInTheDocument()
+    expect(screen.getByText(`${saasPlan.name}: ${saasPlan.description}`)).toBeInTheDocument()
+    expect(
+      screen.getByText(`${lifetimePlan.name}: ${lifetimePlan.description}`)
+    ).toBeInTheDocument()
     expect(screen.getByText(pricing.body)).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { level: 4 })).not.toBeInTheDocument()
 
     const cardText = screen.getByRole('region').textContent ?? ''
     const saasIndex = cardText.indexOf(saasPlan.description)

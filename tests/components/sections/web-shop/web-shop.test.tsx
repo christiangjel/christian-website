@@ -30,13 +30,12 @@ describe('WebShop', () => {
     vi.clearAllMocks()
   })
 
-  it('renders section title, subtitle, and four tabs', () => {
+  it('renders section title and four tabs', () => {
     render(<WebShop />)
 
     expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
       content.webShop.title
     )
-    expect(screen.getByText(content.webShop.subtitle)).toBeInTheDocument()
 
     content.webShop.categories.forEach((category) => {
       expect(
@@ -86,7 +85,7 @@ describe('WebShop', () => {
     const pricing = content.webShop.categories.find(
       (c) => c.name === 'pricing'
     )!
-    expect(screen.getByText(pricing.plans![0]!.name)).toBeInTheDocument()
+    expect(screen.getByText(pricing.plans![0]!.name, { exact: false })).toBeInTheDocument()
     expect(screen.getByText(pricing.body)).toBeInTheDocument()
   })
 

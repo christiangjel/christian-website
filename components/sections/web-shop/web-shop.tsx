@@ -49,11 +49,10 @@ export const WebShop = () => {
     >
       <h2
         id='web-shop-heading'
-        className='mb-4 text-3xl font-bold tracking-tight'
+        className='mb-12 text-3xl font-bold tracking-tight'
       >
         {content.webShop.title}
       </h2>
-      <p className='mb-12 text-muted-foreground'>{content.webShop.subtitle}</p>
 
       <div
         className='relative grid w-full grid-cols-2 rounded-lg bg-transparent md:grid-cols-4'

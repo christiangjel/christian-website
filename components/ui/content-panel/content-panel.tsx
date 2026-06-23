@@ -67,7 +67,7 @@ export const ContentPanel = ({ category }: ContentPanelProps) => {
                     </span>
                   )}
                 </span>
-                {' — '}
+                {'—'}
                 {bullet.description}
               </li>
             ))}
@@ -75,12 +75,11 @@ export const ContentPanel = ({ category }: ContentPanelProps) => {
         )}
 
         {hasPlans && (
-          <div className='mt-6 space-y-6'>
+          <div className='space-y-4'>
             {category.plans!.map((plan) => (
-              <div key={plan.name}>
-                <h4 className='mb-2 text-md font-bold'>{plan.name}</h4>
-                <p className='text-muted-foreground'>{plan.description}</p>
-              </div>
+              <p key={plan.name} className='text-muted-foreground'>
+                {plan.name}: {plan.description}
+              </p>
             ))}
             <p className='text-muted-foreground'>{category.body}</p>
           </div>

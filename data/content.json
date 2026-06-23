@@ -419,7 +419,6 @@
   },
   "webShop": {
     "title": "Payload Web Shop",
-    "subtitle": "Alongside client work, I offer a ready-made webshop—available as monthly SaaS or a one-time purchase.",
     "categories": [
       {
         "name": "overview",
@@ -430,7 +429,7 @@
         "demos": [
           {
             "label": "Demo",
-            "url": "https://streetwaer.christian-gjelstrup.com/",
+            "url": "https://streetwear.christian-gjelstrup.com/",
             "ariaLabel": "View demo webshop (opens in new tab)"
           }
         ]
@@ -476,7 +475,7 @@
       {
         "name": "technology",
         "label": "Technology",
-        "headline": "Built on a stack I work with daily",
+        "headline": "Built on the following stack",
         "body": "Payload CMS powers your products and content; Next.js serves the storefront and admin. Underneath: TypeScript, Postgres, and Cloudflare R2 for media, with Vitest and Playwright tests included. I've wired up the ecommerce layer, deployment, and admin access so you're not starting from an empty template—ready to launch whether you subscribe or purchase outright."
       },
       {
