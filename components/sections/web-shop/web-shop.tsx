@@ -103,7 +103,7 @@ export const WebShop = () => {
         })}
       </div>
 
-      <div className='relative mb-6 mt-6 min-h-[320px] overflow-hidden'>
+      <div className='relative mb-6 mt-6 min-h-[200px] overflow-hidden'>
         <AnimatePresence initial={false} custom={direction} mode='popLayout'>
           <motion.div
             key={activeTabIndex}
