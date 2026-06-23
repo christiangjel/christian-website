@@ -155,6 +155,50 @@ export type Projects = {
   }
 }
 
+export type WebShopDemo = {
+  label: string
+  url: string
+  ariaLabel: string
+}
+
+export type WebShopBullet = {
+  title: string
+  description: string
+  comingSoon?: boolean
+}
+
+export type WebShopPlan = {
+  name: string
+  description: string
+}
+
+export type WebShopCategory = {
+  name: string
+  label: string
+  headline: string
+  body: string
+  demosHeading?: string
+  demos?: WebShopDemo[]
+  bullets?: WebShopBullet[]
+  plans?: WebShopPlan[]
+}
+
+export type WebShop = {
+  title: string
+  subtitle: string
+  categories: WebShopCategory[]
+  cta: {
+    contact: {
+      label: string
+      ariaLabel: string
+    }
+  }
+  ariaLabels: {
+    demos: string
+    comingSoon: string
+  }
+}
+
 export type NotFound = {
   title: string
   heading: string
@@ -258,6 +302,7 @@ export type Content = {
   education: Education
   awards: Awards
   projects: Projects
+  webShop: WebShop
   header: {
     skipToContent: string
     firstName: string

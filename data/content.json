@@ -417,6 +417,96 @@
       }
     ]
   },
+  "webShop": {
+    "title": "Payload Web Shop",
+    "subtitle": "Alongside client work, I offer a ready-made webshop—available as monthly SaaS or a one-time purchase.",
+    "categories": [
+      {
+        "name": "overview",
+        "label": "Overview",
+        "headline": "Need a webshop for your business?",
+        "body": "I offer a ready-made webshop built on Payload CMS and Next.js. You get your own branding and domain, Stripe checkout, and a straightforward admin for products and pages—without commissioning a custom build from zero. Browse the demo, or reach out to discuss SaaS hosting or a one-time license.",
+        "demosHeading": "Live demo",
+        "demos": [
+          {
+            "label": "Demo",
+            "url": "https://streetwaer.christian-gjelstrup.com/",
+            "ariaLabel": "View demo webshop (opens in new tab)"
+          }
+        ]
+      },
+      {
+        "name": "features",
+        "label": "Features",
+        "headline": "Commerce features included",
+        "body": "The same capabilities shown in my live demo—including a straightforward admin for products, pages, and orders, ready for your checkout flow.",
+        "bullets": [
+          {
+            "title": "Your branding",
+            "description": "Custom header, footer, theme, and your own domain"
+          },
+          {
+            "title": "Product catalog",
+            "description": "Variants, categories, media, and pricing with draft preview before publish"
+          },
+          {
+            "title": "Checkout",
+            "description": "Carts, guest checkout, order history, and secure order lookup"
+          },
+          {
+            "title": "Stripe payments",
+            "description": "Integrated checkout with order confirmation emails"
+          },
+          {
+            "title": "Flexible pages",
+            "description": "Layout builder blocks, SEO controls, search, and scheduled publishing"
+          },
+          {
+            "title": "Shipping costs",
+            "description": "Configurable shipping rules at checkout",
+            "comingSoon": true
+          },
+          {
+            "title": "Multi-language",
+            "description": "Localized storefronts for selling across markets",
+            "comingSoon": true
+          }
+        ]
+      },
+      {
+        "name": "technology",
+        "label": "Technology",
+        "headline": "Built on a stack I work with daily",
+        "body": "Payload CMS powers your products and content; Next.js serves the storefront and admin. Underneath: TypeScript, Postgres, and Cloudflare R2 for media, with Vitest and Playwright tests included. I've wired up the ecommerce layer, deployment, and admin access so you're not starting from an empty template—ready to launch whether you subscribe or purchase outright."
+      },
+      {
+        "name": "pricing",
+        "label": "Pricing",
+        "headline": "Easy to get started—pick what suits you",
+        "body": "Not sure which fits? Get in touch—either option is straightforward, and we can talk through what works for you.",
+        "plans": [
+          {
+            "name": "SaaS",
+            "description": "Subscribe monthly and go live on hosting I manage. I handle updates and technical upkeep—you add your products and start selling. The quickest way to launch."
+          },
+          {
+            "name": "Lifetime",
+            "description": "One-time purchase with full access to the webshop. No recurring license fee—we'll agree how to get you live and hand things over so you can focus on your store, not infrastructure."
+          }
+        ]
+      }
+    ],
+    "cta": {
+      "contact": {
+        "label": "Get in Touch",
+        "ariaLabel": "Get in touch about Payload Web Shop"
+      }
+    },
+    "ariaLabels": {
+      "demos": "Live demo shops",
+      "comingSoon": "Coming soon"
+    }
+  },
   "assistant": {
     "title": "AI Assistant",
     "description": "Ask me anything about Christian's experience, skills, and projects.",
@@ -472,6 +562,7 @@
       { "href": "about", "title": "About" },
       { "href": "skills", "title": "Skills" },
       { "href": "projects", "title": "Projects" },
+      { "href": "web-shop", "title": "Webshop" },
       { "href": "experience", "title": "Experience" },
       { "href": "contact", "title": "Contact" }
     ],
