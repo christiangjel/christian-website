@@ -418,28 +418,28 @@
     ]
   },
   "webShop": {
-    "title": "Payload Web Shop",
+    "title": "Payload Webshop",
     "categories": [
       {
         "name": "overview",
         "label": "Overview",
         "headline": "Need a webshop for your business?",
-        "body": "I offer a ready-made webshop built on Payload CMS and Next.js. You get your own branding and domain, Stripe checkout, and a straightforward admin for products and pages—without commissioning a custom build from zero. Reach out to discuss SaaS hosting or a one-time license.",
+        "body": "I offer a ready-made webshop you can brand and launch on your own domain—with Stripe checkout and a straightforward admin for products and pages—without commissioning a custom build from zero. Reach out to discuss SaaS hosting or a one-time license.",
         "demos": [
           {
             "prefix": "Live demo",
-            "label": "Demo",
+            "label": "Streetwear storefront",
             "url": "https://streetwear.christian-gjelstrup.com/",
-            "ariaLabel": "View demo webshop (opens in new tab)"
+            "ariaLabel": "View Streetwear storefront (opens in new tab)"
           }
         ]
       },
       {
         "name": "features",
         "label": "Features",
-        "headline": "Commerce features included",
-        "body": "Everything in my live demo—admin for your catalog, pages, and orders, ready for checkout.",
-        "bullets": [
+        "headline": "What's included",
+        "body": "",
+        "items": [
           {
             "title": "Your branding",
             "description": "Custom header, footer, theme, and your own domain"
@@ -475,14 +475,14 @@
       {
         "name": "technology",
         "label": "Technology",
-        "headline": "Built on the following stack",
+        "headline": "Built on a modern stack",
         "body": "Payload CMS powers your products and content; Next.js serves the storefront and admin. Underneath: TypeScript, Postgres, and Cloudflare R2 for media, with Vitest and Playwright tests included. I've wired up the ecommerce layer, deployment, and admin access so you're not starting from an empty template—ready to launch whether you subscribe or purchase outright."
       },
       {
         "name": "pricing",
         "label": "Pricing",
         "headline": "Easy to get started—pick what suits you",
-        "body": "Not sure which fits? Get in touch—either option is straightforward, and we can talk through what works for you.",
+        "body": "Both options are priced to be accessible compared with a custom build. Get in touch for details.",
         "plans": [
           {
             "name": "SaaS",
@@ -498,7 +498,7 @@
     "cta": {
       "contact": {
         "label": "Get in Touch",
-        "ariaLabel": "Get in touch about Payload Web Shop"
+        "ariaLabel": "Get in touch about Payload Webshop"
       }
     },
     "ariaLabels": {

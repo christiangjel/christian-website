@@ -22,7 +22,7 @@ const slideVariants = {
 }
 
 /**
- * Web Shop section with animated tabs for overview, features, technology, and pricing.
+ * Webshop section with animated tabs for overview, features, technology, and pricing.
  */
 export const WebShop = () => {
   const {

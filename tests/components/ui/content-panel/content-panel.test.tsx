@@ -46,9 +46,11 @@ describe('ContentPanel', () => {
   it('renders feature lines with coming soon labels', () => {
     render(<ContentPanel category={features} />)
 
-    const branding = features.bullets![0]!
+    const branding = features.items![0]!
 
-    expect(screen.getByText(features.body)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 3 })).toHaveTextContent(
+      features.headline
+    )
     expect(screen.getByText(`${branding.title}:`)).toHaveClass('text-foreground')
     expect(screen.getByText(branding.description)).toBeInTheDocument()
     expect(

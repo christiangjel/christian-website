@@ -8,12 +8,12 @@ type ContentPanelProps = {
 }
 
 /**
- * Static outlined panel for Web Shop tab content.
+ * Static outlined panel for Webshop tab content.
  * Renders headline, body, and optional demos, feature lines, or pricing plans.
  */
 export const ContentPanel = ({ category }: ContentPanelProps) => {
   const hasDemos = category.demos && category.demos.length > 0
-  const hasBullets = category.bullets && category.bullets.length > 0
+  const hasItems = category.items && category.items.length > 0
   const hasPlans = category.plans && category.plans.length > 0
   const showBodyAbove = !hasPlans
 
@@ -22,15 +22,15 @@ export const ContentPanel = ({ category }: ContentPanelProps) => {
       <CardContent className='p-6'>
         <h3 className='mb-4 text-lg font-bold'>{category.headline}</h3>
 
-        {showBodyAbove && hasBullets && (
+        {showBodyAbove && category.body && hasItems && (
           <p className='mb-4 text-muted-foreground'>{category.body}</p>
         )}
 
-        {showBodyAbove && !hasBullets && !hasDemos && (
+        {showBodyAbove && category.body && !hasItems && !hasDemos && (
           <p className='text-muted-foreground'>{category.body}</p>
         )}
 
-        {showBodyAbove && !hasBullets && hasDemos && (
+        {showBodyAbove && category.body && !hasItems && hasDemos && (
           <p className='mb-4 text-muted-foreground'>{category.body}</p>
         )}
 
@@ -56,13 +56,13 @@ export const ContentPanel = ({ category }: ContentPanelProps) => {
           </div>
         )}
 
-        {hasBullets && (
+        {hasItems && (
           <div className='space-y-4'>
-            {category.bullets!.map((bullet) => (
-              <p key={bullet.title} className='text-muted-foreground'>
+            {category.items!.map((item) => (
+              <p key={item.title} className='text-muted-foreground'>
                 <span className='text-foreground'>
-                  {bullet.title}
-                  {bullet.comingSoon && (
+                  {item.title}
+                  {item.comingSoon && (
                     <span className='font-normal italic'>
                       {' '}
                       ({content.webShop.ariaLabels.comingSoon.toLowerCase()})
@@ -70,7 +70,7 @@ export const ContentPanel = ({ category }: ContentPanelProps) => {
                   )}
                   :
                 </span>{' '}
-                {bullet.description}
+                {item.description}
               </p>
             ))}
           </div>

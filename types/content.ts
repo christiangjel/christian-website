@@ -162,7 +162,7 @@ export type WebShopDemo = {
   ariaLabel: string
 }
 
-export type WebShopBullet = {
+export type WebShopItem = {
   title: string
   description: string
   comingSoon?: boolean
@@ -179,7 +179,7 @@ export type WebShopCategory = {
   headline: string
   body: string
   demos?: WebShopDemo[]
-  bullets?: WebShopBullet[]
+  items?: WebShopItem[]
   plans?: WebShopPlan[]
 }
 
