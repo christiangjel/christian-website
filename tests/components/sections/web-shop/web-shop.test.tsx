@@ -75,11 +75,7 @@ describe('WebShop', () => {
       (c) => c.name === 'features'
     )!
     expect(screen.getByText(features.headline)).toBeInTheDocument()
-    expect(
-      screen.getAllByText(
-        `(${content.webShop.ariaLabels.comingSoon.toLowerCase()})`
-      )
-    ).toHaveLength(2)
+    expect(screen.getByText(features.items![0]!.title, { exact: false })).toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('tab', { name: 'Pricing' }))
     const pricing = content.webShop.categories.find(

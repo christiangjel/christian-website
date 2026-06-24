@@ -43,7 +43,7 @@ describe('ContentPanel', () => {
     expect(screen.queryByRole('list')).not.toBeInTheDocument()
   })
 
-  it('renders feature lines with coming soon labels', () => {
+  it('renders feature lines', () => {
     render(<ContentPanel category={features} />)
 
     const branding = features.items![0]!
@@ -53,11 +53,6 @@ describe('ContentPanel', () => {
     )
     expect(screen.getByText(`${branding.title}:`)).toHaveClass('text-foreground')
     expect(screen.getByText(branding.description)).toBeInTheDocument()
-    expect(
-      screen.getAllByText(
-        `(${content.webShop.ariaLabels.comingSoon.toLowerCase()})`
-      )
-    ).toHaveLength(2)
     expect(screen.queryByRole('list')).not.toBeInTheDocument()
   })
 

@@ -462,13 +462,11 @@
           },
           {
             "title": "Shipping costs",
-            "description": "Configurable shipping rules at checkout",
-            "comingSoon": true
+            "description": "Configurable shipping rules at checkout"
           },
           {
             "title": "Multi-language",
-            "description": "Localized storefronts for selling across markets",
-            "comingSoon": true
+            "description": "Localized storefronts for selling across markets"
           }
         ]
       },
