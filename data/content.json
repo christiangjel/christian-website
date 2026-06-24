@@ -561,7 +561,7 @@
       { "href": "about", "title": "About" },
       { "href": "skills", "title": "Skills" },
       { "href": "projects", "title": "Projects" },
-      { "href": "web-shop", "title": "Webshop" },
+      { "href": "webshop", "title": "Webshop" },
       { "href": "experience", "title": "Experience" },
       { "href": "contact", "title": "Contact" }
     ],

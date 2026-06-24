@@ -45,10 +45,10 @@ export const WebShop = () => {
     <section
       id={SECTIONS.WEB_SHOP}
       className='py-14'
-      aria-labelledby='web-shop-heading'
+      aria-labelledby='webshop-heading'
     >
       <h2
-        id='web-shop-heading'
+        id='webshop-heading'
         className='mb-12 text-3xl font-bold tracking-tight'
       >
         {content.webShop.title}

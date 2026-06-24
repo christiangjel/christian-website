@@ -89,7 +89,7 @@ describe('WebShop', () => {
     expect(screen.getByText(pricing.body)).toBeInTheDocument()
   })
 
-  it('exposes web-shop section id for navigation', () => {
+  it('exposes webshop section id for navigation', () => {
     const { container } = render(<WebShop />)
 
     expect(container.querySelector(`#${SECTIONS.WEB_SHOP}`)).toBeInTheDocument()
