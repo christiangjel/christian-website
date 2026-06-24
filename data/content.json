@@ -424,10 +424,10 @@
         "name": "overview",
         "label": "Overview",
         "headline": "Need a webshop for your business?",
-        "body": "I offer a ready-made webshop built on Payload CMS and Next.js. You get your own branding and domain, Stripe checkout, and a straightforward admin for products and pages—without commissioning a custom build from zero. Browse the demo, or reach out to discuss SaaS hosting or a one-time license.",
-        "demosHeading": "Live demo",
+        "body": "I offer a ready-made webshop built on Payload CMS and Next.js. You get your own branding and domain, Stripe checkout, and a straightforward admin for products and pages—without commissioning a custom build from zero. Reach out to discuss SaaS hosting or a one-time license.",
         "demos": [
           {
+            "prefix": "Live demo",
             "label": "Demo",
             "url": "https://streetwear.christian-gjelstrup.com/",
             "ariaLabel": "View demo webshop (opens in new tab)"

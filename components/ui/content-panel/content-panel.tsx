@@ -9,7 +9,7 @@ type ContentPanelProps = {
 
 /**
  * Static outlined panel for Web Shop tab content.
- * Renders headline, body, and optional demos, bullets, or pricing plans.
+ * Renders headline, body, and optional demos, feature lines, or pricing plans.
  */
 export const ContentPanel = ({ category }: ContentPanelProps) => {
   const hasDemos = category.demos && category.demos.length > 0
@@ -26,41 +26,41 @@ export const ContentPanel = ({ category }: ContentPanelProps) => {
           <p className='mb-4 text-muted-foreground'>{category.body}</p>
         )}
 
-        {showBodyAbove && !hasBullets && (
+        {showBodyAbove && !hasBullets && !hasDemos && (
           <p className='text-muted-foreground'>{category.body}</p>
         )}
 
-        {hasDemos && category.demosHeading && (
-          <div className='mt-6'>
-            <p className='mb-2'>
-              <span className='text-foreground'>{category.demosHeading}:</span>
-            </p>
-            <ul
-              className='list-inside list-disc space-y-1 text-muted-foreground'
-              aria-label={content.webShop.ariaLabels.demos}
-            >
-              {category.demos!.map((demo) => (
-                <li key={demo.url}>
-                  <Link
-                    href={demo.url}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='transition-colors hover:text-mint'
-                    aria-label={demo.ariaLabel}
-                  >
-                    {demo.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+        {showBodyAbove && !hasBullets && hasDemos && (
+          <p className='mb-4 text-muted-foreground'>{category.body}</p>
+        )}
+
+        {hasDemos && (
+          <div
+            className='space-y-4'
+            aria-label={content.webShop.ariaLabels.demos}
+          >
+            {category.demos!.map((demo) => (
+              <p key={demo.url} className='text-muted-foreground'>
+                <span className='text-foreground'>{demo.prefix}:</span>{' '}
+                <Link
+                  href={demo.url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='transition-colors hover:text-mint'
+                  aria-label={demo.ariaLabel}
+                >
+                  {demo.label}
+                </Link>
+              </p>
+            ))}
           </div>
         )}
 
         {hasBullets && (
-          <ul className='mt-2 list-inside list-disc space-y-2 text-muted-foreground'>
+          <div className='space-y-4'>
             {category.bullets!.map((bullet) => (
-              <li key={bullet.title}>
-                <span className='font-medium text-foreground'>
+              <p key={bullet.title} className='text-muted-foreground'>
+                <span className='text-foreground'>
                   {bullet.title}
                   {bullet.comingSoon && (
                     <span className='font-normal italic'>
@@ -68,12 +68,12 @@ export const ContentPanel = ({ category }: ContentPanelProps) => {
                       ({content.webShop.ariaLabels.comingSoon.toLowerCase()})
                     </span>
                   )}
-                </span>
-                {'—'}
+                  :
+                </span>{' '}
                 {bullet.description}
-              </li>
+              </p>
             ))}
-          </ul>
+          </div>
         )}
 
         {hasPlans && (

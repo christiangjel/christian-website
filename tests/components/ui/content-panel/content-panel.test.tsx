@@ -26,39 +26,37 @@ describe('ContentPanel', () => {
   )!
   const pricing = content.webShop.categories.find((c) => c.name === 'pricing')!
 
-  it('renders overview body and external demo link', () => {
+  it('renders overview body and inline demo link', () => {
     render(<ContentPanel category={overview} />)
+
+    const demo = overview.demos![0]!
 
     expect(screen.getByRole('heading', { level: 3 })).toHaveTextContent(
       overview.headline
     )
     expect(screen.getByText(overview.body)).toBeInTheDocument()
-    expect(screen.getByText(`${overview.demosHeading}:`)).toHaveClass(
-      'text-foreground'
-    )
-    expect(screen.queryByRole('heading', { level: 4 })).not.toBeInTheDocument()
+    expect(screen.getByText(`${demo.prefix}:`)).toHaveClass('text-foreground')
 
-    const demoLink = screen.getByRole('link', {
-      name: overview.demos![0]!.ariaLabel
-    })
-    expect(demoLink).toHaveAttribute('href', overview.demos![0]!.url)
-    expect(demoLink).toHaveAttribute('target', '_blank')
-    expect(demoLink).toHaveAttribute('rel', 'noopener noreferrer')
+    const demoLink = screen.getByRole('link', { name: demo.ariaLabel })
+    expect(demoLink).toHaveAttribute('href', demo.url)
+    expect(demoLink).toHaveTextContent(demo.label)
+    expect(screen.queryByRole('list')).not.toBeInTheDocument()
   })
 
-  it('renders feature bullets with coming soon labels', () => {
+  it('renders feature lines with coming soon labels', () => {
     render(<ContentPanel category={features} />)
 
-    expect(screen.getByText(features.body)).toBeInTheDocument()
+    const branding = features.bullets![0]!
 
+    expect(screen.getByText(features.body)).toBeInTheDocument()
+    expect(screen.getByText(`${branding.title}:`)).toHaveClass('text-foreground')
+    expect(screen.getByText(branding.description)).toBeInTheDocument()
     expect(
       screen.getAllByText(
         `(${content.webShop.ariaLabels.comingSoon.toLowerCase()})`
       )
     ).toHaveLength(2)
-    expect(screen.getAllByRole('listitem')).toHaveLength(
-      features.bullets!.length
-    )
+    expect(screen.queryByRole('list')).not.toBeInTheDocument()
   })
 
   it('renders technology as headline and body only', () => {
@@ -76,11 +74,12 @@ describe('ContentPanel', () => {
     const lifetimePlan = pricing.plans![1]!
 
     expect(screen.getByText(`${saasPlan.name}:`)).toHaveClass('text-foreground')
-    expect(screen.getByText(`${lifetimePlan.name}:`)).toHaveClass('text-foreground')
+    expect(screen.getByText(`${lifetimePlan.name}:`)).toHaveClass(
+      'text-foreground'
+    )
     expect(screen.getByText(saasPlan.description)).toBeInTheDocument()
     expect(screen.getByText(lifetimePlan.description)).toBeInTheDocument()
     expect(screen.getByText(pricing.body)).toBeInTheDocument()
-    expect(screen.queryByRole('heading', { level: 4 })).not.toBeInTheDocument()
 
     const cardText = screen.getByRole('region').textContent ?? ''
     const saasIndex = cardText.indexOf(saasPlan.description)
