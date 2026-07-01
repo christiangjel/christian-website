@@ -64,7 +64,7 @@ describe('WebShop', () => {
       (c) => c.name === 'technology'
     )!
     expect(screen.getByText(technology.headline)).toBeInTheDocument()
-    expect(screen.getByText(technology.body)).toBeInTheDocument()
+    expect(screen.getByText(technology.closing!)).toBeInTheDocument()
   })
 
   it('renders features and pricing tabs with expected content', () => {
@@ -77,12 +77,12 @@ describe('WebShop', () => {
     expect(screen.getByText(features.headline)).toBeInTheDocument()
     expect(screen.getByText(features.items![0]!.title, { exact: false })).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('tab', { name: 'Pricing' }))
+    fireEvent.click(screen.getByRole('tab', { name: 'Licensing' }))
     const pricing = content.webShop.categories.find(
       (c) => c.name === 'pricing'
     )!
     expect(screen.getByText(pricing.plans![0]!.name, { exact: false })).toBeInTheDocument()
-    expect(screen.getByText(pricing.body)).toBeInTheDocument()
+    expect(screen.getByText(pricing.closing!)).toBeInTheDocument()
   })
 
   it('exposes webshop section id for navigation', () => {

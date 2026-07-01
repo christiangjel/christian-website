@@ -1,22 +1,7 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { ContentPanel } from '@/components/ui/content-panel/content-panel'
 import { content } from '@/lib/content'
-
-vi.mock('next/link', () => ({
-  default: ({
-    children,
-    href,
-    ...props
-  }: {
-    children: React.ReactNode
-    href: string
-  }) => (
-    <a href={href} {...props}>
-      {children}
-    </a>
-  )
-}))
 
 describe('ContentPanel', () => {
   const overview = content.webShop.categories.find((c) => c.name === 'overview')!
@@ -26,7 +11,7 @@ describe('ContentPanel', () => {
   )!
   const pricing = content.webShop.categories.find((c) => c.name === 'pricing')!
 
-  it('renders overview body and inline demo link', () => {
+  it('renders overview paragraphs and the demo button', () => {
     render(<ContentPanel category={overview} />)
 
     const demo = overview.demos![0]!
@@ -34,16 +19,17 @@ describe('ContentPanel', () => {
     expect(screen.getByRole('heading', { level: 3 })).toHaveTextContent(
       overview.headline
     )
-    expect(screen.getByText(overview.body)).toBeInTheDocument()
-    expect(screen.getByText(`${demo.prefix}:`)).toHaveClass('text-foreground')
+    overview.paragraphs!.forEach((paragraph) => {
+      expect(screen.getByText(paragraph)).toBeInTheDocument()
+    })
+    expect(screen.getByText(overview.demosIntro!)).toBeInTheDocument()
 
     const demoLink = screen.getByRole('link', { name: demo.ariaLabel })
     expect(demoLink).toHaveAttribute('href', demo.url)
     expect(demoLink).toHaveTextContent(demo.label)
-    expect(screen.queryByRole('list')).not.toBeInTheDocument()
   })
 
-  it('renders feature lines', () => {
+  it('renders feature lines with foreground titles', () => {
     render(<ContentPanel category={features} />)
 
     const branding = features.items![0]!
@@ -53,35 +39,33 @@ describe('ContentPanel', () => {
     )
     expect(screen.getByText(`${branding.title}:`)).toHaveClass('text-foreground')
     expect(screen.getByText(branding.description)).toBeInTheDocument()
-    expect(screen.queryByRole('list')).not.toBeInTheDocument()
   })
 
-  it('renders technology as headline and body only', () => {
+  it('renders technology intro, bullet list, and closing text', () => {
     render(<ContentPanel category={technology} />)
 
     expect(screen.getByText(technology.headline)).toBeInTheDocument()
-    expect(screen.getByText(technology.body)).toBeInTheDocument()
-    expect(screen.queryByRole('list')).not.toBeInTheDocument()
+    expect(screen.getByText(technology.bullets![0]!)).toBeInTheDocument()
+    expect(screen.getByText(technology.closing!)).toBeInTheDocument()
+    expect(screen.getByRole('list')).toBeInTheDocument()
   })
 
-  it('renders pricing plans before the closing body text', () => {
+  it('renders pricing plans before the closing text', () => {
     render(<ContentPanel category={pricing} />)
 
     const saasPlan = pricing.plans![0]!
     const lifetimePlan = pricing.plans![1]!
 
-    expect(screen.getByText(`${saasPlan.name}:`)).toHaveClass('text-foreground')
-    expect(screen.getByText(`${lifetimePlan.name}:`)).toHaveClass(
-      'text-foreground'
-    )
-    expect(screen.getByText(saasPlan.description)).toBeInTheDocument()
-    expect(screen.getByText(lifetimePlan.description)).toBeInTheDocument()
-    expect(screen.getByText(pricing.body)).toBeInTheDocument()
+    expect(screen.getByText(saasPlan.name)).toBeInTheDocument()
+    expect(screen.getByText(saasPlan.subtitle!)).toBeInTheDocument()
+    expect(screen.getByText(lifetimePlan.name)).toBeInTheDocument()
+    expect(screen.getByText(saasPlan.bullets![0]!)).toBeInTheDocument()
+    expect(screen.getByText(pricing.closing!)).toBeInTheDocument()
 
     const cardText = screen.getByRole('region').textContent ?? ''
-    const saasIndex = cardText.indexOf(saasPlan.description)
-    const closingIndex = cardText.indexOf(pricing.body)
-    expect(saasIndex).toBeGreaterThan(-1)
-    expect(closingIndex).toBeGreaterThan(saasIndex)
+    const planIndex = cardText.indexOf(saasPlan.name)
+    const closingIndex = cardText.indexOf(pricing.closing!)
+    expect(planIndex).toBeGreaterThan(-1)
+    expect(closingIndex).toBeGreaterThan(planIndex)
   })
 })

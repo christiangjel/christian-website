@@ -156,7 +156,6 @@ export type Projects = {
 }
 
 export type WebShopDemo = {
-  prefix: string
   label: string
   url: string
   ariaLabel: string
@@ -165,19 +164,23 @@ export type WebShopDemo = {
 export type WebShopItem = {
   title: string
   description: string
-  comingSoon?: boolean
 }
 
 export type WebShopPlan = {
   name: string
-  description: string
+  description?: string
+  subtitle?: string
+  bullets?: string[]
 }
 
 export type WebShopCategory = {
   name: string
   label: string
   headline: string
-  body: string
+  paragraphs?: string[]
+  bullets?: string[]
+  closing?: string
+  demosIntro?: string
   demos?: WebShopDemo[]
   items?: WebShopItem[]
   plans?: WebShopPlan[]
@@ -194,7 +197,6 @@ export type WebShop = {
   }
   ariaLabels: {
     demos: string
-    comingSoon: string
   }
 }
 

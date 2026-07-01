@@ -418,90 +418,111 @@
     ]
   },
   "webShop": {
-    "title": "Payload Webshop",
+    "title": "Ecommerce Platform",
     "categories": [
       {
         "name": "overview",
         "label": "Overview",
-        "headline": "Need a webshop for your business?",
-        "body": "I offer a ready-made webshop you can brand and launch on your own domain—with Stripe checkout and a straightforward admin for products and pages—without commissioning a custom build from zero. Reach out to discuss SaaS hosting or a one-time license.",
+        "headline": "From concept to launch",
+        "paragraphs": [
+          "A production-ready ecommerce platform built with Payload CMS, Next.js, TypeScript, and Stripe.",
+          "The platform includes everything needed to launch a branded online store: product management, payments, multilingual support, SEO tools, and a modern administration interface.",
+          "Available as either a managed SaaS subscription or a one-time purchase option, it enables businesses to get online faster without starting from scratch."
+        ],
+        "demosIntro": "See it in action:",
         "demos": [
           {
-            "prefix": "Live demo",
-            "label": "Streetwear storefront",
+            "label": "Demo Shop",
             "url": "https://streetwear.christian-gjelstrup.com/",
-            "ariaLabel": "View Streetwear storefront (opens in new tab)"
+            "ariaLabel": "View demo shop (opens in new tab)"
           }
         ]
       },
       {
         "name": "features",
         "label": "Features",
-        "headline": "What's included",
-        "body": "",
+        "headline": "Everything you need to start selling online",
         "items": [
           {
-            "title": "Your branding",
-            "description": "Custom header, footer, theme, and your own domain"
+            "title": "Your brand, your store",
+            "description": "Use your own domain, logo, colors, and styling to create a storefront that matches your business."
           },
           {
-            "title": "Product catalog",
-            "description": "Variants, categories, media, and pricing with draft preview before publish"
+            "title": "Product management",
+            "description": "Manage products, variants, categories, pricing, and media through an intuitive admin interface with draft previews before publishing."
           },
           {
-            "title": "Checkout",
-            "description": "Carts, guest checkout, order history, and secure order lookup"
+            "title": "Built-in checkout",
+            "description": "Customers can browse, add items to their cart, complete purchases, and access their order history."
           },
           {
-            "title": "Stripe payments",
-            "description": "Integrated checkout with order confirmation emails"
+            "title": "Secure payments",
+            "description": "Accept online payments with a seamless checkout experience and automated order confirmations."
           },
           {
-            "title": "Flexible pages",
-            "description": "Layout builder blocks, SEO controls, search, and scheduled publishing"
+            "title": "Content and SEO",
+            "description": "Create landing pages, manage content, control SEO settings, and schedule updates when needed."
           },
           {
-            "title": "Shipping costs",
-            "description": "Configurable shipping rules at checkout"
-          },
-          {
-            "title": "Multi-language",
-            "description": "Localized storefronts for selling across markets"
+            "title": "Shipping and international sales",
+            "description": "Configure shipping rules and support multiple languages for customers across different markets."
           }
         ]
       },
       {
         "name": "technology",
         "label": "Technology",
-        "headline": "Built on a modern stack",
-        "body": "Payload CMS powers your products and content; Next.js serves the storefront and admin. Underneath: TypeScript, Postgres, and Cloudflare R2 for media, with Vitest and Playwright tests included. I've wired up the ecommerce layer, deployment, and admin access so you're not starting from an empty template—ready to launch whether you subscribe or purchase outright."
+        "headline": "Built on a modern, scalable stack",
+        "bullets": [
+          "Payload CMS for products and content",
+          "Next.js for the storefront and admin experience",
+          "TypeScript for maintainable, type-safe development",
+          "PostgreSQL for reliable data storage",
+          "Cloudflare R2 for media management",
+          "Stripe for secure online payments",
+          "Vitest and Playwright for automated testing"
+        ],
+        "closing": "Everything is integrated and deployment-ready, providing a modern foundation for launching and growing an online store."
       },
       {
         "name": "pricing",
-        "label": "Pricing",
-        "headline": "Easy to get started—pick what suits you",
-        "body": "Both options are priced to be accessible compared with a custom build. Get in touch for details.",
+        "label": "Licensing",
+        "headline": "Choose the option that fits your business",
         "plans": [
           {
-            "name": "SaaS",
-            "description": "Subscribe monthly and go live on hosting I manage. I handle updates and technical upkeep—you add your products and start selling. The quickest way to launch."
+            "name": "Managed SaaS",
+            "description": "Launch quickly on infrastructure I manage.",
+            "subtitle": "Monthly subscription",
+            "bullets": [
+              "Hosting included",
+              "Updates and maintenance included",
+              "Technical setup handled for you",
+              "Focus on running your store, not infrastructure"
+            ]
           },
           {
-            "name": "Lifetime",
-            "description": "One-time purchase with full access to the webshop. No recurring license fee—we'll agree how to get you live and hand things over so you can focus on your store, not infrastructure."
+            "name": "One-Time License",
+            "description": "Buy the platform with flexible hosting options.",
+            "subtitle": "One-time purchase",
+            "bullets": [
+              "Full access to the ecommerce platform",
+              "Managed hosting available",
+              "Option to deploy on your own infrastructure",
+              "Greater flexibility and control"
+            ]
           }
-        ]
+        ],
+        "closing": "Both options are priced to be significantly more accessible than commissioning a custom ecommerce project. Get in touch to discuss pricing and find the best fit for your business."
       }
     ],
     "cta": {
       "contact": {
         "label": "Get in Touch",
-        "ariaLabel": "Get in touch about Payload Webshop"
+        "ariaLabel": "Get in touch about Ecommerce Platform"
       }
     },
     "ariaLabels": {
-      "demos": "Live demo shops",
-      "comingSoon": "Coming soon"
+      "demos": "Live demo shops"
     }
   },
   "assistant": {
