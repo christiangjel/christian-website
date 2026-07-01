@@ -432,9 +432,14 @@
         "demosIntro": "See it in action:",
         "demos": [
           {
-            "label": "Demo Shop",
+            "label": "Streetwear Demo",
             "url": "https://streetwear.christian-gjelstrup.com/",
-            "ariaLabel": "View demo shop (opens in new tab)"
+            "ariaLabel": "View Streetwear demo (opens in new tab)"
+          },
+          {
+            "label": "Jewelry Demo",
+            "url": "https://jewelry.christian-gjelstrup.com/",
+            "ariaLabel": "View Jewelry demo (opens in new tab)"
           }
         ]
       },
@@ -452,8 +457,8 @@
             "description": "Manage products, variants, categories, pricing, and media through an intuitive admin interface with draft previews before publishing."
           },
           {
-            "title": "Built-in checkout",
-            "description": "Customers can browse, add items to their cart, complete purchases, and access their order history."
+            "title": "Shopping experience",
+            "description": "Carts, favourites, guest checkout, order history, and secure order lookup"
           },
           {
             "title": "Secure payments",
