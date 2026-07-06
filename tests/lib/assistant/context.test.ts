@@ -34,5 +34,7 @@ describe('buildSystemPrompt', () => {
     expect(prompt).toContain('MapTiler')
     expect(prompt).toContain('Next.js')
     expect(prompt).toContain('portfolioWebsite')
+    expect(prompt).toContain('webShop')
+    expect(prompt).toContain('Streetwear Demo')
   })
 })

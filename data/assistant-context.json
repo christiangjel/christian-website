@@ -9,7 +9,7 @@
     "website": "https://christian-gjelstrup.com",
     "github": "https://github.com/christiangjel",
     "linkedin": "https://www.linkedin.com/in/christiangjelstrup",
-    "summary": "Senior freelance frontend developer with 10+ years of experience building large-scale web applications and digital platforms for enterprise, public-sector, and agency clients. Specialized in React, Next.js, Vue, TypeScript, frontend architecture, accessibility, and performance optimization."
+    "summary": "Senior freelance frontend developer with 10+ years of experience building large-scale web applications and digital platforms for enterprise, public-sector, and agency clients. Specialised in React, Next.js, Vue, TypeScript, frontend architecture, accessibility, and performance optimisation."
   },
   "freelance": {
     "since": "September 2014",
@@ -32,7 +32,7 @@
     "qualityAndPerformance": [
       "Unit and integration testing",
       "CI/CD",
-      "Core Web Vitals optimization",
+      "Core Web Vitals optimisation",
       "Technical SEO",
       "WebSocket integrations",
       "Code reviews"
@@ -89,7 +89,7 @@
     },
     {
       "project": "SensEm - Citizen Sensing Emission",
-      "details": "Freelance engagement via Scholz & Volkmer GmbH (June 2025 – September 2025). German Federal Ministry of Education and Research (BMBF) initiative focused on environment and sustainability. Developed a Vue/Nuxt web app combined with physical sensors as a toolkit for citizens without formal academic training. Christian led initial frontend setup and visualized sensor data from a Directus backend on maps using MapTiler and Leaflet."
+      "details": "Freelance engagement via Scholz & Volkmer GmbH (June 2025 – September 2025). German Federal Ministry of Education and Research (BMBF) initiative focused on environment and sustainability. Developed a Vue/Nuxt web app combined with physical sensors as a toolkit for citizens without formal academic training. Christian led initial frontend setup and visualised sensor data from a Directus backend on maps using MapTiler and Leaflet."
     },
     {
       "project": "Privatmolkerei Bechtel",
@@ -181,7 +181,7 @@
       "employerDescription": "Owner-operated creative agency for digital brand management, based in Wiesbaden, Germany.",
       "projectHighlights": [
         "Deutsche Bahn: Vue components, API integration, and bug-fixing on traveler information software for service staff.",
-        "SensEm (BMBF): Initial frontend setup and map-based visualization of sensor data from Directus using MapTiler and Leaflet."
+        "SensEm (BMBF): Initial frontend setup and map-based visualisation of sensor data from Directus using MapTiler and Leaflet."
       ],
       "strengthsNoted": [
         "Technical expertise, creativity, and strong work ethic",
@@ -190,9 +190,9 @@
         "Attention to detail and commitment to high-quality delivery",
         "Proactive identification of issues early in development",
         "Reliable delivery on time and within budget",
-        "Rated very highly for specialist knowledge, perceptiveness, motivation, reliability, work ethic, ability to work under pressure, and social behavior"
+        "Rated very highly for specialist knowledge, perceptiveness, motivation, reliability, work ethic, ability to work under pressure, and social behaviour"
       ],
-      "recommendation": "Highly recommended as a Senior Web Developer who would be a valuable asset to any organization. Scholz & Volkmer would gladly work with Christian again."
+      "recommendation": "Highly recommended as a Senior Web Developer who would be a valuable asset to any organisation. Scholz & Volkmer would gladly work with Christian again."
     }
   ],
   "portfolioWebsite": {
@@ -222,9 +222,85 @@
       "Server-rendered Next.js App Router architecture",
       "Interactive Three.js waves hero background",
       "AI portfolio assistant with streaming Gemini responses",
-      "Accessible UI with centralized content management",
+      "Accessible UI with centralised content management",
       "Contact form with Zod validation via Formspree",
       "Deployed on Vercel"
     ]
+  },
+  "webShop": {
+    "title": "Ecommerce Platform",
+    "summary": "A production-ready ecommerce platform built with Payload CMS, Next.js, TypeScript, and Stripe. It includes everything needed to launch a branded online store: product management, payments, multilingual support, SEO tools, and a modern administration interface. Available as either a managed SaaS subscription or a one-time licence purchase, enabling businesses to get online faster without starting from scratch.",
+    "demos": [
+      {
+        "name": "Streetwear Demo",
+        "url": "https://streetwear.christian-gjelstrup.com/"
+      },
+      {
+        "name": "Jewellery Demo",
+        "url": "https://jewellery.christian-gjelstrup.com/"
+      }
+    ],
+    "features": [
+      {
+        "title": "Your brand, your store",
+        "description": "Use your own domain, logo, colours, and styling to create a storefront that matches your business."
+      },
+      {
+        "title": "Product management",
+        "description": "Manage products, variants, categories, pricing, and media through an intuitive admin interface with draft previews before publishing."
+      },
+      {
+        "title": "Shopping experience",
+        "description": "Carts, favourites, guest checkout, order history, and secure order lookup."
+      },
+      {
+        "title": "Secure payments",
+        "description": "Accept online payments with a seamless checkout experience and automated order confirmations."
+      },
+      {
+        "title": "Content and SEO",
+        "description": "Create landing pages, manage content, control SEO settings, and schedule updates when needed."
+      },
+      {
+        "title": "Shipping and international sales",
+        "description": "Configure shipping rules and support multiple languages for customers across different markets."
+      }
+    ],
+    "technology": [
+      "Payload CMS for products and content",
+      "Next.js for the storefront and admin experience",
+      "TypeScript for maintainable, type-safe development",
+      "PostgreSQL for reliable data storage",
+      "Cloudflare R2 for media management",
+      "Stripe for secure online payments",
+      "Vitest and Playwright for automated testing"
+    ],
+    "licensing": {
+      "summary": "Choose the option that fits your business. Both options are priced to be significantly more accessible than commissioning a custom ecommerce project. Get in touch to discuss pricing and find the best fit.",
+      "plans": [
+        {
+          "name": "Managed SaaS",
+          "subtitle": "Monthly subscription",
+          "description": "Launch quickly on infrastructure Christian manages.",
+          "includes": [
+            "Hosting included",
+            "Updates and maintenance included",
+            "Technical setup handled for you",
+            "Focus on running your store, not infrastructure"
+          ]
+        },
+        {
+          "name": "One-Time Licence",
+          "subtitle": "One-time purchase",
+          "description": "Buy the platform with flexible hosting options.",
+          "includes": [
+            "Full access to the ecommerce platform",
+            "Managed hosting available",
+            "Option to deploy on your own infrastructure",
+            "Greater flexibility and control"
+          ]
+        }
+      ]
+    }
   }
 }

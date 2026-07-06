@@ -204,7 +204,7 @@
         "date": "2009 – 2011",
         "title": "Master of Science (M.Sc.) in Medialogy",
         "institution": "Aalborg University Copenhagen",
-        "description": "Specialization in interaction",
+        "description": "Specialisation in interaction",
         "link": "https://vimeo.com/25155015"
       },
       {
@@ -437,9 +437,9 @@
             "ariaLabel": "View Streetwear demo (opens in new tab)"
           },
           {
-            "label": "Jewelry Demo",
-            "url": "https://jewelry.christian-gjelstrup.com/",
-            "ariaLabel": "View Jewelry demo (opens in new tab)"
+            "label": "Jewellery Demo",
+            "url": "https://jewellery.christian-gjelstrup.com/",
+            "ariaLabel": "View Jewellery demo (opens in new tab)"
           }
         ]
       },
@@ -450,7 +450,7 @@
         "items": [
           {
             "title": "Your brand, your store",
-            "description": "Use your own domain, logo, colors, and styling to create a storefront that matches your business."
+            "description": "Use your own domain, logo, colours, and styling to create a storefront that matches your business."
           },
           {
             "title": "Product management",

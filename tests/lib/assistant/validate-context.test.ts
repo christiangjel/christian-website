@@ -17,6 +17,7 @@ describe('parseAssistantContext', () => {
     const context = parseAssistantContext(assistantContextData)
 
     expect(context).toHaveProperty('portfolioWebsite')
+    expect(context).toHaveProperty('webShop')
     expect(context).toHaveProperty('employerReferences')
   })
 
