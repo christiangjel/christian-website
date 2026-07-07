@@ -1,0 +1,18 @@
+---
+description: Git commit conventions for this project
+alwaysApply: true
+---
+
+# Git Commits
+
+## Co-authored-by
+
+- **Never** add `Co-authored-by: Cursor` or any Cursor-related co-author trailer to commit messages
+- Do not append co-author lines unless the user explicitly requests them
+- When creating commits, use only the commit message body the user expects — no extra trailers
+
+## General
+
+- Only create commits when the user asks
+- Follow existing commit message style (concise subject, optional body explaining why)
+- Do not push unless the user asks

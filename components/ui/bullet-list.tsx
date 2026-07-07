@@ -1,3 +1,12 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { cn } from '@/lib/utils'
+import {
+  createRevealCascade,
+  revealLineVariants
+} from '@/lib/animations/reveal-variants'
+
 type BulletListItem = string | { name: string; level?: string }
 
 type BulletListProps = {
@@ -6,6 +15,51 @@ type BulletListProps = {
   className?: string
   itemClassName?: string
   'aria-labelledby'?: string
+  animated?: boolean
+  isInView?: boolean
+  /** Starting cascade index, so multiple lists animate as one continuous sequence. */
+  indexOffset?: number
+}
+
+const getContainerClass = (layout: BulletListProps['layout']) => {
+  switch (layout) {
+    case 'grid':
+      return 'grid grid-cols-1 gap-2'
+    case 'grid-3':
+      return 'grid grid-cols-1 gap-2 md:grid-cols-3'
+    case 'horizontal':
+      return 'flex flex-col gap-2 md:flex-row md:flex-wrap md:gap-x-4 md:gap-y-2'
+    default:
+      return 'space-y-2'
+  }
+}
+
+const getItemKey = (item: BulletListItem, index: number) => {
+  if (typeof item === 'string') {
+    return item
+  }
+
+  return `${item.name}-${item.level || 'no-level'}-${index}`
+}
+
+const renderItemContent = (item: BulletListItem) => {
+  const isString = typeof item === 'string'
+  const name = isString ? item : item.name
+  const level = isString ? undefined : item.level
+  const processedName = name.replace(/\//g, '/\u200B')
+
+  return (
+    <>
+      <span
+        className='h-1.5 w-1.5 flex-shrink-0 rounded-full bg-mint'
+        aria-hidden='true'
+      />
+      <span className='whitespace-pre-line text-muted-foreground'>
+        {processedName}
+        {level && ` (${level})`}
+      </span>
+    </>
+  )
 }
 
 export const BulletList = ({
@@ -13,57 +67,52 @@ export const BulletList = ({
   layout = 'vertical',
   className = '',
   itemClassName = '',
-  'aria-labelledby': ariaLabelledBy
+  'aria-labelledby': ariaLabelledBy,
+  animated = false,
+  isInView = false,
+  indexOffset = 0
 }: BulletListProps) => {
-  // const containerClass =
-  //   layout === 'grid'
-  //     ? 'grid grid-cols-2 gap-x-2 gap-y-3'
-  //     : layout === 'grid-3'
-  //     ? 'grid grid-cols-1 gap-2 md:grid-cols-3'
-  //     : layout === 'horizontal'
-  //     ? 'flex flex-col gap-2 md:flex-row md:flex-wrap md:gap-x-4 md:gap-y-2'
-  //     : 'space-y-2'
-  const containerClass =
-    layout === 'grid'
-      ? 'grid grid-cols-1 gap-2'
-      : layout === 'grid-3'
-        ? 'grid grid-cols-1 gap-2 md:grid-cols-3'
-        : layout === 'horizontal'
-          ? 'flex flex-col gap-2 md:flex-row md:flex-wrap md:gap-x-4 md:gap-y-2'
-          : 'space-y-2'
+  const containerClass = getContainerClass(layout)
 
-  return (
-    <div
-      className={`${containerClass} ${className}`}
-      role='list'
-      aria-labelledby={ariaLabelledBy}
-    >
-      {items.map((item, index) => {
-        const isString = typeof item === 'string'
-        const name = isString ? item : item.name
-        const level = isString ? undefined : item.level
-        // Insert zero-width space after "/" to allow natural line breaks
-        const processedName = name.replace(/\//g, '/\u200B')
-        // Use stable key based on content instead of index
-        const key = isString ? name : `${name}-${level || 'no-level'}-${index}`
-
-        return (
+  if (!animated) {
+    return (
+      <div
+        className={cn(containerClass, className)}
+        role='list'
+        aria-labelledby={ariaLabelledBy}
+      >
+        {items.map((item, index) => (
           <div
-            key={key}
-            className={`flex items-center gap-2 ${itemClassName}`}
+            key={getItemKey(item, index)}
+            className={cn('flex items-center gap-2', itemClassName)}
             role='listitem'
           >
-            <span
-              className='h-1.5 w-1.5 flex-shrink-0 rounded-full bg-mint'
-              aria-hidden='true'
-            />
-            <span className='whitespace-pre-line text-muted-foreground'>
-              {processedName}
-              {level && ` (${level})`}
-            </span>
+            {renderItemContent(item)}
           </div>
-        )
-      })}
-    </div>
+        ))}
+      </div>
+    )
+  }
+
+  return (
+    <motion.div
+      className={cn(containerClass, className)}
+      role='list'
+      aria-labelledby={ariaLabelledBy}
+      initial='hidden'
+      animate={isInView ? 'visible' : 'hidden'}
+      variants={createRevealCascade(indexOffset)}
+    >
+      {items.map((item, index) => (
+        <motion.div
+          key={getItemKey(item, index)}
+          className={cn('flex items-center gap-2', itemClassName)}
+          role='listitem'
+          variants={revealLineVariants}
+        >
+          {renderItemContent(item)}
+        </motion.div>
+      ))}
+    </motion.div>
   )
 }

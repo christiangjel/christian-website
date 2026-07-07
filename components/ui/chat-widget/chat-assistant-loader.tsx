@@ -81,7 +81,7 @@ export const ChatAssistantLoader = () => {
 
   return createPortal(
     <>
-      {canShowLauncher && !isChatPanelReady && !isOpen && (
+      {canShowLauncher && !isChatPanelReady && (
         <ChatOpenButton onClick={handleOpenChat} />
       )}
 

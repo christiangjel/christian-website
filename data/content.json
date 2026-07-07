@@ -440,6 +440,11 @@
             "label": "Jewellery Demo",
             "url": "https://jewellery.christian-gjelstrup.com/",
             "ariaLabel": "View Jewellery demo (opens in new tab)"
+          },
+          {
+            "label": "Knitwear Demo",
+            "url": "https://knitwear.christian-gjelstrup.com/",
+            "ariaLabel": "View Knitwear demo (opens in new tab)"
           }
         ]
       },

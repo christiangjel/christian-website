@@ -1,22 +1,23 @@
 'use client'
 
-import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { TimelineItem } from '@/components/ui/timeline-item/timeline-item'
 import { BulletList } from '@/components/ui/bullet-list'
 import { content } from '@/lib/content'
-import { SECTIONS } from '@/constants'
+import { SECTIONS, REVEAL_VIEWPORT } from '@/constants'
 import { useSectionAnimation } from '@/hooks/useSectionAnimation'
 
 export const Experience = () => {
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
-  const { itemVariants, containerVariants } = useSectionAnimation()
+  const timelineRef = useRef(null)
+  const languagesRef = useRef(null)
+  const isTimelineInView = useInView(timelineRef, REVEAL_VIEWPORT)
+  const isLanguagesInView = useInView(languagesRef, REVEAL_VIEWPORT)
+  const { revealListVariants } = useSectionAnimation()
 
   return (
     <section
       id={SECTIONS.EXPERIENCE}
-      ref={sectionRef}
       className='py-14'
       aria-labelledby='experience-heading'
     >
@@ -27,31 +28,25 @@ export const Experience = () => {
         {content.experience.title}
       </h2>
 
-      <div className='relative pl-8 ml-3'>
-        <AnimatePresence>
-          <motion.div
-            initial='hidden'
-            animate={isInView ? 'visible' : 'hidden'}
-            variants={containerVariants}
-            role='list'
-            aria-label={content.experience.ariaLabels.timeline}
-          >
-            {content.experience.items.map((item, index) => (
-              <motion.div
-                key={`${item.title}-${item.date}`}
-                variants={itemVariants}
-              >
-                <TimelineItem
-                  {...item}
-                  isLast={index === content.experience.items.length - 1}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+      <div ref={timelineRef} className='relative pl-8 ml-3'>
+        <motion.div
+          initial='hidden'
+          animate={isTimelineInView ? 'visible' : 'hidden'}
+          variants={revealListVariants}
+          role='list'
+          aria-label={content.experience.ariaLabels.timeline}
+        >
+          {content.experience.items.map((item, index) => (
+            <TimelineItem
+              key={`${item.title}-${item.date}`}
+              {...item}
+              isLast={index === content.experience.items.length - 1}
+            />
+          ))}
+        </motion.div>
       </div>
 
-      <div className='mt-16'>
+      <div ref={languagesRef} className='mt-16'>
         <h3
           id='languages-heading'
           className='text-xl font-bold mb-6 border-l-4 border-mint pl-4'
@@ -63,6 +58,8 @@ export const Experience = () => {
             items={content.experience.languages || []}
             layout='grid-3'
             aria-labelledby='languages-heading'
+            animated
+            isInView={isLanguagesInView}
           />
         </div>
       </div>
