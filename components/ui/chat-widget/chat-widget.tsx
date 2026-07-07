@@ -8,6 +8,7 @@ import { DefaultChatTransport } from 'ai'
 import { Send, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ChatMessage } from '@/components/ui/chat-widget/chat-message'
+import { ThinkingIndicator } from '@/components/ui/chat-widget/thinking-indicator'
 import { ChatOpenButton } from '@/components/ui/chat-widget/chat-open-button'
 import { SuggestedPrompts } from '@/components/ui/chat-widget/suggested-prompts'
 import { useChatWidget } from '@/components/ui/chat-widget/chat-widget-context'
@@ -56,6 +57,7 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
 
   const isAtMessageLimit = messages.length >= ASSISTANT_CONFIG.MAX_MESSAGES
   const isLoading = status === 'submitted' || status === 'streaming'
+  const isAwaitingResponse = status === 'submitted'
   const canSend =
     status === 'ready' &&
     !isAtMessageLimit &&
@@ -163,9 +165,7 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
                 />
               ))}
 
-              {isLoading && (
-                <ChatMessage role='assistant' content={content.assistant.loading} />
-              )}
+              {isAwaitingResponse && <ThinkingIndicator />}
 
               {errorMessage && (
                 <p className='text-sm text-destructive' role='alert'>

@@ -216,7 +216,6 @@ export type Assistant = {
   title: string
   description: string
   welcome: string
-  loading: string
   placeholder: {
     mobile: string
     desktop: string
@@ -246,6 +245,7 @@ export type Assistant = {
     messages: string
     suggestedPrompts: string
     input: string
+    thinking: string
   }
 }
 
