@@ -2,7 +2,6 @@
 
 import { useState, useRef, createContext, useContext } from 'react'
 import type { ReactNode, KeyboardEvent } from 'react'
-import { createPortal } from 'react-dom'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -52,11 +51,7 @@ MobileNav.Button = function MobileNavButton() {
           : content.navigation.ariaLabels.openMenu
       }
     >
-      {isOpen ? (
-        <X aria-hidden='true' />
-      ) : (
-        <Menu aria-hidden='true' />
-      )}
+      {isOpen ? <X aria-hidden='true' /> : <Menu aria-hidden='true' />}
     </Button>
   )
 }
@@ -83,46 +78,34 @@ MobileNav.Menu = function MobileNavMenu() {
   if (!isOpen) return null
 
   return (
-    <>
-      {createPortal(
-        <button
-          type='button'
-          className='fixed inset-0 z-30 bg-mint/5 backdrop-blur md:hidden'
-          onClick={() => setIsOpen(false)}
-          aria-label={content.navigation.ariaLabels.closeMenu}
-        />,
-        document.body
-      )}
-
-      <motion.div
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: 'auto', opacity: 1 }}
-        exit={{ height: 0, opacity: 0 }}
-        transition={{ duration: 0.2 }}
-        className='relative z-50 w-full overflow-hidden md:hidden'
-        id='mobile-menu'
-        role='navigation'
-        aria-label={content.navigation.ariaLabels.mobile}
-        ref={menuRef}
-        onKeyDown={handleKeyDown}
-      >
-        <div className='m-8'>
-          <nav className='flex flex-col gap-4'>
-            {content.navigation.items.map((item) => (
-              <button
-                key={item.href}
-                type='button'
-                onClick={() => onNavClick(item.href)}
-                className={cn(
-                  'cursor-pointer text-left text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
-                )}
-              >
-                {item.title}
-              </button>
-            ))}
-          </nav>
-        </div>
-      </motion.div>
-    </>
+    <motion.div
+      initial={{ height: 0, opacity: 0 }}
+      animate={{ height: 'auto', opacity: 1 }}
+      exit={{ height: 0, opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className='relative z-50 w-full overflow-hidden md:hidden'
+      id='mobile-menu'
+      role='navigation'
+      aria-label={content.navigation.ariaLabels.mobile}
+      ref={menuRef}
+      onKeyDown={handleKeyDown}
+    >
+      <div className='m-8'>
+        <nav className='flex flex-col gap-4'>
+          {content.navigation.items.map((item) => (
+            <button
+              key={item.href}
+              type='button'
+              onClick={() => onNavClick(item.href)}
+              className={cn(
+                'cursor-pointer text-left text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
+              )}
+            >
+              {item.title}
+            </button>
+          ))}
+        </nav>
+      </div>
+    </motion.div>
   )
 }
