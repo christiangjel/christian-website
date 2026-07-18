@@ -55,16 +55,18 @@ describe('ContentPanel', () => {
 
     const saasPlan = pricing.plans![0]!
     const lifetimePlan = pricing.plans![1]!
+    const closingParagraph = pricing.closingParagraphs![0]!
 
     expect(screen.getByText(saasPlan.name)).toBeInTheDocument()
-    expect(screen.getByText(saasPlan.subtitle!)).toBeInTheDocument()
+    expect(screen.getByText(saasPlan.priceLines![0]!)).toBeInTheDocument()
     expect(screen.getByText(lifetimePlan.name)).toBeInTheDocument()
     expect(screen.getByText(saasPlan.bullets![0]!)).toBeInTheDocument()
-    expect(screen.getByText(pricing.closing!)).toBeInTheDocument()
+    expect(screen.getByText(pricing.closingHeadline!)).toBeInTheDocument()
+    expect(screen.getByText(closingParagraph)).toBeInTheDocument()
 
     const cardText = screen.getByRole('region').textContent ?? ''
     const planIndex = cardText.indexOf(saasPlan.name)
-    const closingIndex = cardText.indexOf(pricing.closing!)
+    const closingIndex = cardText.indexOf(closingParagraph)
     expect(planIndex).toBeGreaterThan(-1)
     expect(closingIndex).toBeGreaterThan(planIndex)
   })

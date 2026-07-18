@@ -170,6 +170,7 @@ export type WebShopPlan = {
   name: string
   description?: string
   subtitle?: string
+  priceLines?: string[]
   bullets?: string[]
 }
 
@@ -180,6 +181,8 @@ export type WebShopCategory = {
   paragraphs?: string[]
   bullets?: string[]
   closing?: string
+  closingHeadline?: string
+  closingParagraphs?: string[]
   demosIntro?: string
   demos?: WebShopDemo[]
   items?: WebShopItem[]

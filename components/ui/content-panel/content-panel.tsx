@@ -12,7 +12,7 @@ type ContentPanelProps = {
 /**
  * Static outlined panel for Webshop tab content.
  * Renders intro paragraphs, a green bullet list, feature items,
- * pricing plans, demo buttons, and an optional closing paragraph.
+ * pricing plans, demo buttons, and optional closing content.
  */
 export const ContentPanel = ({ category }: ContentPanelProps) => {
   const hasParagraphs = category.paragraphs && category.paragraphs.length > 0
@@ -61,6 +61,13 @@ export const ContentPanel = ({ category }: ContentPanelProps) => {
                     </p>
                   )}
                 </div>
+                {plan.priceLines && plan.priceLines.length > 0 && (
+                  <ul className='space-y-1 text-sm text-muted-foreground'>
+                    {plan.priceLines.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                )}
                 {plan.description && (
                   <p className='text-muted-foreground'>{plan.description}</p>
                 )}
@@ -103,8 +110,27 @@ export const ContentPanel = ({ category }: ContentPanelProps) => {
           </div>
         )}
 
-        {category.closing && (
-          <p className='text-muted-foreground'>{category.closing}</p>
+        {(category.closingHeadline ||
+          category.closing ||
+          (category.closingParagraphs &&
+            category.closingParagraphs.length > 0)) && (
+          <div className='space-y-4'>
+            {category.closingHeadline && (
+              <h4 className='text-base font-bold text-foreground'>
+                {category.closingHeadline}
+              </h4>
+            )}
+            {category.closingParagraphs &&
+              category.closingParagraphs.length > 0 &&
+              category.closingParagraphs.map((paragraph) => (
+                <p key={paragraph} className='text-muted-foreground'>
+                  {paragraph}
+                </p>
+              ))}
+            {category.closing && (
+              <p className='text-muted-foreground'>{category.closing}</p>
+            )}
+          </div>
         )}
       </CardContent>
     </Card>

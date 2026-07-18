@@ -77,12 +77,15 @@ describe('WebShop', () => {
     expect(screen.getByText(features.headline)).toBeInTheDocument()
     expect(screen.getByText(features.items![0]!.title, { exact: false })).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('tab', { name: 'Licensing' }))
+    fireEvent.click(screen.getByRole('tab', { name: 'Plans & pricing' }))
     const pricing = content.webShop.categories.find(
       (c) => c.name === 'pricing'
     )!
-    expect(screen.getByText(pricing.plans![0]!.name, { exact: false })).toBeInTheDocument()
-    expect(screen.getByText(pricing.closing!)).toBeInTheDocument()
+    expect(screen.getByText(pricing.plans![0]!.name, { exact: true })).toBeInTheDocument()
+    expect(screen.getByText(pricing.closingHeadline!)).toBeInTheDocument()
+    expect(
+      screen.getByText(pricing.closingParagraphs![0]!)
+    ).toBeInTheDocument()
   })
 
   it('exposes webshop section id for navigation', () => {

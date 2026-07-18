@@ -229,7 +229,7 @@
   },
   "webShop": {
     "title": "Ecommerce Platform",
-    "summary": "A production-ready ecommerce platform built with Payload CMS, Next.js, TypeScript, and Stripe. It includes everything needed to launch a branded online store: product management, payments, multilingual support, SEO tools, and a modern administration interface. Available as either a managed SaaS subscription or a one-time licence purchase, enabling businesses to get online faster without starting from scratch.",
+    "summary": "Launch a fully branded online store with product management, payments, multilingual support, SEO tools, and a modern administration interface. Built on modern technologies including Payload CMS, Next.js, TypeScript, and Stripe, the platform is designed for performance, flexibility, and long-term growth. Available as a managed SaaS subscription or a lifetime license, the platform helps businesses launch faster without building from scratch.",
     "demos": [
       {
         "name": "Streetwear Demo",
@@ -246,62 +246,82 @@
     ],
     "features": [
       {
-        "title": "Your brand, your store",
-        "description": "Use your own domain, logo, colours, and styling to create a storefront that matches your business."
+        "title": "Branding & Domains",
+        "description": "Custom domain, logo, colours, and full theme control so the storefront matches your brand — not a template look."
       },
       {
         "title": "Product management",
-        "description": "Manage products, variants, categories, pricing, and media through an intuitive admin interface with draft previews before publishing."
+        "description": "Products, variants, categories, pricing, and media in one admin, with draft and live preview before you publish."
       },
       {
-        "title": "Shopping experience",
-        "description": "Carts, favourites, guest checkout, order history, and secure order lookup."
+        "title": "Storefront Experience",
+        "description": "Carts, favourites, guest checkout, order history, secure order lookup, and discount codes at checkout."
       },
       {
-        "title": "Secure payments",
-        "description": "Accept online payments with a seamless checkout experience and automated order confirmations."
+        "title": "Payments & Payouts",
+        "description": "Stripe Connect Express — shoppers pay into the merchant's own Stripe account, with a smooth checkout and order emails."
       },
       {
         "title": "Content and SEO",
-        "description": "Create landing pages, manage content, control SEO settings, and schedule updates when needed."
+        "description": "Landing pages and content via a layout builder (heroes, grids, carousels, CTAs, forms), plus SEO settings — no separate page-builder app."
       },
       {
-        "title": "Shipping and international sales",
-        "description": "Configure shipping rules and support multiple languages for customers across different markets."
+        "title": "Shipping and languages",
+        "description": "Flat-rate shipping zones, optional Sendcloud live rates, and multilingual storefronts (en / da / de / es) with translation workflow in admin."
+      },
+      {
+        "title": "VAT & Tax Settings",
+        "description": "Set default and country VAT rates in store settings. Catalog and shipping stay gross; checkout shows the VAT portion without adding tax on top."
       }
     ],
-    "technology": [
-      "Payload CMS for products and content",
-      "Next.js for the storefront and admin experience",
-      "TypeScript for maintainable, type-safe development",
-      "PostgreSQL for reliable data storage",
-      "Cloudflare R2 for media management",
-      "Stripe for secure online payments",
-      "Vitest and Playwright for automated testing"
-    ],
-    "licensing": {
-      "summary": "Choose the option that fits your business. Both options are priced to be significantly more accessible than commissioning a custom ecommerce project. Get in touch to discuss pricing and find the best fit.",
+    "technology": {
+      "intro": "Built on proven, widely adopted technologies chosen for performance, reliability, and maintainability.",
+      "stack": [
+        "Payload CMS",
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Cloudflare R2",
+        "Stripe Connect",
+        "Resend",
+        "Sendcloud",
+        "DeepL",
+        "Vitest & Playwright"
+      ],
+      "closing": "Integrated and deployment-ready — a solid foundation for launching and growing a branded online store."
+    },
+    "plansAndPricing": {
+      "summary": "Managed SaaS or Lifetime License. Choose between a fully managed subscription or a one-time lifetime license. Both options cost significantly less than a typical custom ecommerce build. All prices shown are net; German customers are typically charged an additional 19% VAT where applicable.",
       "plans": [
         {
           "name": "Managed SaaS",
-          "subtitle": "Monthly subscription",
-          "description": "Launch quickly on infrastructure Christian manages.",
+          "pricing": [
+            "From €79/mo (Launch)",
+            "Brand from €119/mo billed yearly",
+            "+ 19% VAT where applicable"
+          ],
+          "description": "Launch quickly on infrastructure Christian manages and maintains.",
           "includes": [
-            "Hosting included",
-            "Updates and maintenance included",
-            "Technical setup handled for you",
-            "Focus on running your store, not infrastructure"
+            "Hosting, updates, and maintenance included",
+            "Custom domain on Brand and above",
+            "€590 setup while onboarding is provided as a manual Concierge service",
+            "Focus on the store, not the platform"
           ]
         },
         {
-          "name": "One-Time Licence",
-          "subtitle": "One-time purchase",
-          "description": "Buy the platform with flexible hosting options.",
+          "name": "Lifetime License",
+          "pricing": [
+            "From €4,900 one-time",
+            "Optional hosting from €35/mo",
+            "+ 19% VAT where applicable"
+          ],
+          "description": "Lifetime license for one production store, including full source access.",
           "includes": [
-            "Full access to the ecommerce platform",
-            "Managed hosting available",
-            "Option to deploy on your own infrastructure",
-            "Greater flexibility and control"
+            "Full platform access and standard go-live support",
+            "Managed hosting available, or deploy independently",
+            "Includes one year of updates and support",
+            "Optional renewal thereafter",
+            "Agency multi-store licensing available on request"
           ]
         }
       ]
