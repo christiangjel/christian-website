@@ -3,9 +3,12 @@
 import type { MouseEvent } from 'react'
 import { type SectionId } from '@/constants'
 import { useNavigation } from '@/hooks/useNavigation'
-import { content } from '@/lib/content'
+import { useContent } from '@/components/layout/locale/locale-provider'
+import { LocaleToggle } from '@/components/layout/locale/locale-toggle'
 
 export const MainNav = () => {
+  const content = useContent()
+
   const { handleNavClick } = useNavigation()
 
   const onNavClick =
@@ -33,6 +36,7 @@ export const MainNav = () => {
           {item.title}
         </a>
       ))}
+      <LocaleToggle variant='desktop' />
     </nav>
   )
 }

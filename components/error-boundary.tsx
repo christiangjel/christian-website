@@ -4,7 +4,7 @@ import { Component } from 'react'
 import type { ErrorInfo, ReactNode } from 'react'
 import { Button } from '@/components/ui/button'
 import { AlertTriangle } from 'lucide-react'
-import { SECTIONS } from '@/constants'
+import { SECTIONS, getLocaleFromPathname, localizePath } from '@/constants'
 import { logger } from '@/lib/logger'
 import { content } from '@/lib/content'
 
@@ -56,7 +56,8 @@ export class ErrorBoundary extends Component<
 
   private handleReset = (): void => {
     this.setState({ hasError: false, error: null })
-    window.location.href = `/#${SECTIONS.HERO}`
+    const locale = getLocaleFromPathname(window.location.pathname)
+    window.location.href = localizePath(locale, SECTIONS.HERO)
   }
 
   render(): ReactNode {

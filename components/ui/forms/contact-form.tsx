@@ -1,21 +1,27 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useForm as useFormspree } from '@formspree/react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@/components/ui/button'
 import { FormInput } from '@/components/ui/forms/form-input'
-import { content } from '@/lib/content'
+import { useContent } from '@/components/layout/locale/locale-provider'
 import { FORMSPREE_CONFIG } from '@/constants'
 import {
-  contactFormSchema,
+  createContactFormSchema,
   VALIDATION_RULES,
-  type ContactFormData
+  type ContactFormData,
 } from '@/lib/validations/contact'
 import { logger } from '@/lib/logger'
 
 const ContactForm = () => {
+  const content = useContent()
+  const contactFormSchema = useMemo(
+    () => createContactFormSchema(content.contact.form),
+    [content.contact.form]
+  )
+
   const [formspreeState, handleFormspreeSubmit] = useFormspree(
     FORMSPREE_CONFIG.FORM_ID
   )
@@ -23,10 +29,10 @@ const ContactForm = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isSubmitted, isValid },
-    reset
+    reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
-    mode: 'onBlur'
+    mode: 'onBlur',
   })
 
   const onSubmit: SubmitHandler<ContactFormData> = async (data) => {

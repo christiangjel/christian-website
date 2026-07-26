@@ -1,4 +1,6 @@
-import { content } from '@/lib/content'
+'use client'
+
+import { useContent } from '@/components/layout/locale/locale-provider'
 
 type SuggestedPromptsProps = {
   prompts: string[]
@@ -14,6 +16,8 @@ export const SuggestedPrompts = ({
   isDisabled,
   onSelect,
 }: SuggestedPromptsProps) => {
+  const content = useContent()
+
   return (
     <div
       className='flex flex-col gap-4'

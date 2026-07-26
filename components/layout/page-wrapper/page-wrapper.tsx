@@ -7,7 +7,7 @@ import { CUSTOM_EVENTS } from '@/constants/events'
 
 const WavesAnimation = lazy(() =>
   import('@/components/layout/waves-animation/waves-animation').then((mod) => ({
-    default: mod.WavesAnimation
+    default: mod.WavesAnimation,
   }))
 )
 
@@ -38,17 +38,17 @@ const PageWrapper = memo<PageWrapperProps>(({ children }) => {
 
   return (
     <div className='bg-background'>
-      {/* preloader */}
       <div
         className={`fixed inset-0 flex flex-col items-center justify-center transition-opacity duration-200 ${
-          isWebGLReady ? 'pointer-events-none opacity-0' : 'pointer-events-auto opacity-100'
+          isWebGLReady
+            ? 'pointer-events-none opacity-0'
+            : 'pointer-events-auto opacity-100'
         }`}
         aria-hidden={isWebGLReady}
       >
         <Loader2 className='h-12 w-12 animate-spin text-mint' />
       </div>
 
-      {/* page content */}
       <div
         className={`relative w-full min-h-[100svh] transition-opacity duration-200 ${
           isWebGLReady ? 'opacity-100' : 'opacity-0'

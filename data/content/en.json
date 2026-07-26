@@ -33,12 +33,12 @@
     "title": "About Me",
     "paragraphs": [
       "I'm a Senior Freelance Frontend Engineer based in Berlin with over a decade of experience delivering complex digital experiences.",
-      "I’ve worked with leading brands such as Deutsche Bahn, BMW, Audi, and Mercedes-Benz to deliver high-impact products across desktop, mobile, and specialized hardware environments."
+      "I've worked with leading brands such as Deutsche Bahn, BMW, Audi, and Mercedes-Benz to deliver high-impact products across desktop, mobile, and specialised hardware environments."
     ]
   },
   "contact": {
     "title": "Get in Touch",
-    "description": "Available for freelance projects and long-term collaborations in Berlin or remotely. Let’s discuss how I can support your team.",
+    "description": "Available for freelance projects and long-term collaborations in Berlin or remotely. Let's discuss how I can support your team.",
     "email": "hi@christian-gjelstrup.com",
     "phone": "+49 15787005997",
     "location": "Berlin, Germany",
@@ -305,7 +305,7 @@
             "role": "Frontend Developer",
             "client": "BMW",
             "agency": "Hi-ReS! Berlin GmbH",
-            "description": "Built scalable Next.js (React) frontend components and templates integrated with Adobe Experience Manager for BMW’s digital platform and vehicle configurators in a Dockerized environment.",
+            "description": "Built scalable Next.js (React) frontend components and templates integrated with Adobe Experience Manager for BMW's digital platform and vehicle configurators in a Dockerized environment.",
             "link": "https://www.bmw.de/de/index.html"
           },
           {
@@ -364,7 +364,7 @@
             "role": "Frontend Developer",
             "client": "McDonald's",
             "agency": "Razorfish GmbH",
-            "description": "Developed modular UI components and extensible template systems within Adobe Experience Manager (AEM) supporting the McDonald’s global digital platform.",
+            "description": "Developed modular UI components and extensible template systems within Adobe Experience Manager (AEM) supporting the McDonald's global digital platform.",
             "link": "https://www.mcdonalds.com/de/de-de.html"
           },
           {
@@ -380,7 +380,7 @@
             "role": "Frontend Developer",
             "client": "McDonald's",
             "agency": "Razorfish GmbH",
-            "description": "Contributed to the native iOS development of the McDonald’s Germany mobile application.",
+            "description": "Contributed to the native iOS development of the McDonald's Germany mobile application.",
             "link": "https://apps.apple.com/de/app/mcdonalds-deutschland/id524943492"
           },
           {
@@ -388,7 +388,7 @@
             "role": "Frontend Developer",
             "client": "Sharaf DG",
             "agency": "SOWHAT! GmbH",
-            "description": "Developed and customized a Shopware-based e-commerce platform for Sharaf DG.",
+            "description": "Developed and customised a Shopware-based e-commerce platform for Sharaf DG.",
             "link": "https://uae.sharafdg.com/"
           }
         ]
@@ -410,7 +410,7 @@
             "role": "Junior Frontend Developer",
             "client": "Unilever",
             "agency": "Neue Digitale GmbH",
-            "description": "Contributed to the development of an interactive campaign experience for Unilever’s Fragrant Flowers initiative.",
+            "description": "Contributed to the development of an interactive campaign experience for Unilever's Fragrant Flowers initiative.",
             "link": "https://www.campaignlive.com/article/razorfish-wins-two-global-unilever-accounts/1080848"
           }
         ]
@@ -427,7 +427,7 @@
         "paragraphs": [
           "Launch a fully branded online store with product management, payments, multilingual support, SEO tools, and a modern administration interface.",
           "Built on modern technologies including Payload CMS, Next.js, TypeScript, and Stripe, the platform is designed for performance, flexibility, and long-term growth.",
-          "Available as a managed SaaS subscription or a lifetime license, the platform helps businesses launch faster without building from scratch."
+          "Available as a managed SaaS subscription or a lifetime licence, the platform helps businesses launch faster without building from scratch."
         ],
         "demosIntro": "See it in action:",
         "demos": [
@@ -507,9 +507,9 @@
       {
         "name": "pricing",
         "label": "Plans & pricing",
-        "headline": "Managed SaaS or Lifetime License",
+        "headline": "Managed SaaS or Lifetime Licence",
         "paragraphs": [
-          "Choose between a fully managed subscription or a one-time lifetime license."
+          "Choose between a fully managed subscription or a one-time lifetime licence."
         ],
         "plans": [
           {
@@ -528,13 +528,13 @@
             ]
           },
           {
-            "name": "Lifetime License",
+            "name": "Lifetime Licence",
             "priceLines": [
               "From €4,900 one-time",
               "Optional hosting from €35/mo",
               "+ 19% VAT where applicable"
             ],
-            "description": "Lifetime license for one production store, including full source access.",
+            "description": "Lifetime licence for one production store, including full source access.",
             "bullets": [
               "Full platform access and standard go-live support",
               "Managed hosting available, or deploy independently",
@@ -610,7 +610,16 @@
     "skipToContent": "Skip to main content",
     "firstName": "Christian",
     "lastName": "Gjelstrup",
-    "logoAriaLabel": "Go to top of page"
+    "logoAriaLabel": "Go to top of page",
+    "localeToggle": {
+      "label": "Language",
+      "ariaLabel": "Select language",
+      "options": {
+        "en": "English",
+        "da": "Dansk",
+        "de": "Deutsch"
+      }
+    }
   },
   "navigation": {
     "items": [

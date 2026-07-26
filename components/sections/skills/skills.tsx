@@ -2,11 +2,13 @@
 
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { content } from '@/lib/content'
+import { useContent } from '@/components/layout/locale/locale-provider'
 import { BulletList } from '@/components/ui/bullet-list'
 import { SECTIONS, REVEAL_VIEWPORT } from '@/constants'
 
 export const Skills = () => {
+  const content = useContent()
+
   const gridRef = useRef(null)
   const isInView = useInView(gridRef, REVEAL_VIEWPORT)
 

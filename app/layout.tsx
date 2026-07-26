@@ -3,12 +3,16 @@ import type { Metadata, Viewport } from 'next'
 import '@/app/globals.css'
 import { fontNormal, fontBold } from '@/app/fonts'
 import { ThemeProvider } from '@/components/layout/theme/theme-provider'
+import { LocaleProvider } from '@/components/layout/locale/locale-provider'
 import { PageWrapper } from '@/components/layout/page-wrapper/page-wrapper'
 import { ChatAssistantRoot } from '@/components/ui/chat-widget/chat-assistant-root'
 import { ErrorBoundary } from '@/components/error-boundary'
 import { SITE_CONFIG } from '@/constants'
 import { SITE_METADATA } from '@/constants/metadata'
-import { content } from '@/lib/content'
+import { getContent } from '@/lib/content'
+import { getLanguageAlternates, LOCALE_HTML_LANG, LOCALE_OG } from '@/constants/locales'
+
+const defaultContent = getContent('en')
 
 export const metadata: Metadata = {
   title: SITE_METADATA.title,
@@ -18,11 +22,12 @@ export const metadata: Metadata = {
   creator: SITE_METADATA.author,
   icons: {
     icon: [{ url: './favicon.ico' }, { url: './icon.png', type: 'image/png' }],
-    apple: [{ url: './apple-touch-icon.png' }]
+    apple: [{ url: './apple-touch-icon.png' }],
   },
   metadataBase: new URL(SITE_CONFIG.BASE_URL),
   alternates: {
-    canonical: SITE_CONFIG.BASE_URL
+    canonical: SITE_CONFIG.BASE_URL,
+    languages: getLanguageAlternates(SITE_CONFIG.BASE_URL),
   },
   openGraph: {
     title: SITE_METADATA.title,
@@ -30,15 +35,15 @@ export const metadata: Metadata = {
     url: SITE_CONFIG.BASE_URL,
     siteName: SITE_METADATA.author,
     type: 'website',
-    locale: 'en_US',
-    images: [SITE_METADATA.openGraphImage]
+    locale: LOCALE_OG.en,
+    images: [SITE_METADATA.openGraphImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: SITE_METADATA.title,
     description: SITE_METADATA.description,
-    images: [SITE_METADATA.openGraphImage.url]
-  }
+    images: [SITE_METADATA.openGraphImage.url],
+  },
 }
 
 export const viewport: Viewport = {
@@ -56,18 +61,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     address: {
       '@type': 'PostalAddress',
       addressLocality: SITE_METADATA.structuredData.address.locality,
-      addressCountry: SITE_METADATA.structuredData.address.country
+      addressCountry: SITE_METADATA.structuredData.address.country,
     },
-    email: content.contact.email,
-    telephone: content.contact.phone,
+    email: defaultContent.contact.email,
+    telephone: defaultContent.contact.phone,
     url: SITE_CONFIG.BASE_URL,
-    sameAs: content.contact.social.map((item) => item.url),
-    knowsAbout: SITE_METADATA.structuredData.knowsAbout
+    sameAs: defaultContent.contact.social.map((item) => item.url),
+    knowsAbout: SITE_METADATA.structuredData.knowsAbout,
   }
 
   return (
     <html
-      lang='en'
+      lang={LOCALE_HTML_LANG.en}
       className={`dark ${fontNormal.variable} ${fontBold.variable}`}
       suppressHydrationWarning
     >
@@ -82,17 +87,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className='min-h-screen bg-background text-foreground antialiased'
         suppressHydrationWarning
       >
-        <ChatAssistantRoot>
-          <ErrorBoundary>
-            <ThemeProvider
-              attribute='class'
-              defaultTheme='dark'
-              enableSystem={false}
-            >
-              <PageWrapper>{children}</PageWrapper>
-            </ThemeProvider>
-          </ErrorBoundary>
-        </ChatAssistantRoot>
+        <LocaleProvider>
+          <ChatAssistantRoot>
+            <ErrorBoundary>
+              <ThemeProvider
+                attribute='class'
+                defaultTheme='dark'
+                enableSystem={false}
+              >
+                <PageWrapper>{children}</PageWrapper>
+              </ThemeProvider>
+            </ErrorBoundary>
+          </ChatAssistantRoot>
+        </LocaleProvider>
       </body>
     </html>
   )

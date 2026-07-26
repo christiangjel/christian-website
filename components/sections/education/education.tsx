@@ -1,7 +1,11 @@
-import { content } from '@/lib/content'
+'use client'
+
+import { useContent } from '@/components/layout/locale/locale-provider'
 import { SECTIONS } from '@/constants'
 
 export const Education = () => {
+  const content = useContent()
+
   return (
     <section
       id={SECTIONS.EDUCATION}

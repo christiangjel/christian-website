@@ -312,6 +312,15 @@ export type Content = {
     firstName: string
     lastName: string
     logoAriaLabel: string
+    localeToggle: {
+      label: string
+      ariaLabel: string
+      options: {
+        en: string
+        da: string
+        de: string
+      }
+    }
   }
   footer: {
     copyright: string

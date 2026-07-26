@@ -3,7 +3,7 @@
 import { Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ASSISTANT_CONFIG } from '@/constants/assistant'
-import { content } from '@/lib/content'
+import { useContent } from '@/components/layout/locale/locale-provider'
 import { cn } from '@/lib/utils'
 
 type ChatOpenButtonProps = {
@@ -15,6 +15,8 @@ type ChatOpenButtonProps = {
  * Icon launcher aligned with the chat panel send button position.
  */
 export const ChatOpenButton = ({ onClick, className }: ChatOpenButtonProps) => {
+  const content = useContent()
+
   return (
     <div className={cn(ASSISTANT_CONFIG.LAUNCHER.BUTTON_POSITION_CLASS)}>
       <Button

@@ -3,7 +3,7 @@
 import { memo } from 'react'
 import Link from 'next/link'
 import { Card, CardContent } from '@/components/ui/card'
-import { content } from '@/lib/content'
+import { useContent } from '@/components/layout/locale/locale-provider'
 
 type ProjectCardProps = {
   title: string
@@ -17,6 +17,7 @@ type ProjectCardProps = {
 
 const ProjectCard = memo<ProjectCardProps>(
   ({ title, role, client, agency, description, awards, link = '#' }) => {
+    const content = useContent()
     const hasAwards = awards && awards.length > 0
 
     return (

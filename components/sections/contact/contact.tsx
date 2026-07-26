@@ -7,11 +7,13 @@ import { ContactForm } from '@/components/ui/forms/contact-form'
 import { ContactInfoItem } from '@/components/ui/contact-info-item'
 import { LocationIcon } from '@/components/ui/icons/location-icon'
 import { XingIcon } from '@/components/ui/icons/xing-icon'
-import { content } from '@/lib/content'
+import { useContent } from '@/components/layout/locale/locale-provider'
 import { SECTIONS } from '@/constants'
 import { obfuscateEmail } from '@/lib/utils'
 
 export const Contact = () => {
+  const content = useContent()
+
   return (
     <section id={SECTIONS.CONTACT} className='py-14'>
       <h2 className='mb-12 text-3xl font-bold tracking-tight'>

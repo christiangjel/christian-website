@@ -1,0 +1,684 @@
+{
+  "meta": {
+    "title": "Christian Gjelstrup | Frontend Engineer",
+    "description": "Portfolio for Christian Gjelstrup, en meget erfaren Senior freelance Frontend Engineer baseret i Berlin med ekspertise inden for React/Next, Vue/Nuxt og moderne webteknologier."
+  },
+  "hero": {
+    "badge": "Tilgængelig for freelanceprojekter",
+    "title": "Frontend Engineer",
+    "description": "Jeg hjælper bureauer og enterprise-teams med at bygge skalerbare webapplikationer med høj ydeevne ved hjælp af React, Next.js og Vue.",
+    "ariaLabels": {
+      "navigation": "Hovednavigation"
+    },
+    "buttons": {
+      "getInTouch": {
+        "label": "Kontakt mig",
+        "ariaLabel": "Kontakt mig"
+      },
+      "viewWork": {
+        "label": "Se mine projekter",
+        "ariaLabel": "Se mine projekter"
+      },
+      "downloadCV": {
+        "label": "Download CV",
+        "ariaLabel": "Download CV (åbner i en ny fane)"
+      },
+      "askAi": {
+        "label": "Spørg min AI",
+        "ariaLabel": "Åbn portfolio AI-assistent chat"
+      }
+    }
+  },
+  "about": {
+    "title": "Om mig",
+    "paragraphs": [
+      "Jeg er Senior Freelance Frontend Engineer baseret i Berlin med over ti års erfaring i at levere komplekse digitale løsninger.",
+      "Jeg har arbejdet med førende brands som Deutsche Bahn, BMW, Audi og Mercedes-Benz for at udvikle effektive produkter til desktop, mobile enheder og specialiserede hardwaremiljøer."
+    ]
+  },
+  "contact": {
+    "title": "Kontakt mig",
+    "description": "Tilgængelig for freelanceprojekter og langsigtede samarbejder i Berlin eller remote. Lad os tale om, hvordan jeg kan støtte dit team.",
+    "email": "hi@christian-gjelstrup.com",
+    "phone": "+49 15787005997",
+    "location": "Berlin, Tyskland",
+    "form": {
+      "success": "Tak for din besked! Jeg vender snart tilbage.",
+      "validationError": "Ups! Der er nogle ting, der skal justeres. Kontrollér venligst felterne nedenfor, og prøv igen.",
+      "submissionError": "Der opstod en fejl under afsendelsen af formularen. Prøv venligst igen senere.",
+      "fields": {
+        "name": {
+          "label": "Navn",
+          "placeholder": "Dit navn",
+          "errors": {
+            "required": "Navn er påkrævet",
+            "minLength": "Navnet skal indeholde mindst 2 tegn",
+            "maxLength": "Navnet må ikke indeholde mere end 50 tegn",
+            "pattern": "Navnet må kun indeholde bogstaver og mellemrum"
+          }
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "Din e-mailadresse",
+          "errors": {
+            "required": "E-mailadresse er påkrævet",
+            "invalid": "Ugyldig e-mailadresse"
+          }
+        },
+        "subject": {
+          "label": "Emne",
+          "placeholder": "Emne for din besked",
+          "errors": {
+            "required": "Emne er påkrævet",
+            "minLength": "Emnet skal indeholde mindst 3 tegn",
+            "maxLength": "Emnet må ikke indeholde mere end 100 tegn"
+          }
+        },
+        "message": {
+          "label": "Besked",
+          "placeholder": "Din besked",
+          "errors": {
+            "required": "Besked er påkrævet",
+            "minLength": "Beskeden skal indeholde mindst 10 tegn",
+            "maxLength": "Beskeden må ikke indeholde mere end 1000 tegn"
+          }
+        }
+      },
+      "submit": {
+        "label": "Send besked",
+        "sending": "Sender...",
+        "ariaLabel": "Send besked",
+        "ariaLabelSending": "Din besked bliver sendt..."
+      }
+    },
+    "social": [
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/christiangjelstrup",
+        "icon": "linkedin"
+      },
+      {
+        "name": "Xing",
+        "url": "https://www.xing.com/profile/Christian_Gjelstrup",
+        "icon": "xing"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/christiangjel/christian-website",
+        "icon": "github"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Kernekompetencer",
+    "ariaLabels": {
+      "categories": "Kategorier for tekniske kompetencer"
+    },
+    "categories": [
+      {
+        "name": "Primær Stack",
+        "items": ["TypeScript", "React / Next.js", "Vue / Nuxt"]
+      },
+      {
+        "name": "Arkitektur & State",
+        "items": ["Redux / Pinia", "SSR / SSG", "REST / GraphQL"]
+      },
+      {
+        "name": "Kvalitet & Levering",
+        "items": ["Jest / RTL", "CI/CD / Jenkins", "Docker"]
+      }
+    ]
+  },
+  "experience": {
+    "title": "Karrierehøjdepunkter",
+    "languagesHeading": "Sprog",
+    "ariaLabels": {
+      "timeline": "Tidslinje over erhvervserfaring",
+      "company": "Virksomhed: {company} (åbner i en ny fane)"
+    },
+    "items": [
+      {
+        "date": "Marts 2024 – Februar 2026",
+        "title": "Senior Frontend Developer",
+        "company": "Scholz & Volkmer GmbH",
+        "companyLink": "https://www.s-v.de/"
+      },
+      {
+        "date": "Juli 2022 – November 2022",
+        "title": "Senior Frontend Developer",
+        "company": "Das Büro am Draht GmbH",
+        "companyLink": "https://dasburo.com/"
+      },
+      {
+        "date": "April 2019 – November 2019",
+        "title": "Senior Frontend Developer",
+        "company": "Aperto AG - IBM iX",
+        "companyLink": "https://ibmix.de/"
+      },
+      {
+        "date": "Marts 2016 – Juni 2017",
+        "title": "Frontend Developer",
+        "company": "Hi-ReS! Berlin GmbH - SYZYGY",
+        "companyLink": "https://www.syzygy.de/"
+      },
+      {
+        "date": "Oktober 2014",
+        "title": "Frontend Developer",
+        "company": "Startede som freelancer"
+      },
+      {
+        "date": "November 2010 – September 2014",
+        "title": "Frontend Developer",
+        "company": "Razorfish GmbH - SapientRazorfish",
+        "companyLink": "https://www.publicissapient.com/"
+      },
+      {
+        "date": "Juni 2010 – November 2010",
+        "title": "Junior Frontend Developer",
+        "company": "Neue Digitale GmbH",
+        "companyLink": "https://www.neue-digitale.com/"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Dansk",
+        "level": "Modersmål"
+      },
+      {
+        "name": "Engelsk",
+        "level": "Flydende"
+      },
+      {
+        "name": "Tysk",
+        "level": "Professionelt"
+      }
+    ]
+  },
+  "education": {
+    "title": "Uddannelse",
+    "ariaLabels": {
+      "history": "Uddannelseshistorik"
+    },
+    "items": [
+      {
+        "date": "2009 – 2011",
+        "title": "Master of Science (M.Sc.) i Medialogy",
+        "institution": "Aalborg Universitet København",
+        "description": "Specialisering inden for interaktion",
+        "link": "https://vimeo.com/25155015"
+      },
+      {
+        "date": "2006 – 2009",
+        "title": "Bachelor of Science (B.Sc.) i Medialogy",
+        "institution": "Aalborg Universitet København",
+        "description": "\"Medialogy fokuserer på uddannelse og forskning, der kombinerer teknologi og kreativitet til udvikling af nye processer og værktøjer inden for medieteknologi\"",
+        "link": "https://www.en.aau.dk/education/master/medialogy-aal"
+      }
+    ]
+  },
+  "awards": {
+    "title": "Priser & Anerkendelse",
+    "items": [
+      {
+        "year": "2011",
+        "title": "Cannes Lions, Bronze",
+        "project": "\"Audi Augmented Reality Kalender 2011\"",
+        "link": "https://www.canneslions.com/"
+      },
+      {
+        "year": "2011",
+        "title": "ADC Deutschland, Udmærkelse",
+        "project": "\"Audi Augmented Reality Kalender 2011\"",
+        "link": "https://www.adc.de/"
+      },
+      {
+        "year": "2010",
+        "title": "DMMA Onlinestar, Sølv",
+        "project": "\"Audi Augmented Reality Calendar 2010\"",
+        "link": "#"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Udvalgte projekter",
+    "viewMore": "Flere projekter",
+    "ariaLabels": {
+      "viewMore": "Se flere projekter"
+    },
+    "card": {
+      "labels": {
+        "role": "Rolle: ",
+        "client": "Kunde: ",
+        "agency": "Bureau: ",
+        "awards": "Priser:"
+      },
+      "ariaLabels": {
+        "awards": "Projektpriser",
+        "viewProject": "Se projekt: {title}"
+      }
+    },
+    "categories": [
+      {
+        "name": "digital",
+        "label": "Digital",
+        "items": [
+          {
+            "title": "DB Info 4.0 Pia",
+            "role": "Senior Frontend Developer",
+            "client": "Deutsche Bahn",
+            "agency": "Scholz & Volkmer GmbH",
+            "description": "Udviklede et tværplatforms informationssystem med Vue og Pimcore CMS, der gør det muligt for servicemedarbejdere at administrere togforbindelser og kommunikere om forsinkelser i realtid på desktop, mobile enheder og dedikerede hardwareterminaler.",
+            "link": "https://www.s-v.de/de/projekte/db-info-40-pia/"
+          },
+          {
+            "title": "Bundeswehr Government Portal",
+            "role": "Senior Frontend Developer",
+            "client": "Bundeswehr",
+            "agency": "Aperto AG - IBM iX",
+            "description": "Implementerede modulære frontend-komponenter og skalerbare templatestrukturer med React i et CoreMedia CMS-miljø til Bundeswehrs offentlige informationsplatform.",
+            "link": "https://www.bundeswehr.de/de/"
+          },
+          {
+            "title": "Privatmolkerei Bechtel",
+            "role": "Senior Frontend Developer",
+            "client": "Privatmolkerei Bechtel",
+            "agency": "Das Büro am Draht GmbH",
+            "description": "Leverede et React-baseret digitalt administrationssystem til overvågning af produktionsudstyr og planlægning af vedligeholdelse på et mejerianlæg.",
+            "link": "https://www.planemos.de/modernisierung-prozessleitsystem-privatmolkerei-bechtel/"
+          },
+          {
+            "title": "SensEm - Citizen Sensing Emission",
+            "role": "Senior Frontend Developer",
+            "client": "BMBF-finansieret forskningsprojekt",
+            "agency": "Scholz & Volkmer GmbH",
+            "description": "Udviklede en citizen science-platform baseret på Nuxt og Directus CMS, der muliggør indsamling og analyse af luftkvalitetsdata i offentlige områder.",
+            "link": "https://www.interaktive-technologien.de/projekte/sensem"
+          }
+        ]
+      },
+      {
+        "name": "automotive",
+        "label": "Automotive",
+        "items": [
+          {
+            "title": "BMW Corporate Website",
+            "role": "Frontend Developer",
+            "client": "BMW",
+            "agency": "Hi-ReS! Berlin GmbH",
+            "description": "Udviklede skalerbare Next.js (React) frontend-komponenter og templates integreret med Adobe Experience Manager til BMWs digitale platform og bilkonfiguratorer i et Docker-baseret miljø.",
+            "link": "https://www.bmw.de/de/index.html"
+          },
+          {
+            "title": "BMW-M",
+            "role": "Frontend Lead",
+            "client": "BMW",
+            "agency": "Hi-ReS! Berlin GmbH",
+            "description": "Ledede frontend-arkitektur og implementering af BMW M-community-platformen baseret på Liferay CMS i tæt samarbejde med design- og backend-teams.",
+            "link": "https://community.bmw-m.com/de/"
+          },
+          {
+            "title": "Audi A3 Sportback",
+            "role": "Frontend Lead",
+            "client": "Audi",
+            "agency": "Razorfish GmbH",
+            "description": "Ledede frontend-udviklingen af en interaktiv mobil weboplevelse til lanceringen af Audi A3 Sportback.",
+            "link": "https://www.birdyvogel.com/audi"
+          },
+          {
+            "title": "Audi Augmented Reality Kalender",
+            "role": "Frontend Developer",
+            "client": "Audi",
+            "agency": "Razorfish GmbH",
+            "description": "Bidrog til udviklingen af en augmented reality-weboplevelse til Audi-kalenderudgaverne fra 2010 og 2011.",
+            "awards": [
+              "Cannes Lions Bronze (2011)",
+              "ADC Deutschland Udmærkelse (2011)",
+              "DMMA Onlinestar Sølv (2010)"
+            ],
+            "link": "https://www.behance.net/gallery/3447711/Audi-Augmented-Reality-Calendar-2011?locale=en_US"
+          },
+          {
+            "title": "Mercedes-Benz AMG Series",
+            "role": "Frontend Developer",
+            "client": "Mercedes-Benz",
+            "agency": "17 GRAD",
+            "description": "Implementerede natural feature tracking til en augmented reality-webapplikation, der præsenterede Mercedes-Benz AMG Series på en interaktiv udstilling.",
+            "link": "https://www.17grad.com/de/work?s=p"
+          },
+          {
+            "title": "Hyundai Asphalt 7 Training",
+            "role": "Frontend Developer",
+            "client": "Hyundai",
+            "agency": "Razorfish GmbH",
+            "description": "Udviklede en interaktiv træningsapplikation til understøttelse af Hyundai Asphalt 7-kampagnen på sociale medier.",
+            "link": "https://www.youtube.com/watch?v=vpQnWQYoRSg"
+          }
+        ]
+      },
+      {
+        "name": "food",
+        "label": "Food & Retail",
+        "items": [
+        {
+          "title": "McDonald's Global Brand Website",
+          "role": "Frontend Developer",
+          "client": "McDonald's",
+          "agency": "Razorfish GmbH",
+          "description": "Udviklede modulære UI-komponenter og fleksible templatesystemer i Adobe Experience Manager (AEM), som understøttede McDonald's globale digitale platform.",
+          "link": "https://www.mcdonalds.com/de/de-de.html"
+        },
+        {
+          "title": "McDonald's Digital Campaigns",
+          "role": "Frontend Lead",
+          "client": "McDonald's",
+          "agency": "Razorfish GmbH",
+          "description": "Ledede frontend-udviklingen af flere nationale digitale kampagner, herunder Big Mac Hunt, Do-Your-Own-Coupons og Mexify Yourself.",
+          "link": "https://www.horizont.net/medien/nachrichten/-McDonalds-meldet-Rekordteilnehmerzahlen-bei-Mein-Burger-105372"
+        },
+        {
+          "title": "McDonald's iOS App",
+          "role": "Frontend Developer",
+          "client": "McDonald's",
+          "agency": "Razorfish GmbH",
+          "description": "Bidrog til den native iOS-udvikling af McDonald's Tysklands mobilapplikation.",
+          "link": "https://apps.apple.com/de/app/mcdonalds-deutschland/id524943492"
+        },
+        {
+          "title": "Sharaf Online Shop",
+          "role": "Frontend Developer",
+          "client": "Sharaf DG",
+          "agency": "SOWHAT! GmbH",
+          "description": "Udviklede og tilpassede en Shopware-baseret e-commerce-platform til Sharaf DG.",
+          "link": "https://uae.sharafdg.com/"
+        }
+      ]
+    },
+    {
+      "name": "other",
+      "label": "Andre",
+      "items": [
+        {
+          "title": "The Black Cheetahs - Official Website",
+          "role": "Senior Frontend Developer",
+          "client": "The Black Cheetahs",
+          "agency": "Ingen",
+          "description": "Udviklede en Next.js single-page applikation til præsentation af musikudgivelser og medieindhold.",
+          "link": "https://www.theblackcheetahs.com/"
+        },
+        {
+          "title": "Unilever Fragrant Flowers",
+          "role": "Junior Frontend Developer",
+          "client": "Unilever",
+          "agency": "Neue Digitale GmbH",
+          "description": "Bidrog til udviklingen af en interaktiv kampagneoplevelse for Unilevers Fragrant Flowers-initiativ.",
+          "link": "https://www.campaignlive.com/article/razorfish-wins-two-global-unilever-accounts/1080848"
+        }
+      ]
+    }
+  ]
+  },
+  "webShop": {
+    "title": "E-commerce-platform",
+    "categories": [
+      {
+        "name": "overview",
+        "label": "Oversigt",
+        "headline": "Fra idé til lancering",
+        "paragraphs": [
+          "Start en fuldt brandet onlinebutik med produktadministration, betalinger, flersproget understøttelse, SEO-værktøjer og en moderne administrationsgrænseflade.",
+          "Platformen er bygget på moderne teknologier som Payload CMS, Next.js, TypeScript og Stripe og er designet til høj ydeevne, fleksibilitet og langsigtet vækst.",
+          "Platformen fås som en administreret SaaS-løsning eller en livstidslicens og hjælper virksomheder med at komme hurtigere i gang uden at skulle bygge alt fra bunden."
+        ],
+        "demosIntro": "Se det i praksis:",
+        "demos": [
+          {
+            "label": "Streetwear-demo",
+            "url": "https://streetwear.christian-gjelstrup.com/",
+            "ariaLabel": "Se Streetwear-demo (åbner i en ny fane)"
+          },
+          {
+            "label": "Smykke-demo",
+            "url": "https://jewellery.christian-gjelstrup.com/",
+            "ariaLabel": "Se Smykke-demo (åbner i en ny fane)"
+          },
+          {
+            "label": "Strik-demo",
+            "url": "https://knitwear.christian-gjelstrup.com/",
+            "ariaLabel": "Se Strik-demo (åbner i en ny fane)"
+          }
+        ]
+      },
+      {
+        "name": "features",
+        "label": "Funktioner",
+        "headline": "Alt hvad der kræves for at begynde at sælge online",
+        "items": [
+          {
+            "title": "Branding & Domæner",
+            "description": "Eget domæne, logo, farver og fuld kontrol over temaet, så webshoppen matcher brandet – ikke et standardtemplate."
+          },
+          {
+            "title": "Produktadministration",
+            "description": "Produkter, varianter, kategorier, priser og medier samlet ét sted med mulighed for kladde- og live-forhåndsvisning før udgivelse."
+          },
+          {
+            "title": "Shopoplevelse",
+            "description": "Indkøbskurve, favoritter, gæstekøb, ordrehistorik, sikker ordreopslag og rabatkoder ved checkout."
+          },
+          {
+            "title": "Betalinger & Udbetalinger",
+            "description": "Stripe Connect Express – kunder betaler direkte til butikkens egen Stripe-konto med en enkel checkout-proces og automatiske ordremails."
+          },
+          {
+            "title": "Indhold & SEO",
+            "description": "Landingpages og indhold via en layout-builder (hero-sektioner, grids, karruseller, CTA'er, formularer) samt SEO-indstillinger – uden behov for en separat page-builder-app."
+          },
+          {
+            "title": "Forsendelse & sprog",
+            "description": "Faste fragtzoner, valgfrie Sendcloud-livepriser og flersprogede webshops (en / da / de / es) med oversættelsesworkflow i administrationen."
+          },
+          {
+            "title": "Moms & Skatteindstillinger",
+            "description": "Indstil standard- og landespecifikke momssatser i webshopindstillingerne. Katalog og forsendelse forbliver med bruttopriser; checkout viser den inkluderede momsandel uden at lægge ekstra skat oveni."
+          }
+        ]
+      },
+      {
+        "name": "technology",
+        "label": "Teknologi",
+        "headline": "Bygget på en moderne, skalerbar teknologistak",
+        "paragraphs": [
+          "Bygget på gennemprøvede og bredt anvendte teknologier, valgt med fokus på ydeevne, stabilitet og langsigtet vedligeholdelse."
+        ],
+        "bullets": [
+          "Payload CMS",
+          "Next.js",
+          "TypeScript",
+          "PostgreSQL",
+          "Cloudflare R2",
+          "Stripe Connect",
+          "Resend",
+          "Sendcloud",
+          "DeepL",
+          "Vitest & Playwright"
+        ],
+        "closing": "Integreret og klar til deployment – et solidt fundament til lancering og vækst af en branded onlinebutik."
+      },
+      {
+        "name": "pricing",
+        "label": "Planer & priser",
+        "headline": "Administreret SaaS eller livstidslicens",
+        "paragraphs": [
+          "Vælg mellem en fuldt administreret abonnementsmodel eller en engangsbaseret livstidslicens."
+        ],
+        "plans": [
+          {
+            "name": "Administreret SaaS",
+            "priceLines": [
+              "Fra 79 €/md. (Launch)",
+              "Brand fra 119 €/md. ved årlig betaling",
+              "+ 19 % moms hvor relevant"
+            ],
+            "description": "Kom hurtigt i gang på en infrastruktur, der administreres og vedligeholdes.",
+            "bullets": [
+              "Hosting, opdateringer og vedligeholdelse inkluderet",
+              "Eget domæne på Brand og højere planer",
+              "590 € opsætning, hvor onboarding leveres som en manuel Concierge-service",
+              "Fokus på webshoppen – ikke platformen"
+            ]
+          },
+          {
+            "name": "Livstidslicens",
+            "priceLines": [
+              "Fra 4.900 € som engangsbetaling",
+              "Valgfri hosting fra 35 €/md.",
+              "+ 19 % moms hvor relevant"
+            ],
+            "description": "Livstidslicens til én produktionsshop inklusive fuld adgang til kildekoden.",
+            "bullets": [
+              "Fuld platformadgang og standard support ved lancering",
+              "Administreret hosting tilgængelig eller mulighed for selvstændig deployment",
+              "Inkluderer ét års opdateringer og support",
+              "Valgfri fornyelse derefter",
+              "Agenturlicenser til flere shops tilbydes efter forespørgsel"
+            ]
+          }
+        ],
+        "closingHeadline": "Har projektet særlige behov?",
+        "closingParagraphs": [
+          "Begge muligheder koster betydeligt mindre end en typisk specialudviklet e-commerce-løsning og kan give lavere langsigtede omkostninger end abonnementsplatforme kombineret med flere betalte apps.",
+          "Ved migrationer, specialkrav, agenturlicenser eller Concierge-onboarding er kontakt velkommen.",
+          "Alle priser er angivet ekskl. moms. Danske og tyske erhvervskunder opkræves normalt yderligere moms, hvor det er relevant. Virksomheder med momsfradrag kan typisk få beløbet tilbage via de almindelige skatteprocesser."
+        ]
+      }
+    ],
+    "cta": {
+      "contact": {
+        "label": "Kontakt mig",
+        "ariaLabel": "Kontakt om E-commerce-platformen"
+      }
+    },
+    "ariaLabels": {
+      "demos": "Live demo-shops"
+    }
+  },
+  "assistant": {
+    "title": "AI-assistent",
+    "description": "Stil spørgsmål om Christians erfaring, kompetencer og projekter.",
+    "welcome": "Hej! Jeg er Christians portfolio-assistent. Stil spørgsmål om hans arbejde, erfaring eller projekter.",
+    "placeholder": {
+      "mobile": "Begynd at skrive for at lære mere...",
+      "desktop": "Begynd at skrive et spørgsmål for at lære mere om Christian..."
+    },
+    "openButton": {
+      "label": "Chat",
+      "ariaLabel": "Åbn portfolio-assistent chat"
+    },
+    "closeButton": {
+      "ariaLabel": "Luk portfolio-assistent chat"
+    },
+    "sendButton": {
+      "label": "Send",
+      "ariaLabel": "Send besked"
+    },
+    "suggestedPrompts": [
+      "Hvilke React/Next.js-projekter har du arbejdet på?",
+      "Fortæl om din erfaring hos Razorfish",
+      "Hvilke brancher har du arbejdet inden for?",
+      "Er du tilgængelig for freelancearbejde?"
+    ],
+    "suggestedPromptsMobile": [
+      "Nyere React-projekter?",
+      "Tilgængelig for freelance?"
+    ],
+    "errors": {
+      "rateLimit": "For mange forespørgsler. Vent et øjeblik, og prøv igen.",
+      "quotaExceeded": "Assistenten har nået sin brugsgrænse. Prøv igen om nogle minutter, eller brug kontaktformularen.",
+      "generic": "Noget gik galt. Prøv igen, eller brug kontaktformularen.",
+      "unavailable": "Assistenten er midlertidigt utilgængelig. Brug venligst kontaktformularen i stedet.",
+      "maxMessages": "Denne samtale har nået sin grænse. Brug kontaktformularen til yderligere spørgsmål."
+    },
+    "ariaLabels": {
+      "chatPanel": "Portfolio-assistent chat",
+      "messages": "Chatbeskeder",
+      "suggestedPrompts": "Foreslåede spørgsmål",
+      "input": "Input til chatbesked",
+      "thinking": "Assistenten tænker"
+    }
+  },
+  "header": {
+    "skipToContent": "Gå til hovedindhold",
+    "firstName": "Christian",
+    "lastName": "Gjelstrup",
+    "logoAriaLabel": "Gå til toppen af siden",
+    "localeToggle": {
+      "label": "Sprog",
+      "ariaLabel": "Vælg sprog",
+      "options": {
+        "en": "English",
+        "da": "Dansk",
+        "de": "Deutsch"
+      }
+    }
+  },
+  "navigation": {
+    "items": [
+      {
+        "href": "about",
+        "title": "Om mig"
+      },
+      {
+        "href": "skills",
+        "title": "Kompetencer"
+      },
+      {
+        "href": "projects",
+        "title": "Projekter"
+      },
+      {
+        "href": "webshop",
+        "title": "Webshop"
+      },
+      {
+        "href": "experience",
+        "title": "Erfaring"
+      },
+      {
+        "href": "contact",
+        "title": "Kontakt"
+      }
+    ],
+    "ariaLabels": {
+      "main": "Hovednavigation",
+      "mobile": "Mobilnavigation",
+      "navigateTo": "Gå til sektionen {title}",
+      "openMenu": "Åbn menu",
+      "closeMenu": "Luk menu"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Christian Gjelstrup. Alle rettigheder forbeholdes."
+  },
+  "notFound": {
+    "title": "404",
+    "heading": "Siden blev ikke fundet",
+    "description": "Siden, der søges efter, findes ikke eller er blevet flyttet.",
+    "goHome": "Gå til forsiden",
+    "getInTouch": "Kontakt mig",
+    "ariaLabels": {
+      "goHome": "Gå til forsiden",
+      "getInTouch": "Kontakt mig"
+    }
+  },
+  "errorBoundary": {
+    "heading": "Noget gik galt",
+    "description": "Der opstod en uventet fejl. Prøv venligst at genindlæse siden.",
+    "goHome": "Gå til forsiden",
+    "refreshPage": "Genindlæs siden",
+    "errorDetails": "Fejldetaljer (kun udvikling)",
+    "ariaLabels": {
+      "goHome": "Gå til forsiden",
+      "refreshPage": "Genindlæs siden"
+    }
+  }
+}

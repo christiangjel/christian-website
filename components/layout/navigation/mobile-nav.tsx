@@ -1,14 +1,15 @@
 'use client'
 
-import { useState, useRef, createContext, useContext } from 'react'
+import { useState, createContext, useContext } from 'react'
 import type { ReactNode, KeyboardEvent } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
 import { type SectionId } from '@/constants'
 import { useNavigation } from '@/hooks/useNavigation'
-import { content } from '@/lib/content'
+import { useContent } from '@/components/layout/locale/locale-provider'
+import { LocaleToggle } from '@/components/layout/locale/locale-toggle'
 
 const MobileNavContext = createContext<{
   isOpen: boolean
@@ -26,23 +27,20 @@ export const MobileNav = ({ children }: { children: ReactNode }) => {
 }
 
 MobileNav.Button = function MobileNavButton() {
+  const content = useContent()
   const context = useContext(MobileNavContext)
   if (!context)
     throw new Error('MobileNav.Button must be used within MobileNav')
 
   const { isOpen, setIsOpen } = context
 
-  const handleClick = () => {
-    setIsOpen(!isOpen)
-  }
-
   return (
     <Button
       type='button'
       variant='ghost'
       size='icon'
-      className='shrink-0 [&_svg]:!size-5 hover:bg-transparent hover:text-foreground active:bg-transparent'
-      onClick={handleClick}
+      className='-mr-[7px] shrink-0 [&_svg]:!size-5 hover:bg-transparent hover:text-foreground active:bg-transparent'
+      onClick={() => setIsOpen(!isOpen)}
       aria-expanded={isOpen}
       aria-controls='mobile-menu'
       aria-label={
@@ -57,11 +55,11 @@ MobileNav.Button = function MobileNavButton() {
 }
 
 MobileNav.Menu = function MobileNavMenu() {
+  const content = useContent()
   const context = useContext(MobileNavContext)
   if (!context) throw new Error('MobileNav.Menu must be used within MobileNav')
 
   const { isOpen, setIsOpen } = context
-  const menuRef = useRef<HTMLDivElement>(null)
   const { handleNavClick } = useNavigation()
 
   const onNavClick = (href: SectionId) => {
@@ -75,37 +73,43 @@ MobileNav.Menu = function MobileNavMenu() {
     }
   }
 
-  if (!isOpen) return null
-
   return (
-    <motion.div
-      initial={{ height: 0, opacity: 0 }}
-      animate={{ height: 'auto', opacity: 1 }}
-      exit={{ height: 0, opacity: 0 }}
-      transition={{ duration: 0.2 }}
-      className='relative z-50 w-full overflow-hidden md:hidden'
-      id='mobile-menu'
-      role='navigation'
-      aria-label={content.navigation.ariaLabels.mobile}
-      ref={menuRef}
-      onKeyDown={handleKeyDown}
-    >
-      <div className='m-8'>
-        <nav className='flex flex-col gap-4'>
-          {content.navigation.items.map((item) => (
-            <button
-              key={item.href}
-              type='button'
-              onClick={() => onNavClick(item.href)}
-              className={cn(
-                'cursor-pointer text-left text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
-              )}
-            >
-              {item.title}
-            </button>
-          ))}
-        </nav>
-      </div>
-    </motion.div>
+    <AnimatePresence>
+      {isOpen ? (
+        <motion.div
+          key='mobile-menu'
+          id='mobile-menu'
+          role='navigation'
+          aria-label={content.navigation.ariaLabels.mobile}
+          initial={{ height: 0 }}
+          animate={{ height: 'calc(100svh - 4rem)' }}
+          exit={{ height: 0 }}
+          transition={{ duration: 0.25 }}
+          className='relative w-full overflow-hidden bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:hidden'
+          onKeyDown={handleKeyDown}
+        >
+          <div className='m-8'>
+            <nav className='flex flex-col gap-4'>
+              {content.navigation.items.map((item) => (
+                <button
+                  key={item.href}
+                  type='button'
+                  onClick={() => onNavClick(item.href)}
+                  className={cn(
+                    'cursor-pointer text-left text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
+                  )}
+                >
+                  {item.title}
+                </button>
+              ))}
+              <LocaleToggle
+                variant='mobile'
+                onSelect={() => setIsOpen(false)}
+              />
+            </nav>
+          </div>
+        </motion.div>
+      ) : null}
+    </AnimatePresence>
   )
 }

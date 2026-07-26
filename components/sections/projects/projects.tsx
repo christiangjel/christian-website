@@ -4,7 +4,7 @@ import { useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ProjectCard } from '@/components/ui/project-card/project-card'
 import { scrollToSection } from '@/lib/utils'
-import { content } from '@/lib/content'
+import { useContent } from '@/components/layout/locale/locale-provider'
 import { SECTIONS, TAB_ANIMATION } from '@/constants'
 import { useTabAnimation } from '@/hooks/useTabAnimation'
 import { cn } from '@/lib/utils'
@@ -27,6 +27,8 @@ const slideVariants = {
  * Displays projects organized by category with smooth transitions.
  */
 export const Projects = () => {
+  const content = useContent()
+
   const {
     activeTabIndex,
     hoveredTabIndex,

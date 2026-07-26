@@ -4,7 +4,7 @@ import { useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ContentPanel } from '@/components/ui/content-panel/content-panel'
 import { scrollToSection } from '@/lib/utils'
-import { content } from '@/lib/content'
+import { useContent } from '@/components/layout/locale/locale-provider'
 import { SECTIONS, TAB_ANIMATION } from '@/constants'
 import { useTabAnimation } from '@/hooks/useTabAnimation'
 import { cn } from '@/lib/utils'
@@ -25,6 +25,8 @@ const slideVariants = {
  * Webshop section with animated tabs for overview, features, technology, and pricing.
  */
 export const WebShop = () => {
+  const content = useContent()
+
   const {
     activeTabIndex,
     hoveredTabIndex,

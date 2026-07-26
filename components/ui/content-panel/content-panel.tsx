@@ -1,8 +1,10 @@
+'use client'
+
 import { ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { BulletList } from '@/components/ui/bullet-list'
 import { Card, CardContent } from '@/components/ui/card'
-import { content } from '@/lib/content'
+import { useContent } from '@/components/layout/locale/locale-provider'
 import type { WebShopCategory } from '@/types/content'
 
 type ContentPanelProps = {
@@ -15,6 +17,8 @@ type ContentPanelProps = {
  * pricing plans, demo buttons, and optional closing content.
  */
 export const ContentPanel = ({ category }: ContentPanelProps) => {
+  const content = useContent()
+
   const hasParagraphs = category.paragraphs && category.paragraphs.length > 0
   const hasBullets = category.bullets && category.bullets.length > 0
   const hasItems = category.items && category.items.length > 0
@@ -80,7 +84,7 @@ export const ContentPanel = ({ category }: ContentPanelProps) => {
         )}
 
         {hasDemos && (
-          <div className='space-y-3'>
+          <div className='space-y-4'>
             {category.demosIntro && (
               <p className='text-foreground'>{category.demosIntro}</p>
             )}

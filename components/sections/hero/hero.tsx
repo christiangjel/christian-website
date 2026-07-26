@@ -4,10 +4,12 @@ import { FileDown, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 // import { Badge } from '@/components/ui/badge'
 import { SECTIONS, CUSTOM_EVENTS } from '@/constants'
-import { content } from '@/lib/content'
+import { useContent } from '@/components/layout/locale/locale-provider'
 import { scrollToSection } from '@/lib/utils'
 
 export const Hero = () => {
+  const content = useContent()
+
   const titleWords = content.hero.title.split(' ')
   const firstWord = titleWords[0]
   const restOfTitle = titleWords.slice(1).join(' ')
@@ -38,13 +40,13 @@ export const Hero = () => {
         {content.hero.description}
       </p>
       <div
-        className='flex flex-col gap-4 sm:flex-row'
+        className='flex w-fit flex-col gap-4 sm:grid sm:w-full sm:max-w-xl sm:grid-cols-2 lg:flex lg:w-auto lg:max-w-none lg:flex-row'
         role='navigation'
         aria-label={content.hero.ariaLabels.navigation}
       >
         <Button
           size='lg'
-          className='bg-mint text-mint-foreground transition-opacity hover:opacity-90'
+          className='bg-mint text-mint-foreground transition-opacity hover:opacity-90 sm:w-full lg:w-auto'
           onClick={() => scrollToSection(SECTIONS.CONTACT)}
           aria-label={content.hero.buttons.getInTouch.ariaLabel}
         >
@@ -53,6 +55,7 @@ export const Hero = () => {
         <Button
           size='lg'
           variant='outline'
+          className='sm:w-full lg:w-auto'
           onClick={() => scrollToSection(SECTIONS.PROJECTS)}
           aria-label={content.hero.buttons.viewWork.ariaLabel}
         >
@@ -61,7 +64,7 @@ export const Hero = () => {
         <Button
           size='lg'
           variant='outline'
-          className='flex items-center gap-2'
+          className='flex items-center justify-center gap-2 sm:w-full lg:w-auto'
           asChild
           aria-label={content.hero.buttons.downloadCV.ariaLabel}
         >
@@ -78,7 +81,7 @@ export const Hero = () => {
         <Button
           size='lg'
           variant='outline'
-          className='flex items-center gap-2'
+          className='flex items-center justify-center gap-2 sm:w-full lg:w-auto'
           onClick={handleAskAi}
           aria-label={content.hero.buttons.askAi.ariaLabel}
         >

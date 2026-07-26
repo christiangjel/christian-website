@@ -17,7 +17,7 @@ import { useAssistantResponsiveContent } from '@/hooks/useAssistantResponsiveCon
 import { getAssistantErrorMessage } from '@/lib/assistant/errors'
 import { formFieldClasses } from '@/lib/form-field-classes'
 import { getMessageText } from '@/lib/assistant/messages'
-import { content } from '@/lib/content'
+import { useLocale } from '@/components/layout/locale/locale-provider'
 import { cn } from '@/lib/utils'
 
 type ChatWidgetProps = {
@@ -28,6 +28,8 @@ type ChatWidgetProps = {
  * Floating portfolio assistant chat widget with streaming responses.
  */
 export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
+  const { locale, content } = useLocale()
+
   const { isOpen, openChat, closeChat } = useChatWidget()
   const { placeholder, suggestedPrompts } = useAssistantResponsiveContent()
   const [input, setInput] = useState('')
@@ -47,8 +49,12 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
   }, [isMounted, isOpen, onReady])
 
   const transport = useMemo(
-    () => new DefaultChatTransport({ api: '/api/chat' }),
-    []
+    () =>
+      new DefaultChatTransport({
+        api: '/api/chat',
+        body: { locale },
+      }),
+    [locale]
   )
 
   const { messages, sendMessage, status, error } = useChat({
@@ -64,7 +70,10 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
     input.trim().length > 0 &&
     input.trim().length <= ASSISTANT_CONFIG.MAX_MESSAGE_LENGTH
 
-  const errorMessage = getAssistantErrorMessage(error)
+  const errorMessage = getAssistantErrorMessage(
+    error,
+    content.assistant.errors
+  )
   const hasUserMessages = messages.some((message) => message.role === 'user')
 
   const scrollToBottom = useCallback(() => {
@@ -122,7 +131,7 @@ export const ChatWidget = ({ onReady }: ChatWidgetProps) => {
 
       {isOpen && (
         <div
-          className='fixed inset-0 z-50 flex items-end justify-end p-4 sm:p-6'
+          className='fixed inset-0 z-[110] flex items-end justify-end p-4 sm:p-6'
           role='presentation'
         >
           <button

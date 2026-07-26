@@ -1,8 +1,10 @@
 'use client'
 
-import { content } from '@/lib/content'
+import { useContent } from '@/components/layout/locale/locale-provider'
 
 export const Footer = () => {
+  const content = useContent()
+
   return (
     <footer className='py-8'>
       <div className='container'>

@@ -4,11 +4,13 @@ import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { TimelineItem } from '@/components/ui/timeline-item/timeline-item'
 import { BulletList } from '@/components/ui/bullet-list'
-import { content } from '@/lib/content'
+import { useContent } from '@/components/layout/locale/locale-provider'
 import { SECTIONS, REVEAL_VIEWPORT } from '@/constants'
 import { useSectionAnimation } from '@/hooks/useSectionAnimation'
 
 export const Experience = () => {
+  const content = useContent()
+
   const timelineRef = useRef(null)
   const languagesRef = useRef(null)
   const isTimelineInView = useInView(timelineRef, REVEAL_VIEWPORT)

@@ -1,6 +1,7 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google'
 import { convertToModelMessages, streamText } from 'ai'
 import { ASSISTANT_CONFIG } from '@/constants/assistant'
+import { DEFAULT_LOCALE, isLocale, type Locale } from '@/constants/locales'
 import { buildSystemPrompt } from '@/lib/assistant/context'
 import { checkRateLimit, getClientIp } from '@/lib/assistant/rate-limit'
 import {
@@ -19,6 +20,19 @@ const getGoogleModel = () => {
   const google = createGoogleGenerativeAI({ apiKey })
 
   return google(ASSISTANT_CONFIG.MODEL_ID)
+}
+
+/**
+ * Extracts an optional locale from the chat request body.
+ */
+const getLocaleFromChatBody = (body: unknown): Locale => {
+  if (typeof body !== 'object' || body === null || !('locale' in body)) {
+    return DEFAULT_LOCALE
+  }
+
+  const locale = Reflect.get(body, 'locale')
+
+  return isLocale(locale) ? locale : DEFAULT_LOCALE
 }
 
 export async function POST(request: Request): Promise<Response> {
@@ -44,9 +58,11 @@ export async function POST(request: Request): Promise<Response> {
       return Response.json({ error: validation.error }, { status: 400 })
     }
 
+    const locale = getLocaleFromChatBody(body)
+
     const result = streamText({
       model,
-      system: buildSystemPrompt(),
+      system: buildSystemPrompt(locale),
       messages: await convertToModelMessages(validation.messages),
     })
 

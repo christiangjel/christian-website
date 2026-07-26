@@ -2,7 +2,12 @@
 
 import { usePathname } from 'next/navigation'
 import { scrollToSection } from '@/lib/utils'
-import { type SectionId } from '@/constants'
+import {
+  isLocaleHomePath,
+  localizePath,
+  type SectionId,
+} from '@/constants'
+import { useLocale } from '@/components/layout/locale/locale-provider'
 
 /**
  * Custom hook for handling navigation clicks to different sections of the page.
@@ -12,17 +17,15 @@ import { type SectionId } from '@/constants'
  */
 export const useNavigation = () => {
   const pathname = usePathname()
+  const { locale } = useLocale()
 
   const handleNavClick = (href: SectionId) => {
-    // If not on home page, navigate there first
-    if (pathname !== '/') {
-      window.location.href = `/#${href}`
+    if (!isLocaleHomePath(pathname)) {
+      window.location.href = localizePath(locale, href)
       return
     }
 
-    // Update URL hash so link is shareable and matches section
-    window.history.replaceState(null, '', `#${href}`)
-
+    window.history.replaceState(null, '', localizePath(locale, href))
     scrollToSection(href)
   }
 

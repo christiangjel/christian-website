@@ -1,0 +1,684 @@
+{
+  "meta": {
+    "title": "Christian Gjelstrup | Frontend Engineer",
+    "description": "Portfolio von Christian Gjelstrup, einem sehr erfahrenen Senior Freelance Frontend Engineer aus Berlin mit Expertise in React/Next, Vue/Nuxt und modernen Webtechnologien."
+  },
+  "hero": {
+    "badge": "Verfügbar für Freelance-Projekte",
+    "title": "Frontend Engineer",
+    "description": "Ich unterstütze Agenturen und Enterprise-Teams beim Aufbau skalierbarer, leistungsstarker Webanwendungen mit React, Next.js und Vue.",
+    "ariaLabels": {
+      "navigation": "Hauptnavigation"
+    },
+    "buttons": {
+      "getInTouch": {
+        "label": "Kontakt aufnehmen",
+        "ariaLabel": "Kontakt aufnehmen"
+      },
+      "viewWork": {
+        "label": "Meine Projekte ansehen",
+        "ariaLabel": "Meine Projekte ansehen"
+      },
+      "downloadCV": {
+        "label": "Lebenslauf herunterladen",
+        "ariaLabel": "Lebenslauf herunterladen (öffnet in neuem Tab)"
+      },
+      "askAi": {
+        "label": "Meine KI fragen",
+        "ariaLabel": "Portfolio-KI-Assistenten-Chat öffnen"
+      }
+    }
+  },
+  "about": {
+    "title": "Über mich",
+    "paragraphs": [
+      "Ich bin ein Senior Freelance Frontend Engineer aus Berlin mit über zehn Jahren Erfahrung in der Umsetzung komplexer digitaler Erlebnisse.",
+      "Ich habe mit führenden Marken wie Deutsche Bahn, BMW, Audi und Mercedes-Benz zusammengearbeitet und wirkungsvolle Produkte für Desktop, Mobile und spezialisierte Hardware-Umgebungen entwickelt."
+    ]
+  },
+  "contact": {
+    "title": "Kontakt aufnehmen",
+    "description": "Verfügbar für Freelance-Projekte und langfristige Zusammenarbeit in Berlin oder remote. Gerne bespreche ich, wie Projekte und Teams unterstützt werden können.",
+    "email": "hi@christian-gjelstrup.com",
+    "phone": "+49 15787005997",
+    "location": "Berlin, Deutschland",
+    "form": {
+      "success": "Vielen Dank für die Nachricht! Eine Rückmeldung erfolgt zeitnah.",
+      "validationError": "Einige Angaben müssen angepasst werden. Bitte die markierten Felder prüfen und erneut versuchen.",
+      "submissionError": "Beim Senden der Nachricht ist ein Fehler aufgetreten. Bitte später erneut versuchen.",
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Name",
+          "errors": {
+            "required": "Name ist erforderlich",
+            "minLength": "Der Name muss mindestens 2 Zeichen enthalten",
+            "maxLength": "Der Name darf maximal 50 Zeichen enthalten",
+            "pattern": "Der Name darf nur Buchstaben und Leerzeichen enthalten"
+          }
+        },
+        "email": {
+          "label": "E-Mail",
+          "placeholder": "E-Mail-Adresse",
+          "errors": {
+            "required": "E-Mail-Adresse ist erforderlich",
+            "invalid": "Ungültige E-Mail-Adresse"
+          }
+        },
+        "subject": {
+          "label": "Betreff",
+          "placeholder": "Betreff der Nachricht",
+          "errors": {
+            "required": "Betreff ist erforderlich",
+            "minLength": "Der Betreff muss mindestens 3 Zeichen enthalten",
+            "maxLength": "Der Betreff darf maximal 100 Zeichen enthalten"
+          }
+        },
+        "message": {
+          "label": "Nachricht",
+          "placeholder": "Nachricht",
+          "errors": {
+            "required": "Nachricht ist erforderlich",
+            "minLength": "Die Nachricht muss mindestens 10 Zeichen enthalten",
+            "maxLength": "Die Nachricht darf maximal 1000 Zeichen enthalten"
+          }
+        }
+      },
+      "submit": {
+        "label": "Nachricht senden",
+        "sending": "Wird gesendet...",
+        "ariaLabel": "Nachricht senden",
+        "ariaLabelSending": "Nachricht wird gesendet..."
+      }
+    },
+    "social": [
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/christiangjelstrup",
+        "icon": "linkedin"
+      },
+      {
+        "name": "Xing",
+        "url": "https://www.xing.com/profile/Christian_Gjelstrup",
+        "icon": "xing"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/christiangjel/christian-website",
+        "icon": "github"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Kernkompetenzen",
+    "ariaLabels": {
+      "categories": "Kategorien technischer Kompetenzen"
+    },
+    "categories": [
+      {
+        "name": "Primärer Stack",
+        "items": ["TypeScript", "React / Next.js", "Vue / Nuxt"]
+      },
+      {
+        "name": "Architektur & State",
+        "items": ["Redux / Pinia", "SSR / SSG", "REST / GraphQL"]
+      },
+      {
+        "name": "Qualität & Auslieferung",
+        "items": ["Jest / RTL", "CI/CD / Jenkins", "Docker"]
+      }
+    ]
+  },
+  "experience": {
+    "title": "Karriere-Highlights",
+    "languagesHeading": "Sprachen",
+    "ariaLabels": {
+      "timeline": "Zeitleiste der Berufserfahrung",
+      "company": "Unternehmen: {company} (öffnet in neuem Tab)"
+    },
+    "items": [
+      {
+        "date": "März 2024 – Februar 2026",
+        "title": "Senior Frontend Developer",
+        "company": "Scholz & Volkmer GmbH",
+        "companyLink": "https://www.s-v.de/"
+      },
+      {
+        "date": "Juli 2022 – November 2022",
+        "title": "Senior Frontend Developer",
+        "company": "Das Büro am Draht GmbH",
+        "companyLink": "https://dasburo.com/"
+      },
+      {
+        "date": "April 2019 – November 2019",
+        "title": "Senior Frontend Developer",
+        "company": "Aperto AG - IBM iX",
+        "companyLink": "https://ibmix.de/"
+      },
+      {
+        "date": "März 2016 – Juni 2017",
+        "title": "Frontend Developer",
+        "company": "Hi-ReS! Berlin GmbH - SYZYGY",
+        "companyLink": "https://www.syzygy.de/"
+      },
+      {
+        "date": "Oktober 2014",
+        "title": "Frontend Developer",
+        "company": "Start der Freelance-Tätigkeit"
+      },
+      {
+        "date": "November 2010 – September 2014",
+        "title": "Frontend Developer",
+        "company": "Razorfish GmbH - SapientRazorfish",
+        "companyLink": "https://www.publicissapient.com/"
+      },
+      {
+        "date": "Juni 2010 – November 2010",
+        "title": "Junior Frontend Developer",
+        "company": "Neue Digitale GmbH",
+        "companyLink": "https://www.neue-digitale.com/"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Dänisch",
+        "level": "Muttersprache"
+      },
+      {
+        "name": "Englisch",
+        "level": "Fließend"
+      },
+      {
+        "name": "Deutsch",
+        "level": "Beruflich"
+      }
+    ]
+  },
+  "education": {
+    "title": "Ausbildung",
+    "ariaLabels": {
+      "history": "Ausbildungsverlauf"
+    },
+    "items": [
+      {
+        "date": "2009 – 2011",
+        "title": "Master of Science (M.Sc.) in Medialogy",
+        "institution": "Aalborg University Copenhagen",
+        "description": "Spezialisierung im Bereich Interaktion",
+        "link": "https://vimeo.com/25155015"
+      },
+      {
+        "date": "2006 – 2009",
+        "title": "Bachelor of Science (B.Sc.) in Medialogy",
+        "institution": "Aalborg University Copenhagen",
+        "description": "\"Medialogy verbindet Ausbildung und Forschung mit Technologie und Kreativität, um neue Prozesse und Werkzeuge für die Gestaltung im Bereich Medientechnologie zu entwickeln\"",
+        "link": "https://www.en.aau.dk/education/master/medialogy-aal"
+      }
+    ]
+  },
+  "awards": {
+    "title": "Auszeichnungen & Anerkennung",
+    "items": [
+      {
+        "year": "2011",
+        "title": "Cannes Lions, Bronze",
+        "project": "\"Audi Augmented Reality Kalender 2011\"",
+        "link": "https://www.canneslions.com/"
+      },
+      {
+        "year": "2011",
+        "title": "ADC Deutschland, Auszeichnung",
+        "project": "\"Audi Augmented Reality Kalender 2011\"",
+        "link": "https://www.adc.de/"
+      },
+      {
+        "year": "2010",
+        "title": "DMMA Onlinestar, Silber",
+        "project": "\"Audi Augmented Reality Kalender 2010\"",
+        "link": "#"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Ausgewählte Projekte",
+    "viewMore": "Weitere Projekte",
+    "ariaLabels": {
+      "viewMore": "Weitere Projekte anzeigen"
+    },
+    "card": {
+      "labels": {
+        "role": "Rolle: ",
+        "client": "Kunde: ",
+        "agency": "Agentur: ",
+        "awards": "Auszeichnungen:"
+      },
+      "ariaLabels": {
+        "awards": "Projektauszeichnungen",
+        "viewProject": "Projekt ansehen: {title}"
+      }
+    },
+    "categories": [
+      {
+        "name": "digital",
+        "label": "Digital",
+        "items": [
+          {
+            "title": "DB Info 4.0 Pia",
+            "role": "Senior Frontend Developer",
+            "client": "Deutsche Bahn",
+            "agency": "Scholz & Volkmer GmbH",
+            "description": "Entwicklung eines plattformübergreifenden Informationssystems mit Vue und Pimcore CMS, das Service-Mitarbeitern die Verwaltung von Zugverbindungen und Echtzeit-Kommunikation zu Verspätungen auf Desktop, mobilen Geräten und spezialisierten Hardware-Terminals ermöglicht.",
+            "link": "https://www.s-v.de/de/projekte/db-info-40-pia/"
+          },
+          {
+            "title": "Bundeswehr Government Portal",
+            "role": "Senior Frontend Developer",
+            "client": "Bundeswehr",
+            "agency": "Aperto AG - IBM iX",
+            "description": "Umsetzung modularer Frontend-Komponenten und skalierbarer Template-Strukturen mit React innerhalb einer CoreMedia CMS-Umgebung für die öffentliche Informationsplattform der Bundeswehr.",
+            "link": "https://www.bundeswehr.de/de/"
+          },
+          {
+            "title": "Privatmolkerei Bechtel",
+            "role": "Senior Frontend Developer",
+            "client": "Privatmolkerei Bechtel",
+            "agency": "Das Büro am Draht GmbH",
+            "description": "Entwicklung eines React-basierten digitalen Managementsystems zur Überwachung von Produktionsanlagen und Planung von Wartungsarbeiten in einer Molkereianlage.",
+            "link": "https://www.planemos.de/modernisierung-prozessleitsystem-privatmolkerei-bechtel/"
+          },
+          {
+            "title": "SensEm - Citizen Sensing Emission",
+            "role": "Senior Frontend Developer",
+            "client": "BMBF-gefördertes Forschungsprojekt",
+            "agency": "Scholz & Volkmer GmbH",
+            "description": "Entwicklung einer Citizen-Science-Plattform mit Nuxt und Directus CMS zur Erfassung und Analyse von Luftqualitätsdaten im öffentlichen Raum.",
+            "link": "https://www.interaktive-technologien.de/projekte/sensem"
+          }
+        ]
+      },
+      {
+        "name": "automotive",
+        "label": "Automotive",
+        "items": [
+          {
+            "title": "BMW Corporate Website",
+            "role": "Frontend Developer",
+            "client": "BMW",
+            "agency": "Hi-ReS! Berlin GmbH",
+            "description": "Entwicklung skalierbarer Next.js-(React)-Frontend-Komponenten und Templates integriert mit Adobe Experience Manager für die digitale Plattform und Fahrzeugkonfiguratoren von BMW in einer Docker-Umgebung.",
+            "link": "https://www.bmw.de/de/index.html"
+          },
+          {
+            "title": "BMW-M",
+            "role": "Frontend Lead",
+            "client": "BMW",
+            "agency": "Hi-ReS! Berlin GmbH",
+            "description": "Verantwortung für Frontend-Architektur und Umsetzung der BMW-M-Community-Plattform auf Basis von Liferay CMS in enger Zusammenarbeit mit Design- und Backend-Teams.",
+            "link": "https://community.bmw-m.com/de/"
+          },
+          {
+            "title": "Audi A3 Sportback",
+            "role": "Frontend Lead",
+            "client": "Audi",
+            "agency": "Razorfish GmbH",
+            "description": "Leitung der Frontend-Entwicklung einer interaktiven mobilen Web-Erfahrung zur Unterstützung der Einführung des Audi A3 Sportback.",
+            "link": "https://www.birdyvogel.com/audi"
+          },
+          {
+            "title": "Audi Augmented Reality Kalender",
+            "role": "Frontend Developer",
+            "client": "Audi",
+            "agency": "Razorfish GmbH",
+            "description": "Mitwirkung an der Entwicklung einer Augmented-Reality-Webanwendung für die Audi Kalender-Ausgaben 2010 und 2011.",
+            "awards": [
+              "Cannes Lions Bronze (2011)",
+              "ADC Deutschland Auszeichnung (2011)",
+              "DMMA Onlinestar Silber (2010)"
+            ],
+            "link": "https://www.behance.net/gallery/3447711/Audi-Augmented-Reality-Calendar-2011?locale=en_US"
+          },
+          {
+            "title": "Mercedes-Benz AMG Series",
+            "role": "Frontend Developer",
+            "client": "Mercedes-Benz",
+            "agency": "17 GRAD",
+            "description": "Implementierung von Natural Feature Tracking für eine Augmented-Reality-Webanwendung zur Präsentation der Mercedes-Benz AMG Series bei einer interaktiven Ausstellung.",
+            "link": "https://www.17grad.com/de/work?s=p"
+          },
+          {
+            "title": "Hyundai Asphalt 7 Training",
+            "role": "Frontend Developer",
+            "client": "Hyundai",
+            "agency": "Razorfish GmbH",
+            "description": "Entwicklung einer interaktiven Trainingsanwendung zur Unterstützung der Hyundai Asphalt 7 Kampagne in sozialen Medien.",
+            "link": "https://www.youtube.com/watch?v=vpQnWQYoRSg"
+          }
+        ]
+      },
+      {
+        "name": "food",
+        "label": "Food & Retail",
+        "items": [
+          {
+            "title": "McDonald's Global Brand Website",
+            "role": "Frontend Developer",
+            "client": "McDonald's",
+            "agency": "Razorfish GmbH",
+            "description": "Entwicklung modularer UI-Komponenten und erweiterbarer Template-Systeme innerhalb von Adobe Experience Manager (AEM) für die globale digitale Plattform von McDonald's.",
+            "link": "https://www.mcdonalds.com/de/de-de.html"
+          },
+          {
+            "title": "McDonald's Digital Campaigns",
+            "role": "Frontend Lead",
+            "client": "McDonald's",
+            "agency": "Razorfish GmbH",
+            "description": "Leitung der Frontend-Entwicklung mehrerer nationaler digitaler Kampagnen, darunter Big Mac Hunt, Do-Your-Own-Coupons und Mexify Yourself.",
+            "link": "https://www.horizont.net/medien/nachrichten/-McDonalds-meldet-Rekordteilnehmerzahlen-bei-Mein-Burger-105372"
+          },
+          {
+            "title": "McDonald's iOS App",
+            "role": "Frontend Developer",
+            "client": "McDonald's",
+            "agency": "Razorfish GmbH",
+            "description": "Mitwirkung an der nativen iOS-Entwicklung der mobilen McDonald's Deutschland Anwendung.",
+            "link": "https://apps.apple.com/de/app/mcdonalds-deutschland/id524943492"
+          },
+          {
+            "title": "Sharaf Online Shop",
+            "role": "Frontend Developer",
+            "client": "Sharaf DG",
+            "agency": "SOWHAT! GmbH",
+            "description": "Entwicklung und Anpassung einer auf Shopware basierenden E-Commerce-Plattform für Sharaf DG.",
+            "link": "https://uae.sharafdg.com/"
+          }
+        ]
+      },
+      {
+        "name": "other",
+        "label": "Weitere",
+        "items": [
+          {
+            "title": "The Black Cheetahs - Official Website",
+            "role": "Senior Frontend Developer",
+            "client": "The Black Cheetahs",
+            "agency": "Keine",
+            "description": "Entwicklung einer Next.js Single-Page-Anwendung zur Präsentation von Musikveröffentlichungen und Medieninhalten.",
+            "link": "https://www.theblackcheetahs.com/"
+          },
+          {
+            "title": "Unilever Fragrant Flowers",
+            "role": "Junior Frontend Developer",
+            "client": "Unilever",
+            "agency": "Neue Digitale GmbH",
+            "description": "Mitwirkung an der Entwicklung einer interaktiven Kampagnen-Erfahrung für Unilevers Fragrant Flowers Initiative.",
+            "link": "https://www.campaignlive.com/article/razorfish-wins-two-global-unilever-accounts/1080848"
+          }
+        ]
+      }
+    ]
+  },
+  "webShop": {
+    "title": "E-Commerce-Plattform",
+    "categories": [
+      {
+        "name": "overview",
+        "label": "Übersicht",
+        "headline": "Von der Idee bis zum Launch",
+        "paragraphs": [
+          "Einen vollständig gebrandeten Online-Shop mit Produktverwaltung, Zahlungsabwicklung, Mehrsprachigkeit, SEO-Werkzeugen und moderner Administrationsoberfläche starten.",
+          "Basierend auf modernen Technologien wie Payload CMS, Next.js, TypeScript und Stripe ist die Plattform auf Performance, Flexibilität und langfristiges Wachstum ausgelegt.",
+          "Als verwaltete SaaS-Lösung oder Lifetime-Lizenz verfügbar, ermöglicht die Plattform Unternehmen einen schnelleren Start ohne Entwicklung von Grund auf."
+        ],
+        "demosIntro": "Im Einsatz ansehen:",
+        "demos": [
+          {
+            "label": "Streetwear-Demo",
+            "url": "https://streetwear.christian-gjelstrup.com/",
+            "ariaLabel": "Streetwear-Demo ansehen (öffnet in neuem Tab)"
+          },
+          {
+            "label": "Schmuck-Demo",
+            "url": "https://jewellery.christian-gjelstrup.com/",
+            "ariaLabel": "Schmuck-Demo ansehen (öffnet in neuem Tab)"
+          },
+          {
+            "label": "Strickwaren-Demo",
+            "url": "https://knitwear.christian-gjelstrup.com/",
+            "ariaLabel": "Strickwaren-Demo ansehen (öffnet in neuem Tab)"
+          }
+        ]
+      },
+      {
+        "name": "features",
+        "label": "Funktionen",
+        "headline": "Alles für den Start eines Online-Shops",
+        "items": [
+          {
+            "title": "Branding & Domains",
+            "description": "Eigene Domain, Logo, Farben und vollständige Theme-Kontrolle, damit der Shop die Marke widerspiegelt – statt wie ein Standard-Template auszusehen."
+          },
+          {
+            "title": "Produktverwaltung",
+            "description": "Produkte, Varianten, Kategorien, Preise und Medien zentral verwalten – inklusive Entwurfsmodus und Live-Vorschau vor der Veröffentlichung."
+          },
+          {
+            "title": "Shop-Erlebnis",
+            "description": "Warenkorb, Favoriten, Gastbestellungen, Bestellhistorie, sichere Bestellsuche und Rabattcodes beim Checkout."
+          },
+          {
+            "title": "Zahlungen & Auszahlungen",
+            "description": "Stripe Connect Express – Kunden zahlen direkt in das eigene Stripe-Konto des Händlers, mit optimiertem Checkout und automatischen Bestell-E-Mails."
+          },
+          {
+            "title": "Content & SEO",
+            "description": "Landingpages und Inhalte über einen Layout-Builder (Hero-Bereiche, Grids, Karussells, CTAs, Formulare) sowie SEO-Einstellungen – ohne separate Page-Builder-App."
+          },
+          {
+            "title": "Versand & Sprachen",
+            "description": "Pauschale Versandzonen, optionale Sendcloud-Livepreise und mehrsprachige Shops (en / da / de / es) mit Übersetzungsworkflow in der Administration."
+          },
+          {
+            "title": "Umsatzsteuer & Steuereinstellungen",
+            "description": "Standard- und Länder-Umsatzsteuersätze in den Shop-Einstellungen festlegen. Katalog und Versand bleiben brutto; im Checkout wird der enthaltene Umsatzsteueranteil angezeigt, ohne zusätzliche Steueraufschläge."
+          }
+        ]
+      },
+      {
+        "name": "technology",
+        "label": "Technologie",
+        "headline": "Auf einem modernen, skalierbaren Stack aufgebaut",
+        "paragraphs": [
+          "Basierend auf bewährten, weit verbreiteten Technologien, die für Performance, Zuverlässigkeit und langfristige Wartbarkeit ausgewählt wurden."
+        ],
+        "bullets": [
+          "Payload CMS",
+          "Next.js",
+          "TypeScript",
+          "PostgreSQL",
+          "Cloudflare R2",
+          "Stripe Connect",
+          "Resend",
+          "Sendcloud",
+          "DeepL",
+          "Vitest & Playwright"
+        ],
+        "closing": "Integriert und bereit für den produktiven Einsatz – eine solide Grundlage für den Launch und das Wachstum eines individuellen Online-Shops."
+      },
+      {
+        "name": "pricing",
+        "label": "Pläne & Preise",
+        "headline": "Managed SaaS oder Lifetime-Lizenz",
+        "paragraphs": [
+          "Auswahl zwischen einer vollständig verwalteten Abonnementlösung oder einer einmaligen Lifetime-Lizenz."
+        ],
+        "plans": [
+          {
+            "name": "Managed SaaS",
+            "priceLines": [
+              "Ab 79 €/Monat (Launch)",
+              "Brand ab 119 €/Monat bei jährlicher Abrechnung",
+              "+ 19 % MwSt. sofern zutreffend"
+            ],
+            "description": "Schneller Start auf einer Infrastruktur, die verwaltet und gewartet wird.",
+            "bullets": [
+              "Hosting, Updates und Wartung inklusive",
+              "Eigene Domain ab Brand und höher",
+              "590 € Einrichtung, während das Onboarding als manueller Concierge-Service erfolgt",
+              "Fokus auf den Shop statt auf die Plattform"
+            ]
+          },
+          {
+            "name": "Lifetime-Lizenz",
+            "priceLines": [
+              "Ab 4.900 € einmalig",
+              "Optionales Hosting ab 35 €/Monat",
+              "+ 19 % MwSt. sofern zutreffend"
+            ],
+            "description": "Lifetime-Lizenz für einen produktiven Shop inklusive vollständigem Quellcode-Zugriff.",
+            "bullets": [
+              "Vollständiger Plattformzugriff und standardmäßige Unterstützung beim Go-Live",
+              "Verwaltetes Hosting verfügbar oder eigenständiges Deployment möglich",
+              "Ein Jahr Updates und Support inklusive",
+              "Optionale Verlängerung danach",
+              "Agentur-Lizenzen für mehrere Shops auf Anfrage verfügbar"
+            ]
+          }
+        ],
+        "closingHeadline": "Benötigt das Projekt etwas Spezielles?",
+        "closingParagraphs": [
+          "Beide Optionen liegen deutlich unter den Kosten einer typischen individuellen E-Commerce-Entwicklung und können langfristig günstiger sein als abonnementbasierte Plattformen mit mehreren kostenpflichtigen Erweiterungen.",
+          "Für Migrationen, individuelle Anforderungen, Agentur-Lizenzen oder Concierge-Onboarding gerne Kontakt aufnehmen.",
+          "Alle Preise verstehen sich netto. Für deutsche Kunden fällt gegebenenfalls zusätzlich 19 % MwSt. an. Unternehmen mit Vorsteuerabzug können diesen Betrag in der Regel über die üblichen Steuerprozesse geltend machen."
+        ]
+      }
+    ],
+    "cta": {
+      "contact": {
+        "label": "Kontakt aufnehmen",
+        "ariaLabel": "Kontakt zur E-Commerce-Plattform aufnehmen"
+      }
+    },
+    "ariaLabels": {
+      "demos": "Live-Demo-Shops"
+    }
+  },
+  "assistant": {
+    "title": "KI-Assistent",
+    "description": "Fragen zu Christians Erfahrung, Kompetenzen und Projekten stellen.",
+    "welcome": "Hallo! Ich bin Christians Portfolio-Assistent. Fragen zu seiner Arbeit, Erfahrung oder Projekten können hier gestellt werden.",
+    "placeholder": {
+      "mobile": "Eingabe starten, um mehr zu erfahren...",
+      "desktop": "Frage eingeben, um mehr über Christian zu erfahren..."
+    },
+    "openButton": {
+      "label": "Chat",
+      "ariaLabel": "Portfolio-Assistent-Chat öffnen"
+    },
+    "closeButton": {
+      "ariaLabel": "Portfolio-Assistent-Chat schließen"
+    },
+    "sendButton": {
+      "label": "Senden",
+      "ariaLabel": "Nachricht senden"
+    },
+    "suggestedPrompts": [
+      "Welche React/Next.js-Projekte wurden umgesetzt?",
+      "Mehr über die Erfahrung bei Razorfish erfahren",
+      "In welchen Branchen wurde gearbeitet?",
+      "Ist Christian für Freelance-Projekte verfügbar?"
+    ],
+    "suggestedPromptsMobile": [
+      "Aktuelle React-Projekte?",
+      "Verfügbar für Freelance-Projekte?"
+    ],
+    "errors": {
+      "rateLimit": "Zu viele Anfragen. Bitte einen Moment warten und erneut versuchen.",
+      "quotaExceeded": "Der Assistent hat sein Nutzungslimit erreicht. Bitte in einigen Minuten erneut versuchen oder das Kontaktformular verwenden.",
+      "generic": "Etwas ist schiefgelaufen. Bitte erneut versuchen oder das Kontaktformular verwenden.",
+      "unavailable": "Der Assistent ist vorübergehend nicht verfügbar. Bitte stattdessen das Kontaktformular verwenden.",
+      "maxMessages": "Diese Unterhaltung hat das Nachrichtenlimit erreicht. Für weitere Fragen bitte das Kontaktformular verwenden."
+    },
+    "ariaLabels": {
+      "chatPanel": "Portfolio-Assistent-Chat",
+      "messages": "Chat-Nachrichten",
+      "suggestedPrompts": "Vorgeschlagene Fragen",
+      "input": "Eingabefeld für Chat-Nachrichten",
+      "thinking": "Assistent denkt nach"
+    }
+  },
+  "header": {
+    "skipToContent": "Zum Hauptinhalt springen",
+    "firstName": "Christian",
+    "lastName": "Gjelstrup",
+    "logoAriaLabel": "Zum Seitenanfang gehen",
+    "localeToggle": {
+      "label": "Sprache",
+      "ariaLabel": "Sprache auswählen",
+      "options": {
+        "en": "English",
+        "da": "Dansk",
+        "de": "Deutsch"
+      }
+    }
+  },
+  "navigation": {
+    "items": [
+      {
+        "href": "about",
+        "title": "Über mich"
+      },
+      {
+        "href": "skills",
+        "title": "Kompetenzen"
+      },
+      {
+        "href": "projects",
+        "title": "Projekte"
+      },
+      {
+        "href": "webshop",
+        "title": "Webshop"
+      },
+      {
+        "href": "experience",
+        "title": "Erfahrung"
+      },
+      {
+        "href": "contact",
+        "title": "Kontakt"
+      }
+    ],
+    "ariaLabels": {
+      "main": "Hauptnavigation",
+      "mobile": "Mobile Navigation",
+      "navigateTo": "Zum Bereich {title} navigieren",
+      "openMenu": "Menü öffnen",
+      "closeMenu": "Menü schließen"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Christian Gjelstrup. Alle Rechte vorbehalten."
+  },
+  "notFound": {
+    "title": "404",
+    "heading": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "goHome": "Zur Startseite",
+    "getInTouch": "Kontakt aufnehmen",
+    "ariaLabels": {
+      "goHome": "Zur Startseite gehen",
+      "getInTouch": "Kontakt aufnehmen"
+    }
+  },
+  "errorBoundary": {
+    "heading": "Etwas ist schiefgelaufen",
+    "description": "Ein unerwarteter Fehler ist aufgetreten. Bitte die Seite neu laden.",
+    "goHome": "Zur Startseite",
+    "refreshPage": "Seite neu laden",
+    "errorDetails": "Fehlerdetails (nur Entwicklung)",
+    "ariaLabels": {
+      "goHome": "Zur Startseite gehen",
+      "refreshPage": "Seite neu laden"
+    }
+  }
+}

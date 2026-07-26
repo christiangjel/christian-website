@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { content } from '@/lib/content'
+import { useContent } from '@/components/layout/locale/locale-provider'
 import { cn } from '@/lib/utils'
 import {
   revealGroupVariants,
@@ -26,6 +26,8 @@ export const TimelineItem = ({
   companyLink,
   isLast
 }: TimelineItemProps) => {
+  const content = useContent()
+
   return (
     <motion.div
       className={cn(

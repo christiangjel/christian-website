@@ -1,0 +1,51 @@
+'use client'
+
+import { useEffect } from 'react'
+import { Header } from '@/components/layout/header/header'
+import { Footer } from '@/components/layout/footer/footer'
+import { Hero } from '@/components/sections/hero/hero'
+import { About } from '@/components/sections/about/about'
+import { Skills } from '@/components/sections/skills/skills'
+import { Projects } from '@/components/sections/projects/projects'
+import { WebShop } from '@/components/sections/web-shop/web-shop'
+import { Experience } from '@/components/sections/experience/experience'
+import { Education } from '@/components/sections/education/education'
+import { Contact } from '@/components/sections/contact/contact'
+import { scrollToSection } from '@/lib/utils'
+import { SCROLL_CONFIG } from '@/constants'
+
+/**
+ * Shared single-page portfolio composition used by `/` and `/[locale]`.
+ */
+export const HomePage = () => {
+  // Hash only updates on nav click (useNavigation). Hash on load scrolls to section below.
+  useEffect(() => {
+    const hash = window.location.hash.slice(1)
+    if (hash) {
+      const timer = setTimeout(() => {
+        scrollToSection(hash)
+      }, SCROLL_CONFIG.HASH_NAVIGATION_DELAY)
+
+      return () => clearTimeout(timer)
+    }
+  }, [])
+
+  return (
+    <>
+      <Header />
+      <div className='relative z-10'>
+        <main id='main-content' className='container pb-10 pt-16 md:pt-36'>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <WebShop />
+          <Experience />
+          <Education />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </>
+  )
+}

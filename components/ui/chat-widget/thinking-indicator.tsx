@@ -1,4 +1,6 @@
-import { content } from '@/lib/content'
+'use client'
+
+import { useContent } from '@/components/layout/locale/locale-provider'
 
 const DOT_DELAYS = ['0ms', '160ms', '320ms'] as const
 
@@ -8,6 +10,8 @@ const DOT_DELAYS = ['0ms', '160ms', '320ms'] as const
  * prefers reduced motion.
  */
 export const ThinkingIndicator = () => {
+  const content = useContent()
+
   return (
     <div className='flex justify-start'>
       <div

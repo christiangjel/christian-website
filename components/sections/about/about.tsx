@@ -1,7 +1,11 @@
-import { content } from '@/lib/content'
+'use client'
+
+import { useContent } from '@/components/layout/locale/locale-provider'
 import { SECTIONS } from '@/constants'
 
 export const About = () => {
+  const content = useContent()
+
   const headingId = 'about-heading'
 
   return (
