@@ -110,7 +110,7 @@
     ]
   },
   "skills": {
-    "title": "Kernekompetencer",
+    "title": "Kerne-kompetencer",
     "ariaLabels": {
       "categories": "Kategorier for tekniske kompetencer"
     },
@@ -130,7 +130,7 @@
     ]
   },
   "experience": {
-    "title": "Karrierehøjdepunkter",
+    "title": "Karriere-højdepunkter",
     "languagesHeading": "Sprog",
     "ariaLabels": {
       "timeline": "Tidslinje over erhvervserfaring",

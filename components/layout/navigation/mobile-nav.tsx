@@ -81,11 +81,11 @@ MobileNav.Menu = function MobileNavMenu() {
           id='mobile-menu'
           role='navigation'
           aria-label={content.navigation.ariaLabels.mobile}
-          initial={{ height: 0 }}
-          animate={{ height: 'calc(100svh - 4rem)' }}
-          exit={{ height: 0 }}
+          initial={{ clipPath: 'inset(0 0 100% 0)' }}
+          animate={{ clipPath: 'inset(0 0 0 0)' }}
+          exit={{ clipPath: 'inset(0 0 100% 0)' }}
           transition={{ duration: 0.25 }}
-          className='relative w-full overflow-hidden bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:hidden'
+          className='fixed inset-x-0 top-16 bottom-0 z-50 w-full overflow-y-auto bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:hidden'
           onKeyDown={handleKeyDown}
         >
           <div className='m-8'>
