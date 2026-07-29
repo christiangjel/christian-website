@@ -3,11 +3,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useContent } from '@/components/layout/locale/locale-provider'
-import { cn } from '@/lib/utils'
-import {
-  revealGroupVariants,
-  revealLineVariants
-} from '@/lib/animations/reveal-variants'
+import { useSectionAnimation } from '@/hooks/useSectionAnimation'
 
 type TimelineItemProps = {
   date: string
@@ -18,6 +14,12 @@ type TimelineItemProps = {
   isLast?: boolean
 }
 
+const getContentLineCount = ({
+  company,
+  description
+}: Pick<TimelineItemProps, 'company' | 'description'>): number =>
+  2 + (company ? 1 : 0) + (description ? 1 : 0)
+
 export const TimelineItem = ({
   date,
   title,
@@ -27,22 +29,38 @@ export const TimelineItem = ({
   isLast
 }: TimelineItemProps) => {
   const content = useContent()
+  const {
+    revealItemVariants,
+    revealGroupVariants,
+    revealLineVariants,
+    timelineDotVariants,
+    createTimelineLineVariants
+  } = useSectionAnimation()
+
+  const contentLineCount = getContentLineCount({ company, description })
+  const timelineLineVariants = createTimelineLineVariants(contentLineCount)
 
   return (
-    <motion.div
-      className={cn(
-        'relative',
-        !isLast &&
-          'pb-10 before:absolute before:left-0 before:top-3 before:h-full before:w-[2px] before:bg-mint/30 before:translate-x-0'
-      )}
-      role='listitem'
-      variants={revealGroupVariants}
-    >
-      <div
-        className='absolute left-[1px] top-2 z-30 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-background bg-mint'
-        aria-hidden='true'
-      />
-      <div className='pl-6'>
+    <motion.div className='flex gap-4' role='listitem' variants={revealItemVariants}>
+      <div className='flex w-4 shrink-0 flex-col items-center'>
+        <motion.div
+          className='z-10 h-4 w-4 shrink-0 rounded-full border-2 border-background bg-mint'
+          variants={timelineDotVariants}
+          aria-hidden='true'
+        />
+        {!isLast && (
+          <motion.div
+            className='w-[2px] flex-1 origin-top bg-mint/30'
+            variants={timelineLineVariants}
+            aria-hidden='true'
+          />
+        )}
+      </div>
+
+      <motion.div
+        className='min-w-0 flex-1 pb-10'
+        variants={revealGroupVariants}
+      >
         <motion.time
           className='mb-1 block text-sm text-muted-foreground'
           variants={revealLineVariants}
@@ -81,7 +99,7 @@ export const TimelineItem = ({
             {description}
           </motion.p>
         )}
-      </div>
+      </motion.div>
     </motion.div>
   )
 }
