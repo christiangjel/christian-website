@@ -1,5 +1,16 @@
 import { type Variants } from 'framer-motion'
-import { REVEAL_ANIMATION } from '@/constants/animations'
+import {
+  FADE_UP_ANIMATION,
+  HERO_ANIMATION,
+  REVEAL_ANIMATION,
+  TIMELINE_ANIMATION
+} from '@/constants/animations'
+
+/** Instant visibility — used when prefers-reduced-motion is active. */
+export const noMotionVariants: Variants = {
+  hidden: {},
+  visible: {}
+}
 
 /**
  * Single line or list item: fades in while sliding from right to left.
@@ -50,6 +61,93 @@ export const revealListVariants: Variants = {
     transition: {
       staggerChildren: REVEAL_ANIMATION.STAGGER_ITEMS,
       delayChildren: REVEAL_ANIMATION.DELAY_CHILDREN
+    }
+  }
+}
+
+/** Experience timeline — same cadence as other list reveals. */
+export const revealTimelineListVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: REVEAL_ANIMATION.STAGGER_ITEMS,
+      delayChildren: REVEAL_ANIMATION.DELAY_CHILDREN
+    }
+  }
+}
+
+/** Timeline item shell — receives list stagger, passes visible to track + content. */
+export const revealItemVariants: Variants = {
+  hidden: {},
+  visible: {}
+}
+
+/**
+ * Duration for one item's connector line — matches that item's text cascade
+ * so the line reaches the next dot as the last line of text settles in.
+ */
+export const getTimelineLineDuration = (contentLineCount: number): number =>
+  (contentLineCount - 1) * REVEAL_ANIMATION.STAGGER_LINES +
+  REVEAL_ANIMATION.LINE_DURATION
+
+/** Timeline dot — appears as the item's text cascade begins. */
+export const timelineDotVariants: Variants = {
+  hidden: { scale: 0, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: TIMELINE_ANIMATION.DOT_DURATION,
+      ease: TIMELINE_ANIMATION.EASING
+    }
+  }
+}
+
+/** Timeline connector — draws downward in sync with the item's text lines. */
+export const createTimelineLineVariants = (contentLineCount: number): Variants => ({
+  hidden: { scaleY: 0 },
+  visible: {
+    scaleY: 1,
+    transition: {
+      duration: getTimelineLineDuration(contentLineCount),
+      ease: REVEAL_ANIMATION.EASING
+    }
+  }
+})
+
+/** Hero container — staggers title, subtitle, and CTA group on page load. */
+export const heroStaggerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: HERO_ANIMATION.STAGGER,
+      delayChildren: HERO_ANIMATION.DELAY_CHILDREN
+    }
+  }
+}
+
+/** Single hero element: subtle upward fade. */
+export const heroItemVariants: Variants = {
+  hidden: { opacity: 0, y: HERO_ANIMATION.OFFSET_Y },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: HERO_ANIMATION.DURATION,
+      ease: HERO_ANIMATION.EASING
+    }
+  }
+}
+
+/** Scroll-triggered fade-up for section headings, paragraphs, and cards. */
+export const revealFadeUpVariants: Variants = {
+  hidden: { opacity: 0, y: FADE_UP_ANIMATION.OFFSET_Y },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: FADE_UP_ANIMATION.DURATION,
+      ease: FADE_UP_ANIMATION.EASING
     }
   }
 }

@@ -12,12 +12,21 @@ export const ANIMATION_EASING = {
   EASE_IN: [0.42, 0, 1, 1] as const
 } as const
 
+/** Right-to-left scroll reveals for timeline and list cascades. */
 export const REVEAL_ANIMATION = {
   OFFSET_X: 28,
-  LINE_DURATION: 0.55,
-  STAGGER_LINES: 0.12,
-  STAGGER_ITEMS: 0.22,
+  LINE_DURATION: 0.6,
+  STAGGER_LINES: 0.15,
+  STAGGER_ITEMS: 0.2,
   DELAY_CHILDREN: 0.1,
+  EASING: [0.22, 1, 0.36, 1] as const
+} as const
+
+/** Timeline graphic + item-to-item cadence (lines within an item share REVEAL_ANIMATION). */
+export const TIMELINE_ANIMATION = {
+  DOT_DURATION: 0.25,
+  /** Gap between job entries — longer than STAGGER_ITEMS so cascades don't pile up. */
+  STAGGER_ITEMS: 0.35,
   EASING: [0.22, 1, 0.36, 1] as const
 } as const
 
@@ -34,4 +43,20 @@ export const REVEAL_VIEWPORT = {
 export const TAB_ANIMATION = {
   DURATION: ANIMATION_DURATION.SLOW,
   EASING: 'easeInOut' as const
+} as const
+
+/** Hero load sequence — subtle upward fade with staggered children. */
+export const HERO_ANIMATION = {
+  OFFSET_Y: 10,
+  DURATION: 0.8,
+  STAGGER: 0.2,
+  DELAY_CHILDREN: 0.1,
+  EASING: [0.22, 1, 0.36, 1] as const
+} as const
+
+/** Scroll-triggered fade-up — slightly larger offset than hero for section content. */
+export const FADE_UP_ANIMATION = {
+  OFFSET_Y: 20,
+  DURATION: 0.6,
+  EASING: [0.22, 1, 0.36, 1] as const
 } as const
