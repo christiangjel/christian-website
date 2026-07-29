@@ -1,36 +1,40 @@
 'use client'
 
-import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { useContent } from '@/components/layout/locale/locale-provider'
 import { BulletList } from '@/components/ui/bullet-list'
-import { SECTIONS, REVEAL_VIEWPORT } from '@/constants'
+import { SectionReveal } from '@/components/ui/section-reveal/section-reveal'
+import { useRevealInView } from '@/hooks/useRevealInView'
+import { SECTIONS } from '@/constants'
 
 export const Skills = () => {
   const content = useContent()
 
   const gridRef = useRef(null)
-  const isInView = useInView(gridRef, REVEAL_VIEWPORT)
+  const isReadyToReveal = useRevealInView(gridRef)
 
   const { categories } = content.skills
+  // Each category contributes its heading (+1) plus its items to the cascade.
   const cascadeOffsets = categories.map((_, index) =>
     categories
       .slice(0, index)
-      .reduce((total, category) => total + category.items.length, 0)
+      .reduce((total, category) => total + 1 + category.items.length, 0)
   )
 
   return (
     <section
       id={SECTIONS.SKILLS}
-      className='pt-14 pb-8'
+      className='pb-8 pt-14'
       aria-labelledby='skills-heading'
     >
-      <h2
-        id='skills-heading'
-        className='mb-12 text-3xl font-bold tracking-tight'
-      >
-        {content.skills.title}
-      </h2>
+      <SectionReveal>
+        <h2
+          id='skills-heading'
+          className='mb-12 text-3xl font-bold tracking-tight'
+        >
+          {content.skills.title}
+        </h2>
+      </SectionReveal>
 
       <div
         ref={gridRef}
@@ -40,22 +44,23 @@ export const Skills = () => {
       >
         {categories.map((category, index) => (
           <div key={category.name} role='listitem'>
-            <h3
-              id={`category-heading-${index}`}
-              className='mb-4 border-l-4 border-mint pl-4 text-xl font-bold'
-            >
-              {category.name}
-            </h3>
-            <div className='rounded-lg pt-6 px-6 pb-6'>
-              <BulletList
-                items={category.items}
-                layout='grid'
-                aria-labelledby={`category-heading-${index}`}
-                animated
-                isInView={isInView}
-                indexOffset={cascadeOffsets[index]}
-              />
-            </div>
+            <BulletList
+              items={category.items}
+              layout='grid'
+              className='rounded-lg px-6 pb-6 pt-6'
+              aria-labelledby={`category-heading-${index}`}
+              animated
+              isInView={isReadyToReveal}
+              indexOffset={cascadeOffsets[index]}
+              header={
+                <h3
+                  id={`category-heading-${index}`}
+                  className='mb-4 border-l-4 border-mint pl-4 text-xl font-bold'
+                >
+                  {category.name}
+                </h3>
+              }
+            />
           </div>
         ))}
       </div>

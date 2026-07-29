@@ -3,8 +3,10 @@
 import { useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ContentPanel } from '@/components/ui/content-panel/content-panel'
+import { SectionReveal } from '@/components/ui/section-reveal/section-reveal'
 import { scrollToSection } from '@/lib/utils'
 import { useContent } from '@/components/layout/locale/locale-provider'
+import { useRevealMotion } from '@/hooks/useRevealMotion'
 import { SECTIONS, TAB_ANIMATION } from '@/constants'
 import { useTabAnimation } from '@/hooks/useTabAnimation'
 import { cn } from '@/lib/utils'
@@ -26,6 +28,7 @@ const slideVariants = {
  */
 export const WebShop = () => {
   const content = useContent()
+  const { fadeUpVariants } = useRevealMotion()
 
   const {
     activeTabIndex,
@@ -49,96 +52,101 @@ export const WebShop = () => {
       className='py-14'
       aria-labelledby='webshop-heading'
     >
-      <h2
-        id='webshop-heading'
-        className='mb-12 text-3xl font-bold tracking-tight'
-      >
-        {content.webShop.title}
-      </h2>
+      <SectionReveal stagger>
+        <motion.h2
+          id='webshop-heading'
+          className='mb-12 text-3xl font-bold tracking-tight'
+          variants={fadeUpVariants}
+        >
+          {content.webShop.title}
+        </motion.h2>
 
-      <div
-        className='relative grid w-full grid-cols-2 rounded-lg bg-transparent md:grid-cols-4'
-        role='tablist'
-        aria-orientation='horizontal'
-      >
-        <motion.div
-          className='absolute z-10 rounded border border-mint bg-mint/5 shadow-md backdrop-blur'
-          initial={false}
-          animate={{
-            left: tabBounds.left,
-            top: tabBounds.top,
-            width: tabBounds.width,
-            height: tabBounds.height
-          }}
-          transition={{
-            duration: TAB_ANIMATION.DURATION,
-            ease: TAB_ANIMATION.EASING
-          }}
-          aria-hidden='true'
-        />
-
-        {content.webShop.categories.map((category, index) => {
-          const isActive = activeTabIndex === index
-          const isHovered = hoveredTabIndex === index
-
-          return (
-            <button
-              key={category.name}
-              ref={(el) => {
-                tabRefs.current[index] = el
+        <motion.div variants={fadeUpVariants}>
+          <div
+            className='relative grid w-full grid-cols-2 rounded-lg bg-transparent md:grid-cols-4'
+            role='tablist'
+            aria-orientation='horizontal'
+          >
+            <motion.div
+              className='absolute z-10 rounded border border-mint bg-mint/5 shadow-md backdrop-blur'
+              initial={false}
+              animate={{
+                left: tabBounds.left,
+                top: tabBounds.top,
+                width: tabBounds.width,
+                height: tabBounds.height
               }}
-              className={cn(
-                'relative z-20 flex min-h-[40px] items-center justify-center p-2 text-sm transition-colors',
-                isActive || isHovered ? 'text-mint' : 'text-muted-foreground'
-              )}
-              onClick={() => handleTabChange(index)}
-              onMouseEnter={() => setHoveredTabIndex(index)}
-              onMouseLeave={() => setHoveredTabIndex(null)}
-              role='tab'
-              id={`webshop-tab-${index}`}
-              aria-selected={isActive}
-              aria-controls={`webshop-tabpanel-${index}`}
-            >
-              {category.label}
-            </button>
-          )
-        })}
-      </div>
-
-      <div className='relative mb-6 mt-6 min-h-[200px] overflow-hidden'>
-        <AnimatePresence initial={false} custom={direction} mode='popLayout'>
-          <motion.div
-            key={activeTabIndex}
-            custom={direction}
-            variants={slideVariants}
-            initial='enter'
-            animate='center'
-            exit='exit'
-            transition={{
-              x: {
-                type: 'tween',
+              transition={{
                 duration: TAB_ANIMATION.DURATION,
                 ease: TAB_ANIMATION.EASING
-              }
-            }}
-            className='w-full'
-            role='tabpanel'
-            id={`webshop-tabpanel-${activeTabIndex}`}
-            aria-labelledby={`webshop-tab-${activeTabIndex}`}
-          >
-            {activeCategory && <ContentPanel category={activeCategory} />}
-          </motion.div>
-        </AnimatePresence>
-      </div>
+              }}
+              aria-hidden='true'
+            />
 
-      <button
-        type='button'
-        onClick={handleContactClick}
-        className='cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
-        aria-label={content.webShop.cta.contact.ariaLabel}
-      >
-        {content.webShop.cta.contact.label} &#8594;
-      </button>
+            {content.webShop.categories.map((category, index) => {
+              const isActive = activeTabIndex === index
+              const isHovered = hoveredTabIndex === index
+
+              return (
+                <button
+                  key={category.name}
+                  ref={(el) => {
+                    tabRefs.current[index] = el
+                  }}
+                  className={cn(
+                    'relative z-20 flex min-h-[40px] items-center justify-center p-2 text-sm transition-colors',
+                    isActive || isHovered ? 'text-mint' : 'text-muted-foreground'
+                  )}
+                  onClick={() => handleTabChange(index)}
+                  onMouseEnter={() => setHoveredTabIndex(index)}
+                  onMouseLeave={() => setHoveredTabIndex(null)}
+                  role='tab'
+                  id={`webshop-tab-${index}`}
+                  aria-selected={isActive}
+                  aria-controls={`webshop-tabpanel-${index}`}
+                >
+                  {category.label}
+                </button>
+              )
+            })}
+          </div>
+
+          <div className='relative mb-6 mt-6 min-h-[200px] overflow-hidden'>
+            <AnimatePresence initial={false} custom={direction} mode='popLayout'>
+              <motion.div
+                key={activeTabIndex}
+                custom={direction}
+                variants={slideVariants}
+                initial='enter'
+                animate='center'
+                exit='exit'
+                transition={{
+                  x: {
+                    type: 'tween',
+                    duration: TAB_ANIMATION.DURATION,
+                    ease: TAB_ANIMATION.EASING
+                  }
+                }}
+                className='w-full'
+                role='tabpanel'
+                id={`webshop-tabpanel-${activeTabIndex}`}
+                aria-labelledby={`webshop-tab-${activeTabIndex}`}
+              >
+                {activeCategory && <ContentPanel category={activeCategory} />}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <button
+            type='button'
+            onClick={handleContactClick}
+            className='cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-mint'
+            aria-label={content.webShop.cta.contact.ariaLabel}
+          >
+            {content.webShop.cta.contact.label} &#8594;
+          </button>
+        </motion.div>
+      </SectionReveal>
     </section>
   )
 }

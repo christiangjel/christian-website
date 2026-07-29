@@ -1,11 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import type { ReactNode } from 'react'
 import { cn } from '@/lib/utils'
-import {
-  createRevealCascade,
-  revealLineVariants
-} from '@/lib/animations/reveal-variants'
+import { useSectionAnimation } from '@/hooks/useSectionAnimation'
+import { REVEAL_ANIMATION } from '@/constants/animations'
 
 type BulletListItem = string | { name: string; level?: string }
 
@@ -19,6 +18,8 @@ type BulletListProps = {
   isInView?: boolean
   /** Starting cascade index, so multiple lists animate as one continuous sequence. */
   indexOffset?: number
+  /** Optional leading content (e.g. a heading) that joins the stagger cascade. */
+  header?: ReactNode
 }
 
 const getContainerClass = (layout: BulletListProps['layout']) => {
@@ -62,6 +63,16 @@ const renderItemContent = (item: BulletListItem) => {
   )
 }
 
+/** Nested list container — continues the parent stagger into its children. */
+const listGroupVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: REVEAL_ANIMATION.STAGGER_LINES
+    }
+  }
+}
+
 export const BulletList = ({
   items,
   layout = 'vertical',
@@ -70,49 +81,84 @@ export const BulletList = ({
   'aria-labelledby': ariaLabelledBy,
   animated = false,
   isInView = false,
-  indexOffset = 0
+  indexOffset = 0,
+  header
 }: BulletListProps) => {
   const containerClass = getContainerClass(layout)
+  const { initial, getAnimate, revealLineVariants, createRevealCascade } =
+    useSectionAnimation()
 
   if (!animated) {
     return (
-      <div
+      <div>
+        {header}
+        <div
+          className={cn(containerClass, className)}
+          role='list'
+          aria-labelledby={ariaLabelledBy}
+        >
+          {items.map((item, index) => (
+            <div
+              key={getItemKey(item, index)}
+              className={cn('flex items-center gap-2', itemClassName)}
+              role='listitem'
+            >
+              {renderItemContent(item)}
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  if (!header) {
+    return (
+      <motion.div
         className={cn(containerClass, className)}
         role='list'
         aria-labelledby={ariaLabelledBy}
+        initial={initial}
+        animate={getAnimate(isInView)}
+        variants={createRevealCascade(indexOffset)}
       >
         {items.map((item, index) => (
-          <div
+          <motion.div
             key={getItemKey(item, index)}
             className={cn('flex items-center gap-2', itemClassName)}
             role='listitem'
+            variants={revealLineVariants}
           >
             {renderItemContent(item)}
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     )
   }
 
   return (
     <motion.div
-      className={cn(containerClass, className)}
-      role='list'
-      aria-labelledby={ariaLabelledBy}
-      initial='hidden'
-      animate={isInView ? 'visible' : 'hidden'}
+      initial={initial}
+      animate={getAnimate(isInView)}
       variants={createRevealCascade(indexOffset)}
     >
-      {items.map((item, index) => (
-        <motion.div
-          key={getItemKey(item, index)}
-          className={cn('flex items-center gap-2', itemClassName)}
-          role='listitem'
-          variants={revealLineVariants}
-        >
-          {renderItemContent(item)}
-        </motion.div>
-      ))}
+      <motion.div variants={revealLineVariants}>{header}</motion.div>
+      <motion.div
+        className={cn(containerClass, className)}
+        role='list'
+        aria-labelledby={ariaLabelledBy}
+        variants={listGroupVariants}
+      >
+        {items.map((item, index) => (
+          <motion.div
+            key={getItemKey(item, index)}
+            className={cn('flex items-center gap-2', itemClassName)}
+            role='listitem'
+            variants={revealLineVariants}
+          >
+            {renderItemContent(item)}
+          </motion.div>
+        ))}
+      </motion.div>
     </motion.div>
   )
 }
