@@ -31,7 +31,7 @@ const ProjectCard = memo<ProjectCardProps>(
           title
         )}
       >
-        <Card className='h-full border-mint/20 bg-background transition-colors backdrop-blur hover:border-mint hover:bg-mint/5 hover:shadow-md supports-[backdrop-filter]:bg-background/60'>
+        <Card className='h-full border-mint/20 bg-background backdrop-blur transition-[filter,border-color,background-color,box-shadow] duration-300 hover:border-mint hover:bg-mint/5 hover:brightness-110 hover:shadow-md supports-[backdrop-filter]:bg-background/60'>
           <CardContent className='p-6'>
             <h3 className='mb-2 text-lg font-bold group-hover:text-mint-dark'>
               {title}
