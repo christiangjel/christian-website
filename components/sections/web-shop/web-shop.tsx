@@ -55,7 +55,7 @@ export const WebShop = () => {
       <SectionReveal stagger>
         <motion.h2
           id='webshop-heading'
-          className='mb-12 text-3xl font-bold tracking-tight'
+          className='mb-12 text-3xl font-bold'
           variants={fadeUpVariants}
         >
           {content.webShop.title}

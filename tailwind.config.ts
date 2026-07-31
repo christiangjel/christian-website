@@ -27,7 +27,7 @@ const config = {
       },
       fontFamily: {
         sans: [
-          'var(--font-normal)',
+          'var(--font-mono)',
           'ui-monospace',
           'SFMono-Regular',
           'Menlo',
@@ -36,8 +36,7 @@ const config = {
           'Liberation Mono',
           'Courier New',
           'monospace'
-        ],
-        bold: ['var(--font-bold)']
+        ]
       },
       colors: {
         mint: {

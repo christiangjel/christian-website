@@ -41,7 +41,7 @@ export const Hero = () => {
       >
         <motion.h1
           id='hero-heading'
-          className='mb-6 text-4xl font-bold tracking-tight md:text-6xl'
+          className='mb-6 text-4xl font-bold md:text-6xl'
           variants={heroItemVariants}
         >
           <span className='gradient-text'>{firstWord}</span> {restOfTitle}

@@ -40,7 +40,7 @@ export const Experience = () => {
         >
           <motion.h2
             id='experience-heading'
-            className='mb-12 text-3xl font-bold tracking-tight'
+            className='mb-12 text-3xl font-bold'
             variants={fadeUpVariants}
           >
             {content.experience.title}

@@ -38,7 +38,7 @@
   },
   "contact": {
     "title": "Kontakt mig",
-    "description": "Tilgængelig for freelanceprojekter og langsigtede samarbejder i Berlin eller remote. Lad os tale om, hvordan jeg kan støtte dit team.",
+    "description": "Tilgængelig for freelanceprojekter, ecommerce-løsninger og langsigtede samarbejder i Berlin eller remote. Lad os tale om, hvordan jeg kan hjælpe med at realisere dine digitale idéer.",
     "email": "hi@christian-gjelstrup.com",
     "phone": "+49 15787005997",
     "location": "Berlin, Tyskland",
@@ -429,22 +429,12 @@
           "Platformen er bygget på moderne teknologier som Payload CMS, Next.js, TypeScript og Stripe og er designet til høj ydeevne, fleksibilitet og langsigtet vækst.",
           "Platformen fås som en administreret SaaS-løsning eller en livstidslicens og hjælper virksomheder med at komme hurtigere i gang uden at skulle bygge alt fra bunden."
         ],
-        "demosIntro": "Se det i praksis:",
+        "demosIntro": "Udforsk ecommerce-platformen:",
         "demos": [
           {
-            "label": "Streetwear-demo",
-            "url": "https://streetwear.christian-gjelstrup.com/",
-            "ariaLabel": "Se Streetwear-demo (åbner i en ny fane)"
-          },
-          {
-            "label": "Smykke-demo",
-            "url": "https://jewellery.christian-gjelstrup.com/",
-            "ariaLabel": "Se Smykke-demo (åbner i en ny fane)"
-          },
-          {
-            "label": "Strik-demo",
-            "url": "https://knitwear.christian-gjelstrup.com/",
-            "ariaLabel": "Se Strik-demo (åbner i en ny fane)"
+            "label": "Besøg websitet",
+            "url": "https://marketing.christian-gjelstrup.com/da",
+            "ariaLabel": "Besøg e-commerce-platformens website med live demoer (åbner i en ny fane)"
           }
         ]
       },
@@ -559,7 +549,7 @@
       }
     },
     "ariaLabels": {
-      "demos": "Live demo-shops"
+      "demos": "Produktwebsite"
     }
   },
   "assistant": {

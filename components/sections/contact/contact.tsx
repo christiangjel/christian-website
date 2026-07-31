@@ -22,7 +22,7 @@ export const Contact = () => {
     <section id={SECTIONS.CONTACT} className='py-14'>
       <SectionReveal stagger>
         <motion.h2
-          className='mb-12 text-3xl font-bold tracking-tight'
+          className='mb-12 text-3xl font-bold'
           variants={fadeUpVariants}
         >
           {content.contact.title}

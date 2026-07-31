@@ -30,7 +30,7 @@ export const Skills = () => {
       <SectionReveal>
         <h2
           id='skills-heading'
-          className='mb-12 text-3xl font-bold tracking-tight'
+          className='mb-12 text-3xl font-bold'
         >
           {content.skills.title}
         </h2>

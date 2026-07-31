@@ -25,7 +25,7 @@ export default function NotFound() {
       <div className='relative z-10'>
         <main className='container flex min-h-screen flex-col items-center justify-center pb-10 pt-16'>
           <div className='text-center'>
-            <h1 className='mb-4 text-6xl font-bold tracking-tight md:text-8xl'>
+            <h1 className='mb-4 text-6xl font-bold md:text-8xl'>
               <span className='gradient-text'>{content.notFound.title}</span>
             </h1>
             <h2 className='mb-4 text-2xl font-bold md:text-3xl'>

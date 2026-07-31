@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import type { Metadata, Viewport } from 'next'
 import '@/app/globals.css'
-import { fontNormal, fontBold } from '@/app/fonts'
+import { fontMono } from '@/app/fonts'
 import { ThemeProvider } from '@/components/layout/theme/theme-provider'
 import { LocaleProvider } from '@/components/layout/locale/locale-provider'
 import { PageWrapper } from '@/components/layout/page-wrapper/page-wrapper'
@@ -73,7 +73,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang={LOCALE_HTML_LANG.en}
-      className={`dark ${fontNormal.variable} ${fontBold.variable}`}
+      className={`dark ${fontMono.variable}`}
       suppressHydrationWarning
     >
       <head>

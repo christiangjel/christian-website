@@ -19,7 +19,7 @@ export const Education = () => {
       <SectionReveal stagger>
         <motion.h2
           id='education-heading'
-          className='mb-12 text-3xl font-bold tracking-tight'
+          className='mb-12 text-3xl font-bold'
           variants={fadeUpVariants}
         >
           {content.education.title}

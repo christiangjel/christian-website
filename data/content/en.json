@@ -38,7 +38,7 @@
   },
   "contact": {
     "title": "Get in Touch",
-    "description": "Available for freelance projects and long-term collaborations in Berlin or remotely. Let's discuss how I can support your team.",
+    "description": "Available for freelance projects, ecommerce solutions, and long-term collaborations in Berlin or remotely. Let's discuss how I can help bring your digital ideas to life.",
     "email": "hi@christian-gjelstrup.com",
     "phone": "+49 15787005997",
     "location": "Berlin, Germany",
@@ -429,22 +429,12 @@
           "Built on modern technologies including Payload CMS, Next.js, TypeScript, and Stripe, the platform is designed for performance, flexibility, and long-term growth.",
           "Available as a managed SaaS subscription or a lifetime licence, the platform helps businesses launch faster without building from scratch."
         ],
-        "demosIntro": "See it in action:",
+        "demosIntro": "Explore the ecommerce platform:",
         "demos": [
           {
-            "label": "Streetwear Demo",
-            "url": "https://streetwear.christian-gjelstrup.com/",
-            "ariaLabel": "View Streetwear demo (opens in new tab)"
-          },
-          {
-            "label": "Jewellery Demo",
-            "url": "https://jewellery.christian-gjelstrup.com/",
-            "ariaLabel": "View Jewellery demo (opens in new tab)"
-          },
-          {
-            "label": "Knitwear Demo",
-            "url": "https://knitwear.christian-gjelstrup.com/",
-            "ariaLabel": "View Knitwear demo (opens in new tab)"
+            "label": "Visit website",
+            "url": "https://marketing.christian-gjelstrup.com/",
+            "ariaLabel": "Visit Ecommerce Platform website with live demos (opens in new tab)"
           }
         ]
       },
@@ -559,7 +549,7 @@
       }
     },
     "ariaLabels": {
-      "demos": "Live demo shops"
+      "demos": "Product website"
     }
   },
   "assistant": {

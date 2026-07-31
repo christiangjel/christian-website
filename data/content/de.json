@@ -38,7 +38,7 @@
   },
   "contact": {
     "title": "Kontakt aufnehmen",
-    "description": "Verfügbar für Freelance-Projekte und langfristige Zusammenarbeit in Berlin oder remote. Gerne bespreche ich, wie Projekte und Teams unterstützt werden können.",
+    "description": "Verfügbar für freiberufliche Projekte, Ecommerce-Lösungen und langfristige Kooperationen in Berlin oder remote. Gemeinsam lassen sich digitale Ideen in erfolgreiche Lösungen umsetzen.",
     "email": "hi@christian-gjelstrup.com",
     "phone": "+49 15787005997",
     "location": "Berlin, Deutschland",
@@ -429,22 +429,12 @@
           "Basierend auf modernen Technologien wie Payload CMS, Next.js, TypeScript und Stripe ist die Plattform auf Performance, Flexibilität und langfristiges Wachstum ausgelegt.",
           "Als verwaltete SaaS-Lösung oder Lifetime-Lizenz verfügbar, ermöglicht die Plattform Unternehmen einen schnelleren Start ohne Entwicklung von Grund auf."
         ],
-        "demosIntro": "Im Einsatz ansehen:",
+        "demosIntro": "Die Ecommerce-Plattform entdecken:",
         "demos": [
           {
-            "label": "Streetwear-Demo",
-            "url": "https://streetwear.christian-gjelstrup.com/",
-            "ariaLabel": "Streetwear-Demo ansehen (öffnet in neuem Tab)"
-          },
-          {
-            "label": "Schmuck-Demo",
-            "url": "https://jewellery.christian-gjelstrup.com/",
-            "ariaLabel": "Schmuck-Demo ansehen (öffnet in neuem Tab)"
-          },
-          {
-            "label": "Strickwaren-Demo",
-            "url": "https://knitwear.christian-gjelstrup.com/",
-            "ariaLabel": "Strickwaren-Demo ansehen (öffnet in neuem Tab)"
+            "label": "Website besuchen",
+            "url": "https://marketing.christian-gjelstrup.com/de",
+            "ariaLabel": "Website der E-Commerce-Plattform mit Live-Demos besuchen (öffnet in neuem Tab)"
           }
         ]
       },
@@ -559,7 +549,7 @@
       }
     },
     "ariaLabels": {
-      "demos": "Live-Demo-Shops"
+      "demos": "Produktwebsite"
     }
   },
   "assistant": {

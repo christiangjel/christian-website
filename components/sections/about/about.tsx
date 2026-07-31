@@ -19,7 +19,7 @@ export const About = () => {
       <SectionReveal stagger ready={hasScrolled}>
         <motion.h2
           id={headingId}
-          className='mb-6 text-3xl font-bold tracking-tight'
+          className='mb-6 text-3xl font-bold'
           variants={fadeUpVariants}
         >
           {content.about.title}

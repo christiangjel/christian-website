@@ -1,15 +1,23 @@
 import localFont from 'next/font/local'
 
-export const fontNormal = localFont({
-  src: './mono-normal.woff2',
-  variable: '--font-normal',
+/**
+ * Single monospace family with real weight faces.
+ * `font-bold` (weight 700) selects mono-bold; regular text uses mono-normal.
+ */
+export const fontMono = localFont({
+  src: [
+    {
+      path: './mono-normal.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './mono-bold.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-mono',
   preload: true,
-  display: 'swap'
-})
-
-export const fontBold = localFont({
-  src: './mono-bold.woff2',
-  variable: '--font-bold',
-  preload: true,
-  display: 'swap'
+  display: 'swap',
 })

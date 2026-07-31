@@ -39,7 +39,7 @@ const CardTitle = forwardRef<
 >(({ className, as: Component = 'h3', ...props }, ref) => (
   <Component
     ref={ref}
-    className={cn('font-bold leading-none tracking-tight', className)}
+    className={cn('font-bold leading-none', className)}
     {...props}
   />
 ))
