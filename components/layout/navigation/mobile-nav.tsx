@@ -88,7 +88,7 @@ MobileNav.Menu = function MobileNavMenu() {
           className='fixed inset-x-0 top-16 bottom-0 z-50 w-full overflow-y-auto bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:hidden'
           onKeyDown={handleKeyDown}
         >
-          <div className='m-8'>
+          <div className='mx-8 mt-4 mb-8'>
             <nav className='flex flex-col gap-4'>
               {content.navigation.items.map((item) => (
                 <button
