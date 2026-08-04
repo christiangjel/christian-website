@@ -1,6 +1,18 @@
 import type { Config } from 'tailwindcss'
 import animate from 'tailwindcss-animate'
 
+const MINT = {
+  DEFAULT: '#6EE7B7',
+  light: '#A7F3D0',
+  dark: '#5EEAD4',
+  hover: '#55C79E',
+  foreground: '#0F172A',
+} as const
+
+const FORM_ERROR = {
+  DEFAULT: '#E85D75',
+} as const
+
 const config = {
   content: [
     './pages/**/*.{ts,tsx}',
@@ -39,13 +51,8 @@ const config = {
         ]
       },
       colors: {
-        mint: {
-          // DEFAULT: "#6EE4B5",
-          DEFAULT: '#64F2C2',
-          light: '#A7F3D0',
-          dark: '#64F2C2',
-          foreground: '#0F172A'
-        },
+        mint: MINT,
+        'form-error': FORM_ERROR,
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -84,6 +91,9 @@ const config = {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
+      },
+      boxShadow: {
+        'mint-glow': `0 0 20px ${MINT.DEFAULT}26`,
       },
       keyframes: {
         'accordion-down': {

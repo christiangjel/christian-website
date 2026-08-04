@@ -49,13 +49,13 @@ export const WebShop = () => {
   return (
     <section
       id={SECTIONS.WEB_SHOP}
-      className='py-14'
+      className='py-16 md:py-20'
       aria-labelledby='webshop-heading'
     >
       <SectionReveal stagger>
         <motion.h2
           id='webshop-heading'
-          className='mb-12 text-3xl font-bold'
+          className='mb-14 text-3xl font-bold leading-tight tracking-tight md:mb-16 md:text-4xl'
           variants={fadeUpVariants}
         >
           {content.webShop.title}

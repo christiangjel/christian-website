@@ -15,11 +15,11 @@ export const About = () => {
   const headingId = 'about-heading'
 
   return (
-    <section id={SECTIONS.ABOUT} className='py-14' aria-labelledby={headingId}>
+    <section id={SECTIONS.ABOUT} className='py-16 md:py-20' aria-labelledby={headingId}>
       <SectionReveal stagger ready={hasScrolled}>
         <motion.h2
           id={headingId}
-          className='mb-6 text-3xl font-bold'
+          className='mb-10 text-3xl font-bold leading-tight tracking-tight md:mb-12 md:text-4xl'
           variants={fadeUpVariants}
         >
           {content.about.title}

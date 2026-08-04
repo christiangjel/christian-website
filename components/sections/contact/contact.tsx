@@ -19,10 +19,10 @@ export const Contact = () => {
   const { fadeUpVariants } = useRevealMotion()
 
   return (
-    <section id={SECTIONS.CONTACT} className='py-14'>
+    <section id={SECTIONS.CONTACT} className='py-16 md:py-20'>
       <SectionReveal stagger>
         <motion.h2
-          className='mb-12 text-3xl font-bold'
+          className='mb-14 text-3xl font-bold leading-tight tracking-tight md:mb-16 md:text-4xl'
           variants={fadeUpVariants}
         >
           {content.contact.title}

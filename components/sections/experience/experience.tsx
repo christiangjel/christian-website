@@ -29,7 +29,7 @@ export const Experience = () => {
   return (
     <section
       id={SECTIONS.EXPERIENCE}
-      className='py-14'
+      className='py-16 md:py-20'
       aria-labelledby='experience-heading'
     >
       <div ref={timelineRef}>
@@ -40,7 +40,7 @@ export const Experience = () => {
         >
           <motion.h2
             id='experience-heading'
-            className='mb-12 text-3xl font-bold'
+            className='mb-14 text-3xl font-bold leading-tight tracking-tight md:mb-16 md:text-4xl'
             variants={fadeUpVariants}
           >
             {content.experience.title}

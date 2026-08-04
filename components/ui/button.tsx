@@ -18,7 +18,11 @@ const buttonVariants = cva(
         secondary:
           'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
-        link: 'text-primary underline-offset-4 hover:underline'
+        link: 'text-primary underline-offset-4 hover:underline',
+        hero:
+          'border border-mint bg-mint text-mint-foreground shadow-sm transition-[background-color,border-color,box-shadow] duration-300 hover:border-mint-hover hover:bg-mint-hover hover:shadow-mint-glow',
+        heroOutline:
+          'border border-input bg-background shadow-sm transition-[background-color,border-color,color,box-shadow] duration-300 hover:border-mint hover:bg-mint hover:text-mint-foreground hover:shadow-mint-glow',
       },
       size: {
         default: 'h-9 px-4 py-2',
@@ -45,7 +49,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         className={cn(
-          buttonVariants({ variant, size, className }),
+          buttonVariants({ variant, size }),
+          className,
           '[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg][aria-hidden=false]:size-auto'
         )}
         ref={ref}

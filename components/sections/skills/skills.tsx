@@ -24,13 +24,13 @@ export const Skills = () => {
   return (
     <section
       id={SECTIONS.SKILLS}
-      className='pb-8 pt-14'
+      className='pb-10 pt-16 md:pb-12 md:pt-20'
       aria-labelledby='skills-heading'
     >
       <SectionReveal>
         <h2
           id='skills-heading'
-          className='mb-12 text-3xl font-bold'
+          className='mb-14 text-3xl font-bold leading-tight tracking-tight md:mb-16 md:text-4xl'
         >
           {content.skills.title}
         </h2>

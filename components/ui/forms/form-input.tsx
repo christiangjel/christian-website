@@ -75,7 +75,7 @@ export const FormInput = <T extends FieldValues>({
         )}
       </div>
       {error && (
-        <p className='text-sm text-red-400 mt-1' id={errorId}>
+        <p className='mt-1 text-sm text-form-error' id={errorId}>
           {error.message}
         </p>
       )}

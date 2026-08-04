@@ -79,7 +79,7 @@ const ContactForm = () => {
       {hasFormErrors && (
         <div className='bg-background'>
           <div
-            className='p-3 rounded-md border bg-red-900/15 border-red-400 text-red-400'
+            className='rounded-md border border-form-error bg-form-error/15 p-3 text-form-error'
             role='alert'
           >
             {content.contact.form.validationError}
@@ -90,7 +90,7 @@ const ContactForm = () => {
       {hasSubmissionErrors && (
         <div className='bg-background'>
           <div
-            className='p-3 rounded-md border bg-red-900/15 border-red-400 text-red-400'
+            className='rounded-md border border-form-error bg-form-error/15 p-3 text-form-error'
             role='alert'
           >
             {content.contact.form.submissionError}

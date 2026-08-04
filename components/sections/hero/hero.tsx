@@ -41,7 +41,7 @@ export const Hero = () => {
       >
         <motion.h1
           id='hero-heading'
-          className='mb-6 text-4xl font-bold md:text-6xl'
+          className='mb-8 text-5xl font-bold leading-none tracking-tight md:text-6xl lg:text-7xl'
           variants={heroItemVariants}
         >
           <span className='gradient-text'>{firstWord}</span> {restOfTitle}
@@ -60,7 +60,8 @@ export const Hero = () => {
         >
           <Button
             size='lg'
-            className='bg-mint text-mint-foreground transition-[filter,box-shadow] duration-300 hover:brightness-110 hover:shadow-[0_0_20px_rgba(100,242,194,0.15)] sm:w-full lg:w-auto'
+            variant='hero'
+            className='sm:w-full lg:w-auto'
             onClick={() => scrollToSection(SECTIONS.CONTACT)}
             aria-label={content.hero.buttons.getInTouch.ariaLabel}
           >
@@ -68,8 +69,8 @@ export const Hero = () => {
           </Button>
           <Button
             size='lg'
-            variant='outline'
-            className='transition-[filter,border-color] duration-300 hover:brightness-110 sm:w-full lg:w-auto'
+            variant='heroOutline'
+            className='sm:w-full lg:w-auto'
             onClick={() => scrollToSection(SECTIONS.PROJECTS)}
             aria-label={content.hero.buttons.viewWork.ariaLabel}
           >
@@ -77,8 +78,8 @@ export const Hero = () => {
           </Button>
           <Button
             size='lg'
-            variant='outline'
-            className='flex items-center justify-center gap-2 transition-[filter,border-color] duration-300 hover:brightness-110 sm:w-full lg:w-auto'
+            variant='heroOutline'
+            className='flex items-center justify-center gap-2 sm:w-full lg:w-auto'
             asChild
             aria-label={content.hero.buttons.downloadCV.ariaLabel}
           >
@@ -94,8 +95,8 @@ export const Hero = () => {
           </Button>
           <Button
             size='lg'
-            variant='outline'
-            className='flex items-center justify-center gap-2 transition-[filter,border-color] duration-300 hover:brightness-110 sm:w-full lg:w-auto'
+            variant='heroOutline'
+            className='flex items-center justify-center gap-2 sm:w-full lg:w-auto'
             onClick={handleAskAi}
             aria-label={content.hero.buttons.askAi.ariaLabel}
           >
