@@ -27,9 +27,10 @@ export const Contact = () => {
         >
           {content.contact.title}
         </motion.h2>
-        <div className='grid grid-cols-1 gap-12 md:grid-cols-2'>
-          <motion.div variants={fadeUpVariants}>
-            <p className='mb-8 text-muted-foreground'>
+        <motion.div variants={fadeUpVariants}>
+          <div className='grid grid-cols-1 gap-12 md:grid-cols-2'>
+            <div>
+              <p className='mb-8 text-muted-foreground'>
               {content.contact.description}
             </p>
             <div className='space-y-4'>
@@ -76,12 +77,13 @@ export const Contact = () => {
                 ))}
               </div>
             </div>
-          </motion.div>
+            </div>
 
-          <motion.div variants={fadeUpVariants}>
-            <ContactForm />
-          </motion.div>
-        </div>
+            <div>
+              <ContactForm />
+            </div>
+          </div>
+        </motion.div>
       </SectionReveal>
     </section>
   )
