@@ -231,12 +231,12 @@
     "title": "Ecommerce Platform",
     "summary": "Launch a fully branded online store with product management, payments, multilingual support, SEO tools, and a modern administration interface. Built on modern technologies including Payload CMS, Next.js, TypeScript, and Stripe, the platform is designed for performance, flexibility, and long-term growth. Available as a managed SaaS subscription or a lifetime license, the platform helps businesses launch faster without building from scratch. Product details, pricing, and live demo stores are on the marketing website (English at the root URL; Danish at /da; German at /de).",
     "website": {
-      "name": "Product marketing website",
-      "url": "https://marketing.christian-gjelstrup.com/",
+      "name": "Product website",
+      "url": "https://caravano.app/",
       "locales": {
-        "en": "https://marketing.christian-gjelstrup.com/",
-        "da": "https://marketing.christian-gjelstrup.com/da",
-        "de": "https://marketing.christian-gjelstrup.com/de"
+        "en": "https://caravano.app/",
+        "da": "https://caravano.app/da",
+        "de": "https://caravano.app/de"
       }
     },
     "features": [

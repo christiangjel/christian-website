@@ -35,6 +35,6 @@ describe('buildSystemPrompt', () => {
     expect(prompt).toContain('Next.js')
     expect(prompt).toContain('portfolioWebsite')
     expect(prompt).toContain('webShop')
-    expect(prompt).toContain('https://marketing.christian-gjelstrup.com/')
+    expect(prompt).toContain('https://caravano.app/')
   })
 })
