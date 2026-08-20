@@ -14,7 +14,7 @@ export const ANIMATION_EASING = {
 
 /** Right-to-left scroll reveals for timeline and list cascades. */
 export const REVEAL_ANIMATION = {
-  OFFSET_X: 28,
+  OFFSET_X: 12,
   LINE_DURATION: 0.6,
   STAGGER_LINES: 0.15,
   STAGGER_ITEMS: 0.2,
