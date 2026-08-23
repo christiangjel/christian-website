@@ -4,6 +4,7 @@ import '@/app/globals.css'
 import { fontMono } from '@/app/fonts'
 import { ThemeProvider } from '@/components/layout/theme/theme-provider'
 import { LocaleProvider } from '@/components/layout/locale/locale-provider'
+import { LlmMarkdownHint } from '@/components/layout/llm-markdown-hint/llm-markdown-hint'
 import { PageWrapper } from '@/components/layout/page-wrapper/page-wrapper'
 import { ChatAssistantRoot } from '@/components/ui/chat-widget/chat-assistant-root'
 import { ErrorBoundary } from '@/components/error-boundary'
@@ -28,6 +29,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_CONFIG.BASE_URL,
     languages: getLanguageAlternates(SITE_CONFIG.BASE_URL),
+    types: {
+      'text/markdown': '/index.md',
+    },
   },
   openGraph: {
     title: SITE_METADATA.title,
@@ -87,6 +91,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className='min-h-screen bg-background text-foreground antialiased'
         suppressHydrationWarning
       >
+        <LlmMarkdownHint />
         <LocaleProvider>
           <ChatAssistantRoot>
             <ErrorBoundary>

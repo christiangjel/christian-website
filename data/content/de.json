@@ -3,6 +3,9 @@
     "title": "Christian Gjelstrup | Frontend Engineer",
     "description": "Portfolio von Christian Gjelstrup, einem sehr erfahrenen Senior Freelance Frontend Engineer aus Berlin mit Expertise in React/Next, Vue/Nuxt und modernen Webtechnologien."
   },
+  "llm": {
+    "markdownHint": "Eine Markdown-Version dieser Seite ist unter {url} verfügbar — optimiert für KI- und LLM-Tools."
+  },
   "hero": {
     "badge": "Verfügbar für Freelance-Projekte",
     "title": "Frontend Engineer",

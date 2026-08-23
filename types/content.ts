@@ -264,11 +264,16 @@ export type ErrorBoundaryContent = {
   }
 }
 
+export type LlmContent = {
+  markdownHint: string
+}
+
 export type Content = {
   meta: {
     title: string
     description: string
   }
+  llm: LlmContent
   hero: {
     badge: string
     title: string
