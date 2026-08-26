@@ -426,11 +426,11 @@
       {
         "name": "overview",
         "label": "Oversigt",
-        "headline": "Fra idé til lancering",
+        "headline": "Fra idé til produktionsklar platform",
         "paragraphs": [
-          "Start en fuldt brandet onlinebutik med produktadministration, betalinger, flersproget understøttelse, SEO-værktøjer og en moderne administrationsgrænseflade.",
-          "Platformen er bygget på moderne teknologier som Payload CMS, Next.js, TypeScript og Stripe og er designet til høj ydeevne, fleksibilitet og langsigtet vækst.",
-          "Platformen fås som en administreret SaaS-løsning eller en livstidslicens og hjælper virksomheder med at komme hurtigere i gang uden at skulle bygge alt fra bunden."
+          "Designet og bygget en komplet multi-tenant e-commerce-platform til lancering af fuldt brandede onlinebutikker med produktadministration, betalinger, flersproget understøttelse, SEO, forsendelse, indholdsstyring og en moderne administrationsgrænseflade.",
+          "Bygget med Payload CMS, Next.js, TypeScript, PostgreSQL, Cloudflare R2 og Stripe kombinerer platformen en fleksibel storefront med et komplet e-commerce-backend, multi-tenant-arkitektur og administreret infrastruktur.",
+          "Platformen tilbydes som et administreret SaaS-abonnement eller en livstidslicens, med mulighed for specialudvikling til virksomheder, der har brug for funktionalitet ud over kerneplatformen."
         ],
         "demosIntro": "Udforsk ecommerce-platformen:",
         "demos": [
@@ -444,44 +444,44 @@
       {
         "name": "features",
         "label": "Funktioner",
-        "headline": "Alt hvad der kræves for at begynde at sælge online",
+        "headline": "Et komplet e-commerce-fundament uden app-stak",
         "items": [
           {
             "title": "Branding & Domæner",
-            "description": "Eget domæne, logo, farver og fuld kontrol over temaet, så webshoppen matcher brandet – ikke et standardtemplate."
+            "description": "Fleksibel storefront-branding med logoer, farver, typografi, temakontrol og egne domæner på Brand-planen — designet til at skabe karakteristiske butiksoplevelser frem for template-baserede løsninger."
           },
           {
             "title": "Produktadministration",
-            "description": "Produkter, varianter, kategorier, priser og medier samlet ét sted med mulighed for kladde- og live-forhåndsvisning før udgivelse."
+            "description": "Produkter, varianter, kategorier, priser og medier i én administrationsgrænseflade med kladdeworkflows og live-forhåndsvisning før udgivelse."
           },
           {
             "title": "Shopoplevelse",
-            "description": "Indkøbskurve, favoritter, gæstekøb, ordrehistorik, sikker ordreopslag og rabatkoder ved checkout."
+            "description": "Indkøbskurve, favoritter, gæstekøb, kundekonti, ordrehistorik, sikker ordreopslag og rabatkoder giver en komplet shoppingoplevelse fra starten."
           },
           {
             "title": "Betalinger & Udbetalinger",
-            "description": "Stripe Connect Express – kunder betaler direkte til butikkens egen Stripe-konto med en enkel checkout-proces og automatiske ordremails."
+            "description": "Stripe Connect Express giver forhandlere deres egen tilknyttede Stripe-konto med sikker checkout, betalingsbehandling, udbetalinger og transaktionsbaserede ordremails."
           },
           {
             "title": "Indhold & SEO",
-            "description": "Landingpages og indhold via en layout-builder (hero-sektioner, grids, karruseller, CTA'er, formularer) samt SEO-indstillinger – uden behov for en separat page-builder-app."
+            "description": "En fleksibel layout-builder understøtter landingpages og indholdssektioner som heroer, grids, karruseller, CTA'er og formularer samt integrerede SEO-kontroller — uden afhængighed af en separat page-builder-app."
           },
           {
             "title": "Forsendelse & sprog",
-            "description": "Faste fragtzoner, valgfrie Sendcloud-livepriser og flersprogede webshops (en / da / de / es) med oversættelsesworkflow i administrationen."
+            "description": "Konfigurerbare fragtzoner, valgfri Sendcloud-integration til livepriser og flersprogede storefronts på engelsk, dansk, tysk og spansk med oversættelsesworkflows i administrationsgrænsefladen."
           },
           {
             "title": "Moms & Skatteindstillinger",
-            "description": "Indstil standard- og landespecifikke momssatser i webshopindstillingerne. Katalog og forsendelse forbliver med bruttopriser; checkout viser den inkluderede momsandel uden at lægge ekstra skat oveni."
+            "description": "Butiksniveau-moms- og skattekonfiguration understøtter landespecifikke satser med bruttopriser for katalog og forsendelse og tydelig angivelse af moms under checkout."
           }
         ]
       },
       {
         "name": "technology",
         "label": "Teknologi",
-        "headline": "Bygget på en moderne, skalerbar teknologistak",
+        "headline": "Bygget på en moderne, produktionsklar teknologistak",
         "paragraphs": [
-          "Bygget på gennemprøvede og bredt anvendte teknologier, valgt med fokus på ydeevne, stabilitet og langsigtet vedligeholdelse."
+          "Designet og udviklet med gennemprøvede teknologier valgt med fokus på ydeevne, vedligeholdelse, skalerbarhed og en stærk udvikleroplevelse."
         ],
         "bullets": [
           "Payload CMS",
@@ -495,14 +495,14 @@
           "DeepL",
           "Vitest & Playwright"
         ],
-        "closing": "Integreret og klar til deployment – et solidt fundament til lancering og vækst af en branded onlinebutik."
+        "closing": "En produktionsklar arkitektur, der dækker multi-tenant e-commerce, indholdsstyring, betalinger, medialagring, internationalisering, integrationer og deployeringsinfrastruktur."
       },
       {
         "name": "pricing",
         "label": "Planer & priser",
         "headline": "Administreret SaaS eller livstidslicens",
         "paragraphs": [
-          "Vælg mellem en fuldt administreret abonnementsmodel eller en engangsbaseret livstidslicens."
+          "Vælg et fuldt administreret abonnement for en hands-off platformoplevelse, eller en livstidslicens til virksomheder, der ønsker at eje deres butik og kildekode."
         ],
         "plans": [
           {
@@ -512,12 +512,13 @@
               "Brand fra 119 €/md. ved årlig betaling",
               "+ 19 % moms hvor relevant"
             ],
-            "description": "Kom hurtigt i gang på en infrastruktur, der administreres og vedligeholdes.",
+            "description": "Lancér på en fuldt administreret e-commerce-platform, med mere hands-on service tilgængelig via Brand.",
             "bullets": [
               "Hosting, opdateringer og vedligeholdelse inkluderet",
-              "Eget domæne på Brand og højere planer",
-              "590 € opsætning, hvor onboarding leveres som en manuel Concierge-service",
-              "Fokus på webshoppen – ikke platformen"
+              "Komplet e-commerce-platform fra Launch",
+              "Eget domæne, prioriteret support og personlig onboarding på Brand",
+              "590 € Store Setup & Launch med hands-on onboarding",
+              "Specialfunktioner og integrationer tilgængelige som særskilt tilbudt udvikling"
             ]
           },
           {
@@ -527,7 +528,7 @@
               "Valgfri hosting fra 35 €/md.",
               "+ 19 % moms hvor relevant"
             ],
-            "description": "Livstidslicens til én produktionsshop inklusive fuld adgang til kildekoden.",
+            "description": "En livstidslicens til én produktionsshop inklusive fuld platform- og kildekodeadgang.",
             "bullets": [
               "Fuld platformadgang og standard support ved lancering",
               "Administreret hosting tilgængelig eller mulighed for selvstændig deployment",
@@ -539,9 +540,9 @@
         ],
         "closingHeadline": "Har projektet særlige behov?",
         "closingParagraphs": [
-          "Begge muligheder koster betydeligt mindre end en typisk specialudviklet e-commerce-løsning og kan give lavere langsigtede omkostninger end abonnementsplatforme kombineret med flere betalte apps.",
-          "Ved migrationer, specialkrav, agenturlicenser eller Concierge-onboarding er kontakt velkommen.",
-          "Alle priser er angivet ekskl. moms. Danske og tyske erhvervskunder opkræves normalt yderligere moms, hvor det er relevant. Virksomheder med momsfradrag kan typisk få beløbet tilbage via de almindelige skatteprocesser."
+          "Platformen giver et solidt e-commerce-fundament uden behov for en samling af tredjepartsapps til kernefunktionalitet. Når en virksomhed har brug for noget ud over platformen, kan specialfunktioner og integrationer udvikles som en separat ydelse.",
+          "Der tilbydes også migrationer, specialudviklet e-commerce, agenturlicenser og hands-on Concierge-onboarding.",
+          "Alle priser er angivet ekskl. moms. Tyske kunder opkræves normalt yderligere 19 % moms, hvor det er relevant. Virksomheder med momsfradrag kan typisk få beløbet tilbage via de almindelige skatteprocesser."
         ]
       }
     ],

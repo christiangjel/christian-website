@@ -229,7 +229,7 @@
   },
   "webShop": {
     "title": "Ecommerce Platform",
-    "summary": "Launch a fully branded online store with product management, payments, multilingual support, SEO tools, and a modern administration interface. Built on modern technologies including Payload CMS, Next.js, TypeScript, and Stripe, the platform is designed for performance, flexibility, and long-term growth. Available as a managed SaaS subscription or a lifetime license, the platform helps businesses launch faster without building from scratch. Product details, pricing, and live demo stores are on the marketing website (English at the root URL; Danish at /da; German at /de).",
+    "summary": "Designed and built a complete multi-tenant ecommerce platform for launching fully branded online stores, with product management, payments, multilingual support, SEO, shipping, content management, and a modern administration interface. Built with Payload CMS, Next.js, TypeScript, PostgreSQL, Cloudflare R2, and Stripe, the platform combines a flexible storefront with a full ecommerce backend, multi-tenant architecture, and managed infrastructure. Offered as a managed SaaS subscription or lifetime licence, with custom development available for businesses that need functionality beyond the core platform. Product details, pricing, and live demo stores are on the marketing website (English at the root URL; Danish at /da; German at /de).",
     "website": {
       "name": "Product website",
       "url": "https://caravano.app/",
@@ -242,35 +242,35 @@
     "features": [
       {
         "title": "Branding & Domains",
-        "description": "Custom domain, logo, colours, and full theme control so the storefront matches your brand — not a template look."
+        "description": "Flexible storefront branding with logos, colours, typography, theme controls, and custom domains on the Brand plan — designed to create distinctive storefronts rather than template-based experiences."
       },
       {
         "title": "Product management",
-        "description": "Products, variants, categories, pricing, and media in one admin, with draft and live preview before you publish."
+        "description": "Products, variants, categories, pricing, and media in one administration interface, with draft workflows and live preview before publishing."
       },
       {
         "title": "Storefront Experience",
-        "description": "Carts, favourites, guest checkout, order history, secure order lookup, and discount codes at checkout."
+        "description": "Carts, favourites, guest checkout, customer accounts, order history, secure order lookup, and discount codes provide a complete shopping experience out of the box."
       },
       {
         "title": "Payments & Payouts",
-        "description": "Stripe Connect Express — shoppers pay into the merchant's own Stripe account, with a smooth checkout and order emails."
+        "description": "Stripe Connect Express gives merchants their own connected Stripe account, with secure checkout, payment handling, payouts, and transactional order emails."
       },
       {
         "title": "Content and SEO",
-        "description": "Landing pages and content via a layout builder (heroes, grids, carousels, CTAs, forms), plus SEO settings — no separate page-builder app."
+        "description": "A flexible layout builder supports landing pages and content sections such as heroes, grids, carousels, CTAs, and forms, alongside integrated SEO controls — without relying on a separate page-builder app."
       },
       {
         "title": "Shipping and languages",
-        "description": "Flat-rate shipping zones, optional Sendcloud live rates, and multilingual storefronts (en / da / de / es) with translation workflow in admin."
+        "description": "Configurable shipping zones, optional Sendcloud integration for live rates, and multilingual storefronts in English, Danish, German, and Spanish with translation workflows in the administration interface."
       },
       {
         "title": "VAT & Tax Settings",
-        "description": "Set default and country VAT rates in store settings. Catalog and shipping stay gross; checkout shows the VAT portion without adding tax on top."
+        "description": "Store-level VAT and tax configuration supports country-specific rates, with gross catalog and shipping prices and VAT clearly presented during checkout."
       }
     ],
     "technology": {
-      "intro": "Built on proven, widely adopted technologies chosen for performance, reliability, and maintainability.",
+      "intro": "Designed and engineered with proven technologies chosen for performance, maintainability, scalability, and a strong developer experience.",
       "stack": [
         "Payload CMS",
         "Next.js",
@@ -283,10 +283,10 @@
         "DeepL",
         "Vitest & Playwright"
       ],
-      "closing": "Integrated and deployment-ready — a solid foundation for launching and growing a branded online store."
+      "closing": "A production-ready architecture spanning multi-tenant ecommerce, content management, payments, media storage, internationalisation, integrations, and deployment infrastructure."
     },
     "plansAndPricing": {
-      "summary": "Managed SaaS or Lifetime License. Choose between a fully managed subscription or a one-time lifetime license. Both options cost significantly less than a typical custom ecommerce build. All prices shown are net; German customers are typically charged an additional 19% VAT where applicable.",
+      "summary": "Managed SaaS or Lifetime Licence. Choose a fully managed subscription for a hands-off platform experience, or a lifetime licence for businesses that want to own their store and source. The platform provides a substantial ecommerce foundation without requiring a collection of third-party apps for core functionality; custom features and integrations can be developed as a separate service. Also available: migrations, custom ecommerce development, agency licensing, and Concierge onboarding. All prices shown are net; German customers are typically charged an additional 19% VAT where applicable.",
       "plans": [
         {
           "name": "Managed SaaS",
@@ -295,22 +295,23 @@
             "Brand from €119/mo billed yearly",
             "+ 19% VAT where applicable"
           ],
-          "description": "Launch quickly on infrastructure Christian manages and maintains.",
+          "description": "Launch on a fully managed ecommerce platform, with more hands-on service available through Brand.",
           "includes": [
             "Hosting, updates, and maintenance included",
-            "Custom domain on Brand and above",
-            "€590 setup while onboarding is provided as a manual Concierge service",
-            "Focus on the store, not the platform"
+            "Complete ecommerce platform from Launch",
+            "Custom domain, priority support, and personalised onboarding on Brand",
+            "€590 Store Setup & Launch with hands-on onboarding",
+            "Custom features and integrations available as separately quoted development"
           ]
         },
         {
-          "name": "Lifetime License",
+          "name": "Lifetime Licence",
           "pricing": [
             "From €4,900 one-time",
             "Optional hosting from €35/mo",
             "+ 19% VAT where applicable"
           ],
-          "description": "Lifetime license for one production store, including full source access.",
+          "description": "A lifetime licence for one production store, including full platform and source access.",
           "includes": [
             "Full platform access and standard go-live support",
             "Managed hosting available, or deploy independently",

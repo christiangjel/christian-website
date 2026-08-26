@@ -426,11 +426,11 @@
       {
         "name": "overview",
         "label": "Übersicht",
-        "headline": "Von der Idee bis zum Launch",
+        "headline": "Von der Idee bis zur produktionsreifen Plattform",
         "paragraphs": [
-          "Einen vollständig gebrandeten Online-Shop mit Produktverwaltung, Zahlungsabwicklung, Mehrsprachigkeit, SEO-Werkzeugen und moderner Administrationsoberfläche starten.",
-          "Basierend auf modernen Technologien wie Payload CMS, Next.js, TypeScript und Stripe ist die Plattform auf Performance, Flexibilität und langfristiges Wachstum ausgelegt.",
-          "Als verwaltete SaaS-Lösung oder Lifetime-Lizenz verfügbar, ermöglicht die Plattform Unternehmen einen schnelleren Start ohne Entwicklung von Grund auf."
+          "Konzeption und Aufbau einer vollständigen Multi-Tenant-E-Commerce-Plattform für den Launch vollständig gebrandeter Online-Shops — mit Produktverwaltung, Zahlungsabwicklung, Mehrsprachigkeit, SEO, Versand, Content-Management und moderner Administrationsoberfläche.",
+          "Mit Payload CMS, Next.js, TypeScript, PostgreSQL, Cloudflare R2 und Stripe kombiniert die Plattform ein flexibles Storefront mit einem vollständigen E-Commerce-Backend, Multi-Tenant-Architektur und verwalteter Infrastruktur.",
+          "Die Plattform wird als verwaltetes SaaS-Abonnement oder Lifetime-Lizenz angeboten; individuelle Entwicklung ist für Unternehmen verfügbar, die Funktionalität über die Kernplattform hinaus benötigen."
         ],
         "demosIntro": "Die Ecommerce-Plattform entdecken:",
         "demos": [
@@ -444,44 +444,44 @@
       {
         "name": "features",
         "label": "Funktionen",
-        "headline": "Alles für den Start eines Online-Shops",
+        "headline": "Ein vollständiges E-Commerce-Fundament ohne App-Stack",
         "items": [
           {
             "title": "Branding & Domains",
-            "description": "Eigene Domain, Logo, Farben und vollständige Theme-Kontrolle, damit der Shop die Marke widerspiegelt – statt wie ein Standard-Template auszusehen."
+            "description": "Flexibles Storefront-Branding mit Logos, Farben, Typografie, Theme-Steuerung und eigenen Domains im Brand-Plan — ausgelegt auf unverwechselbare Shop-Erlebnisse statt templatebasierter Lösungen."
           },
           {
             "title": "Produktverwaltung",
-            "description": "Produkte, Varianten, Kategorien, Preise und Medien zentral verwalten – inklusive Entwurfsmodus und Live-Vorschau vor der Veröffentlichung."
+            "description": "Produkte, Varianten, Kategorien, Preise und Medien in einer Administrationsoberfläche — inklusive Entwurfsworkflows und Live-Vorschau vor der Veröffentlichung."
           },
           {
             "title": "Shop-Erlebnis",
-            "description": "Warenkorb, Favoriten, Gastbestellungen, Bestellhistorie, sichere Bestellsuche und Rabattcodes beim Checkout."
+            "description": "Warenkorb, Favoriten, Gastbestellungen, Kundenkonten, Bestellhistorie, sichere Bestellsuche und Rabattcodes bieten von Beginn an ein vollständiges Einkaufserlebnis."
           },
           {
             "title": "Zahlungen & Auszahlungen",
-            "description": "Stripe Connect Express – Kunden zahlen direkt in das eigene Stripe-Konto des Händlers, mit optimiertem Checkout und automatischen Bestell-E-Mails."
+            "description": "Stripe Connect Express stellt Händlern ein eigenes verbundenes Stripe-Konto bereit — mit sicherem Checkout, Zahlungsabwicklung, Auszahlungen und transaktionalen Bestell-E-Mails."
           },
           {
             "title": "Content & SEO",
-            "description": "Landingpages und Inhalte über einen Layout-Builder (Hero-Bereiche, Grids, Karussells, CTAs, Formulare) sowie SEO-Einstellungen – ohne separate Page-Builder-App."
+            "description": "Ein flexibler Layout-Builder unterstützt Landingpages und Inhaltsbereiche wie Hero-Sektionen, Grids, Karussells, CTAs und Formulare sowie integrierte SEO-Steuerung — ohne separate Page-Builder-App."
           },
           {
             "title": "Versand & Sprachen",
-            "description": "Pauschale Versandzonen, optionale Sendcloud-Livepreise und mehrsprachige Shops (en / da / de / es) mit Übersetzungsworkflow in der Administration."
+            "description": "Konfigurierbare Versandzonen, optionale Sendcloud-Integration für Live-Tarife und mehrsprachige Storefronts in Englisch, Dänisch, Deutsch und Spanisch mit Übersetzungsworkflows in der Administration."
           },
           {
             "title": "Umsatzsteuer & Steuereinstellungen",
-            "description": "Standard- und Länder-Umsatzsteuersätze in den Shop-Einstellungen festlegen. Katalog und Versand bleiben brutto; im Checkout wird der enthaltene Umsatzsteueranteil angezeigt, ohne zusätzliche Steueraufschläge."
+            "description": "Shopweite Umsatzsteuer- und Steuerkonfiguration unterstützt länderspezifische Sätze — mit Bruttopreisen für Katalog und Versand sowie klarer Ausweisung der MwSt. im Checkout."
           }
         ]
       },
       {
         "name": "technology",
         "label": "Technologie",
-        "headline": "Auf einem modernen, skalierbaren Stack aufgebaut",
+        "headline": "Auf einem modernen, produktionsreifen Stack aufgebaut",
         "paragraphs": [
-          "Basierend auf bewährten, weit verbreiteten Technologien, die für Performance, Zuverlässigkeit und langfristige Wartbarkeit ausgewählt wurden."
+          "Konzipiert und umgesetzt mit bewährten Technologien, ausgewählt für Performance, Wartbarkeit, Skalierbarkeit und eine starke Entwicklererfahrung."
         ],
         "bullets": [
           "Payload CMS",
@@ -495,14 +495,14 @@
           "DeepL",
           "Vitest & Playwright"
         ],
-        "closing": "Integriert und bereit für den produktiven Einsatz – eine solide Grundlage für den Launch und das Wachstum eines individuellen Online-Shops."
+        "closing": "Eine produktionsreife Architektur für Multi-Tenant-E-Commerce, Content-Management, Zahlungen, Medienspeicherung, Internationalisierung, Integrationen und Deployment-Infrastruktur."
       },
       {
         "name": "pricing",
         "label": "Pläne & Preise",
         "headline": "Managed SaaS oder Lifetime-Lizenz",
         "paragraphs": [
-          "Auswahl zwischen einer vollständig verwalteten Abonnementlösung oder einer einmaligen Lifetime-Lizenz."
+          "Auswahl zwischen einem vollständig verwalteten Abonnement für ein hands-off Plattformerlebnis oder einer Lifetime-Lizenz für Unternehmen, die Shop und Quellcode besitzen möchten."
         ],
         "plans": [
           {
@@ -512,12 +512,13 @@
               "Brand ab 119 €/Monat bei jährlicher Abrechnung",
               "+ 19 % MwSt. sofern zutreffend"
             ],
-            "description": "Schneller Start auf einer Infrastruktur, die verwaltet und gewartet wird.",
+            "description": "Start auf einer vollständig verwalteten E-Commerce-Plattform — mit intensiverem Service über Brand.",
             "bullets": [
               "Hosting, Updates und Wartung inklusive",
-              "Eigene Domain ab Brand und höher",
-              "590 € Einrichtung, während das Onboarding als manueller Concierge-Service erfolgt",
-              "Fokus auf den Shop statt auf die Plattform"
+              "Vollständige E-Commerce-Plattform ab Launch",
+              "Eigene Domain, Prioritäts-Support und persönliches Onboarding bei Brand",
+              "590 € Store Setup & Launch mit praxisnahem Onboarding",
+              "Individuelle Funktionen und Integrationen als separat angebotene Entwicklung verfügbar"
             ]
           },
           {
@@ -527,7 +528,7 @@
               "Optionales Hosting ab 35 €/Monat",
               "+ 19 % MwSt. sofern zutreffend"
             ],
-            "description": "Lifetime-Lizenz für einen produktiven Shop inklusive vollständigem Quellcode-Zugriff.",
+            "description": "Eine Lifetime-Lizenz für einen produktiven Shop inklusive vollständigem Plattform- und Quellcode-Zugriff.",
             "bullets": [
               "Vollständiger Plattformzugriff und standardmäßige Unterstützung beim Go-Live",
               "Verwaltetes Hosting verfügbar oder eigenständiges Deployment möglich",
@@ -539,8 +540,8 @@
         ],
         "closingHeadline": "Benötigt das Projekt etwas Spezielles?",
         "closingParagraphs": [
-          "Beide Optionen liegen deutlich unter den Kosten einer typischen individuellen E-Commerce-Entwicklung und können langfristig günstiger sein als abonnementbasierte Plattformen mit mehreren kostenpflichtigen Erweiterungen.",
-          "Für Migrationen, individuelle Anforderungen, Agentur-Lizenzen oder Concierge-Onboarding gerne Kontakt aufnehmen.",
+          "Die Plattform bietet ein solides E-Commerce-Fundament, ohne für Kernfunktionen eine Sammlung von Drittanbieter-Apps zu benötigen. Wenn ein Unternehmen Funktionen über die Plattform hinaus braucht, können individuelle Features und Integrationen als separate Leistung entwickelt werden.",
+          "Zusätzlich verfügbar sind Migrationen, individuelle E-Commerce-Entwicklung, Agentur-Lizenzen und praxisnahes Concierge-Onboarding.",
           "Alle Preise verstehen sich netto. Für deutsche Kunden fällt gegebenenfalls zusätzlich 19 % MwSt. an. Unternehmen mit Vorsteuerabzug können diesen Betrag in der Regel über die üblichen Steuerprozesse geltend machen."
         ]
       }

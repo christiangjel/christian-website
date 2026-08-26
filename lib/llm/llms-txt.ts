@@ -33,7 +33,7 @@ export const buildLlmsTxt = (): string => {
     '',
     '## Ecommerce platform',
     '',
-    `- [Webshop section](${baseUrl}/#${SECTIONS.WEB_SHOP}): ${content.webShop.title} — branded online stores built with Payload CMS, Next.js, and Stripe`,
+    `- [Webshop section](${baseUrl}/#${SECTIONS.WEB_SHOP}): ${content.webShop.title} — multi-tenant ecommerce platform built with Payload CMS, Next.js, and Stripe`,
     `- [Product website](https://caravano.app/): Live demos and pricing for the ecommerce platform`,
     '',
     '## Contact',
