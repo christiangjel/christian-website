@@ -4,7 +4,7 @@ import { useState, useEffect, lazy, Suspense, memo, startTransition } from 'reac
 import type { ReactNode } from 'react'
 import { useContent } from '@/components/layout/locale/locale-provider'
 import { CometSpinner } from '@/components/ui/comet-spinner/comet-spinner'
-import { CUSTOM_EVENTS } from '@/constants/events'
+import { CUSTOM_EVENTS, PRELOADER_CONFIG } from '@/constants'
 
 const WavesAnimation = lazy(() =>
   import('@/components/layout/waves-animation/waves-animation').then((mod) => ({
@@ -21,10 +21,25 @@ const PageWrapper = memo<PageWrapperProps>(({ children }) => {
   const [isWebGLReady, setIsWebGLReady] = useState(false)
 
   useEffect(() => {
+    const startedAt = Date.now()
+    let timeoutId: ReturnType<typeof setTimeout> | undefined
+
     const handleWebGLComplete = (): void => {
-      startTransition(() => {
-        setIsWebGLReady(true)
-      })
+      const remaining = Math.max(
+        0,
+        PRELOADER_CONFIG.MIN_DISPLAY_MS - (Date.now() - startedAt)
+      )
+
+      const dismiss = (): void => {
+        startTransition(() => setIsWebGLReady(true))
+      }
+
+      if (remaining === 0) {
+        dismiss()
+        return
+      }
+
+      timeoutId = setTimeout(dismiss, remaining)
     }
 
     window.addEventListener(
@@ -37,6 +52,7 @@ const PageWrapper = memo<PageWrapperProps>(({ children }) => {
         CUSTOM_EVENTS.WEBGL_LOAD_COMPLETE,
         handleWebGLComplete as EventListener
       )
+      clearTimeout(timeoutId)
     }
   }, [])
 

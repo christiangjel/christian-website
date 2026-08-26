@@ -21,3 +21,8 @@ export const SITE_CONFIG = {
 export const ANIMATION_CONFIG = {
   RESIZE_DEBOUNCE_DELAY: 150
 } as const
+
+/** Page preloader — keeps the spinner visible briefly even when WebGL is warm-cached. */
+export const PRELOADER_CONFIG = {
+  MIN_DISPLAY_MS: 400
+} as const
