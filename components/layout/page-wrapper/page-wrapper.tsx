@@ -1,8 +1,9 @@
 'use client'
 
-import { useState, useEffect, lazy, Suspense, memo } from 'react'
+import { useState, useEffect, lazy, Suspense, memo, startTransition } from 'react'
 import type { ReactNode } from 'react'
-import { Loader2 } from 'lucide-react'
+import { useContent } from '@/components/layout/locale/locale-provider'
+import { CometSpinner } from '@/components/ui/comet-spinner/comet-spinner'
 import { CUSTOM_EVENTS } from '@/constants/events'
 
 const WavesAnimation = lazy(() =>
@@ -16,11 +17,14 @@ type PageWrapperProps = {
 }
 
 const PageWrapper = memo<PageWrapperProps>(({ children }) => {
+  const content = useContent()
   const [isWebGLReady, setIsWebGLReady] = useState(false)
 
   useEffect(() => {
     const handleWebGLComplete = (): void => {
-      setIsWebGLReady(true)
+      startTransition(() => {
+        setIsWebGLReady(true)
+      })
     }
 
     window.addEventListener(
@@ -39,14 +43,17 @@ const PageWrapper = memo<PageWrapperProps>(({ children }) => {
   return (
     <div className='bg-background'>
       <div
-        className={`fixed inset-0 flex flex-col items-center justify-center transition-opacity duration-200 ${
+        className={`fixed inset-0 z-10 flex flex-col items-center justify-center transition-opacity duration-200 ${
           isWebGLReady
             ? 'pointer-events-none opacity-0'
             : 'pointer-events-auto opacity-100'
         }`}
         aria-hidden={isWebGLReady}
       >
-        <Loader2 className='h-12 w-12 animate-spin text-mint' />
+        <CometSpinner
+          className='h-7 w-7'
+          label={content.preloader.loading}
+        />
       </div>
 
       <div

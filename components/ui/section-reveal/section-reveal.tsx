@@ -8,8 +8,6 @@ import { useRevealMotion } from '@/hooks/useRevealMotion'
 type SectionRevealProps = {
   children: ReactNode
   className?: string
-  /** When true, children stagger in sequentially (each child needs variants). */
-  stagger?: boolean
   /**
    * Extra gate on top of in-view + WebGL ready. Defaults to true.
    * Use to defer a section (e.g. until the hero finishes or the user scrolls).
@@ -18,25 +16,24 @@ type SectionRevealProps = {
 }
 
 /**
- * Scroll-triggered reveal wrapper. Fires once when the section enters the
- * viewport after the page preloader has finished, optionally staggering children.
+ * Scroll-triggered reveal wrapper. Fades the section in as one unit when it
+ * enters the viewport after the page preloader has finished.
  */
 export const SectionReveal = ({
   children,
   className,
-  stagger = false,
   ready = true
 }: SectionRevealProps) => {
   const ref = useRef(null)
   const isReadyToReveal = useRevealInView(ref)
-  const { initial, getAnimate, fadeUpVariants, listVariants } = useRevealMotion()
+  const { initial, getAnimate, fadeUpVariants } = useRevealMotion()
 
   return (
     <motion.div
       ref={ref}
       initial={initial}
       animate={getAnimate(isReadyToReveal && ready)}
-      variants={stagger ? listVariants : fadeUpVariants}
+      variants={fadeUpVariants}
       className={className}
     >
       {children}

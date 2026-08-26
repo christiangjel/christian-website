@@ -57,6 +57,6 @@ export const HERO_ANIMATION = {
 /** Scroll-triggered fade-up — slightly larger offset than hero for section content. */
 export const FADE_UP_ANIMATION = {
   OFFSET_Y: 20,
-  DURATION: 0.6,
-  EASING: [0.22, 1, 0.36, 1] as const
+  DURATION: 0.8,
+  EASING: [0.33, 1, 0.68, 1] as const
 } as const

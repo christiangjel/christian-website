@@ -5,8 +5,7 @@ import {
   heroItemVariants,
   heroStaggerVariants,
   noMotionVariants,
-  revealFadeUpVariants,
-  revealListVariants
+  revealFadeUpVariants
 } from '@/lib/animations/reveal-variants'
 
 /**
@@ -20,7 +19,6 @@ export const useRevealMotion = () => {
     shouldReduceMotion,
     initial: shouldReduceMotion ? false : ('hidden' as const),
     fadeUpVariants: shouldReduceMotion ? noMotionVariants : revealFadeUpVariants,
-    listVariants: shouldReduceMotion ? noMotionVariants : revealListVariants,
     heroStaggerVariants: shouldReduceMotion
       ? noMotionVariants
       : heroStaggerVariants,

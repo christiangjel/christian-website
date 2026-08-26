@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { startTransition, useEffect, useState } from 'react'
 import { CUSTOM_EVENTS } from '@/constants/events'
 
 let isWebGLReadyGlobal = false
@@ -15,13 +15,14 @@ export const useWebGLReady = (): boolean => {
 
   useEffect(() => {
     if (isWebGLReadyGlobal) {
-      setIsReady(true)
       return
     }
 
     const handleReady = (): void => {
       isWebGLReadyGlobal = true
-      setIsReady(true)
+      startTransition(() => {
+        setIsReady(true)
+      })
     }
 
     window.addEventListener(

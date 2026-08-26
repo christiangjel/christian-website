@@ -599,6 +599,9 @@
       "thinking": "Assistenten tænker"
     }
   },
+  "preloader": {
+    "loading": "Indlæser"
+  },
   "header": {
     "skipToContent": "Gå til hovedindhold",
     "firstName": "Christian",

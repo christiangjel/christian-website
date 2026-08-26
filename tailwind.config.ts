@@ -112,7 +112,9 @@ const config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'thinking-bounce': 'thinking-bounce 1.4s ease-in-out infinite'
+        'thinking-bounce': 'thinking-bounce 1.4s ease-in-out infinite',
+        'comet-spin':
+          'comet-shadow 1.7s ease infinite, comet-rotation 1.7s ease infinite'
       }
     }
   },

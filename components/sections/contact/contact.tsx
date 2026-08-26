@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { Mail, Phone, Github, Linkedin } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -10,27 +9,21 @@ import { LocationIcon } from '@/components/ui/icons/location-icon'
 import { XingIcon } from '@/components/ui/icons/xing-icon'
 import { SectionReveal } from '@/components/ui/section-reveal/section-reveal'
 import { useContent } from '@/components/layout/locale/locale-provider'
-import { useRevealMotion } from '@/hooks/useRevealMotion'
 import { SECTIONS } from '@/constants'
 import { obfuscateEmail } from '@/lib/utils'
 
 export const Contact = () => {
   const content = useContent()
-  const { fadeUpVariants } = useRevealMotion()
 
   return (
     <section id={SECTIONS.CONTACT} className='py-16 md:py-20'>
-      <SectionReveal stagger>
-        <motion.h2
-          className='mb-14 text-3xl font-bold leading-tight tracking-tight md:mb-16 md:text-4xl'
-          variants={fadeUpVariants}
-        >
+      <SectionReveal>
+        <h2 className='mb-14 text-3xl font-bold leading-tight tracking-tight md:mb-16 md:text-4xl'>
           {content.contact.title}
-        </motion.h2>
-        <motion.div variants={fadeUpVariants}>
-          <div className='grid grid-cols-1 gap-12 md:grid-cols-2'>
-            <div>
-              <p className='mb-8 text-muted-foreground'>
+        </h2>
+        <div className='grid grid-cols-1 gap-12 md:grid-cols-2'>
+          <div>
+            <p className='mb-8 text-muted-foreground'>
               {content.contact.description}
             </p>
             <div className='space-y-4'>
@@ -77,13 +70,12 @@ export const Contact = () => {
                 ))}
               </div>
             </div>
-            </div>
-
-            <div>
-              <ContactForm />
-            </div>
           </div>
-        </motion.div>
+
+          <div>
+            <ContactForm />
+          </div>
+        </div>
       </SectionReveal>
     </section>
   )

@@ -312,6 +312,9 @@ export type Content = {
   awards: Awards
   projects: Projects
   webShop: WebShop
+  preloader: {
+    loading: string
+  }
   header: {
     skipToContent: string
     firstName: string

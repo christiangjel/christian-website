@@ -1,39 +1,34 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { SectionReveal } from '@/components/ui/section-reveal/section-reveal'
 import { useContent } from '@/components/layout/locale/locale-provider'
 import { useHasScrolled } from '@/hooks/useHasScrolled'
-import { useRevealMotion } from '@/hooks/useRevealMotion'
 import { SECTIONS } from '@/constants'
 
 export const About = () => {
   const content = useContent()
-  const { fadeUpVariants } = useRevealMotion()
   const hasScrolled = useHasScrolled()
 
   const headingId = 'about-heading'
 
   return (
     <section id={SECTIONS.ABOUT} className='py-16 md:py-20' aria-labelledby={headingId}>
-      <SectionReveal stagger ready={hasScrolled}>
-        <motion.h2
+      <SectionReveal ready={hasScrolled}>
+        <h2
           id={headingId}
           className='mb-10 text-3xl font-bold leading-tight tracking-tight md:mb-12 md:text-4xl'
-          variants={fadeUpVariants}
         >
           {content.about.title}
-        </motion.h2>
+        </h2>
         {content.about.paragraphs.map((paragraph, index) => (
-          <motion.p
+          <p
             key={`paragraph-${index}`}
             className={`text-muted-foreground${
               index === content.about.paragraphs.length - 1 ? '' : ' mb-4'
             }`}
-            variants={fadeUpVariants}
           >
             {paragraph}
-          </motion.p>
+          </p>
         ))}
       </SectionReveal>
     </section>
