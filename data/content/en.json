@@ -426,124 +426,87 @@
       {
         "name": "overview",
         "label": "Overview",
-        "headline": "From concept to production platform",
+        "headline": "From idea to a complete ecommerce platform",
         "paragraphs": [
-          "Designed and built a complete multi-tenant ecommerce platform for launching fully branded online stores, with product management, payments, multilingual support, SEO, shipping, content management, and a modern administration interface.",
-          "Built with Payload CMS, Next.js, TypeScript, PostgreSQL, Cloudflare R2, and Stripe, the platform combines a flexible storefront with a full ecommerce backend, multi-tenant architecture, and managed infrastructure.",
-          "The platform is offered as a managed SaaS subscription or lifetime licence, with custom development available for businesses that need functionality beyond the core platform."
+          "Designed and built Caravano, a multi-tenant ecommerce platform for creating and managing fully branded online stores. The platform brings together storefronts, products, content, orders, payments, shipping, localisation, and administration in one system.",
+          "AI-assisted store and product composers let merchants describe what they want in natural language and turn those descriptions into structured, editable storefronts and product content. The generated result can then be reviewed and refined through the regular platform interfaces.",
+          "Built with Next.js, TypeScript, Payload CMS, PostgreSQL, Cloudflare R2, and Stripe, Caravano combines a flexible frontend with a full ecommerce backend, integrated services, and managed infrastructure."
         ],
-        "demosIntro": "Explore the ecommerce platform:",
+        "demosIntro": "Explore Caravano:",
         "demos": [
           {
             "label": "Visit website",
             "url": "https://caravano.app/",
-            "ariaLabel": "Visit Ecommerce Platform website with live demos (opens in new tab)"
+            "ariaLabel": "Visit Caravano ecommerce platform website (opens in new tab)"
           }
         ]
       },
       {
         "name": "features",
         "label": "Features",
-        "headline": "A complete ecommerce foundation without an app stack",
+        "headline": "Commerce, content, and AI-assisted creation in one platform",
         "items": [
           {
-            "title": "Branding & Domains",
-            "description": "Flexible storefront branding with logos, colours, typography, theme controls, and custom domains on the Brand plan — designed to create distinctive storefronts rather than template-based experiences."
+            "title": "AI Store Composer",
+            "description": "A natural-language store composer turns a short description of a business into a structured starting point for the storefront, including content, styling, and store configuration."
           },
           {
-            "title": "Product management",
-            "description": "Products, variants, categories, pricing, and media in one administration interface, with draft workflows and live preview before publishing."
+            "title": "AI Product Composer",
+            "description": "Product information can be transformed into structured product content, helping merchants create listings faster while keeping the generated content editable and under their control."
           },
           {
-            "title": "Storefront Experience",
-            "description": "Carts, favourites, guest checkout, customer accounts, order history, secure order lookup, and discount codes provide a complete shopping experience out of the box."
+            "title": "Storefront & Branding",
+            "description": "Flexible storefront configuration supports branding, typography, colours, layouts, content blocks, responsive experiences, and custom domains, allowing each store to have its own identity."
           },
           {
-            "title": "Payments & Payouts",
-            "description": "Stripe Connect Express gives merchants their own connected Stripe account, with secure checkout, payment handling, payouts, and transactional order emails."
+            "title": "Products & Content",
+            "description": "Products, variants, categories, pricing, media, pages, and content are managed through a unified administration interface with drafts and preview before publishing."
           },
           {
-            "title": "Content and SEO",
-            "description": "A flexible layout builder supports landing pages and content sections such as heroes, grids, carousels, CTAs, and forms, alongside integrated SEO controls — without relying on a separate page-builder app."
+            "title": "Commerce & Checkout",
+            "description": "Cart, favourites, guest checkout, customer accounts, orders, discounts, and Stripe-powered payments provide the core shopping experience without relying on a collection of separate apps."
           },
           {
-            "title": "Shipping and languages",
-            "description": "Configurable shipping zones, optional Sendcloud integration for live rates, and multilingual storefronts in English, Danish, German, and Spanish with translation workflows in the administration interface."
+            "title": "Payments & Operations",
+            "description": "Stripe Connect provides merchant-specific payment accounts and direct payouts, while transactional email, order management, and shipping integrations support the operational side of running a store."
           },
           {
-            "title": "VAT & Tax Settings",
-            "description": "Store-level VAT and tax configuration supports country-specific rates, with gross catalog and shipping prices and VAT clearly presented during checkout."
+            "title": "Internationalisation",
+            "description": "Multi-language storefronts support English, Danish, German, and Spanish, with configurable currencies, VAT settings, shipping zones, and translation workflows built into the platform."
           }
         ]
       },
       {
         "name": "technology",
         "label": "Technology",
-        "headline": "Built on a modern, production-ready stack",
+        "headline": "A modern stack for a complex product",
         "paragraphs": [
-          "Designed and engineered with proven technologies chosen for performance, maintainability, scalability, and a strong developer experience."
+          "The platform is engineered around technologies chosen for maintainability, performance, flexibility, and a strong developer experience, while keeping the architecture practical for a growing SaaS product."
         ],
         "bullets": [
-          "Payload CMS",
           "Next.js",
           "TypeScript",
+          "Payload CMS",
           "PostgreSQL",
           "Cloudflare R2",
           "Stripe Connect",
           "Resend",
           "Sendcloud",
           "DeepL",
+          "Gemini",
           "Vitest & Playwright"
         ],
-        "closing": "A production-ready architecture spanning multi-tenant ecommerce, content management, payments, media storage, internationalisation, integrations, and deployment infrastructure."
+        "closing": "The architecture spans multi-tenant ecommerce, AI-assisted content generation, content management, payments, media storage, internationalisation, third-party integrations, and deployment infrastructure."
       },
       {
-        "name": "pricing",
-        "label": "Plans & pricing",
-        "headline": "Managed SaaS or Lifetime Licence",
+        "name": "product",
+        "label": "Product",
+        "headline": "Built to evolve with the product",
         "paragraphs": [
-          "Choose a fully managed subscription for a hands-off platform experience, or a lifetime licence for businesses that want to own their store and source."
+          "Caravano separates the AI composition layer from the underlying commerce platform, keeping generated content editable and the core models independent from the way content is created.",
+          "This architecture makes the system easier to extend as new storefront capabilities, integrations, and AI workflows are introduced, without making generated content or predefined templates the centre of the platform."
         ],
-        "plans": [
-          {
-            "name": "Managed SaaS",
-            "priceLines": [
-              "From €79/mo (Launch)",
-              "Brand from €119/mo billed yearly",
-              "+ 19% VAT where applicable"
-            ],
-            "description": "Launch on a fully managed ecommerce platform, with more hands-on service available through Brand.",
-            "bullets": [
-              "Hosting, updates, and maintenance included",
-              "Complete ecommerce platform from Launch",
-              "Custom domain, priority support, and personalised onboarding on Brand",
-              "€590 Store Setup & Launch with hands-on onboarding",
-              "Custom features and integrations available as separately quoted development"
-            ]
-          },
-          {
-            "name": "Lifetime Licence",
-            "priceLines": [
-              "From €4,900 one-time",
-              "Optional hosting from €35/mo",
-              "+ 19% VAT where applicable"
-            ],
-            "description": "A lifetime licence for one production store, including full platform and source access.",
-            "bullets": [
-              "Full platform access and standard go-live support",
-              "Managed hosting available, or deploy independently",
-              "Includes one year of updates and support",
-              "Optional renewal thereafter",
-              "Agency multi-store licensing available on request"
-            ]
-          }
-        ],
-        "closingHeadline": "Need Something Specific?",
-        "closingParagraphs": [
-          "The platform provides a substantial ecommerce foundation without requiring a collection of third-party apps for core functionality. When a business needs something beyond the platform, custom features and integrations can be developed as a separate service.",
-          "I also offer migrations, custom ecommerce development, agency licensing, and hands-on Concierge onboarding.",
-          "All prices shown are net. German customers are typically charged an additional 19% VAT where applicable. Business customers with VAT recovery generally reclaim this amount through normal tax processes."
-        ]
+        "closing": "From the AI composition layer to the storefront, administration interface, and underlying services, Caravano is built as one extensible product."
       }
     ],
     "cta": {
@@ -553,7 +516,7 @@
       }
     },
     "ariaLabels": {
-      "demos": "Product website"
+      "demos": "Caravano website"
     }
   },
   "assistant": {
@@ -623,7 +586,7 @@
       { "href": "about", "title": "About" },
       { "href": "skills", "title": "Skills" },
       { "href": "projects", "title": "Projects" },
-      { "href": "webshop", "title": "Webshop" },
+      { "href": "ecommerce", "title": "Ecommerce" },
       { "href": "experience", "title": "Experience" },
       { "href": "contact", "title": "Contact" }
     ],

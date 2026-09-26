@@ -425,125 +425,88 @@
     "categories": [
       {
         "name": "overview",
-        "label": "Übersicht",
-        "headline": "Von der Idee bis zur produktionsreifen Plattform",
+        "label": "Überblick",
+        "headline": "Von der Idee zur vollständigen E-Commerce-Plattform",
         "paragraphs": [
-          "Konzeption und Aufbau einer vollständigen Multi-Tenant-E-Commerce-Plattform für den Launch vollständig gebrandeter Online-Shops — mit Produktverwaltung, Zahlungsabwicklung, Mehrsprachigkeit, SEO, Versand, Content-Management und moderner Administrationsoberfläche.",
-          "Mit Payload CMS, Next.js, TypeScript, PostgreSQL, Cloudflare R2 und Stripe kombiniert die Plattform ein flexibles Storefront mit einem vollständigen E-Commerce-Backend, Multi-Tenant-Architektur und verwalteter Infrastruktur.",
-          "Die Plattform wird als verwaltetes SaaS-Abonnement oder Lifetime-Lizenz angeboten; individuelle Entwicklung ist für Unternehmen verfügbar, die Funktionalität über die Kernplattform hinaus benötigen."
+          "Caravano ist eine von mir entwickelte Multi-Tenant-E-Commerce-Plattform zum Erstellen und Verwalten vollständig gebrandeter Online-Shops. Die Plattform verbindet Storefronts, Produkte, Inhalte, Bestellungen, Zahlungen, Versand, Lokalisierung und Administration in einem System.",
+          "KI-gestützte Store- und Product-Composers ermöglichen es Händlern, ihre Vorstellungen in natürlicher Sprache zu beschreiben und daraus strukturierte, editierbare Storefronts und Produktinhalte zu erstellen. Die Ergebnisse können anschließend über die regulären Oberflächen geprüft und weiterbearbeitet werden.",
+          "Caravano basiert auf Next.js, TypeScript, Payload CMS, PostgreSQL, Cloudflare R2 und Stripe und verbindet ein flexibles Frontend mit einem vollständigen E-Commerce-Backend, integrierten Services und verwalteter Infrastruktur."
         ],
-        "demosIntro": "Die Ecommerce-Plattform entdecken:",
+        "demosIntro": "Caravano entdecken:",
         "demos": [
           {
             "label": "Website besuchen",
-            "url": "https://caravano.app/de",
-            "ariaLabel": "Website der E-Commerce-Plattform mit Live-Demos besuchen (öffnet in neuem Tab)"
+            "url": "https://caravano.app/",
+            "ariaLabel": "Caravano E-Commerce-Plattform besuchen (öffnet in neuem Tab)"
           }
         ]
       },
       {
         "name": "features",
         "label": "Funktionen",
-        "headline": "Ein vollständiges E-Commerce-Fundament ohne App-Stack",
+        "headline": "Commerce, Content und KI-gestützte Erstellung in einer Plattform",
         "items": [
           {
-            "title": "Branding & Domains",
-            "description": "Flexibles Storefront-Branding mit Logos, Farben, Typografie, Theme-Steuerung und eigenen Domains im Brand-Plan — ausgelegt auf unverwechselbare Shop-Erlebnisse statt templatebasierter Lösungen."
+            "title": "KI Store Composer",
+            "description": "Der Store Composer verwandelt eine kurze Beschreibung eines Unternehmens in einen strukturierten Ausgangspunkt für das Storefront – einschließlich Inhalten, Styling und Shop-Konfiguration."
           },
           {
-            "title": "Produktverwaltung",
-            "description": "Produkte, Varianten, Kategorien, Preise und Medien in einer Administrationsoberfläche — inklusive Entwurfsworkflows und Live-Vorschau vor der Veröffentlichung."
+            "title": "KI Product Composer",
+            "description": "Produktinformationen können in strukturierte Produktinhalte umgewandelt werden, sodass Händler Listings schneller erstellen können, während die generierten Inhalte editierbar und unter ihrer Kontrolle bleiben."
           },
           {
-            "title": "Shop-Erlebnis",
-            "description": "Warenkorb, Favoriten, Gastbestellungen, Kundenkonten, Bestellhistorie, sichere Bestellsuche und Rabattcodes bieten von Beginn an ein vollständiges Einkaufserlebnis."
+            "title": "Storefront & Branding",
+            "description": "Die flexible Storefront-Konfiguration unterstützt Branding, Typografie, Farben, Layouts, Content-Blöcke, responsive Erlebnisse und eigene Domains, sodass jeder Shop eine eigene Identität erhalten kann."
           },
           {
-            "title": "Zahlungen & Auszahlungen",
-            "description": "Stripe Connect Express stellt Händlern ein eigenes verbundenes Stripe-Konto bereit — mit sicherem Checkout, Zahlungsabwicklung, Auszahlungen und transaktionalen Bestell-E-Mails."
+            "title": "Produkte & Content",
+            "description": "Produkte, Varianten, Kategorien, Preise, Medien, Seiten und Inhalte werden über eine gemeinsame Administrationsoberfläche verwaltet – inklusive Entwürfen und Vorschau vor der Veröffentlichung."
           },
           {
-            "title": "Content & SEO",
-            "description": "Ein flexibler Layout-Builder unterstützt Landingpages und Inhaltsbereiche wie Hero-Sektionen, Grids, Karussells, CTAs und Formulare sowie integrierte SEO-Steuerung — ohne separate Page-Builder-App."
+            "title": "Commerce & Checkout",
+            "description": "Warenkorb, Favoriten, Gast-Checkout, Kundenkonten, Bestellungen, Rabatte und Stripe-basierte Zahlungen bilden die zentrale Einkaufserfahrung, ohne auf eine Sammlung separater Apps angewiesen zu sein."
           },
           {
-            "title": "Versand & Sprachen",
-            "description": "Konfigurierbare Versandzonen, optionale Sendcloud-Integration für Live-Tarife und mehrsprachige Storefronts in Englisch, Dänisch, Deutsch und Spanisch mit Übersetzungsworkflows in der Administration."
+            "title": "Zahlungen & Betrieb",
+            "description": "Stripe Connect stellt Händlern eigene verbundene Zahlungskonten und direkte Auszahlungen bereit. Transaktions-E-Mails, Bestellverwaltung und Versandintegrationen unterstützen den laufenden Shop-Betrieb."
           },
           {
-            "title": "Umsatzsteuer & Steuereinstellungen",
-            "description": "Shopweite Umsatzsteuer- und Steuerkonfiguration unterstützt länderspezifische Sätze — mit Bruttopreisen für Katalog und Versand sowie klarer Ausweisung der MwSt. im Checkout."
+            "title": "Internationalisierung",
+            "description": "Mehrsprachige Storefronts unterstützen Englisch, Dänisch, Deutsch und Spanisch. Währungen, USt.-Einstellungen, Versandzonen und Übersetzungs-Workflows lassen sich direkt in der Plattform konfigurieren."
           }
         ]
       },
       {
         "name": "technology",
         "label": "Technologie",
-        "headline": "Auf einem modernen, produktionsreifen Stack aufgebaut",
+        "headline": "Ein moderner Stack für ein komplexes Produkt",
         "paragraphs": [
-          "Konzipiert und umgesetzt mit bewährten Technologien, ausgewählt für Performance, Wartbarkeit, Skalierbarkeit und eine starke Entwicklererfahrung."
+          "Die Plattform basiert auf Technologien, die auf Wartbarkeit, Performance, Flexibilität und eine gute Developer Experience ausgerichtet sind und gleichzeitig eine pragmatische Grundlage für ein wachsendes SaaS-Produkt bilden."
         ],
         "bullets": [
-          "Payload CMS",
           "Next.js",
           "TypeScript",
+          "Payload CMS",
           "PostgreSQL",
           "Cloudflare R2",
           "Stripe Connect",
           "Resend",
           "Sendcloud",
           "DeepL",
+          "Gemini",
           "Vitest & Playwright"
         ],
-        "closing": "Eine produktionsreife Architektur für Multi-Tenant-E-Commerce, Content-Management, Zahlungen, Medienspeicherung, Internationalisierung, Integrationen und Deployment-Infrastruktur."
+        "closing": "Die Architektur umfasst Multi-Tenant-E-Commerce, KI-gestützte Content-Erstellung, Content-Management, Zahlungen, Medienspeicherung, Internationalisierung, Drittanbieter-Integrationen und Deployment-Infrastruktur."
       },
       {
-        "name": "pricing",
-        "label": "Pläne & Preise",
-        "headline": "Managed SaaS oder Lifetime-Lizenz",
+        "name": "product",
+        "label": "Produkt",
+        "headline": "Entwickelt, um mit dem Produkt mitzuwachsen",
         "paragraphs": [
-          "Auswahl zwischen einem vollständig verwalteten Abonnement für ein hands-off Plattformerlebnis oder einer Lifetime-Lizenz für Unternehmen, die Shop und Quellcode besitzen möchten."
+          "Caravano trennt die KI-Kompositionsschicht von der zugrunde liegenden E-Commerce-Plattform. Dadurch bleiben generierte Inhalte editierbar und die zentralen Datenmodelle unabhängig davon, wie Inhalte erstellt werden.",
+          "Diese Architektur erleichtert die Erweiterung des Systems um neue Storefront-Funktionen, Integrationen und KI-Workflows, ohne generierte Inhalte oder vordefinierte Templates zum Mittelpunkt der Plattform zu machen."
         ],
-        "plans": [
-          {
-            "name": "Managed SaaS",
-            "priceLines": [
-              "Ab 79 €/Monat (Launch)",
-              "Brand ab 119 €/Monat bei jährlicher Abrechnung",
-              "+ 19 % MwSt. sofern zutreffend"
-            ],
-            "description": "Start auf einer vollständig verwalteten E-Commerce-Plattform — mit intensiverem Service über Brand.",
-            "bullets": [
-              "Hosting, Updates und Wartung inklusive",
-              "Vollständige E-Commerce-Plattform ab Launch",
-              "Eigene Domain, Prioritäts-Support und persönliches Onboarding bei Brand",
-              "590 € Store Setup & Launch mit praxisnahem Onboarding",
-              "Individuelle Funktionen und Integrationen als separat angebotene Entwicklung verfügbar"
-            ]
-          },
-          {
-            "name": "Lifetime-Lizenz",
-            "priceLines": [
-              "Ab 4.900 € einmalig",
-              "Optionales Hosting ab 35 €/Monat",
-              "+ 19 % MwSt. sofern zutreffend"
-            ],
-            "description": "Eine Lifetime-Lizenz für einen produktiven Shop inklusive vollständigem Plattform- und Quellcode-Zugriff.",
-            "bullets": [
-              "Vollständiger Plattformzugriff und standardmäßige Unterstützung beim Go-Live",
-              "Verwaltetes Hosting verfügbar oder eigenständiges Deployment möglich",
-              "Ein Jahr Updates und Support inklusive",
-              "Optionale Verlängerung danach",
-              "Agentur-Lizenzen für mehrere Shops auf Anfrage verfügbar"
-            ]
-          }
-        ],
-        "closingHeadline": "Benötigt das Projekt etwas Spezielles?",
-        "closingParagraphs": [
-          "Die Plattform bietet ein solides E-Commerce-Fundament, ohne für Kernfunktionen eine Sammlung von Drittanbieter-Apps zu benötigen. Wenn ein Unternehmen Funktionen über die Plattform hinaus braucht, können individuelle Features und Integrationen als separate Leistung entwickelt werden.",
-          "Zusätzlich verfügbar sind Migrationen, individuelle E-Commerce-Entwicklung, Agentur-Lizenzen und praxisnahes Concierge-Onboarding.",
-          "Alle Preise verstehen sich netto. Für deutsche Kunden fällt gegebenenfalls zusätzlich 19 % MwSt. an. Unternehmen mit Vorsteuerabzug können diesen Betrag in der Regel über die üblichen Steuerprozesse geltend machen."
-        ]
+        "closing": "Von der KI-Kompositionsschicht über Storefront und Administrationsoberfläche bis zu den zugrunde liegenden Services ist Caravano als ein erweiterbares Produkt konzipiert."
       }
     ],
     "cta": {
@@ -553,7 +516,7 @@
       }
     },
     "ariaLabels": {
-      "demos": "Produktwebsite"
+      "demos": "Caravano Website"
     }
   },
   "assistant": {
@@ -633,8 +596,8 @@
         "title": "Projekte"
       },
       {
-        "href": "webshop",
-        "title": "Webshop"
+        "href": "ecommerce",
+        "title": "Ecommerce"
       },
       {
         "href": "experience",

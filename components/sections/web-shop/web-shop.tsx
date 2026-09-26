@@ -23,7 +23,7 @@ const slideVariants = {
 }
 
 /**
- * Webshop section with animated tabs for overview, features, technology, and pricing.
+ * Ecommerce section with animated tabs for overview, features, technology, and product.
  */
 export const WebShop = () => {
   const content = useContent()
@@ -46,13 +46,13 @@ export const WebShop = () => {
 
   return (
     <section
-      id={SECTIONS.WEB_SHOP}
+      id={SECTIONS.ECOMMERCE}
       className='py-16 md:py-20'
-      aria-labelledby='webshop-heading'
+      aria-labelledby='ecommerce-heading'
     >
       <SectionReveal>
         <h2
-          id='webshop-heading'
+          id='ecommerce-heading'
           className='mb-14 text-3xl font-bold leading-tight tracking-tight md:mb-16 md:text-4xl'
         >
           {content.webShop.title}
@@ -97,9 +97,9 @@ export const WebShop = () => {
                 onMouseEnter={() => setHoveredTabIndex(index)}
                 onMouseLeave={() => setHoveredTabIndex(null)}
                 role='tab'
-                id={`webshop-tab-${index}`}
+                id={`ecommerce-tab-${index}`}
                 aria-selected={isActive}
-                aria-controls={`webshop-tabpanel-${index}`}
+                aria-controls={`ecommerce-tabpanel-${index}`}
               >
                 {category.label}
               </button>
@@ -125,8 +125,8 @@ export const WebShop = () => {
               }}
               className='w-full'
               role='tabpanel'
-              id={`webshop-tabpanel-${activeTabIndex}`}
-              aria-labelledby={`webshop-tab-${activeTabIndex}`}
+              id={`ecommerce-tabpanel-${activeTabIndex}`}
+              aria-labelledby={`ecommerce-tab-${activeTabIndex}`}
             >
               {activeCategory && <ContentPanel category={activeCategory} />}
             </motion.div>

@@ -425,135 +425,98 @@
     "categories": [
       {
         "name": "overview",
-        "label": "Oversigt",
-        "headline": "Fra idé til produktionsklar platform",
+        "label": "Overblik",
+        "headline": "Fra idé til en komplet e-commerce-platform",
         "paragraphs": [
-          "Designet og bygget en komplet multi-tenant e-commerce-platform til lancering af fuldt brandede onlinebutikker med produktadministration, betalinger, flersproget understøttelse, SEO, forsendelse, indholdsstyring og en moderne administrationsgrænseflade.",
-          "Bygget med Payload CMS, Next.js, TypeScript, PostgreSQL, Cloudflare R2 og Stripe kombinerer platformen en fleksibel storefront med et komplet e-commerce-backend, multi-tenant-arkitektur og administreret infrastruktur.",
-          "Platformen tilbydes som et administreret SaaS-abonnement eller en livstidslicens, med mulighed for specialudvikling til virksomheder, der har brug for funktionalitet ud over kerneplatformen."
+          "Caravano er en multi-tenant e-commerce-platform, som jeg har designet og udviklet til at skabe og administrere fuldt brandede webshops. Platformen samler storefronts, produkter, content, ordrer, betalinger, shipping, lokalisering og administration i ét system.",
+          "AI-assisterede store- og product-composers gør det muligt at beskrive en webshop eller et produkt med naturligt sprog og omsætte beskrivelsen til strukturerede, redigerbare storefronts og produktindhold. Resultatet kan derefter gennemgås og tilpasses gennem platformens normale interfaces.",
+          "Caravano er bygget med Next.js, TypeScript, Payload CMS, PostgreSQL, Cloudflare R2 og Stripe og kombinerer et fleksibelt frontend med en komplet e-commerce-backend, integrerede services og managed infrastruktur."
         ],
-        "demosIntro": "Udforsk ecommerce-platformen:",
+        "demosIntro": "Udforsk Caravano:",
         "demos": [
           {
-            "label": "Besøg websitet",
-            "url": "https://caravano.app/da",
-            "ariaLabel": "Besøg e-commerce-platformens website med live demoer (åbner i en ny fane)"
+            "label": "Besøg website",
+            "url": "https://caravano.app/",
+            "ariaLabel": "Besøg Caravano e-commerce-platformen (åbner i ny fane)"
           }
         ]
       },
       {
         "name": "features",
         "label": "Funktioner",
-        "headline": "Et komplet e-commerce-fundament uden app-stak",
+        "headline": "Commerce, content og AI-assisteret oprettelse i én platform",
         "items": [
           {
-            "title": "Branding & Domæner",
-            "description": "Fleksibel storefront-branding med logoer, farver, typografi, temakontrol og egne domæner på Brand-planen — designet til at skabe karakteristiske butiksoplevelser frem for template-baserede løsninger."
+            "title": "AI Store Composer",
+            "description": "Store Composer omsætter en kort beskrivelse af en virksomhed til et struktureret udgangspunkt for storefrontet, inklusive content, styling og shop-konfiguration."
           },
           {
-            "title": "Produktadministration",
-            "description": "Produkter, varianter, kategorier, priser og medier i én administrationsgrænseflade med kladdeworkflows og live-forhåndsvisning før udgivelse."
+            "title": "AI Product Composer",
+            "description": "Produktinformation kan omsættes til struktureret produktindhold, så virksomheder kan oprette listings hurtigere, mens det genererede indhold stadig er fuldt redigerbart og under deres kontrol."
           },
           {
-            "title": "Shopoplevelse",
-            "description": "Indkøbskurve, favoritter, gæstekøb, kundekonti, ordrehistorik, sikker ordreopslag og rabatkoder giver en komplet shoppingoplevelse fra starten."
+            "title": "Storefront & branding",
+            "description": "Fleksibel storefront-konfiguration understøtter branding, typografi, farver, layouts, content blocks, responsive oplevelser og egne domæner, så hver webshop kan få sin egen identitet."
           },
           {
-            "title": "Betalinger & Udbetalinger",
-            "description": "Stripe Connect Express giver forhandlere deres egen tilknyttede Stripe-konto med sikker checkout, betalingsbehandling, udbetalinger og transaktionsbaserede ordremails."
+            "title": "Produkter & content",
+            "description": "Produkter, varianter, kategorier, priser, medier, sider og indhold administreres fra ét samlet interface med drafts og preview før publicering."
           },
           {
-            "title": "Indhold & SEO",
-            "description": "En fleksibel layout-builder understøtter landingpages og indholdssektioner som heroer, grids, karruseller, CTA'er og formularer samt integrerede SEO-kontroller — uden afhængighed af en separat page-builder-app."
+            "title": "Commerce & checkout",
+            "description": "Kurv, favoritter, gæste-checkout, kundekonti, ordrer, rabatter og Stripe-baserede betalinger giver den centrale shoppingoplevelse uden behov for en samling separate apps."
           },
           {
-            "title": "Forsendelse & sprog",
-            "description": "Konfigurerbare fragtzoner, valgfri Sendcloud-integration til livepriser og flersprogede storefronts på engelsk, dansk, tysk og spansk med oversættelsesworkflows i administrationsgrænsefladen."
+            "title": "Betalinger & drift",
+            "description": "Stripe Connect giver virksomheder egne tilknyttede betalingskonti og direkte udbetalinger, mens transaktionsmails, ordreadministration og shipping-integrationer understøtter den daglige drift."
           },
           {
-            "title": "Moms & Skatteindstillinger",
-            "description": "Butiksniveau-moms- og skattekonfiguration understøtter landespecifikke satser med bruttopriser for katalog og forsendelse og tydelig angivelse af moms under checkout."
+            "title": "Internationalisering",
+            "description": "Flersprogede storefronts understøtter engelsk, dansk, tysk og spansk. Valutaer, momsindstillinger, shipping-zoner og oversættelses-workflows kan konfigureres direkte i platformen."
           }
         ]
       },
       {
         "name": "technology",
         "label": "Teknologi",
-        "headline": "Bygget på en moderne, produktionsklar teknologistak",
+        "headline": "En moderne stack til et komplekst produkt",
         "paragraphs": [
-          "Designet og udviklet med gennemprøvede teknologier valgt med fokus på ydeevne, vedligeholdelse, skalerbarhed og en stærk udvikleroplevelse."
+          "Platformen er bygget med teknologier, der er valgt med fokus på vedligeholdelse, performance, fleksibilitet og en stærk developer experience, samtidig med at arkitekturen forbliver praktisk for et voksende SaaS-produkt."
         ],
         "bullets": [
-          "Payload CMS",
           "Next.js",
           "TypeScript",
+          "Payload CMS",
           "PostgreSQL",
           "Cloudflare R2",
           "Stripe Connect",
           "Resend",
           "Sendcloud",
           "DeepL",
+          "Gemini",
           "Vitest & Playwright"
         ],
-        "closing": "En produktionsklar arkitektur, der dækker multi-tenant e-commerce, indholdsstyring, betalinger, medialagring, internationalisering, integrationer og deployeringsinfrastruktur."
+        "closing": "Arkitekturen dækker multi-tenant e-commerce, AI-assisteret content creation, content management, betalinger, medielagring, internationalisering, tredjepartsintegrationer og deployment-infrastruktur."
       },
       {
-        "name": "pricing",
-        "label": "Planer & priser",
-        "headline": "Administreret SaaS eller livstidslicens",
+        "name": "product",
+        "label": "Produkt",
+        "headline": "Bygget til at udvikle sig sammen med produktet",
         "paragraphs": [
-          "Vælg et fuldt administreret abonnement for en hands-off platformoplevelse, eller en livstidslicens til virksomheder, der ønsker at eje deres butik og kildekode."
+          "Caravano adskiller AI-composition-laget fra den underliggende e-commerce-platform. Det holder genereret indhold redigerbart og de centrale datamodeller uafhængige af, hvordan indholdet bliver skabt.",
+          "Denne arkitektur gør det lettere at udvide systemet med nye storefront-funktioner, integrationer og AI-workflows uden at gøre genereret indhold eller prædefinerede templates til centrum for platformen."
         ],
-        "plans": [
-          {
-            "name": "Administreret SaaS",
-            "priceLines": [
-              "Fra 79 €/md. (Launch)",
-              "Brand fra 119 €/md. ved årlig betaling",
-              "+ 19 % moms hvor relevant"
-            ],
-            "description": "Lancér på en fuldt administreret e-commerce-platform, med mere hands-on service tilgængelig via Brand.",
-            "bullets": [
-              "Hosting, opdateringer og vedligeholdelse inkluderet",
-              "Komplet e-commerce-platform fra Launch",
-              "Eget domæne, prioriteret support og personlig onboarding på Brand",
-              "590 € Store Setup & Launch med hands-on onboarding",
-              "Specialfunktioner og integrationer tilgængelige som særskilt tilbudt udvikling"
-            ]
-          },
-          {
-            "name": "Livstidslicens",
-            "priceLines": [
-              "Fra 4.900 € som engangsbetaling",
-              "Valgfri hosting fra 35 €/md.",
-              "+ 19 % moms hvor relevant"
-            ],
-            "description": "En livstidslicens til én produktionsshop inklusive fuld platform- og kildekodeadgang.",
-            "bullets": [
-              "Fuld platformadgang og standard support ved lancering",
-              "Administreret hosting tilgængelig eller mulighed for selvstændig deployment",
-              "Inkluderer ét års opdateringer og support",
-              "Valgfri fornyelse derefter",
-              "Agenturlicenser til flere shops tilbydes efter forespørgsel"
-            ]
-          }
-        ],
-        "closingHeadline": "Har projektet særlige behov?",
-        "closingParagraphs": [
-          "Platformen giver et solidt e-commerce-fundament uden behov for en samling af tredjepartsapps til kernefunktionalitet. Når en virksomhed har brug for noget ud over platformen, kan specialfunktioner og integrationer udvikles som en separat ydelse.",
-          "Der tilbydes også migrationer, specialudviklet e-commerce, agenturlicenser og hands-on Concierge-onboarding.",
-          "Alle priser er angivet ekskl. moms. Tyske kunder opkræves normalt yderligere 19 % moms, hvor det er relevant. Virksomheder med momsfradrag kan typisk få beløbet tilbage via de almindelige skatteprocesser."
-        ]
+        "closing": "Fra AI-composition-laget til storefront, administrationsinterface og de underliggende services er Caravano bygget som ét fleksibelt produkt, der kan udvides."
       }
     ],
     "cta": {
       "contact": {
         "label": "Kontakt mig",
-        "ariaLabel": "Kontakt om E-commerce-platformen"
+        "ariaLabel": "Kontakt mig om e-commerce-platformen"
       }
     },
     "ariaLabels": {
-      "demos": "Produktwebsite"
+      "demos": "Caravano website"
     }
   },
   "assistant": {
@@ -633,8 +596,8 @@
         "title": "Projekter"
       },
       {
-        "href": "webshop",
-        "title": "Webshop"
+        "href": "ecommerce",
+        "title": "Ecommerce"
       },
       {
         "href": "experience",

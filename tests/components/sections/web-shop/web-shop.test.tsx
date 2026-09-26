@@ -67,7 +67,7 @@ describe('WebShop', () => {
     expect(screen.getByText(technology.closing!)).toBeInTheDocument()
   })
 
-  it('renders features and pricing tabs with expected content', () => {
+  it('renders features and product tabs with expected content', () => {
     render(<WebShop />)
 
     fireEvent.click(screen.getByRole('tab', { name: 'Features' }))
@@ -77,21 +77,18 @@ describe('WebShop', () => {
     expect(screen.getByText(features.headline)).toBeInTheDocument()
     expect(screen.getByText(features.items![0]!.title, { exact: false })).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('tab', { name: 'Plans & pricing' }))
-    const pricing = content.webShop.categories.find(
-      (c) => c.name === 'pricing'
+    fireEvent.click(screen.getByRole('tab', { name: 'Product' }))
+    const product = content.webShop.categories.find(
+      (c) => c.name === 'product'
     )!
-    expect(screen.getByText(pricing.plans![0]!.name, { exact: true })).toBeInTheDocument()
-    expect(screen.getByText(pricing.closingHeadline!)).toBeInTheDocument()
-    expect(
-      screen.getByText(pricing.closingParagraphs![0]!)
-    ).toBeInTheDocument()
+    expect(screen.getByText(product.headline)).toBeInTheDocument()
+    expect(screen.getByText(product.closing!)).toBeInTheDocument()
   })
 
-  it('exposes webshop section id for navigation', () => {
+  it('exposes ecommerce section id for navigation', () => {
     const { container } = render(<WebShop />)
 
-    expect(container.querySelector(`#${SECTIONS.WEB_SHOP}`)).toBeInTheDocument()
+    expect(container.querySelector(`#${SECTIONS.ECOMMERCE}`)).toBeInTheDocument()
   })
 
   it('scrolls to contact when Get in Touch is clicked', () => {

@@ -14,7 +14,7 @@ type ContentPanelProps = {
 /**
  * Static outlined panel for Webshop tab content.
  * Renders intro paragraphs, a green bullet list, feature items,
- * pricing plans, demo buttons, and optional closing content.
+ * demo buttons, and optional closing content.
  */
 export const ContentPanel = ({ category }: ContentPanelProps) => {
   const content = useContent()

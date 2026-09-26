@@ -3,7 +3,7 @@ export const SECTIONS = {
   ABOUT: 'about',
   SKILLS: 'skills',
   PROJECTS: 'projects',
-  WEB_SHOP: 'webshop',
+  ECOMMERCE: 'ecommerce',
   EXPERIENCE: 'experience',
   EDUCATION: 'education',
   CONTACT: 'contact'
